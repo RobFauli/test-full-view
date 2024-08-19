@@ -1,0 +1,59 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column scrollbox 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}" id="article_list_{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+
+        {{ #app.isFront }}{{ ^get.current.fields.hide_title}}{{ #get.current.fields.title }}{{> content/scrollbox/template/title }}{{ /get.current.fields.title }}{{ /get.current.fields.hide_title}}{{ /app.isFront }}
+        {{ #app.isEditor }}
+            {{ ^get.current.fields.hide_title}}{{> content/scrollbox/template/title }}{{ /get.current.fields.hide_title}}
+            {{{ placeholder.nocontent }}}
+        {{ /app.isEditor }}
+        <ul class="scroll-container swipehelper snap-container-x snap-element-start">
+            {{ #children.article[] }}
+                <li class="scroll-item snap-element">
+                    {{{ . }}}
+                </li>
+            {{ /children.article[] }}
+        </ul>
+        {{ ^get.current.fields.hide_navigation}}
+        <nav>
+            <span class="arrow left">
+                <span></span>
+            </span>
+            <span class="arrow right">
+                <span></span>
+            </span>
+        </nav>
+        {{ /get.current.fields.hide_navigation}}
+    </div>
+
+    {{ #get.current.id }}
+    <script>
+    (function () {
+        window.dachserData.push('swipehelper', {
+            selector: '#article_list_{{ get.current.id }}',
+            itemsContainerSelector: '.scroll-container',
+            itemsSelector: '.scroll-item',
+            isHorizontal: true,
+            navItems: {
+                forwardSelector: 'nav .arrow.right',
+                backwardSelector: 'nav .arrow.left',
+            },
+            debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+        });
+        {{ #app.isEditor }}
+        window.dachserData.reflow('swipehelper', 'selector', '#article_list_{{ get.current.id }}');
+        {{ /app.isEditor }}
+    }());
+    </script>
+    {{ /get.current.id }}
+
+</div>

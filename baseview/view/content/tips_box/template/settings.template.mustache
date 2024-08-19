@@ -1,0 +1,28 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">User tips</h2>
+
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+                <label for="fields.version-tips">Display Tips</label>
+                <input type="radio" name="fields.version" id="fields.version-tips" value="tips" {{ #get.current.filtered.version_is_tips }}checked{{ /get.current.filtered.version_is_tips }}>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-9 lab-grid-gap">
+                <label>
+                    Email - Tips
+                    <input type="email" name="fields.email_tips" value="{{{ get.current.filtered.emails.tips }}}">
+                </label>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+                <label for="fields.version-debate">Display Debate</label>
+                <input type="radio" name="fields.version" id="fields.version-debate" value="debate" {{ ^get.current.filtered.version_is_tips }}checked{{ /get.current.filtered.version_is_tips }}>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-9 lab-grid-gap">
+                <label>
+                    Email - Debate
+                    <input type="email" name="fields.email_debate" value="{{{ get.current.filtered.emails.debate }}}">
+                </label>
+            </div>
+        </div>
+    </div>
+</form>

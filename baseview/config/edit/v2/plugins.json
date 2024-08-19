@@ -1,0 +1,190 @@
+{
+    "plugins": {
+        "textassistant": {
+            "enable": true,
+            "writingStyles": [
+                "Analytical",
+                "Argumentative",
+                "Creative",
+                "Descriptive",
+                "Evaluative",
+                "Informative",
+                "Journalistic",
+                "Narrative",
+                "Persuasive",
+                "Reflective",
+                "Technical"
+            ],
+            "writingTones": [
+                "Assertive",
+                "Cheerful",
+                "Condescending",
+                "Confluent",
+                "Emotional",
+                "Formal",
+                "Humorous",
+                "Informal",
+                "Inspirational",
+                "Journalistic",
+                "Narrative",
+                "Neutral",
+                "Persuasive",
+                "Professional",
+                "Sarcastic",
+                "Skeptical",
+                "Supportive"
+            ],
+            "factbox": {
+                "prompts": {
+                    "bulletpoints": "Create a Factbox in '{{ language }}', with one relevant topic from the article, wikipedia style, create {{ itemCount }} bullet points, maximum {{ wordCount }} words per bullet point. {{ writingStylePrompt }} {{ writingTonePrompt }} Return a json-object in this format with the same keys: ```json{ \"title\": \"...\", \"items\": [\"item 1\", \"item \", ...] }```. \\n{{ bodytext }}",
+                    "summary": "Create a Factbox in '{{ language }}', with one relevant topic from the article, wikipedia style, create {{ itemCount }} paragraphs, maximum {{ wordCount }} words per paragraph. {{ writingStylePrompt }} {{ writingTonePrompt }} Return a json-object in this format with the same keys: ```json{ \"title\": \"...\", \"items\": [\"item 1\", \"item \", ...] }```. \\n{{ bodytext }}"
+                }
+            },
+            "content": [
+                {
+                    "name": "title_subtitle",
+                    "label": "Title / subtitle",
+                    "prompt": "Act as a professional reporter working as online frontpage editor. Your goal is to maximize traffic to your article, without producing clickbait and write a title and subtitle in {{ language }}. {{ #style }}Writing style: {{ style }}.{{ /style }} {{ #tone }}Writing Tone: {{ tone }}.{{ /tone }} Return a JSON-object in this format with the same keys: ```json{ \"title\": \"A highly readable title of the article optimized for teasing visitors to read the article, maximum 8 words and in {{ language }}\", \"subtitle\": \"One sentence abstract of the article, that works well with the title and in {{ language }}\" }```\n###\n Here is the article: {{ bodytext }}\n###",
+                    "active": true,
+                    "showOnPanel": true,
+                    "fields": [
+                        {
+                            "path": "fields.title",
+                            "name": "title",
+                            "label": "Title"
+                        },
+                        {
+                            "path": "fields.subtitle",
+                            "name": "subtitle",
+                            "label": "Subtitle"
+                        }
+                    ]
+                },
+                {
+                    "name": "seo_content",
+                    "label": "SEO texts",
+                    "prompt": "Act as an SEO specialist. Your goal is to maximise traffic from Google. {{ #style }}Writing style: {{ style }}.{{ /style }} {{ #tone }}Writing Tone: {{ tone }}.{{ /tone }} Return a JSON-object with text in {{ language }} in this format: ```json{ \"seotitle\": \"A SEO-optimized headline that is compelling, concise, unique, and include the most important keywords.\", \"seodescription\": \"A SEO-optimized meta description in one or two sentences that is compelling, concise, unique, and include the most important keywords.\" }```\n###\n${{ bodytext }}\n###",
+                    "active": true,
+                    "showOnPanel": true,
+                    "fields": [
+                        {
+                            "path": "fields.seotitle",
+                            "name": "seotitle",
+                            "label": "SEO Title"
+                        },
+                        {
+                            "path": "fields.seodescription",
+                            "name": "seodescription",
+                            "label": "SEO Description"
+                        }
+                    ]
+                },
+                {
+                    "name": "some_content",
+                    "label": "SOME texts",
+                    "prompt": "Act as an Social media specialist. Your goal is to maximise traffic from social media. {{ #style }}Writing style: {{ style }}.{{ /style }} {{ #tone }}Writing Tone: {{ tone }}.{{ /tone }} Return a JSON-object with text in {{ language }} in this format with the same keys: ```json{ \"sometitle\": \"A short title with feelings in {{ language }} that will give traction to a social media post. You may add 2 or 3 suitable emojis.\", \"somedescription\": \"A short description for social media in {{ language }} that will give traction to the story. You may add 2 or 3 suitable emojis.\" }``` \n###\n{{ bodytext }}\n###",
+                    "active": true,
+                    "showOnPanel": true,
+                    "fields": [
+                        {
+                            "path": "fields.sometitle",
+                            "name": "sometitle",
+                            "label": "SoMe Title"
+                        },
+                        {
+                            "path": "fields.somedescription",
+                            "name": "somedescription",
+                            "label": "SoMe Description"
+                        }
+                    ]
+                },
+                {
+                    "name": "tags",
+                    "label": "Tags",
+                    "prompt": "Act as an editorial team in a newspaper. Return the 5 most relevant tags for the following text. Return a JSON-object written in {{ language }} in this format with the same key: ```json{ \"tags\": [\"tag 1\", \"tag 2\", \"tag 3\"] }```\n###\n{{ bodytext }}\n###",
+                    "active": true,
+                    "showOnPanel": true,
+                    "fields": [
+                        {
+                            "path": "tags",
+                            "name": "tags",
+                            "label": "Tags"
+                        }
+                    ]
+                },
+                {
+                    "name": "image_caption",
+                    "label": "Image caption",
+                    "prompt": "Act as an editorial team in a newspaper. Write a new image caption in '{{ language }}' with maximum 250 characters. You will be provided with the original caption, an article and an image. The new caption should only be a sentence that is closer related to the article than the original caption. If the provided image is related to the article, the new caption should relate to the context in the image. If the original caption had credentials of the photographer, then is should be extracted from the original in the returned json as 'byline'. Return a json in this format with the same keys: ```json{\"keyword\":'Important keyword from the article related to the new caption', \"caption\": 'New caption in '{{ language }}'', \"byline\": 'Name of the photographer, if it is given in the originalCaption' }``` \nThis is the originalCaption and article: ```json{\"originalCaption\": {{ imageCaption }}', \"article\": '{{ bodytext }}'}```",
+                    "active": false,
+                    "showOnPanel": false,
+                    "fields": [
+                        {
+                            "path": "fields.imageCaption",
+                            "name": "imageCaption",
+                            "label": "ImageCaption"
+                        }
+                    ]
+                },
+                {
+                    "name": "article_citation",
+                    "label": "Citation article",
+                    "prompt": "Act as an editoral team in a newspaper. Your goal is to write a short summary in '{{ language }}' of the most important content in the provided article. Each paragraph in the short summary must start with '<p>' and end with '</p>'. The summary must include a citation of '{{ original_source }}' as the original source in the first paragraph, like 'writes <a href=\"{{{ original_url }}}\">{{ original_source }}</a>' at the end of each paragraph. The new article must have at least two short paragraphs. The length must be less than half of the original article. {{ #style }}Writing style: {{ style }}.{{ /style }} {{ #tone }}Writing Tone: {{ tone }}.{{ /tone }} ### The original article was: \n{{ original_content }}\n###",
+                    "active": false,
+                    "showOnPanel": false,
+                    "fields": [
+                        {
+                            "path": "fields.articleCitation",
+                            "name": "citation",
+                            "label": "ArticleCitation"
+                        }
+                    ]
+                },
+                {
+                    "name": "article_translate",
+                    "label": "Translate article",
+                    "prompt": "Act as an translator. You will be given a JSON object with keys and values. Do not change the JSON-keys. The values must be translated to {{ language }}. If the values consist of html-code, then you must only translate the text content. Return a single JSON-object with only the translated values in the same format as the provided JSON-object. Only return the JSON-object with the translated content. Do not return anything else. This is the JSON-object you shall translate: ```json{{{ articleFields }}}```. {{ #context }}You will also be provided an article for context. You shall not translate this article, only see it as the context for better translation: {{{ context }}}{{ /context }}",
+                    "active": false,
+                    "showOnPanel": false,
+                    "fields": [
+                        {
+                            "path": "fields.articleTranslated",
+                            "name": "translate",
+                            "label": "ArticleTranslate"
+                        }
+                    ]
+                },
+                {
+                    "name": "topic_summary",
+                    "label": "Topic Summary",
+                    "prompt": "Act as a professional reporter working as online frontpage editor. {{ #factboxType.brief }}Your goal is to create a brief and short summary that gives the reader a quick overview of the main topic in the related articles. There should not be more than two very short paragraphs. {{ /factboxType.brief }} {{ #factboxType.development }}Your goal is to create a summary about the development of a topic in the related articles. Contextual development, changes and new information is in particular important to focus on. For context of the development, each article 'bodytext' has a publishing date 'published'.{{ /factboxType.development }} {{ #factboxType.overview }}Your goal is to create a background factbox that has a summary of a topic based on other related articles. The summary shall give the reader the background context of the topic and give the reader a broad overview of the topic. {{ /factboxType.overview }}The summary must reflect the new developments in the contextual story and give an overview of the important issues. {{ #focalpoint }}In particular it is important to focus on '{{ focalpoint }}'. {{/focalpoint}}{{ #references }}You will be provided with 'bodytext' of articles and their reference 'published_url'. For each statement that is connected directly to one of the articles, you must add <a href=\"published_url\"> and </a> around that statement and link to the 'published_url', so that like this example: '<p>There has been a big progress according to <a href=\"https://www.url.in/published/url\">a new report published by the government</a> one year after the incident.</p>' or like '<p><a href=\"https://www.url.in/published/url\">There is no active service</a> ahead of the upgrade.</p> This is to make sure that the reader can look at the source content by clicking on the url.{{ /references }} Return a JSON-object in this format: ```json{ \"title\":  \"A title describing the topic, maximum 8 words and in {{ language }}\", \"bodytext\": \"The short summary in {{ language }} with html formatting {{ #bulletpoints }}that is structured as a list with <ul> and <li> for each paragraph. {{ /bulletpoints }}{{ ^bulletpoints }}that is structured with <p> and </p> for each short paragraph. {{ /bulletpoints }} {{ #boldNames }}Add bold formatting around names using <b> and </b> {{/boldNames}}. {{ #boldKeywords }}Add bold formatting for the most important key words using <b> and </b>. {{ /boldKeywords }}{{ #subheader }}Add at least one suitable subheader using <h3> and </h3>. {{ /subheader }}\"}```. Keep the output as short and it is important that generated content is factually correct. Here are the other articles represented as json. Use the article content in key 'bodytext': ```json{{ articles }}```",
+                    "active": false,
+                    "showOnPanel": false,
+                    "fields": [
+                        {
+                            "path": "fields.topicSummary",
+                            "name": "topicsummary",
+                            "label": "TopicSummary"
+                        }
+                    ]
+                }
+            ]
+        },
+        "abtest": {
+            "enable": false,
+            "completion": {
+                "prompt": "Help the frontpage editor create more clickable titles. Generate alternative title and subtitle for article in same language as body text. Make sure the titles are different from eachother and original. Do not use titlecase. Return a JSON-object in {{ language }} like this: ```json{ \"title\": \"...\", \"summary\": \"...\" }```\\n###{{ title }}\\n{{ subtitle }}\\n{{ bodytext }}\\n###",
+                "service": "chatCompletions",
+                "model": "gpt-4-turbo"
+            },
+            "provider": {
+                "name": "kilkaya",
+                "customer": ""
+            }
+        },
+        "slack_notifier": {
+            "enable": false,
+            "options": []
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "int_da-DK": {
+        "dates": {
+            "sunday": "søndag",
+            "monday": "mandag",
+            "tuesday": "tirsdag",
+            "wednesday": "onsdag",
+            "thursday": "torsdag",
+            "friday": "fredag",
+            "saturday": "lørdag",
+            "january": "januar",
+            "february": "februar",
+            "mars": "marts",
+            "april": "april",
+            "may": "maj",
+            "june": "juni",
+            "july": "juli",
+            "august": "august",
+            "september": "september",
+            "october": "oktober",
+            "november": "november",
+            "december": "december",
+            "ago": "siden",
+            "now": "nu",
+            "minute": "minutt",
+            "min": "min",
+            "minutes": "minutter",
+            "hour": "time",
+            "hours": "timer",
+            "day": "dag",
+            "days": "dage",
+            "monthdayyear": "{{DD}}/{{MM}} {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{count}} {{period}} {{ago}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Newsletter",
+                "notice": "You are receiving this e-mail because you are subscribed to our e-mail list.",
+                "preferences": "Your settings",
+                "unsubscribe": "Unsubscribe",
+                "view": "Open in browser",
+                "date": "d. MMMM Y"
+            }
+        },
+        "ai": {
+            "factbox_disclaimer": "Denne faktaboks blev genereret af Labrador AI og korrekturlæst af en journalist."
+        },
+        "tags": {
+            "title_text": "{{tagPath}}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Søg...",
+            "label": "Søg"
+        },
+        "header": {
+            "logo_link_text": "Gå til forside"
+        },
+        "slack_notifier": {
+            "publish": {
+                "article": "*Artikel offentliggjort*\n*Titel*: {{{title}}}\n*Side ID*: {{id}}\n{{#modified}}*Dato*: {{modified}}\n{{/modified}}{{#published_ahead}}*Bemærk: Offentliggjort på forhånd*\n{{/published_ahead}}{{#hidden}}*Offentliggjort skjult*\n{{/hidden}}*Bruger*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*",
+                "front": "*Forside offentliggjort*\n*Titel*: {{{title}}}\n*Side ID*: {{id}}\n*Dato*: {{modified}}\n{{#published_ahead}}*Bemærk: Offentliggjort på forhånd*\n{{/published_ahead}}{{#hidden}}*Offentliggjort skjult*\n{{/hidden}}*Bruger*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*",
+                "notice": "*Notice offentliggjort*\n*Titel*: {{{title}}}\n*Side ID*: {{id}}\n*Dato*: {{modified}}{{#hidden}}*Offentliggjort skjult*\n{{/hidden}}*Bruger*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*"
+            },
+            "error": {
+                "all": "*{{ #isCmsError }}CMS-fejl{{ /isCmsError }}{{ ^isCmsError }}View fejl{{ /isCmsError }}*: {{{message}}}\n*Stakspor*: ```{{{stackTrace}}}```\n*Bruger*: {{user}}\n*<{{{url_editor}}}|Rediger side>* - *<{{{url_monitor}}}|Udviklermonitor>*"
+            }
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Gå til venstre",
+            "articleScrollerRightButton": "Gå til højre"
+        },
+        "metadata": {
+            "publishedLabel": "Offentliggjort",
+            "modifiedLabel": "Sidst opdateret",
+            "unpublishedLabel": "Upubliceret"
+        }
+    }
+}

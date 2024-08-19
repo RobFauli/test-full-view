@@ -1,0 +1,13 @@
+<div data-element-guid="{{ get.current.guid }}" class="byline column {{ size.grid.css }} {{ size.grid.absCss }} {{ #style.collection }}box_decoration{{ /style.collection }}" itemscope itemtype="http://schema.org/Person">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}{{ ^get.current.metadata.background_color }} {{ get.current.filtered.default_color }}{{ /get.current.metadata.background_color }}">
+        {{{ children.image }}}
+        <address class="name">
+            {{ #get.current.fields.public_email }}<a rel="author" itemprop="url name" href="mailto:{{ get.current.fields.public_email }}">{{ /get.current.fields.public_email }}
+            <span class="firstname">{{{ get.current.fields.firstname }}}</span>
+            <span class="lastname">{{{ get.current.fields.lastname }}}</span>        
+            {{ #get.current.fields.public_email }}</a>{{ /get.current.fields.public_email }}
+        </address>
+        <div class="extended_description">{{{ get.current.fields.description2 }}}</div>
+    </div>
+</div>

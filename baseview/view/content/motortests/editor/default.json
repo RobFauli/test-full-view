@@ -1,0 +1,26 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "color_bg": null,
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/motortests/template/settings"
+        }
+    }
+}

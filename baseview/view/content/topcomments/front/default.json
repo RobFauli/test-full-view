@@ -1,0 +1,9 @@
+{
+    "boxTitle": "Top comments",
+    "boxDescription": "Displays a split view of latest and most popular articles",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.integration_url }}}/stats/kilkaya/topcomments?articleCount={{ get.current.fields.articleCount }}&days={{ get.current.fields.days }}&hostname={{ get.current.filtered.domain }}&siteId={{ getCmsConfig.site.id }}&apiUrl={{{ getCmsConfig.front_api_url }}}/",
+        "type": "json"
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "shapes": {
+        "row_shapes": {
+            "insert": {
+                "before": true,
+                "after": true,
+                "current": true
+            },
+            "data": [
+                {
+                    "item1": {
+                        "type": "row",
+                        "width": 100,
+                        "children": [
+                            {
+                                "type": "article",
+                                "contentdata": {},
+                                "width": 66.67
+                            },
+                            {
+                                "type": "columns",
+                                "width": 33.33,
+                                "children": [
+                                    {
+                                        "type": "row",
+                                        "children": [
+                                            {
+                                                "type": "article",
+                                                "contentdata": {},
+                                                "width": 100
+                                            },
+                                            {
+                                                "type": "article",
+                                                "contentdata": {},
+                                                "width": 100
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "item2": {
+                        "type": "row",
+                        "width": 100,
+                        "children": [
+                            {
+                                "type": "article",
+                                "contentdata": {},
+                                "width": 33.33
+                            },
+                            {
+                                "type": "article",
+                                "contentdata": {},
+                                "width": 33.33
+                            },
+                            {
+                                "type": "article",
+                                "contentdata": {},
+                                "width": 33.33
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

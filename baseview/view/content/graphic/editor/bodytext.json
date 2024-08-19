@@ -1,0 +1,68 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "gridResize": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g4",
+                    "displayCondition": "isNotViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "gridResizeMobile": {
+                    "inheritPath": "menu/buttons/gridOverrideMobile.json",
+                    "group": "g4",
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "fullwidth": {
+                    "icon": "labicon-image_fullwidth",
+                    "group": "g4",
+                    "title": "Options for full width display",
+                    "bindings": [
+                        {
+                            "path": "absoluteGridWidth",
+                            "attribute": "disabled",
+                            "valueTransformer": "hasValue",
+                            "valueTransformerOptions": {
+                                "value": 12,
+                                "negateBoolean": true
+                            }
+                        }
+                    ],
+                    "items": [
+                        {
+                            "inheritPath": "menu/buttons/fullWidth.json"
+                        },
+                        {
+                            "inheritPath": "menu/buttons/fullWidthLimit.json"
+                        }
+                    ]
+                }
+            },
+            "params": {}
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "items": {
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "text": null,
+                    "displayHotkeys": false,
+                    "group": "g3"
+                }
+            }
+        },
+        "image_edit": {
+            "items": {
+                "alignLeft": null,
+                "alignRight": null
+            }
+        }
+    },
+    "resetPaths": ["metadata.hasFullWidth"]
+}

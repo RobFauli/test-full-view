@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ getConfig.contentLanguage }}" xml:lang="{{ getConfig.contentLanguage }}">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title>
+      <mm:subject />
+    </title>
+    <style>
+    @media screen and (max-width: 640px) {
+    .grid-container > table {
+    width: 100% !important;
+    }
+
+    .responsive-img {
+    width: 100% !important;
+    height: auto !important;
+    }
+
+    .medium-padding-bottom {
+    padding-bottom: 10px !important;
+    }
+    }
+    @media screen and (max-width: 420px) {
+    .grid-container .cell {
+    display: block !important;
+    width: auto !important;
+    }
+
+    .small-img-center {
+    margin: 0 auto !important;
+    }
+
+    .small-text-center {
+    text-align: center !important;
+    }
+
+    .small-font-12 {
+    font-size: 12px !important;
+    line-height: 2 !important;
+    }
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    }
+
+    body,
+    body p {
+    font-size: 16px;
+    line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3 {
+    color: #000;
+    line-height: 1.2;
+    }
+
+    h1 a,
+    h2 a,
+    h3 a,
+    p a {
+    color: #000;
+    text-decoration: none;
+    }
+
+    p {
+    color: #000;
+    }
+
+    h1 {
+    font-size: 24px;
+    }
+
+    h2 {
+    font-size: 20px;
+    }
+
+    h3 {
+    font-size: 16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+    margin: 0 0 10px 0;
+    }
+
+    a,
+    a:visited {
+    color: #000;
+    }
+
+    a:hover {
+    text-decoration: underline !important;
+    }
+    </style>
+    {{ #render.partial }}mailmojo_styling{{ /render.partial }}
+  </head>
+  <body style="font-family: Arial, sans-serif; background-color: #fff; color: #000; font-size: 16px; line-height: 1.5; margin: 0; padding: 0;">
+    <!-- START MODULE: HEADER -->
+    <mm:snippet>
+      <table class="mailmojo-header" width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+        <tr>
+          <td class="grid-container padding-top-large padding-bottom-large" align="center" valign="middle" style="padding-top: 20px; padding-bottom: 20px;">
+            <table width="640" cellspacing="0" cellpadding="0" style="border: 0;">
+              <tr>
+                <td class="cell" width="50%" style="padding-left: 10px; padding-right: 10px;">
+                  <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                          <tr>
+                            <td class="medium-padding-bottom" align="left" valign="top">
+                              {{ #get.current.filtered.logo }}
+                              <a href="{{{ href }}}" style="color: #000;">
+                                <img editable="true" src="{{ ^isCustom }}{{{get.current.filtered.customer_front_url}}}{{ /isCustom }}{{{ src }}}" alt="{{ title }}" class="small-img-center" width="{{ size.width }}" height="{{ size.height }}" style="display: block; border: 0;" />
+                              </a>
+                              {{ /get.current.filtered.logo }}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="cell" width="50%" style="padding-left: 10px; padding-right: 10px;">
+                  <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                          <tr>
+                            <td class="font-14 small-text-center" align="right" valign="top" style="font-size: 14px;">
+                              {{ #lang }}newsletter.mailmojo.title{{ /lang }}<br />
+                              <mm:date format="{{ #lang }}newsletter.mailmojo.date{{ /lang }}" {{ #get.current.filtered.lang }}lang="{{ . }}"{{ /get.current.filtered.lang }} />
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </mm:snippet>
+    <!-- END MODULE: HEADER -->
+
+    {{{ children.dropZone }}}
+
+    <!-- START MODULE: FOOTER -->
+    <mm:snippet>
+      <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+        <tr>
+          <td class="grid-container padding-top padding-bottom" align="center" valign="middle" style="padding-top: 10px; padding-bottom: 10px;">
+            <table width="640" cellspacing="0" cellpadding="0" style="border: 0;">
+              <tr>
+                <td class="cell" width="100%" style="padding-left: 10px; padding-right: 10px;">
+                  <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                      <td align="center" valign="top">
+                        <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                          <tr>
+                            <td class="font-14 small-font-12 border-top padding-top-large padding-bottom" align="center" valign="top" style="border-top: 1px solid #333; padding-top: 20px; padding-bottom: 10px; font-size: 14px;">
+                              {{ #lang }}newsletter.mailmojo.notice{{ /lang }}<br />
+                              <mm:preferences class="link" style="color: #000; text-decoration: underline;">{{ #lang }}newsletter.mailmojo.preferences{{ /lang }}</mm:preferences> &nbsp;&nbsp;|&nbsp;&nbsp; <mm:unsubscribe class="link" style="color: #000; text-decoration: underline;">{{ #lang }}newsletter.mailmojo.unsubscribe{{ /lang }}</mm:unsubscribe> &nbsp;&nbsp;|&nbsp;&nbsp; <mm:view class="link" style="color: #000; text-decoration: underline;">{{ #lang }}newsletter.mailmojo.view{{ /lang }}</mm:view>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </mm:snippet>
+    <!-- END MODULE: FOOTER -->
+
+  </body>
+</html>

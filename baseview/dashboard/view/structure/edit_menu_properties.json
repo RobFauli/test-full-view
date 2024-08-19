@@ -1,0 +1,35 @@
+{
+    "resizable": {
+        "active": false
+    },
+
+    "draggable": {
+        "active": false
+    },
+
+    "droppable": {
+        "active": false
+    },
+
+    "clickable": {
+        "active": false
+    },
+    
+    "dragover": {
+        "active": false
+    },
+
+    "expand": {
+        "active": false
+    },
+
+    "addChild": {
+        "*": true
+    },
+
+    "labEditCssClass": {
+        "edit_default": "labDs-menu-structure"
+    },
+
+    "menus": null
+}

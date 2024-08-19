@@ -1,0 +1,52 @@
+{
+    "paywall": {
+        "teaser": {
+            "title": "Subscribe for full access",
+            "description": "Get instant access to all content",
+            "login": {
+                "title": "Already a subscriber? Log in",
+                "url": "?login"
+            },
+            "offers": [
+                {
+                    "title": "Week",
+                    "price": "28 kr",
+                    "price_description": "4 kr per day",
+                    "action": "Buy now",
+                    "url": "?subscribe=1",
+                    "css": "highlighted"
+                },
+                {
+                    "title": "Month",
+                    "price": "99 kr",
+                    "price_description": "3,33 kr per day",
+                    "action": "Buy now",
+                    "url": "?subscribe=2",
+                    "css": ""
+                },
+                {
+                    "title": "3 months",
+                    "price": "249 kr",
+                    "price_description": "2,77 kr per day",
+                    "action": "Buy now",
+                    "url": "?subscribe=3",
+                    "css": ""
+                },
+                {
+                    "title": "6 months",
+                    "price": "449 kr",
+                    "price_description": "2,49 kr per day",
+                    "action": "Buy now",
+                    "url": "?subscribe=4",
+                    "css": ""
+                }
+            ]
+        },
+        "bodytext": {
+            "lineCount": 3
+        },
+        "labels": {
+            "hidePlusInMetaTags": false
+        }
+    }
+}

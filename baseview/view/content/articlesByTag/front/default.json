@@ -1,0 +1,15 @@
+{
+    "boxTitle": "Articles By Tag",
+    "boxDescription": "Display articles with tags from current page",
+    "boxKeywords": "Labrador API feeds related content",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.front_api_url }}}/article?query={{{ get.current.filtered.query }}}&limit={{ get.current.filtered.limit }}&site_id={{ get.current.filtered.site_id }}&orderBy={{ get.current.filtered.orderBy }}",
+        "type": "json"
+    },
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes"
+        }
+    }
+}

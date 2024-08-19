@@ -1,0 +1,383 @@
+{
+    "appMapper": {
+        "articlelist_latest": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "ArticlesLatest"
+            },
+            "description": "Display Articles",
+            "category": "content",
+            "tags": "Add content article stories teaser note elements",
+            "menu": {
+                "appMenu": {
+                    "title": "Articles",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-articles"
+                }
+            },
+            "hotkey": {
+                "key": "A"
+            }
+        },
+        "articlelist_auto": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "ArticlesAuto"
+            },
+            "description": "Display Auto Articles",
+            "category": "content",
+            "tags": "Add content article stories teaser note elements automatic feeds",
+            "menu": {
+                "appMenu": {
+                    "title": "Automatic Articles",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-articles"
+                }
+            },
+            "hotkey": {
+                "key": "A",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "articlelist_teasers": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "ArticleTeasers"
+            },
+            "description": "Display Article Teasers",
+            "category": "content",
+            "tags": "Add content article stories teaser note elements",
+            "menu": {
+                "appMenu": {
+                    "title": "Article Teasers",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-articles"
+                }
+            },
+            "hotkey": {
+                "key": "T",
+                "controlkeys": []
+            }
+        },
+        "elementlist": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "Elements"
+            },
+            "description": "Display Elements",
+            "category": "content",
+            "tags": "Add content box list external internal elements",
+            "menu": {
+                "appMenu": {
+                    "title": "Element list",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-unorderedList"
+                }
+            },
+            "hotkey": {
+                "key": "C"
+            }
+        },
+        "bylinelist": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "Bylines"
+            },
+            "description": "Display Bylines",
+            "category": "content",
+            "tags": "Add content box author writer staff email name firstname lastname departement edit add create change byline",
+            "menu": {
+                "appMenu": {
+                    "title": "Bylines",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-users"
+                }
+            },
+            "hotkey": {
+                "key": "B",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "imagelist_all": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "MediaImages"
+            },
+            "description": "Display Images",
+            "category": "media",
+            "tags": "Add content box visual pictures photos jpg jpeg webp media",
+            "menu": {
+                "appMenu": {
+                    "title": "Image chooser",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-images"
+                }
+            },
+            "hotkey": {
+                "key": "M"
+            }
+        },
+        "graphics": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "Graphics"
+            },
+            "description": "Display Graphics",
+            "category": "media",
+            "tags": "Add content box visual illustration logo pictures photos gif png svg vector animations transparent media",
+            "menu": {
+                "appMenu": {
+                    "title": "Graphics",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-images"
+                }
+            },
+            "hotkey": {
+                "key": "M",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "imagelist_page": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "MediaImagesThisPage"
+            },
+            "description": "Display Images used on current page",
+            "category": "media",
+            "tags": "Add content box visual pictures photos jpg jpeg webp media",
+            "menu": {
+                "appMenu": {
+                    "title": "Images at this page",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-images"
+                }
+            }
+        },
+        "upload_images": {
+            "callback": "lab_api.v1.file.toggleImageUpload",
+            "description": "Display or hide image upload area",
+            "category": "editor",
+            "tags": "image upload file computer jpg jpeg webp desktop picture img",
+            "menu": {
+                "appMenu": {
+                    "title": "Upload images",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-images"
+                }
+            },
+            "hotkey": {
+                "key": "U"
+            }
+        },
+        "upload_files": {
+            "callback": "lab_api.v1.file.displayFileUpload",
+            "description": "Display or hide file upload area",
+            "category": "editor",
+            "tags": "file upload uploaded files computer desktop Accepted file-types png, gif, jpg, pdf, txt, xml, doc, docx, xls, xlsx, mpg, mp4",
+            "menu": {
+                "appMenu": {
+                    "title": "Upload files",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-images"
+                }
+            },
+            "hotkey": {
+                "key": "U",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "videolist_youtube": {
+            "callback": "lab_api.v1.collection.toggle",
+            "argument": {
+                "name": "YouTube"
+            },
+            "description": "Display Youtube-videos",
+            "category": "media",
+            "tags": "Add content box visual youtube live channel media",
+            "menu": {
+                "appMenu": {
+                    "title": "Youtube",
+                    "zone": "content",
+                    "showKey": true,
+                    "icon": "labicon-video_edit"
+                }
+            },
+            "hotkey": {
+                "key": "V",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "settings_frontpage": {
+            "callback": "lab_api.v1.apps.start",
+            "arguments": [
+                "SettingsFront"
+            ],
+            "description": "Display Front Page Settings",
+            "category": "settings",
+            "tags": "edit tag automation change",
+            "permission": "admin_frontpages",
+            "pageType": "front",
+            "menu": {
+                "appMenu": {
+                    "title": "Front Settings",
+                    "zone": "contentSettings",
+                    "showKey": true,
+                    "icon": "labicon-edit"
+                }
+            },
+            "hotkey": {
+                "key": "S",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "settings_frontpage_saveas": {
+            "callback": "lab_api.v1.apps.start",
+            "arguments": [
+                "SettingsFront",
+                {
+                    "source": "FrontSaveAs"
+                }
+            ],
+            "description": "Display 'Save As' Settings",
+            "category": "settings",
+            "tags": "create copy duplicate host path page title",
+            "permission": "admin_frontpages",
+            "pageType": "front",
+            "menu": {
+                "appMenu": {
+                    "title": "Save page As",
+                    "zone": "contentSettings",
+                    "showKey": true,
+                    "icon": "labicon-data"
+                }
+            },
+            "hotkey": {
+                "key": "S",
+                "controlkeys": [
+                    "labCtrlKey",
+                    "shiftKey"
+                ]
+            }
+        },
+        "settings_articlepage": {
+            "callback": "lab_api.v1.apps.start",
+            "arguments": [
+                "ArticleSettings"
+            ],
+            "description": "Display Article Settings",
+            "category": "settings",
+            "tags": "front crop image add tags section teaser title metadata site domain seo ads design dates style comments paywall notes canonical redirect approval viewports config override",
+            "pageType": "article",
+            "menu": {
+                "appMenu": {
+                    "title": "Article Settings",
+                    "zone": "contentSettings",
+                    "showKey": true,
+                    "icon": "labicon-edit"
+                }
+            },
+            "hotkey": {
+                "key": "S",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "publish_page": {
+            "callback": "lab_api.v1.app.publish",
+            "description": "Publish current page",
+            "category": "publish",
+            "tags": "send front persistent internet save visible",
+            "argument": false
+        },
+        "publish_page_hidden": {
+            "callback": "lab_api.v1.app.publishHidden",
+            "description": "Publish current page hidden",
+            "category": "publish",
+            "tags": "send front persistent internet save",
+            "argument": false,
+            "hotkey": {
+                "key": "p",
+                "controlkeys": [
+                    "shiftKey"
+                ]
+            }
+        },
+        "publish_page_visible": {
+            "callback": "lab_api.v1.app.publishVisible",
+            "description": "Publish current page visible",
+            "category": "publish",
+            "tags": "send front persistent internet save",
+            "argument": false,
+            "hotkey": {
+                "key": "p",
+                "controlkeys": [
+                    "labCtrlKey"
+                ]
+            }
+        },
+        "navigate_published_page": {
+            "lab-comment": "View published page (P)",
+            "callback": "lab_api.v1.app.preview",
+            "description": "Go to published page",
+            "category": "navigation",
+            "tags": "url front internet",
+            "menu": {
+                "appMenu": {
+                    "title": "Published Page",
+                    "zone": "navigation",
+                    "showKey": true,
+                    "icon": "labicon-page"
+                }
+            },
+            "hotkey": {
+                "key": "P"
+            }
+        },
+        "textAssistant": {
+            "callback": "textAssistant.displayUI",
+            "pageType": "article",
+            "description": "Labrador AI - Text completion service",
+            "category": "editor",
+            "tags": "AI distribution automation help article tags suggestions generation artificial intelligence speed efficient SEO SoMe social media facebook twitter google openai chat gpt assistant",
+            "argument": false,
+            "menu": {
+                "appMenu": {
+                    "title": "",
+                    "css": "lab-btn lab-generate text-completion",
+                    "zone": "page",
+                    "icon": "labicon-magic_wand"
+                }
+            },
+            "hotkey": {
+                "key": "a",
+                "controlkeys": [
+                    "altKey",
+                    "shiftKey"
+                ]
+            }
+        }
+    }
+}

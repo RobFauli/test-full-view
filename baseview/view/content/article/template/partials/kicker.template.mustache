@@ -1,0 +1,5 @@
+<div {{ #get.current.fields.kicker[animate] }}data-content="{{ #helper.sanitizeString }}{{{ get.current.filtered.kicker }}}{{ /helper.sanitizeString }}"{{ /get.current.fields.kicker[animate] }}
+style="{{ #style.collection }}text_decoration_inline_style fields.kicker{{ /style.collection }}"
+class="kicker {{ get.current.filtered.layout.positions.kicker }} {{ #style.collection }}text_decoration fields.kicker{{ /style.collection }}">
+{{{ get.current.filtered.kicker }}}
+</div>

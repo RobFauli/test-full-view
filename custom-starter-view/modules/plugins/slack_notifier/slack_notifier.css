@@ -1,0 +1,13 @@
+.my_icons-slack {
+    width: 1em;
+    height: 1em;
+}
+
+.my_icons-slack:before {
+    content: "";
+    background-image: url("slack-logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1em;
+    height: 1em;
+}

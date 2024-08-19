@@ -1,0 +1,15 @@
+{
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "zones": ["s"]
+                }
+            }
+        }
+    },
+    "droppable": {
+        "active": true,
+        "accept": ["image"]
+    }
+}

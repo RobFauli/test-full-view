@@ -1,0 +1,58 @@
+{
+    "editors": [
+        {
+            "selector": "h2",
+            "fn": "EditRich",
+            "key": "fields.title",
+            "menu": "rich_text",
+            "placeholder": "Click to add title"
+        },
+        {
+            "selector": ".ingress",
+            "fn": "EditRich",
+            "key": "fields.ingress",
+            "menu": "rich_text",
+            "placeholder": "Click to add text"
+        }
+    ],
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "adminPanel": {
+                    "icon": "labicon-edit",
+                    "title": "Settings (,)",
+                    "group": "g4-1",
+                    "callback": "displaySettingsPanel",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.settings"
+                    }
+                },
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "fullwidth": {
+                    "inheritPath": "menu/buttons/fullWidth.json",
+                    "text": "",
+                    "displayHotkeys": false,
+                    "group": "g5"
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "settings": {
+            "editor": null,
+            "template": "content/articlescroller/template/settings",
+            "title": "Article Scroller - Settings"
+        }
+    }
+}

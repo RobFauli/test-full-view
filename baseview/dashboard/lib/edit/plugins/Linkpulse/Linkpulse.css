@@ -1,0 +1,205 @@
+
+.dashboardbox.linkpulse .dashboardbox-menu h3 {
+    text-align: center;
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 0.8em;
+    text-transform: capitalize;
+}
+
+.linkpulse-plugin:empty {
+    position: relative;
+    height: 200px;
+}
+
+.linkpulse-plugin:empty:after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    height: 170px;
+    width: 170px;
+    margin: 0 -85px 0;
+    animation: lab-rotation 1.8s infinite linear;
+    border-left: 3px solid rgba(0,174,239,.25);
+    border-right: 3px solid rgba(0,174,239,.25);
+    border-bottom: 3px solid rgba(0,174,239,.25);
+    border-top: 3px solid rgba(0,174,239,1);
+    border-radius: 100%;
+    z-index: 2020;
+    background-image: none;
+}
+
+/*
+Keystats
+*/
+
+.widget.keystats {
+    text-align: center;
+}
+
+.widget.keystats .figure {
+     position: relative;   
+}
+
+.widget.keystats .figure .numbers {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    line-height: 1;
+}
+
+.widget.keystats .figure .numbers H2 {
+    font-size: 3.4em;
+    margin: 0;
+    padding: 0;
+}
+
+.widget.keystats .figure .numbers h3 {
+    font-size: 17px;
+}
+
+.widget.keystats .figure .numbers h3:after {
+    content: "%";
+}
+
+.widget.keystats .figure .pie {
+    transform: rotate(-90deg);
+    display: block;
+    margin: 0 auto;
+}
+
+.widget.keystats .figure .pie_value {
+    fill: none;
+    stroke: #9a9a9a;
+    /*stroke-linecap: round;*/
+    transition: stroke-dashoffset 1s;
+}
+
+.widget.keystats .figure .pie_value.outer {
+    fill: rgba(255, 255, 255, 0.6);
+}
+
+.widget.keystats.status_good .figure .pie_value.outer {
+    stroke: green;
+}
+
+.widget.keystats.status_neutral .figure .pie_value.outer {
+    stroke: gray;
+}
+
+.widget.keystats.status_bad .figure .pie_value.outer {
+    stroke: red;
+}
+
+.widget.keystats.status_good .figure .numbers h3 {
+    color: green;
+}
+
+.widget.keystats.status_neutral .figure .numbers h3 {
+    color: gray;
+}
+
+.widget.keystats.status_bad .figure .numbers h3 {
+    color: red;
+}
+
+.widget.keystats .periods .value {
+    display: inline-block;
+    margin-left: 0.2em;  
+}
+
+.widget.keystats .range {
+    text-transform: capitalize;
+}
+
+/*
+Toppages
+ */
+
+.widget.toppages ul li {
+    display: flex;
+    align-items: center;
+}
+.widget.toppages ul li .value {
+    flex: 1;
+    font-size: 1.6em;
+    text-align: center;
+}
+.widget.toppages ul li .url {
+    flex: 5;
+    /*flex-grow: 1;*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+Scores
+ */
+
+.widget.scores {
+    overflow: hidden;
+}
+
+.widget.scores ul li {
+    display: flex;
+    align-items: center;   
+}
+
+.widget.scores ul li.header {
+    padding: 0.6em 0;
+    text-transform: uppercase;
+}
+
+.widget.scores ul li div {
+    min-width: 60px;
+}
+
+.widget.scores ul li div.total {
+    text-align: left;
+    min-width: 75px;
+}
+
+.widget.scores ul li.value div.total {
+    font-size: 1.6em;
+}
+
+.widget.scores ul li div.url {
+    flex-grow: 1;
+    padding-left: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+form.scores .score {
+    clear: both;
+    float: left;
+    margin: 0.3em 0 0 0.5em;
+    text-transform: capitalize;
+}
+
+form.scores .score input {
+    margin-right: 0.3em;
+}
+
+form.scores .weight {
+    float: right;
+}
+
+form.scores .weight input {
+    width: 90px;
+    display: inline-block;
+}
+
+form.scores .labDs-twoCol .labDs-col:nth-child(even) {
+    border-left: 1px solid #e8e8e8;
+    padding-left: 1em;
+}
+
+form.scores .labDs-twoCol .labDs-col:nth-child(odd) {
+    padding-right: 1.5em;
+}
+

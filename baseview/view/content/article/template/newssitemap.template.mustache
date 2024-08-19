@@ -1,0 +1,13 @@
+<url>
+    <loc>{{ get.current.filtered.published_url }}</loc>
+    {{ ^get.current.filtered.articleOutOfDate_sitemap }}
+        <news:news>
+            <news:publication>
+                <news:name>{{ getCmsConfig.site.display_name }}</news:name>
+                <news:language>{{ getConfig.lang }}</news:language>
+            </news:publication>
+            <news:publication_date>{{ get.current.filtered.published_sitemap }}</news:publication_date>
+            <news:title>{{ get.current.filtered.title }}</news:title>
+        </news:news>
+    {{ /get.current.filtered.articleOutOfDate_sitemap }}
+</url>

@@ -1,0 +1,154 @@
+{
+    "viewHelper" : "image",
+    "viewportMap": {
+        "fields": {
+            "x": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "y": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "cropw": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "croph": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "float": {
+                "viewport": {
+                    "default": true
+                }
+            },
+            "shapes": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "bbRatio": {
+                "viewport": {
+                    "default": true
+                }
+            },
+            "vpWidth": {
+                "viewport": {
+                    "default": true
+                }
+            },
+            "whRatio": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "height": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop"
+                }
+            },
+            "width": {
+                "viewport": {
+                    "default": true
+                }
+            }
+        },
+        "metadata": {
+            "attributes": {
+                "float": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop",
+                        "desktop": "mobile"
+                    }
+                },
+                "bodyTextIndex": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop",
+                        "desktop": "mobile"
+                    }
+                },
+                "hideViewport": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "no_viewport": false
+                    }
+                },
+                "hasFullWidth": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "zoomable": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "no_viewport",
+                        "desktop": "no_viewport"
+                    }
+                },
+                "subimage": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "subimagePlacement": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "subimageSize": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                }
+            }
+        }
+    }
+}

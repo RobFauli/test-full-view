@@ -1,0 +1,311 @@
+@use '../../css_scss/components/vars' as *;
+
+.column.adnuntius-ad {
+    padding-top: 0;
+
+    &:has(.adnuntius-ad-content[style*="display:none"]) {
+        display: none !important;
+        &.adnuntius-ad-debug {
+            display: initial !important;
+        }
+    }
+
+    .adnuntius-ad-content {
+        margin: 0 auto;
+        margin-bottom: 0.9rem;
+
+        .ad-label {
+            display: none;
+        }
+    }
+
+    &.display-label { 
+        &:not(.adZone-parallax) {
+            margin-bottom: .8rem;
+            padding-bottom: 0;
+        }
+
+        .adnuntius-ad-content {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            .ad-label {
+                display: block;
+                font-size: 12px;
+                color: gray;
+                text-transform: uppercase;
+                overflow: hidden;
+                margin-top: -20px;
+                position: absolute;
+            }
+        }
+    }
+
+    &.row {
+        display: block;
+    }
+}
+
+body .column.adnuntius-ad.row {
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.adZone-top { 
+    .column.adnuntius-ad.display-label .adnuntius-ad-content:before {
+        top: -18px;
+    }
+}
+
+.adZone-left, .adZone-right {
+    .column.adnuntius-ad {
+        padding: 0;
+        &.display-label {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.bodytext {
+    .column.adnuntius-ad {
+        &.display-label {
+            margin-bottom: 0;
+            &.floatRight {
+                .adnuntius-ad-content:before {
+                    right: 10px;
+                }
+            }
+        }
+        &.widthAuto {
+            width: auto;
+        }
+        &.widthFull {
+            width: 100%;
+            display: block;
+            clear: both;
+        }
+        &.adZone-parallax {
+            background-color: unset;
+            margin-left: calc(-50vw + 543.5px);
+            width: 100vw;
+            margin-top: 0;
+            margin-bottom: .7rem;
+        }
+    }
+}
+
+@include tablet-to-grid-width {
+    .adZone-top {
+        max-width: 100vw;
+        overflow: hidden;
+        .column.adnuntius-ad {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@include mobile {
+    .column.adnuntius-ad {
+        max-width: 100vw;
+        overflow: hidden;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.adZone-parallax {
+    position: initial;
+    overflow: hidden;
+    max-height: 1080px;
+    position: relative;
+    z-index: 9;
+    background-color: #fff;
+
+    .adnuntius-ad-content {
+        position: absolute;
+        left: 0;
+        overflow: hidden;
+        max-height: 1080px;
+        background-color: #fff;
+    }
+}
+
+.placement-overlay {
+    position: initial;
+    margin: 0;
+
+    .adnuntius-ad {
+        position: initial;
+    }
+}
+
+.placement-bgTop_300, .placement-bgTop_150 {
+    .adnuntius-ad {
+        padding: 0;
+
+        .adnuntius-ad-content {
+            margin: 0;
+        }
+    }
+}
+
+// Debug:
+.adnuntius-ad-debug {
+    min-height: 2em;
+}
+.adnuntius-ad-debug:after {
+    content: attr(data-ad-format) " " attr(data-ad-size);
+    font-size: 0.8em;
+    position: absolute;
+    top: 0;
+    line-height: 1.2em;
+    background: gray;
+    color: #fff;
+    padding: 0.2em;
+    z-index: 100;
+}
+.adnuntius-ad-debug .adnuntius-ad-content {
+    outline: 2px solid red;
+    min-height: 2em;
+}
+
+/* Labrador 4 */
+$labelHeight: 1.5rem;
+$placementAdSpacing: 1.5rem;
+[class*="placement-"] {
+    .column.adnuntius-ad {
+        overflow: hidden;
+        margin-bottom: 0;
+        &.display-label {
+            .adnuntius-ad-content {
+                &[style*="height: 0px;"] {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    .ad-label {
+                        display: none;
+                    }
+                }
+                .ad-label {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    margin: 0;
+                    width: auto;
+                    line-height: $labelHeight;
+                    height: $labelHeight;
+                }
+            }
+        }
+        .adnuntius-ad-content {
+            margin-top: $labelHeight;
+            margin-bottom: $placementAdSpacing;
+            .ad-label {
+                display: none;
+            }
+        }
+    }
+}
+
+.placement-right,
+.placement-left {
+    .column.adnuntius-ad {
+        .adnuntius-ad-content {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.l4 {
+    .column.adnuntius-ad {
+        &.display-label {
+            &:not(.adZone-parallax) {
+                margin-bottom: 0;
+            }
+
+            &.adZone-parallax {
+                .adnuntius-ad-content {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .adZone-parallax {
+        // margin-top: 0;
+        // margin-bottom: 0;
+    }
+    .bodytext {
+        .column.adnuntius-ad {
+            width: auto;
+            display: block;
+            clear: none;
+            padding: 0;
+            .adnuntius-ad-content {
+                box-sizing: content-box;
+                padding: 0 0.7rem;
+                @include desktop_down {
+                    padding: 0;
+                }
+            }
+            &.widthFull {
+                width: 100%;
+                clear: both;
+                .adnuntius-ad-content {
+                    max-width: 68rem;
+                    display: block;
+                }
+            }
+            &.floatRight {
+                clear: right;
+            }
+            &.floatLeft {
+                clear: left;
+            }
+            &.adZone-parallax {
+                position: relative;
+                width: calc(100vw - var(--scrollbar-width));
+                margin-left: 0;
+                margin-bottom: 0;
+                padding: 0;
+                max-height: unset;
+                left: calc(-1 * ((100vw - var(--scrollbar-width)) - 68rem) / 2);
+                .adnuntius-ad-content {
+                    position: static;
+                    padding: 0;
+                    height: 100%;
+                    max-height: unset;
+                    width: calc(100vw - var(--scrollbar-width));
+                }
+            }
+            @include grid_down {
+                width: 100%;
+                &.adZone-parallax {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+body .row:not(.fullWidthContent) .column.adnuntius-ad {
+    display: block;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+// Page/article custom font colors
+body.custom-font-color {
+    .column.adnuntius-ad {
+        &.display-label {
+            .adnuntius-ad-content {
+                .ad-label {
+                    color: inherit;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

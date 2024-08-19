@@ -1,0 +1,10 @@
+{
+    "icon": "labicon-image",
+    "text": "Add/change thumbnail image",
+    "group": "sg1",
+    "callback": "dispatch",
+    "params": {
+        "function": "contextualmenu.callbacks.addImage"
+    },
+    "title": "Add/change thumbnail image"
+}

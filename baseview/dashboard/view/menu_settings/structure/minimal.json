@@ -1,0 +1,34 @@
+{
+    "toolsClass": "ContentBoxMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "triggers": {
+        "mouseOver": "display",
+        "mouseOut": "hide"
+    },
+    "position": "top",
+    "offset": {
+        "margin-left": 5
+    },            
+    "items": {
+        "delete": {
+            "trigger": ["click"],
+            "callback": "deleteStructure",
+            "group": "g1",
+            "title": "Delete content"
+        },
+        "lockButton": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "lock",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Lock content ('L')",
+            "group": "g1",
+            "hotkey": 76
+        }
+    },
+    "params": {}
+}

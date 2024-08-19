@@ -1,0 +1,37 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "gridResize": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g1_b",
+                    "displayCondition": "isNotViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "gridResizeMobile": {
+                    "inheritPath": "menu/buttons/gridOverrideMobile.json",
+                    "group": "g1_b",
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "mediaOptions": {
+                    "icon": "labicon-image",
+                    "title": "Media-options",
+                    "group": "g4",
+                    "items": {
+                        "imageThumbnail": {
+                            "inheritPath": "menu/buttons/youtubeThumbnail.json"
+                        },
+                        "removeImageThumbnail": {
+                            "inheritPath": "menu/buttons/youtubeThumbnailRemove.json"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

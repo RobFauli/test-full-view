@@ -1,0 +1,89 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/graphic/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/graphic/template/default",
+                    "mailmojo" : "content/graphic/template/mailmojo"
+                }
+            },
+            "article": {
+                "template": {
+                    "default": "content/graphic/template/no_column"
+                }
+            },
+            "image": {
+                "template": {
+                    "default": "content/graphic/template/subimage"
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "content/image/front/noLazy.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/graphic/template/no_column"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/graphic/editor/default.json"
+                    ]
+                }
+            },
+            "article": {
+                "properties": {
+                    "default": [
+                        "content/graphic/editor/no_column.json",
+                        "content_settings/editor/draggable/disabled.json"
+                    ]
+                }
+            },
+            "image": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/droppable/disabled.json",
+                        "content/graphic/editor/subImage.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "content/graphic/editor/no_column.json",
+                        "content_settings/editor/draggable/disabled.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json",
+                        "content_settings/editor/resize/disabled.json",
+                        "content/graphic/editor/bodytext.json"
+                    ]
+                }
+            }
+        }
+    }
+}

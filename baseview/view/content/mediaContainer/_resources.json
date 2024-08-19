@@ -1,0 +1,22 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "content/mediaContainer/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/mediaContainer/editor/default.json"
+                    ]
+                }
+            }
+        }
+    }
+}

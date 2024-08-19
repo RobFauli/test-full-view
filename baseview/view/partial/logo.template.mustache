@@ -1,0 +1,17 @@
+{{ #href }}
+    <a class="logo" href="{{href}}">
+{{ /href }}
+{{ ^href }}
+    <span class="logo">
+{{ /href }}
+    <img src="{{{src}}}" 
+        {{ #title }} alt="{{title}}"  {{ /title }}
+        {{ #size.width }} width="{{size.width}}"  {{ /size.width }}
+        {{ #size.height }} height="{{size.height}}"  {{ /size.height }}
+    />
+{{ #href }}
+    </a>
+{{ /href }}
+{{ ^href }}
+    </span>
+{{ /href }}

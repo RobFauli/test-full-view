@@ -1,0 +1,119 @@
+{
+    "boxTitle": "Markup",
+    "boxDescription": "Use custom HTML",
+    "boxKeywords": "embed html code javascript css twitter instagram",
+    "viewportMap": {
+        "fields": {
+            "markup": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop",
+                    "desktop": "mobile"
+                }
+            }
+        },
+        "metadata": {
+            "attributes": {
+                "movableContent": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "no_viewport": false
+                    }
+                },
+                "collapsedContent": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "no_viewport": false
+                    }
+                },
+                "contentPosition": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "no_viewport": false
+                    }
+                },
+                "background_color": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "text_align": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "border_color": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "border_side": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "border_width": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "hasFullWidth": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "float": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "bodyTextIndex": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop",
+                        "desktop": "mobile"
+                    }
+                },
+                "hideViewport": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "no_viewport": false
+                    }
+                }
+            }
+        }
+    }
+}

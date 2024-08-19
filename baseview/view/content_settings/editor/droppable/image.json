@@ -1,0 +1,12 @@
+{
+    "droppable": {
+        "active": true,
+        "drop": {
+            "sourceType": {
+                "image": "addChild"
+            },
+            "default": "default"
+        },
+        "filedrop": "addChild"
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "contentMenus": {
+        "default": null,
+        "parallax_layer": {
+            "position": "right",
+            "labels": {
+                "before": ["Parallax", "lab-divider", "lab-content-type"]
+            },
+            "items": {
+                "delete": {
+                    "inheritPath": "menu/buttons/delete.json",
+                    "group": "g1"
+                },
+                "lock": {
+                    "inheritPath": "menu/buttons/lock.json",
+                    "group": "g1"
+                },
+                "background_color": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "group": "g2"
+                },
+                "align": {
+                    "inheritPath": "menu/buttons/textAlign.json",
+                    "group": "g3",
+                    "text": null,
+                    "require": {
+                        "type": ["markup", "text_multiline", "text_title", "text_subtitle"]
+                    }
+                },
+                "code": {
+                    "icon": "labicon-code",
+                    "callback": "displaySettingsPanel",
+                    "title": "Edit markup (,)",
+                    "group": "g3",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    },
+                    "require": {
+                        "type": ["markup"]
+                    }
+                },
+                "moveUp": {
+                    "inheritPath": "menu/buttons/moveUp.json",
+                    "params": {
+                        "restrictToCurrentType": false
+                    },
+                    "group": "g4"
+                },
+                "moveDown": {
+                    "inheritPath": "menu/buttons/moveDown.json",
+                    "params": {
+                        "restrictToCurrentType": false
+                    },
+                    "group": "g4"
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-parallax",
+                    "callback": "runApp",
+                    "title": "Layer settings",
+                    "params": {
+                        "name": "ParallaxSupport"
+                    }
+                }
+            }
+        }
+    },
+    "redrawPaths": {
+        "current": [],
+        "parent": ["metadata.parallax", "width", "metadata.background_color", "metadata.background_color_op"]
+    }
+}

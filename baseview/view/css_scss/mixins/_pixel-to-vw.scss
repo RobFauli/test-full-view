@@ -1,0 +1,4 @@
+// $i represents pixel-size at 380px wide viewport
+@function vw($i) {
+    @return calc(0.262vw * #{$i});
+}

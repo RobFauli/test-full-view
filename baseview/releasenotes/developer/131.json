@@ -1,0 +1,91 @@
+{
+    "releasenotes": {
+        "date": "20210526",
+        "version": {
+            "int": 131,
+            "str": "1.3.1"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "ArticleScroller includes viewport-info to display correct",
+                "description": "The element now includes the viewport when generating a url to fetch. This fixes an issue with the element used in an external element."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Line-breaks allowed inside the bodytext",
+                "description": "Removed cleanup of the bodytext to allow line-breaks. This is nessesary for any inline Javascript to run."
+            },
+            {
+                "isBug": true,
+                "date": "20220930",
+                "title": "Fixed a bug in JSON-export",
+                "description": "The function to export a page as JSON if `lab_viewport=json` is set crashed if one ore more articles where missing."
+            },
+            {
+                "isFeature": true,
+                "date": "20220810",
+                "title": "Added template to element dropZone",
+                "description": "The element has not used any template in Baseview until now. Only children has been printed on front. In the editor however all elements need a template and Labrador has used a default template. This has resulted in slightly different markup on front and in the editor. Using a template this diff is now gone."
+            },
+            {
+                "isFeature": true,
+                "date": "20220804",
+                "title": "Date-formatting using templates",
+                "description": "The class `DateTimeHelper` now supports methods `format` and `utcFormat` accepting a date and a format-template allowing you to print any date-string. The template are written like any other template in Labrador and supports the following variables (case sensitive): <br>YY, YYYY, M, MM, MMM, MMMM, D, DD, ddd, dddd, H, HH, m, mm, s, ss.",
+                "links": [
+                    "https://day.js.org/docs/en/display/format"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20220328",
+                "title": "Bylines-collection and editor added",
+                "description": "Baseview can now display bylines. Activate by hotkey `Shift+B`, Labrador menu `Content / Bylines` or by navigating using the drawer on the right hand side of the screen. Bylines may be created or modifyed using the app `BylineEditor`. Available through the API: `lab_api.v1.apps.start('BylineEditor', options)` The `options`-object is optional and may include `id` for a byline-id to edit and an `endcallback`-function to run when the editor is done. ",
+                "links": [
+                    "/support/docs/#view/modules/collections.md",
+                    "/support/docs/#view/modules/apps.md"
+                ]
+            },
+            {
+                "isImprovement": true,
+                "date": "20220316",
+                "title": "Factbox allow multiple images placed anywhere",
+                "description": "Drag and drop any number of images onto the text of a factbox. Behaves like the bodytext-editor."
+            },
+            {
+                "isFeature": true,
+                "date": "20220214",
+                "title": "Increased pixel density for images",
+                "description": "Images are now rendered at 2x density resulting in a better viewing experience. The density is defined by config `viewHelper.image.pixelDensityFactor`."
+            },
+            {
+                "isFeature": true,
+                "date": "20211125",
+                "title": "Image dropped on article-header automatically added as front-crop",
+                "description": "If no front-crop exist the image is used as front-crop for current article. Each instance of the image on the page is labeled in the editor with a shortcut to the settings-menu wher users can modify the crop."
+            },
+            {
+                "isFeature": true,
+                "date": "20210907",
+                "title": "Automatically print 'CO2' and 'H2O' correctly",
+                "description": "All text-tools will replace '2' in 'CO2' and 'H2O' with a subscript version automatically. The letters will display in uppercase."
+            },
+            {
+                "isFeature": true,
+                "date": "20210906",
+                "title": "Different placement of elements inside the bodytext per viewport",
+                "description": "If a user drops an element onto line 1 of the bodytext it will be displayed there in all viewports. The index deciding where to display the element is now made viewport-specific. This means that users can drag and drop the element to a different line in every viewport."
+            },
+            {
+                "isImprovement": true,
+                "date": "20210526",
+                "title": "Transition to new Labrador-version",
+                "description": "Elements ready for new architecture: 'article', 'articleHeader', 'articleMeta', 'bodytext', 'columns', 'dropZone', 'image', 'row' and 'slideshow'. These elements will function in both new and old architecture.",
+                "link": "/support/docs/#transition/introduction.md"
+            }
+        ]
+    }
+}

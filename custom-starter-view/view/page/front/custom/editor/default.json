@@ -1,0 +1,13 @@
+{
+    "editors": {
+        "custom_h2_title": {
+            "selector": ".custom_h2_title",
+            "fn": "EditRich",
+            "key": "fields.custom_h2_title",
+            "menu": "rich_text",
+            "placeholder": "Click to add custom title",
+            "allowNbsp": true,
+            "allowReverting": true
+        }
+    }
+}

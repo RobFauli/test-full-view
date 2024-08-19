@@ -1,0 +1,37 @@
+{
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "zones": [
+                        "s"
+                    ]
+                }
+            }
+        }
+    },
+    "contentMenus": {
+        "default": null
+    },
+    "toolMenus": {
+        "image_edit": {
+            "items": {
+                "alignLeft": null,
+                "alignRight": null
+            }
+        },
+        "rich_text": {
+            "items": {
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "text": null,
+                    "displayHotkeys": false,
+                    "group": "g3"
+                }
+            }
+        }
+    },
+    "droppable": {
+        "active": false
+    }
+}

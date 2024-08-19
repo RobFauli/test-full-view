@@ -1,0 +1,31 @@
+{
+    "droppable": {
+        "active": true,
+        "delegate": "TextDrop",
+        "drop": "addChild",
+        "params": {
+            "textDrop": {
+                "zones": [
+                    {
+                        "triggerZone": [0, 30],
+                        "alignCss": "floatLeft",
+                        "labCss": "lab-width-50",
+                        "grid": [6]
+                    },
+                    {
+                        "triggerZone": [30, 70],
+                        "alignCss": "",
+                        "labCss": "",
+                        "grid": [12]
+                    },
+                    {
+                        "triggerZone": [70, 100],
+                        "alignCss": "floatRight",
+                        "labCss": "lab-width-50",
+                        "grid": [6]
+                    }
+                ]
+            }
+        }
+    }
+}

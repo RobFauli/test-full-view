@@ -1,0 +1,9 @@
+{
+    "boxTitle": "TV Guide",
+    "boxDescription": "List of TV shows",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.integration_url }}}/feed/simplestream/?action=epg&site={{ getCmsConfig.site.alias }}",
+        "type": "json"
+    }
+}

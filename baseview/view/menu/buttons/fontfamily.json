@@ -1,0 +1,33 @@
+{
+    "text": "Font",
+    "title": "Set font-family",
+    "itemBinding": "mergeConfigValue",
+    "bindToSelection": "fontface",
+    "onValueCondition": "lab-key-is-true",
+    "value": false,
+    "onValue": true,
+    "offValue": false,
+    "displayCondition": "hasConfig",
+    "params": {
+        "configKey": "style_definitions.fontface",
+        "valueTransformer": "hasLength",
+        "configPath": "style_definitions.fontface",
+        "defaultItem": {
+            "callback": "toggleAttribute",
+            "key": "fontface",
+            "bindToSelection": "fontface",
+            "offValue": ""
+        },
+        "nullValues": [{
+            "text": "(No fonts available)",
+            "callback": null,
+            "disabled": true
+        }],
+        "mapping": {
+            "text": "familyKey",
+            "value": "familyKey",
+            "attributes.class": "familyKey",
+            "onValue": "familyKey"
+        }
+    }
+}

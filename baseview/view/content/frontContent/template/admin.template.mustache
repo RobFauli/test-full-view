@@ -1,0 +1,226 @@
+<div>
+
+    <div class="lab-modal-form lab-grid" data-nav-source="source-tab">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Source</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap">
+                <label for="i1">Select articles to display (<span style="color:red; font-weight: bold;">*</span>)</label>
+                <select name="fields.source" id="i1">
+                    {{ #section.source.options }}
+                    <option value="{{ value }}"{{#selected}} selected{{/selected}}>{{{ name }}}</option>
+                    {{ /section.source.options }}
+                </select>
+            </div>
+        </div>
+
+        <div class="lab-formgroup lab-grid lab-grid-gap " data-sources="LabradorApi">
+            {{ #section.source.displaySites }}
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Site</h4>
+            <div id="frontContent-site" class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap">
+                <label for="ii5_1">Display content from site</label>
+                <!-- Site-selector inserted by frontContentSupport.js  -->
+            </div>
+            {{ /section.source.displaySites }}
+        </div>
+
+        {{ #tagsOptions.displayTagsString }}
+        <div class="lab-formgroup lab-grid lab-grid-gap " data-sources="LabradorApi">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Tags</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="ii5">Restrict result to articles containing selected tags</label>
+                <input type="checkbox" name="fields.tags_allow" id="ii5" {{ #tags.allow }}checked{{ /tags.allow }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap">
+                <label for="ii6">Tags. Separate each tag by comma: "tag1, tag2"</label>
+                <input type="text" name="fields.tags_string" id="ii6" value="{{{ tags.tags_string }}}">
+            </div>
+        </div>
+        {{ /tagsOptions.displayTagsString }}
+
+        {{ #tagsOptions.displayTagsGroups }}
+        <div class="lab-formgroup lab-grid lab-grid-gap " data-sources="LabradorApi">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Tags for end-user</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap">
+                <label for="ii5_t1_l">Tag group #1 label</label>
+                <input type="text" name="fields.tagGroup1_label" id="ii5_t1_l" value="{{ tagsOptions.tagGroups.tagGroup1_label }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-8 lab-grid-gap">
+                <label for="ii5_t1_t">Tag group #1 tags</label>
+                <input type="text" name="fields.tagGroup1_tags" id="ii5_t1_t" value="{{ tagsOptions.tagGroups.tagGroup1_tags }}" placeholder="tag one, tag two, ...">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap">
+                <label for="ii5_t2_l">Tag group #2 label</label>
+                <input type="text" name="fields.tagGroup2_label" id="ii5_t2_l" value="{{ tagsOptions.tagGroups.tagGroup2_label }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-8 lab-grid-gap">
+                <label for="ii5_t2_t">Tag group #2 tags</label>
+                <input type="text" name="fields.tagGroup2_tags" id="ii5_t2_t" value="{{ tagsOptions.tagGroups.tagGroup2_tags }}" placeholder="tag one, tag two, ...">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap">
+                <label for="ii5_t3_l">Tag group #3 label</label>
+                <input type="text" name="fields.tagGroup3_label" id="ii5_t3_l" value="{{ tagsOptions.tagGroups.tagGroup3_label }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-8 lab-grid-gap">
+                <label for="ii5_t3_t">Tag group #3 tags</label>
+                <input type="text" name="fields.tagGroup3_tags" id="ii5_t3_t" value="{{ tagsOptions.tagGroups.tagGroup3_tags }}" placeholder="tag one, tag two, ...">
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="ii5_d_tags">Display tags expanded</label>
+                <input type="checkbox" name="fields.tagsGroupsDefaultVisible" id="ii5_d_tags" {{ #tagsOptions.tagsGroupsDefaultVisible }}checked{{ /tagsOptions.tagsGroupsDefaultVisible }} value="1">
+            </div>
+        </div>
+        {{ /tagsOptions.displayTagsGroups }}
+
+        <div class="lab-formgroup lab-grid lab-grid-gap " data-sources="LabradorApi">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Filter</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="i1_1">Remove existing articles from result</label>
+                <input type="checkbox" value="1" name="fields.filterExisting" id="i1_1" {{ #section.source.filterExisting }}checked{{ /section.source.filterExisting }}>
+            </div>
+        </div>
+
+        {{ #cookie.displayOverrideUrlByTagsCookie }}
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Tag-cookie</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="ii4">Allow end-user to select tags to display</label>
+                <input type="checkbox" name="fields.overrideUrlByTagsCookie" id="ii4" {{ #cookie.options.allow }}checked{{ /cookie.options.allow }} value="1">
+            </div>
+        </div>
+        {{ /cookie.displayOverrideUrlByTagsCookie }}
+
+    </div>
+
+    <div class="lab-modal-form lab-grid lab-hidden" data-nav-source="organize-tab">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Organize articles</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap">
+                <label for="i2">Select how to group articles in rows (<span style="color:red; font-weight: bold;">*</span>)</label>
+                <select name="fields.organizer" id="i2">
+                    {{ #section.organizer.options }}
+                    <option value="{{ value }}"{{#selected}} selected{{/selected}}>{{{ name }}}</option>
+                    {{ /section.organizer.options }}
+                </select>
+            </div>
+        </div>
+
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Options</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="no-fields.organizer">
+                Select an option above ...
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="RowsAndColumns">
+                <label for="i4">Number of Columns</label>
+                <input id="i4" type="number" min="1" name="fields.layout_columnCount" value="{{ section.layout.columnCount }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="RowsAndColumns">
+                <label for="i5">Number of Rows</label>
+                <input id="i5" type="number" min="1" name="fields.layout_rowCount" value="{{ section.layout.rowCount }}">
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="RandomRows">
+                <label for="i6">Minimum Column Count</label>
+                <input id="i6" type="number" min="1" name="fields.layout_minRowSize" value="{{ section.layout.minRowSize }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="RandomRows">
+                <label for="i7">Maximum Column Count</label>
+                <input id="i7" type="number" min="1" name="fields.layout_maxRowSize" value="{{ section.layout.maxRowSize }}">
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap" data-sources="RandomRows">
+                <label for="i8">Number of articles</label>
+                <input id="i8" type="number" min="1" name="fields.articleCount" value="{{ section.layout.articleCount }}">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="lab-modal-form lab-grid lab-hidden" data-nav-source="autolayout-tab">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Autolayout</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap">
+                <label for="i3">Select optional layout for articles</label>
+                <select name="fields.postprocessor" id="i3">
+                    {{ #section.postprocessor.options }}
+                    <option value="{{ value }}"{{#selected}} selected{{/selected}}>{{{ name }}}</option>
+                    {{ /section.postprocessor.options }}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="lab-modal-form lab-grid lab-hidden" data-nav-source="layout-tab">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Typography</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="l0">Override sizes</label>
+                <input type="checkbox" data-enabled-trigger="fields.size_active" name="fields.size_active" id="l0" {{ #typography.size_active }}checked{{ /typography.size_active }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap ">
+                <label for="l1_k">Kicker-size</label>
+                <input type="range" data-value="{{ typography.size_kicker }}" oninput="event.target.setAttribute('data-value', event.target.value);" data-style-field="kicker" data-enabled-path="fields.size_active" name="fields.size_kicker" id="l1_k" min="14" max="60" value="{{ typography.size_kicker }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap ">
+                <label for="l1">Title-size</label>
+                <input type="range" data-value="{{ typography.size_title }}" oninput="event.target.setAttribute('data-value', event.target.value);" data-style-field="title" data-enabled-path="fields.size_active" name="fields.size_title" id="l1" min="14" max="100" value="{{ typography.size_title }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap ">
+                <label for="l2">Subtitle-size</label>
+                <input type="range" data-value="{{ typography.size_subtitle }}" oninput="event.target.setAttribute('data-value', event.target.value);" data-style-field="subtitle" data-enabled-path="fields.size_active" name="fields.size_subtitle" id="l2" min="14" max="60" value="{{ typography.size_subtitle }}">
+            </div>
+        </div>
+
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Options</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii2">Hide title</label>
+                <input type="checkbox" data-preview-check="hide_title" name="fields.hide_title" id="ii2" {{ #section.source.hide.title }}checked{{ /section.source.hide.title }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii3">Hide subtitle</label>
+                <input type="checkbox" data-preview-check="hide_subtitle" name="fields.hide_subtitle" id="ii3" {{ #section.source.hide.subtitle }}checked{{ /section.source.hide.subtitle }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii3_1">Hide kicker</label>
+                <input type="checkbox" data-preview-check="hide_kicker" name="fields.hide_kicker" id="ii3_1" {{ #section.source.hide.kicker }}checked{{ /section.source.hide.kicker }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii1">Hide image</label>
+                <input type="checkbox" data-preview-check="hide_image" name="fields.hide_image" id="ii1" {{ #section.source.hide.image }}checked{{ /section.source.hide.image }} value="1">
+            </div>
+        </div>
+
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Align image</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii11">Left</label>
+                <input type="radio" name="fields.alignImage" id="ii11" {{ #typography.alignImage_left }}checked{{ /typography.alignImage_left }} value="left">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii12">None</label>
+                <input type="radio" name="fields.alignImage" id="ii12" {{ #typography.alignImage_none }}checked{{ /typography.alignImage_none }} value="">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="ii13">Right</label>
+                <input type="radio" name="fields.alignImage" id="ii13" {{ #typography.alignImage_right }}checked{{ /typography.alignImage_right }} value="right">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap">
+                <label for="ii14">Image width (0-100 %)</label>
+                <input type="number" min="10" max="100" name="fields.imageWidth" id="ii14" value="{{ typography.imageWidth }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-4 lab-grid-gap">
+                <input type="hidden" data-enabled-trigger="imageAspectRatio" checked>
+                <label for="ii15">Image aspect ratio (0-2)</label>
+                <input type="number" min="0" max="2" step=".01" name="fields.layout_imageAspectRatio" id="ii15" value="{{ section.layout.imageAspectRatio }}" data-enabled-path="imageAspectRatio" data-style-field="imageAspectRatio">
+            </div>
+            
+        </div>
+
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div id="typography-preview" style="min-height: 300px;" class="lab-grid-large-12"></div>
+        </div>
+    </div>
+
+</div>

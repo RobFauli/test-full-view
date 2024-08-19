@@ -1,0 +1,13 @@
+{
+    "icon": "labicon-moveUp",
+    "callback": "moveUp",
+    "group": "g2",
+    "title": "Move up (Shift+↑)",
+    "params": {
+        "restrictToCurrentType": true
+    },
+    "hotkeys": [{
+        "key": "ArrowUp",
+        "controlkeys": ["shiftKey"]
+    }]
+}

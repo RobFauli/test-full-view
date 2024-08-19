@@ -1,0 +1,16 @@
+<div data-element-guid="{{ get.current.guid }}" class="byline column" itemscope itemtype="http://schema.org/Person">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content">
+        {{ #get.current.filtered.data.imageAbove }}
+            {{{ child.image }}}
+        {{ /get.current.filtered.data.imageAbove }}
+        <address class="name">
+        {{ #get.current.filtered.data.items }}
+            {{ #url }}<a rel="author" itemprop="url name" href="{{#app.isFront}}{{ url }}{{/app.isFront}}">{{ /url }}{{ #parts }}<span class="{{ key }} {{ #style.collection }}text_decoration fields.{{ key }}{{ /style.collection }}">{{ #url }}{{ #helper.stripLinks }}{{{ value }}}{{ /helper.stripLinks }}{{ /url }}{{ ^url }}{{{ value }}}{{ /url }}</span> {{ /parts }}{{ #url }}</a>{{ /url }}
+        {{ /get.current.filtered.data.items }}
+        </address>
+        {{ #get.current.filtered.data.imageBelow }}
+            {{{ child.image }}}
+        {{ /get.current.filtered.data.imageBelow }}
+    </div>
+</div>

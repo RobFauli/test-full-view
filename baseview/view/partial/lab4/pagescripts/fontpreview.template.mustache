@@ -1,0 +1,24 @@
+{{! This partial should be included in a page-context. Uses data from page. }}
+<script>
+    function receiveMessage(event) {
+        var originUrl = '{{{ get.current.filtered.fontpreview }}}';
+        if (event.origin !== originUrl) { return; }
+        if (!event.data || !Array.isArray(event.data)) { return; }
+        // Remove styles inserted by view:
+        var viewStyles = document.querySelector('#dachser-vieweditor-styles');
+        if (viewStyles) {
+            viewStyles.remove();
+        }
+        // event.data contains an array with CSS-styles to preview.
+        var stylesheet = document.querySelector('head style#labrador_style_preview');
+        if (stylesheet) {
+            stylesheet.innerHTML = event.data.join("\n");
+        } else {
+            stylesheet = document.createElement('style');
+            stylesheet.setAttribute('id', 'labrador_style_preview');
+            stylesheet.innerHTML = event.data.join("\n");
+            document.head.appendChild(stylesheet);
+        }
+    }
+    window.addEventListener("message", receiveMessage, false);
+</script>

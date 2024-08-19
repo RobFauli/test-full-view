@@ -1,0 +1,44 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/quotebox/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/quotebox/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/quotebox/editor/default.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/resize/disabled.json",
+                        "content_settings/editor/redrawPaths/bodytext.json",
+                        "content/bodytext/editor/grid_resize.json"
+                    ]
+                }
+            }
+        }
+    }
+}

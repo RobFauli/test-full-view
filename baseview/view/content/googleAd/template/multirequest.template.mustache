@@ -1,0 +1,62 @@
+{{ ^app.isEditor }}
+<script>
+    window.googletag = window.googletag || {cmd: []};
+
+    googletag.cmd.push(function() {
+        var handleAsTablet = (Dac.clientData.device === 'tablet' || Dac.clientData.innerWidth < {{ get.current.filtered.googleAds.hideOnTabletWidth }});
+
+        {{ #get.current.filtered.googleAds }}
+        {{ #anchor.enabled }}
+        {{ #bidding.provider.name }}
+        {{ #render.template }}content/googleAd/template/anchor/{{ bidding.provider.name }}.init{{ /render.template }}
+        {{ /bidding.provider.name }}
+        {{ ^bidding.provider.name }}
+        var anchor = googletag.defineOutOfPageSlot('/{{ dfpid }}/{{{ anchor.code }}}', googletag.enums.OutOfPageFormat.{{ anchor.type }});
+        if (anchor) {
+            anchor.setTargeting('test', 'anchor').addService(googletag.pubads());
+            document.addEventListener("DOMContentLoaded", () => {
+                googletag.display(anchor);
+            });
+        }
+        {{ /bidding.provider.name }}
+        {{ /anchor.enabled }}
+        {{ /get.current.filtered.googleAds }}
+
+        {{ #get.current.filtered.googleAds.adUnits }}
+        if (!(handleAsTablet && '{{ metadata.hideOnTablet }}' === 'true')) {
+            googletag
+                .defineSlot('/{{ get.current.filtered.googleAds.dfpid }}/{{{ code }}}', {{ sizesString }}, '{{{ code }}}')
+                .addService(googletag.pubads());
+        }
+        {{ /get.current.filtered.googleAds.adUnits }}
+
+        googletag.pubads().setTargeting("env", "{{ #get.current.filtered.googleAds.debugmode }}test{{ /get.current.filtered.googleAds.debugmode }}{{ ^get.current.filtered.googleAds.debugmode }}prod{{ /get.current.filtered.googleAds.debugmode }}");
+        googletag.pubads().setTargeting("site", "{{ get.current.filtered.siteAlias }}");
+        googletag.pubads().setTargeting("section", "{{ get.current.filtered.section }}");
+        googletag.pubads().setTargeting("context", "{{ get.current.filtered.pageType }}");
+        {{ #get.current.filtered.is_article }}
+        googletag.pubads().setTargeting("tags", "{{ get.current.filtered.tagsString }}");
+        {{ /get.current.filtered.is_article }}
+        {{ #get.current.filtered.is_front }}
+        googletag.pubads().setTargeting("hostpath", "{{{ get.current.fields.hostpath }}}");
+        {{ /get.current.filtered.is_front }}
+        {{ #get.current.filtered.is_tagpage }}
+        googletag.pubads().setTargeting("is_tagpage", "true");
+        {{ /get.current.filtered.is_tagpage }}
+
+        var useLadyLoading = {{ get.current.filtered.googleAds.lazyload }} || false;
+        if (useLadyLoading) {
+            googletag.pubads().enableLazyLoad({
+                fetchMarginPercent: 150,
+                renderMarginPercent: 150,
+                mobileScaling: 2.0
+            });
+        }
+        
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+
+        googletag.enableServices();
+    });
+</script>
+{{ /app.isEditor }}

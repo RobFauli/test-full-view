@@ -1,0 +1,91 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "slideshowOptions": {
+                    "icon": "labicon-image_slideshow",
+                    "title": "Slideshow options",
+                    "group": "g3",
+                    "items": {
+                        "edit": {
+                            "icon": "labicon-startEdit",
+                            "text": "Edit slideshow",
+                            "callback": "editSlideshow",
+                            "title": "Edit slideshow (,)",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": ","
+                            }]
+                        },
+                        "navigation": {
+                            "icon": "labicon-dots",
+                            "text": "Display navigation-dots",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.displayNavigation",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.displayNavigation",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "preview": {
+                            "icon": "labicon-grid_extra_tight",
+                            "text": "Display preview of all images",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.displayPreview",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.displayPreview",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "autoScroll": {
+                            "icon": "labicon-play",
+                            "text": "Scroll automatically",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.autoScroll",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.autoScroll",
+                                    "attribute": "value"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "fullwidth": {
+                    "inheritPath": "menu/buttons/fullWidth.json",
+                    "text": "",
+                    "displayHotkeys": false,
+                    "group": "g3"
+                }
+            }
+        }
+    },
+    "redrawPaths": {
+        "current": ["fields.aspectRatio"]
+    },
+    "droppable": {
+        "active": true,
+        "accept": ["slideshow", "image", "youtube"],
+        "drop": {
+            "sourceType": {
+                "image": "addChild",
+                "youtube": "addChild"
+            },
+            "default": "replace"
+        },
+        "filedrop": "addChild"
+    }
+}

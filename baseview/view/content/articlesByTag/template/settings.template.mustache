@@ -1,0 +1,60 @@
+<div class="lab-modal-form lab-grid">
+
+    <div class="lab-formgroup lab-grid lab-grid-gap lab-valign-top">
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="id-fields.query_json.site_id">Site</label>
+            <select id="id-fields.query_json.site_id" name="fields.query_json.site_id">
+                {{ #get.current.filtered.siteOptions }}
+                <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+                {{ /get.current.filtered.siteOptions }}
+            </select>
+        </div>      
+
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="id-fields.query_json.limit">Number of articles</label>
+            <input id="id-fields.query_json.limit" type="number" min="1" max="1000" value="{{ get.current.filtered.limit }}" name="fields.query_json.limit" placeholder="Example: 10">
+        </div>
+
+        <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Article options</h3>
+
+        {{ #get.current.filtered.editDisplayOptions }}
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="id-fields.displayOptions_json.{{ name }}">Display {{ name }}</label>
+            <input id="id-fields.displayOptions_json.{{ name }}" type="checkbox" value="1" name="fields.displayOptions_json.{{ name }}" {{ #value }}checked{{ /value }}>
+        </div>
+        {{ /get.current.filtered.editDisplayOptions }}
+
+        <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Data options</h3>
+
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline"">
+            <label for="id-fields.hideTags">Hide tags</label>
+            <input id="id-fields.hideTags" type="checkbox" value="1" name="fields.hideTags" {{ #get.current.fields.hideTags }}checked="checked"{{ /get.current.fields.hideTags }}>
+        </div>
+            
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="id-fields.usePageTags">Use page-tags (article)</label>
+            <input id="id-fields.usePageTags" type="checkbox" value="1" name="fields.usePageTags" {{ #get.current.fields.usePageTags }}checked="checked"{{ /get.current.fields.usePageTags }}>
+        </div>
+        
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap">
+            <label for="id-fields.tagsString">... or specify tags</label>
+            <textarea name="fields.tagsString" placeholder="news, sport, culture" >{{{ get.current.fields.tagsString }}}</textarea>
+        </div>
+
+        <h3 class="lab-title advancedToggle labicon-pluss_slim lab-grid-large-12 lab-grid-gap lab-space-above-medium"> Advanced data options</h3>
+
+        <div class="advanced lab-hidden lab-grid lab-grid-large-12 lab-grid-small-12">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap lab-inline">
+                <label for="id-fields.useApiQuery">... or specify API-query</label>
+                <input id="id-fields.useApiQuery" type="checkbox" value="1" name="fields.useApiQuery" {{ #get.current.fields.useApiQuery }}checked="checked"{{ /get.current.fields.useApiQuery }}>
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.apiQuery">Query</label>
+                <textarea name="fields.apiQuery" id="id-fields.apiQuery" cols="30" rows="10" placeholder="tag:news AND title:car">{{{ get.current.fields.apiQuery }}}</textarea>
+            </div>
+        </div>
+
+    </div>
+
+</div>

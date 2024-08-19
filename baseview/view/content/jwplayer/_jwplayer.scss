@@ -1,0 +1,46 @@
+
+
+.jwplayer {
+    .content {
+        .container {
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .notice {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #e7e7e7;
+            }
+        }
+        .caption {
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        
+            figcaption {
+                display: inline;
+        
+                &[itemprop="author"] {
+                    margin-left: 0.3em;
+                    opacity: 0.7;
+                    &:empty {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    
+}

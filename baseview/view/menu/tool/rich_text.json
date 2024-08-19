@@ -1,0 +1,723 @@
+{
+    "position": "top",
+    "style": {
+        "margin-top": "-10px"
+    },
+    "labels": {
+        "before": ["lab-tool-element-tag", "lab-divider", "lab-tool-element-key"]
+    },
+    "items": {
+        "fontfamily": {
+            "group": "g1",
+            "inheritPath": "menu/buttons/fontfamily.json"
+        },
+        "textColor": {
+            "group": "g2",
+            "inheritPath": "menu/buttons/textColor.json"
+        },
+        "textBackgroundColor": {
+            "group": "g2",
+            "inheritPath": "menu/buttons/textBackgroundColor.json"
+        },
+        "font_weight": {
+            "icon": "labicon-text_bold",
+            "group": "g2",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "onValueCondition": "lab-key-is-true",
+            "bindToSelection": "font_weight",
+            "items": [
+                {
+                    "text": "<span class='font-weight-light'>Light</span>",
+                    "icon": "labicon-dot_s",
+                    "callback": "toggleAttribute",
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-light"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-light",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Light"
+                },
+                {
+                    "text": "<span class='font-weight-normal'>Normal</span>",
+                    "icon": "labicon-dot_m",
+                    "callback": "toggleAttribute",
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-normal"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-normal",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Normal"
+                },
+                {
+                    "text": "<span class='font-weight-bold'>Bold</span>",
+                    "icon": "labicon-dot_l",
+                    "callback": "toggleAttribute",
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-bold"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-bold",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Bold",
+                    "hotkeys": [{
+                        "key": "B",
+                        "controlkeys": ["labCtrlKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }]
+                },
+                {
+                    "text": "<span class='font-weight-black'>Black</span>",
+                    "icon": "labicon-dot_xl",
+                    "callback": "toggleAttribute",
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-black"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-black",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Black"
+                }
+            ]
+        },
+        "italic": {
+            "icon": "labicon-text_italic",
+            "callback": "toggleAttribute",
+            "key": "italic",
+            "attributes": {
+                "class": "italic"
+            },
+            "value": false,
+            "onValue": "italic",
+            "offValue": false,
+            "bindToSelection": "italic",
+            "group": "g2",
+            "title": "Italic",
+            "hotkeys": [{
+                "key": "i",
+                "controlkeys": ["labCtrlKey"],
+                "preventDefault": true,
+                "overrideDisable": true
+            }]
+        },
+        "align": {
+            "icon": "labicon-alignLeft",
+            "group": "g2",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "onValueCondition": "lab-key-is-true",
+            "bindToSelection": "text_align",
+            "items": {
+                "left": {
+                    "icon": "labicon-alignLeft",
+                    "callback": "toggleMainAttribute",
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "left"
+                    },
+                    "value": "left",
+                    "onValue": "left",
+                    "offValue": null,
+                    "bindToSelection": "text_align",
+                    "title": "Text alignment left",
+                    "text": "Align left"
+                },
+                "center": {
+                    "icon": "labicon-alignCenter",
+                    "callback": "toggleMainAttribute",
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "center"
+                    },
+                    "value": "center",
+                    "onValue": "center",
+                    "offValue": null,
+                    "bindToSelection": "text_align",
+                    "title": "Text alignment center",
+                    "text": "Align centered"
+                },
+                "right": {
+                    "icon": "labicon-alignRight",
+                    "callback": "toggleMainAttribute",
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "right"
+                    },
+                    "value": "right",
+                    "onValue": "right",
+                    "offValue": null,
+                    "bindToSelection": "text_align",
+                    "title": "Text alignment right",
+                    "text": "Align right"
+                }
+            }
+        },
+        "insert": {
+            "text": "Insert",
+            "group": "g4",
+            "title": "Insert content",
+            "submenuDirection": "lab-align-left",
+            "items": {
+                "icons": {
+                    "icon": "labicon-fontIcon",
+                    "group": "g1",
+                    "text": "Icons",
+                    "items": [
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "—",
+                            "icon": "customicon",
+                            "iconContent": "<strong>—</strong>",
+                            "text": "Em-dash"
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "€",
+                            "icon": "customicon",
+                            "iconContent": "<strong>€</strong>",
+                            "text": "Euro character"
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "©",
+                            "icon": "customicon",
+                            "iconContent": "<strong>©</strong>",
+                            "text": "Copyright character"
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-check\"> </span>",
+                            "text": "Check-mark",
+                            "icon": "fi-check"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-clock\"> </span>",
+                            "text": "Clock-symbol",
+                            "icon": "fi-clock"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-comments\"> </span>",
+                            "text": "Comments-symbol",
+                            "icon": "fi-comments"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-graph-trend\"> </span>",
+                            "text": "Trending up graph",
+                            "icon": "fi-graph-trend"
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-one\"> </span>",
+                            "text": "Die one-symbol",
+                            "icon": "fi-die-one"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-two\"> </span>",
+                            "text": "Die two-symbol",
+                            "icon": "fi-die-two"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-three\"> </span>",
+                            "text": "Die three-symbol",
+                            "icon": "fi-die-three"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-four\"> </span>",
+                            "text": "Die four-symbol",
+                            "icon": "fi-die-four"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-five\"> </span>",
+                            "text": "Die five-symbol",
+                            "icon": "fi-die-five"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-die-six\"> </span>",
+                            "text": "Die six-symbol",
+                            "icon": "fi-die-six"                
+                        }
+                    ]
+                },
+                "brands": {
+                    "icon": "labicon-fontIcon",
+                    "group": "g1",
+                    "text": "Icons - Brands",
+                    "items": [
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-facebook\"> </span>",
+                            "text": "Facebook",
+                            "icon": "fi-social-facebook"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-github\"> </span>",
+                            "text": "Github",
+                            "icon": "fi-social-github"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-instagram\"> </span>",
+                            "text": "Instagram",
+                            "icon": "fi-social-instagram"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-linkedin\"> </span>",
+                            "text": "LinkedIn",
+                            "icon": "fi-social-linkedin"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-twitter\"> </span>",
+                            "text": "X-Twitter",
+                            "icon": "fi-social-twitter"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-youtube\"> </span>",
+                            "text": "YouTube",
+                            "icon": "fi-social-youtube"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-android\"> </span>",
+                            "text": "Andriod",
+                            "icon": "fi-social-android"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-apple\"> </span>",
+                            "text": "Apple",
+                            "icon": "fi-social-apple"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-social-windows\"> </span>",
+                            "text": "Windows",
+                            "icon": "fi-social-windows"                
+                        },
+                        {
+                            "callback": "insertRawMarkup",
+                            "value": "<span class=\"fi-rss\"> </span>",
+                            "text": "RSS",
+                            "icon": "fi-rss"                
+                        }
+                    ]
+                },
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "displayCondition": "hasNoData",
+                    "params": {
+                        "key": "fields.published_url"
+                    }
+                },
+                "button_link": {
+                    "displayCondition": "hasNoData",
+                    "params": {
+                        "key": "fields.published_url"
+                    },
+                    "icon": "labicon-link",
+                    "text": "Button-link",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "a",
+                    "title": "Insert link as button",
+                    "attributeArray": [
+                        {
+                            "name": "href",
+                            "grid": 12,
+                            "type": "text",
+                            "validator": "lab_api.v1.util.valueTransformer.isMultiUrl",
+                            "userInput": true,
+                            "label": "Url, email, telephone or section",
+                            "placeholder": "https://example.com, mailto:user@example.com, tel:+4712345678",
+                            "required": true
+                        }, 
+                        {
+                            "name": "aria-label",
+                            "type": "text",
+                            "userInput": true,
+                            "label": "Label",
+                            "placeholder": "Text-content for assistive technologies"
+                        },
+                        {
+                            "name": "target",
+                            "grid": 12,
+                            "type": "checkbox",
+                            "value": "_blank",
+                            "userInput": true,
+                            "defaultValueConfigPath": "textTools.defaultValues.link.target",
+                            "label": "Open in new tab"
+                        },
+                        {
+                            "name": "class",
+                            "value": "dacBtn bg-btn-color",
+                            "userInput": false
+                        }
+                    ]
+                },
+                "nbsp": {
+                    "icon": "labicon-minus",
+                    "group": "g2",
+                    "text": "Non breaking space",
+                    "hotkeys": [{
+                        "key": " ",
+                        "controlkeys": ["labCtrlKey", "shiftKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "insertRawMarkup",
+                    "value": "&nbsp;",
+                    "title": "Non breaking space"
+                },
+                "hyphen": {
+                    "icon": "labicon-soft_hyphen",
+                    "group": "g2",
+                    "text": "Soft hyphen (line-break)",
+                    "hotkeys": [{
+                        "key": "h",
+                        "controlkeys": ["labCtrlKey", "shiftKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "insertRawMarkup",
+                    "value": "&shy;",
+                    "title": "Soft hyphen"
+                },
+                "abbreviation": {
+                    "icon": "labicon-tag",
+                    "group": "g2",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "abbr",
+                    "text": "Abbreviation",
+                    "attributeArray": [
+                        {
+                            "name": "title",
+                            "type": "text",
+                            "validator": "LabApi.v1.util.valueTransformer.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Abbreviation title ...",
+                            "required": true
+                        }
+                    ]
+                },
+                "definition": {
+                    "icon": "labicon-tag",
+                    "group": "g2",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "dfn",
+                    "text": "Definition",
+                    "attributeArray": [
+                        {
+                            "name": "title",
+                            "type": "text",
+                            "validator": "LabApi.v1.util.valueTransformer.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Definition title ...",
+                            "required": true
+                        }
+                    ]
+                }
+            }
+        },
+        "more": {
+            "text": "More",
+            "group": "g5",
+            "title": "More options",
+            "submenuDirection": "lab-align-right",
+            "items": [
+                {
+                    "icon": "labicon-textSizeDown",
+                    "group": "g1",
+                    "text": "Smaller text",
+                    "hotkeys": [{
+                        "key": "-",
+                        "controlkeys": ["labCtrlKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "textSizeDown",
+                    "autocloseSubmenuAfterAction": false,
+                    "title": "Decrease font size (Scroll down or Cmd -)"
+                },
+                {
+                    "icon": "labicon-textSizeUp",
+                    "group": "g1",
+                    "text": "Larger text",
+                    "hotkeys": [{
+                        "key": "+",
+                        "controlkeys": ["labCtrlKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "textSizeUp",
+                    "autocloseSubmenuAfterAction": false,
+                    "title": "Increase font size (Scroll up or Cmd +)"
+                },
+                {
+                    "icon": "labicon-text_underline",
+                    "group": "g2",
+                    "text": "Underline",
+                    "hotkeys": [{
+                        "key": "u",
+                        "controlkeys": ["labCtrlKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "toggleAttribute",
+                    "key": "underline",
+                    "attributes": {
+                        "class": "underline",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "underline",
+                    "offValue": false,
+                    "bindToSelection": "underline"
+                },
+                {
+                    "icon": "labicon-text_strikethrough",
+                    "group": "g2",
+                    "text": "Strikethrough",
+                    "hotkeys": [{
+                        "key": "s",
+                        "controlkeys": ["labCtrlKey", "shiftKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true,
+                    "callback": "toggleAttribute",
+                    "key": "strikethrough",
+                    "attributes": {
+                        "class": "strikethrough",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "strikethrough",
+                    "offValue": false,
+                    "bindToSelection": "strikethrough"
+                },
+                {
+                    "icon": " ",
+                    "iconContent": "A",
+                    "group": "g2",
+                    "text": "Uppercase",
+                    "callback": "toggleAttribute",
+                    "key": "texttransform",
+                    "attributes": {
+                        "class": "text-case-transform-upper",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "text-case-transform-upper",
+                    "offValue": false,
+                    "bindToSelection": "texttransform"
+                },
+                {
+                    "icon": " ",
+                    "iconContent": "a",
+                    "group": "g2",
+                    "text": "Lowercase",
+                    "callback": "toggleAttribute",
+                    "key": "texttransform",
+                    "attributes": {
+                        "class": "text-case-transform-lower",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "text-case-transform-lower",
+                    "offValue": false,
+                    "bindToSelection": "texttransform"
+                },
+                {
+                    "group": "g2",
+                    "inheritPath": "menu/buttons/superscript.json"
+                },
+                {
+                    "group": "g2",
+                    "inheritPath": "menu/buttons/subscript.json"
+                },
+                {
+                    "group": "g2-2",
+                    "text": "Animations",
+                    "icon": "labicon-animation",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "animate",
+                            "attribute": "value",
+                            "prefixToolPath": true,
+                            "valueTransformer": "toBoolean"
+                        }
+                    ],
+                    "items": [
+                        {
+                            "text": "Scroll",
+                            "icon": "labicon-animation",
+                            "callback": "toggleMainAttribute",
+                            "key": "animate",
+                            "attributes": {
+                                "class": "animate"
+                            },
+                            "value": false,
+                            "onValue": "animate",
+                            "offValue": false,
+                            "title": "Scroll text-element",
+                            "bindings": [
+                                {
+                                    "path": "animate",
+                                    "attribute": "value",
+                                    "prefixToolPath": true
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Flash",
+                            "icon": "labicon-animation",
+                            "callback": "toggleMainAttribute",
+                            "key": "animate",
+                            "attributes": {
+                                "class": "flash"
+                            },
+                            "value": false,
+                            "onValue": "flash",
+                            "offValue": false,
+                            "title": "Flash text-element",
+                            "bindings": [
+                                {
+                                    "path": "animate",
+                                    "attribute": "value",
+                                    "prefixToolPath": true
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Breaking White",
+                            "icon": "labicon-animation",
+                            "callback": "toggleMainAttribute",
+                            "key": "animate",
+                            "attributes": {
+                                "class": "breaking"
+                            },
+                            "value": false,
+                            "onValue": "breaking-white",
+                            "offValue": false,
+                            "title": "Pulsating breaking dot",
+                            "bindings": [
+                                {
+                                    "path": "animate",
+                                    "attribute": "value",
+                                    "prefixToolPath": true
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Breaking Red",
+                            "icon": "labicon-animation",
+                            "callback": "toggleMainAttribute",
+                            "key": "animate",
+                            "attributes": {
+                                "class": "breaking-red"
+                            },
+                            "value": false,
+                            "onValue": "breaking-red",
+                            "offValue": false,
+                            "title": "Pulsating breaking dot - red color",
+                            "bindings": [
+                                {
+                                    "path": "animate",
+                                    "attribute": "value",
+                                    "prefixToolPath": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "group": "g2-2",
+                    "icon": "labicon-blur",
+                    "text": "Text shadow",
+                    "callback": "textShadow",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "custom_text_shadow",
+                            "attribute": "value",
+                            "prefixToolPath": true,
+                            "valueTransformer": "toBoolean"
+                        }
+                    ],
+                    "params": {
+                        "shadow": {
+                            "key": "custom_text_shadow"
+                        }
+                    }
+                },
+                {
+                    "callback": "insertMarkupAround",
+                    "group": "g3",
+                    "title": "Insert quotes",
+                    "params": {
+                        "insertBefore": "«",
+                        "insertAfter": "»"
+                    },
+                    "icon": "customicon",
+                    "iconContent": "«»",
+                    "text": "Quote selection",
+                    "hotkeys": [{
+                        "key": "k",
+                        "controlkeys": ["labCtrlKey", "altKey"],
+                        "preventDefault": true,
+                        "overrideDisable": true
+                    }],
+                    "displayHotkeys": true
+                }
+            ]
+        },
+        "reset": {
+            "icon": "labicon-reset_style",
+            "callback": "reset",
+            "group": "g6",
+            "title": "Remove textformatting in selection for viewport (Ctrl+Escape)",
+            "hotkeys": [{
+                "key": "Escape",
+                "controlkeys": ["labCtrlKey"],
+                "preventDefault": true,
+                "overrideDisable": true
+            }]
+        }
+    }
+}

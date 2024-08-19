@@ -1,0 +1,12 @@
+{
+    "articleStyles": [
+        {
+            "name": "Centered",
+            "value": "pagestyle_centered"
+        },
+        {
+            "name": "Longread",
+            "value": "pagestyle_longread"
+        }
+    ]
+}

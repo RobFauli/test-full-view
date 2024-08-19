@@ -1,0 +1,209 @@
+{
+    
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "triggers": {
+        "mouseOver": "display",
+        "mouseOut": "hide"
+    },
+    "position": "top",
+    "offset": {
+        "margin-left": 5,
+        "top": 3
+    },
+    
+    "items": {
+
+        "delete": {
+            "trigger": ["click"],
+            "callback": "deleteStructure",
+            "group": "g1",
+            "title": "Delete content"
+        },
+        "lockButton": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "lock",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Lock row ('L')",
+            "group": "g1",
+            "hotkey": 76
+        },
+
+        "linkButton": {
+            "trigger": ["click"],
+            "lab-comment-callback": "setNodeDataByPopup will set data on the nodeModel of this structure.",
+            "callback": "setNodeDataByPopup",
+            "group": "g2",
+            "title": "Edit link",
+            "dialogue": {
+                "title": "Set url for this article",
+                "button": "OK",
+                "description": null,
+                "lab-comment-input": "Array of input fields to display in the dialogue. 'key' is name of field on the node (content) to set data on.",
+                "input": [
+                    {
+                        "key": "fields.published_url",
+                        "placeholder": "Url ...",
+                        "label": null,
+                        "lab-comment-validator": "Name of a function that will filter input and return data that will be set on the node.",
+                        "validator": "Lab.Util.UrlValidator.validatePrefix"
+                    }
+                ]
+            },
+            "lab-comment-respectLayoutLock": "Should button be disabled if structure has a layout-lock? Default is false.",
+            "respectLayoutLock": true
+        },
+        "mtoggleButton": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "hideimage",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Display / Hide image",
+            "group": "g2",
+            "respectLayoutLock": true
+        },
+        "image_above": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "titleAboveImage",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Position image above title",
+            "group": "g2",
+            "respectLayoutLock": true
+        },
+        "hideTitle": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "hideTitle",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Show/hide title",
+            "group": "g2",
+            "respectLayoutLock": true
+        },
+        "hidesubtitle": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "hidesubtitle",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Show/hide subtitle ('I')",
+            "group": "g2",
+            "respectLayoutLock": true,
+            "hotkey": 73
+        },
+        "kicker": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "showKicker",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "title": "Show/hide kicker",
+            "group": "g2",
+            "respectLayoutLock": true
+        },
+        "subarticlesButton": {
+            "trigger": ["click"],
+            "callback": "toggleSubElement",
+            "type": "boolean",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "key": "subarticles",
+            "group": "g2",
+            "title": "Show/hide subarticles",
+            "respectLayoutLock": true
+        },
+        "backgroundColor": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [
+                    {
+                        "values": "background_colors",
+                        "title": "Colors",
+                        "label": "",
+                        "key": "background_color",
+                        "removeBtn": true,
+                        "bordered": false
+                    },
+                    {
+                        "values": "gradients",
+                        "title": "Gradients",
+                        "label": "",
+                        "key": "gradient",
+                        "removeBtn": true,
+                        "bordered": true
+                    }
+                ],
+                "customColor": {
+                    "hex": true,
+                    "os": false,
+                    "key": "box_custom_background",
+                    "title": "Custom color",
+                    "removeBtn": true
+                }
+            },
+            "type": "boolean",
+            "value": false,
+            "onValue": true,
+            "onValueCondition": "lab-key-is-not-null",
+            "key": "background_color",
+            "offValue": false,
+            "group": "g2",
+            "title": "Change background color",
+            "respectLayoutLock": true
+        },
+        "code": {
+            "trigger": ["click"],
+            "callback": "setNodeDataByPopup",
+            "title": "Edit markup",
+            "group": "g3",
+            "displayCondition": "hasChildOfType",
+            "params": {
+                "childType": "markup"
+            },
+            "dialogue": {
+                "title": "Set contentbox markup",
+                "button": "OK",
+                "description": null,
+                "input": [
+                    {
+                        "type": "textarea",
+                        "key": "fields.markup",
+                        "placeholder": "<markup />",
+                        "label": null
+                    }
+                ]
+            }
+        },
+        "lbrdr": {
+            "trigger": ["click"],
+            "key": "fields.published_url",
+            "callback": "gotoArticle",
+            "group": "g4",
+            "title": "Goto article",
+            "params": {
+                "setUrlButton": "linkButton"
+            }
+        }
+
+    },
+    "params": {}
+}

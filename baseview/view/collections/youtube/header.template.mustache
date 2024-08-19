@@ -1,0 +1,24 @@
+<form class="lab-grid lab-valign-center lab-formgroup lab-space-below-none lab-space-above-none">
+
+    <div class="lab-grid-large-10 lab-grid-gap">
+        <input type="text" placeholder="Search..." class="search-bar">
+    </div>
+
+    <a href="#" title="Display more options" class="lab-btn labicon-settings lab-grid-large-2 lab-grid-gap"></a>
+
+    <div class="expanded lab-hidden lab-grid-large-12 lab-grid lab-valign-center">
+        <div class="lab-grid-large-6 lab-grid-gap">
+            <input type="text" placeholder="Video ID..." class="video-id">
+        </div>
+        <div class="lab-grid-large-6 lab-grid-gap">
+            <input type="text" placeholder="Channel ID..." class="channel-id">
+        </div>
+        {{ #channelConfig }}
+        <div class="lab-grid-large-12 lab-grid-gap lab-formgroup-item lab-inline">
+            <label for="my-channel">Only My Channel</label>
+            <input id="my-channel" type="checkbox" {{ #defaultSearch }}checked{{ /defaultSearch }}>
+        </div>
+        {{ /channelConfig }}
+    </div>
+
+</form>

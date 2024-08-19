@@ -1,0 +1,125 @@
+{
+    "editors": {
+        "caption": {
+            "selector": "figcaption[itemprop=caption]",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.imageCaption",
+            "placeholder": "Click to add caption",
+            "allowReverting": true,
+            "attributes": {
+                "text_size": {
+                    "active": false
+                },
+                "text_align": {
+                    "active": false
+                },
+                "text_color": {
+                    "active": false
+                },
+                "text_background_color": {
+                    "active": false
+                }
+            }
+        },
+        "byline": {
+            "selector": "figcaption[itemprop=author]",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.byline",
+            "placeholder": "Click to add byline",
+            "allowReverting": true,
+            "attributes": {
+                "text_size": {
+                    "active": false
+                },
+                "text_align": {
+                    "active": false
+                },
+                "text_color": {
+                    "active": false
+                },
+                "text_background_color": {
+                    "active": false
+                }
+            }
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "toggleCaption": {
+                    "group": "g5",
+                    "icon": "labicon-image_caption",
+                    "title": "Toggle displaying of caption",
+                    "autocloseSubmenuAfterAction": false,
+                    "callback": "toggleKeyAndValue",
+                    "key": "fields.displayCaption",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "fields.displayCaption",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json",
+            "items": {
+                "insert": null,
+                "more": null,
+                "align": null,
+                "textColor": null,
+                "textBackgroundColor": null,
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "group": "g3",
+                    "displayCondition": "hasParentOfTypes",
+                    "params": {
+                        "modelTypes": [
+                            "bodytext",
+                            "articleHeader",
+                            "slideshow",
+                            "factbox",
+                            "row"
+                        ]
+                    },
+                    "text": "",
+                    "displayHotkeys": false
+                },
+                "sizeHotkeyReset": {
+                    "callback": "nullCallback",
+                    "nomarkup": true,
+                    "hotkeys": [
+                        {
+                            "key": "+",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        },
+                        {
+                            "key": "-",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

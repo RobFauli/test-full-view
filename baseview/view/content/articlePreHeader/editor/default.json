@@ -1,0 +1,8 @@
+{
+    "includeFiles": [
+        "content/dropZone/editor/default.json"
+    ],
+    "editorSelectors": {
+        "edit": ["dac-articlePreHeader"]
+    }
+}

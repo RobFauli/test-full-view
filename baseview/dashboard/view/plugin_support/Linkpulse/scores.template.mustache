@@ -1,0 +1,21 @@
+<div class="widget scores">
+    <ul>
+    <li class="header">
+        <div class="header total">Total</div>
+        {{ #widget.headers }}
+        <div class="header score" title="{{ long }}">{{ short }}</div>
+        {{ /widget.headers }}
+        <div class="header url">url</div>
+    </li>
+    {{ #widget.data }}
+        <li class="value">
+            <div class="value total">{{ score_total }}</div>
+            {{ #scores }}
+            <div class="value score">{{ value }}</div>
+            {{ /scores }}
+            <div class="value url" title="Url: {{ url }}">{{ url }}</div>
+        </li>
+    {{ /widget.data }}
+    </ul>
+
+</div>

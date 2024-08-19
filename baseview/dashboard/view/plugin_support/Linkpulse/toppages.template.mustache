@@ -1,0 +1,11 @@
+<div class="widget toppages">
+    <ul>
+    {{ #widget }}
+        <li>
+            <div class="value" title="Pageviews: {{ attributes.pageviews }}">{{ #view.numFormatter }}{{ attributes.pageviews }}{{ /view.numFormatter }}</div>
+            <div class="url" title="Url: {{ attributes.url }}">{{ attributes.url }}</div>
+        </li>
+    {{ /widget }}
+    </ul>
+
+</div>

@@ -1,0 +1,188 @@
+{
+    "editors": {
+        "quote": {
+            "selector": "h3",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.quote",
+            "placeholder": "Click to add quote",
+            "modal": false,
+            "allowReverting": true
+        },
+        "author": {
+            "selector": "p",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.author",
+            "placeholder": "Click to add author",
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "large_text": {
+                    "group": "g4",
+                    "icon": "labicon-textSizeUp",
+                    "title": "Large text",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.size_small",
+                    "onValue": false,
+                    "offValue": true,
+                    "bindings": [
+                        {
+                            "path": "metadata.size_small",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "small_text": {
+                    "group": "g4",
+                    "icon": "labicon-textSizeDown",
+                    "title": "Small text",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.size_small",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.size_small",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "style_list": {
+                    "group": "g5",
+                    "icon": "labicon-spinner_1",
+                    "title": "Speech bubbles",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "onValueCondition": "lab-key-is-true",
+                    "bindToSelection": "style_list",
+                    "items": [
+                        {
+                            "text": "Square",
+                            "icon": "labicon-button_checkbox",
+                            "title": "Square bubble",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.speech_bubble",
+                            "value": false,
+                            "onValue": "speech-bubble-square",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.speech_bubble",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Oval",
+                            "icon": "labicon-button_radio",
+                            "title": "Oval bubble",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.speech_bubble",
+                            "value": false,
+                            "onValue": "speech-bubble-oval",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.speech_bubble",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Dream",
+                            "icon": "labicon-cloud_up",
+                            "title": "Dream bubble",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.speech_bubble",
+                            "value": false,
+                            "onValue": "speech-bubble-dream",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.speech_bubble",
+                                    "attribute": "value"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "uiColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "icon": "labicon-color_palette",
+                    "group": "g5",
+                    "bindings": [
+                        {
+                            "path": "metadata.ui_color",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "active": true,
+                                "selector": ".quotebox .content",
+                                "styleDefinition": "background_color",
+                                "stylePath": null
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "title": "Bubble Background Color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.speech_bubble_bg_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "backgroundColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "objectValues": false,
+                                    "title": "Bubble Text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.speech_bubble_text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "editorSelectors": {
+        "edit": ["lab-content-min-height"]
+    },
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "image": "replaceChild"
+            },
+            "default": "default"
+        },
+        "filedrop": "replaceChild"
+    }
+}

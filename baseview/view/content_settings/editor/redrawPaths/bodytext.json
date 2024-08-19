@@ -1,0 +1,5 @@
+{
+    "redrawPaths": {
+        "parent": ["metadata.bodyTextIndex"]
+    }
+}

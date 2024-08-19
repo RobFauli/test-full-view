@@ -1,0 +1,25 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "mobile": [
+                        "content/dropZone/front/mobile.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/dropZone/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/dropZone/editor/default.json"
+                }
+            }
+        }
+    }
+}

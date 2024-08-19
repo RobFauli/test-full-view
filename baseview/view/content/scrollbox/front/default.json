@@ -1,0 +1,10 @@
+{
+    "boxTitle": "Scrollbox",
+    "boxDescription": "Display a list of manually added article-teasers",
+    "boxKeywords": "slide swipe related articles",
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes"
+        }
+    }
+}

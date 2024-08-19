@@ -1,0 +1,7 @@
+<li>
+    <span class="timeline-marker {{ get.parent.metadata.ui_color }}"></span>
+    <time class="timelineItm {{ get.parent.metadata.ui_text_color }} {{ #style.collection }}text_decoration fields.date{{ /style.collection }}" data-input-key="fields.date">{{{ get.current.fields.date }}}</time>
+    {{{ children.image }}}
+    <h3 class="timelineItm {{ #style.collection }}text_decoration fields.title{{ /style.collection }}" data-input-key="fields.title">{{{ get.current.fields.title }}}</h3>
+    <div class="timelineItm bodytext {{ #style.collection }}text_decoration fields.text{{ /style.collection }}" data-input-key="fields.text">{{{ get.current.fields.text }}}</div>
+</li> 

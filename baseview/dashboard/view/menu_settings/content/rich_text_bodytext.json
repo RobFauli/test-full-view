@@ -1,0 +1,282 @@
+{
+
+    "toolsClass": "RichTextMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "position": "top",
+    "snapToTop": true,
+    "offset": {
+        "top": -2
+    },
+    "hideStructureMenus": true,
+    "targetFrame": "parent",
+
+    "items": {
+        "text_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "font_colors",
+                    "title": "Text color",
+                    "label": "A",
+                    "key": "text_color",
+                    "removeBtn": true,
+                    "bordered": true
+                }]
+            },
+            "group": "g1",
+            "title": "Change text color"
+        },
+        "text_background_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "background_colors",
+                    "title": "Background colors",
+                    "label": "",
+                    "key": "text_background_color",
+                    "removeBtn": true,
+                    "bordered": false
+                }]
+            },
+            "group": "g1",
+            "title": "Change text background color"
+        },
+
+        "text_bold": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "bold",
+            "attributes": {
+                "class": "bold",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Bold"
+        },
+
+        "text_italic": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "italic",
+            "attributes": {
+                "class": "italic",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Bold"
+        },
+
+        "text_underline": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "underline",
+            "attributes": {
+                "class": "underline",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Underline"
+        },
+
+        "text_strikethrough": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "strikethrough",
+            "attributes": {
+                "class": "strikethrough",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Strikethrough"
+        },
+
+        "link": {
+            "trigger": ["click"],
+            "group": "g3",
+            "callback": "setTag",
+            "value": "a",
+            "title": "Link",
+            "isInline": true,
+            "attributes": {
+                "href": {
+                    "type": "text",
+                    "validator": "Lab.Util.UrlValidator.validateUrl",
+                    "userInput": true,
+                    "label": "Target Url",
+                    "placeholder": "Link (required)"
+                },
+                "target": {
+                    "type": "checkbox",
+                    "value": "_blank",
+                    "userInput": true,
+                    "label": "New tab"
+                }
+            }
+        },
+
+        "pluss_slim": {
+            "group": "g3",
+            "title": "Insert Special Chars",
+            "submenuTrigger": "click",
+            "items": [
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "€",
+                    "text": "€"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "©",
+                    "text": "©"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "—",
+                    "text": "—"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-check\" data-lab-font-icon=\"fi-check\"> </span>",
+                    "btnCssClass": "fi-check"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-clock\" data-lab-font-icon=\"fi-clock\"> </span>",
+                    "btnCssClass": "fi-clock"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-comments\" data-lab-font-icon=\"fi-comments\"> </span>",
+                    "btnCssClass": "fi-comments"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-one\" data-lab-font-icon=\"fi-die-one\"> </span>",
+                    "btnCssClass": "fi-die-one"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-two\" data-lab-font-icon=\"fi-die-two\"> </span>",
+                    "btnCssClass": "fi-die-two"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-three\" data-lab-font-icon=\"fi-die-three\"> </span>",
+                    "btnCssClass": "fi-die-three"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-four\" data-lab-font-icon=\"fi-die-four\"> </span>",
+                    "btnCssClass": "fi-die-four"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-five\" data-lab-font-icon=\"fi-die-five\"> </span>",
+                    "btnCssClass": "fi-die-five"
+                },
+                {
+                    "trigger": ["click"],
+                    "callback": "insertMarkup",
+                    "value": "<span class=\"fi-die-six\" data-lab-font-icon=\"fi-die-six\"> </span>",
+                    "btnCssClass": "fi-die-six"
+                }
+            ]
+        },
+
+        "orderedList": {
+            "trigger": ["click"],
+            "group": "g4",
+            "callback": "setTag",
+            "value": "ol",
+            "title": "Ordered list"
+        },
+        "unorderedList": {
+            "trigger": ["click"],
+            "group": "g4",
+            "callback": "setTag",
+            "value": "ul",
+            "title": "Unordered list"
+        },
+        "style": {
+            "group": "g4",
+            "title": "Set style",
+            "text": "Style",
+            "submenuTrigger": "click",
+            "submenuType": "vertical",
+            "items": [
+                {
+                    "callback": "setTag",
+                    "value": "p",
+                    "text": "Normal"
+                },
+                {
+                    "callback": "setTag",
+                    "value": "h2",
+                    "text": "Heading"
+                },
+                {
+                    "callback": "setTag",
+                    "value": "abbr",
+                    "text": "Abbrevation",
+                    "isInline": true,
+                    "attributes": {
+                        "title": {
+                            "type": "text",
+                            "validator": "Lab.Util.String.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Abbrevation title ..."
+                        }
+                    }
+                },
+                {
+                    "callback": "setTag",
+                    "value": "dfn",
+                    "text": "Definition",
+                    "isInline": true,
+                    "attributes": {
+                        "title": {
+                            "type": "text",
+                            "validator": "Lab.Util.String.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Definition title ..."
+                        }
+                    }
+                }
+            ] 
+        },
+        "dummyText": {
+            "trigger": ["click"],
+            "callback": "addDummyText",
+            "key": "right",
+            "group": "g4",
+            "title": "Add placeholder text"
+        },
+
+        "fullscreen": {
+            "trigger": ["click"],
+            "callback": "triggerNodeFunction",
+            "title": "Edit in separate view (F)",
+            "params": {
+                "fn": "editFullModal"
+            }
+        }
+        
+    },
+    "params": {}
+}

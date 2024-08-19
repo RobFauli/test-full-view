@@ -1,0 +1,12 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Google Site Search</h2>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.cse_id">Google CSE ID</label>
+                <input type="text" id="id-fields.cse_id" name="fields.cse_id" value="{{ get.current.fields.cse_id }}" placeholder="123456789012345678901:abcdefghijkl">
+                <p class="lab-info">Used id: {{ get.current.filtered.cse_id }}</p>
+            </div>
+        </div>
+    </div>
+</form>

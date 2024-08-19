@@ -1,0 +1,9 @@
+<table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+    <tr>
+        <td class="padding-bottom" align="left" valign="top" style="padding-bottom: 10px;">
+            {{ #get.parent.filtered.published_url }}<a href="{{{ get.parent.filtered.published_url }}}" style="color: #000;">{{ /get.parent.filtered.published_url }}
+                <img editable="true" src="{{get.current.filtered.image}}&amp;format=jpg" width="{{ #calculator.subtract }}{{size.pixelWidth}} 20{{ /calculator.subtract }}" alt="{{ #get.current.fields.altText }}{{ get.current.fields.altText }}{{ /get.current.fields.altText }}{{ ^get.current.fields.altText }}{{ get.current.fields.imageCaption }}{{ /get.current.fields.altText }}" class="responsive-img" style="display: block; border: 0;" />
+            {{ #get.parent.filtered.published_url }}</a>{{ /get.parent.filtered.published_url }}
+        </td>
+    </tr>
+</table>

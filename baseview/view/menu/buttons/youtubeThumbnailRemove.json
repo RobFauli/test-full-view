@@ -1,0 +1,11 @@
+{
+    "icon": "labicon-image_hide",
+    "text": "Remove thumbnail image",
+    "group": "sg1",
+    "callback": "dispatch",
+    "params": {
+        "function": "contextualmenu.callbacks.removeChildByPath",
+        "removeChildPath": "youtube/image"
+    },
+    "title": "Remove thumbnail image"
+}

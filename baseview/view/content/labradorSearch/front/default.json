@@ -1,0 +1,10 @@
+{
+    "boxTitle": "Labrador Search",
+    "boxDescription": "Present site-search for end users",
+    "boxKeywords": "Labrador API feeds client side rendering browser find articles",
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes"
+        }
+    }
+}

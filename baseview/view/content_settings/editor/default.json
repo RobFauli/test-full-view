@@ -1,0 +1,11 @@
+{
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json"
+        }
+    },
+    "resetPaths": ["metadata.hasFullWidth"],
+    "resetPathsXXX": ["metadata.float", "metadata.hasFullWidth"],
+
+    "outlineOnHover": true
+}

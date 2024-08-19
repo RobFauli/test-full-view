@@ -1,0 +1,42 @@
+{
+
+    "structureTemplates": [
+        {
+            "type": "pageHeader",
+            "selector": "#pageHeader",
+            "metadata": {},
+            "children": [
+                {
+                    "type": "image",
+                    "node": {
+                        "fields": {
+                            "external_id": "lab_head_1002",
+                            "imageurl": "http://publishlab.com/pbl1.jpg?v=1002",
+                            "source": "_articlefeed",
+                            "bbRatio": "0.21",
+                            "croph": "98.412698412698",
+                            "cropw": "83.665338645418",
+                            "float": "floatLeft",
+                            "whRatio": "0.2952380952381",
+                            "x": "0",
+                            "y": "0"
+                        }
+                    }
+                }
+            ],
+            "width": 100,
+            "node": {
+                "fields": {
+                    "test": "test ..."
+                }
+            }
+        },
+        {
+            "type": "dropZone",
+            "selector": "#lab-dz-1"
+        }
+    ],
+
+    "doctype": "<!DOCTYPE HTML>"
+
+}

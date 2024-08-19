@@ -1,0 +1,51 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/twitter/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/twitter/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/twitter/editor/default.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/grid_resize.json"
+                    ]
+                }
+            }
+        },
+        "pasteboard": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/twitter/editor/pasteboard.json"
+                    ]
+                }
+            }
+        }
+    }
+}

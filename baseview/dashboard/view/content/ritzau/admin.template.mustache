@@ -1,0 +1,33 @@
+<form method="post">
+    <h3>Settings</h3>
+
+    <p style="width: 48%; float: left; margin: 1em 4% 0 0;">
+        <label>Number of articles
+            <input name="fields.limit" value="{{fields.limit}}" type="number" min="1" max="1000" placeholder="Number of items to display" />
+        </label>
+    </p>
+
+    <p style="clear: both; margin: 0;">
+        <label>Display section and tags
+            <input type="checkbox" name="fields.displayTags" value="1" {{ #fields.displayTags }}checked{{ /fields.displayTags }}/>
+        </label>
+    </p>
+
+    <p style="clear: both; margin: 0;">
+        <label>Compact view
+            <input type="checkbox" name="fields.compactView" value="1" {{ #fields.compactView }}checked{{ /fields.compactView }}/>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Site
+            <select name="fields.site_id">
+                {{ #filtered.site_id_list }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ name }}}</option>
+                {{ /filtered.site_id_list }}
+            </select>
+        </label>
+    </p>
+
+    <p style="clear: both; padding-top: 1em;"><input class="labDs-btn" style="float:right;" type="submit" value="OK"></p>
+</form>

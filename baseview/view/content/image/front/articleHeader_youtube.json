@@ -1,0 +1,14 @@
+{
+    "image": {
+        "defaultAspectRatio": 0.58
+    },
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "active": false
+                }
+            }
+        }
+    }
+}

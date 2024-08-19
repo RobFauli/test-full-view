@@ -1,0 +1,10 @@
+{
+    "boxTitle": "User Feedback",
+    "boxDescription": "Let end-users get in touch",
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes",
+            "description": "presets.vp_content_attributes"
+        }
+    }
+}

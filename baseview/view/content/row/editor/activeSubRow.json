@@ -1,0 +1,14 @@
+{
+    "droppable": {
+        "active": false,
+        "addSourceToNewSibling": true
+    },
+
+    "draggable": {
+        "icon": "labicon-articles"
+    },
+
+    "expand": {
+        "active": true
+    }
+}

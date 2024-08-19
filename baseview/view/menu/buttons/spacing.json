@@ -1,0 +1,33 @@
+{
+    "icon": "labicon-spacing",
+    "title": "Define space around element",
+    "callback": "toggleSpaceEditor",
+    "text": "Space-editor",
+    "onValue": true,
+    "offValue": false,
+    "bindings": [
+        {
+            "path": "state.spaceEditorActive",
+            "attribute": "value"
+        },
+        {
+            "pathHelper": {
+                "type": "root"
+            },
+            "path": "fields.style_spacing",
+            "attribute": "disabled",
+            "valueTransformer": "hasValue",
+            "valueTransformerOptions": {
+                "value": true,
+                "negateBoolean": true
+            }
+        }
+    ],
+    "hotkeys": [{
+        "key": "S",
+        "controlkeys": [
+            "altKey"
+        ]
+    }],
+    "displayHotkeys": true
+}

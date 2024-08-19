@@ -1,0 +1,131 @@
+{{! This partial should be included in a page-context. Uses data from page. }}
+<script>
+    (function () {
+        var handlers = {
+            articlescroller: function(item) {
+                if (window.Dac && window.Dac.AutoScroller) {
+                    var element = document.querySelector(item.selector);
+                    if (!element) {
+                        console.warn('articlescroller: Missing element for selector: "' + item.selector + '".');
+                        return;
+                    }
+                    Dac.AutoScroller(element, !!item.autoscroll, item.duration);
+                } else {
+                    console.warn('articlescroller: Missing required function Dac.AutoScroller. Content will not animate.');
+                }        
+            },
+            parallax: function(item) {
+                if (window.Dac && window.Dac.Parallax) {
+                    new Dac.Parallax(item);
+                } else {
+                    console.warn('parallax: Missing required class Dac.Parallax. Content will not animate.');
+                }
+            },
+            swipehelper: function(item) {
+                if (window.Dac && window.Dac.SwipeHelper) {
+                    var element = document.querySelector(item.selector);
+                    if (!element) {
+                        console.warn('SwipeHelper: Missing element for selector: "' + item.selector + '".');
+                        return;
+                    }
+                    new Dac.SwipeHelper(element, item);
+                } else {
+                    console.warn('SwipeHelper: Missing required function Dac.SwipeHelper.');
+                } 
+            },
+            readprogress: function(item) {
+                if (window.Dac && window.Dac.ReadProgress) {
+                    var element = document.querySelector(item.selector);
+                    if (!element) {
+                        console.warn('ReadProgress: Missing element for selector: "' + item.selector + '".');
+                        return;
+                    }
+                    new Dac.ReadProgress(element, item);
+                } else {
+                    console.warn('ReadProgress: Missing required function Dac.ReadProgress.');
+                } 
+            },
+            tabnavigation: function(item) {
+                if (window.Dac && window.Dac.TabNavigation) {
+                    new Dac.TabNavigation(item);
+                } else {
+                    console.warn('TabNavigation: Missing required function Dac.Tabnavigation.');
+                } 
+            },
+            elementattributetoggler: function(item) {
+                if (window.Dac && window.Dac.ElementAttributeToggler) {
+                    new Dac.ElementAttributeToggler(item);
+                } else {
+                    console.warn('ElementAttributeToggler: Missing required class Dac.ElementAttributeToggler.');
+                } 
+            },
+            articlelists: (item) => {
+                if (window.Dac && window.Dac.ArticleLists) {
+                    new Dac.ArticleLists(item);
+                } else {
+                    console.warn('ElementAttributeToggler: Missing required class Dac.ArticleLists.');
+                }
+            }
+        };
+    
+        // Article-scroller
+        // Register each element using AutoScroller
+        var articlescrollerQueue = window.dachserData.get('articlescroller') || [];
+        while (articlescrollerQueue.length) {
+            handlers.articlescroller(articlescrollerQueue.shift());
+        }
+    
+        // Parallax
+        // Register each element requiering js-animations
+        var parallaxQueue = window.dachserData.get('parallax') || [];
+        while (parallaxQueue.length) {
+            handlers.parallax(parallaxQueue.shift());
+        }
+    
+        // SwipeHelper
+        // Register each element using SwipeHelper:
+        var swipehelperQueue = window.dachserData.get('swipehelper') || [];
+        while (swipehelperQueue.length) {
+            handlers.swipehelper(swipehelperQueue.shift());
+        }
+
+        // ReadProgress
+        // Register each element using SwipeHelper:
+        var readprogressQueue = window.dachserData.get('readprogress') || [];
+        while (readprogressQueue.length) {
+            handlers.readprogress(readprogressQueue.shift());
+        }
+    
+        // Tab-navigation
+        var tabnavigationQueue = window.dachserData.get('tabnavigation') || [];
+        while (tabnavigationQueue.length) {
+            handlers.tabnavigation(tabnavigationQueue.shift());
+        }
+
+        // ElementAttributeToggler
+        var elementAttributeTogglerQueue = window.dachserData.get('elementattributetoggler') || [];
+        while (elementAttributeTogglerQueue.length) {
+            handlers.elementattributetoggler(elementAttributeTogglerQueue.shift());
+        }
+
+        var articlelistsQueue = window.dachserData.get('articlelists') || [];
+        while (articlelistsQueue.length) {
+            handlers.articlelists(articlelistsQueue.shift());
+        }
+    
+        {{ #app.isEditor }}
+        // Editor: Can be used to redraw items added using window.dachserData.push.
+        window.dachserData.reflow = (key, identifierKey, identifierValue) => {
+            const keyArray = window.dachserData.get(key);
+            if (!Array.isArray(keyArray)) {
+                return;
+            }
+            // Each redraw will add to the key. Use last.
+            var last = keyArray.filter(item => item[identifierKey] === identifierValue).pop();
+            if (last && typeof handlers[key] === 'function') {
+                handlers[key](last);
+            }
+        };
+        {{ /app.isEditor }}
+    }());
+</script>

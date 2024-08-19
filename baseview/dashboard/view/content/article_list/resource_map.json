@@ -1,0 +1,43 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/article_list/properties.json"
+                },
+                "template": {
+                    "default": "content/article_list/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/article_list/edit_properties.json"
+                }
+            },
+            "search": {
+                "properties": {
+                    "default": "content/article_list/search_properties.json"
+                }
+            }
+        },
+        "modal": {
+            "lab-default": {
+                "template": {
+                    "default": "content/article_list/admin"
+                }
+            }
+        },
+        "menu": {
+            "contentboxes": {
+                "template": {
+                    "default": "menu/contentbox"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column 
+    parallax-container 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ #get.current.filtered.isDebug }}isDebug{{ /get.current.filtered.isDebug }} 
+    {{ /helper.trim }}"{{ #get.current.filtered.preview }} style="height: 400px; overflow: auto;"{{ /get.current.filtered.preview }} id="parallax-{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content
+        fullwidthTarget
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+
+        {{ #get.current.filtered.layers }}
+        <div class="parallax-layer {{ css }} large-{{ grid.desktop }} small-{{ grid.mobile }}" 
+            {{ #sticky }}data-parallax-sticky=""{{ /sticky }} 
+            {{ #fullwidth }}data-parallax-fullwidth=""{{ /fullwidth }} 
+            data-parallax-content-type="{{ type }}" 
+            data-parallax-layer="{{ index }}" 
+            data-parallax-height="{{ height }}" 
+            data-parallax-spaceBelow="{{ spaceBelow }}" 
+            data-parallax-horizontalAlign-desktop="{{ horizontalAlign.desktop }}" 
+            data-parallax-horizontalAlign-mobile="{{ horizontalAlign.mobile }}" 
+            data-parallax-verticalAlign="{{ verticalAlign }}" 
+            data-parallax-verticalPosition="{{ verticalPosition }}" 
+        >
+            {{ #childByIndex }}{{ index }}{{ /childByIndex }}
+        </div>
+        {{ /get.current.filtered.layers }}
+
+        {{ #get.current.filtered.displayNoContent }}
+        <div class="lab-empty-placeholder lab-bordered labicon-parallax" style="padding: 4rem 0;">
+            <p style="margin: 1rem 0;">
+                <strong>Parallax</strong>: 
+                Drop layers here. Supported:<br>
+            </p>
+            <div style="font-size: 0.9rem; margin: 1rem 0;">
+                {{ #get.current.filtered.supportedContentTypes }}
+                <span class="lab-label">{{ . }}</span>
+                {{ /get.current.filtered.supportedContentTypes }}
+            </div>
+        </div>
+        {{ /get.current.filtered.displayNoContent }}
+
+    </div>
+    {{ #get.current.filtered.requireJs }}<script>
+    (function() {
+        const container = document.querySelector('#parallax-{{ get.current.id }}');
+        if (container) {
+            // const element = container.querySelector('.parallax-layer[data-parallax-sticky]');
+            // const elements = container.querySelectorAll('.parallax-layer[data-parallax-perspective]');
+            // const element = container.querySelector('.content');
+            // const element = container;
+            if ('IntersectionObserver' in window) {
+
+                var elements = [];
+                var animations = [];
+                var staticAttributes = [];
+                {{ #get.current.filtered.layers }}
+                    {{ #hasAnimations }}{{ #animations }}
+                    animations.push({{{ . }}});
+                    {{ /animations }}
+                    {{ #staticAttributes }}
+                    staticAttributes.push({{{ . }}});
+                    {{ /staticAttributes }}
+                    elements.push({
+                        index: {{ index }},
+                        selector: '{{{ selector }}}',
+                        animations: animations,
+                        staticAttributes: staticAttributes
+                    });
+                    animations = [];
+                    staticAttributes = [];
+                {{ /hasAnimations }}{{ /get.current.filtered.layers }}
+
+                window.dachserData.push('parallax', {
+                    // elementCount: {{ get.current.filtered.elementCount }},
+                    container,
+                    // contentContainer: container.querySelector('.content'),
+                    debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }},
+                    elements,
+                    id: '{{ get.current.id }}'
+                });
+
+                {{ #get.current.filtered.useReflow }}
+                // window.dachserData.reflow('parallax', 'id', '{{ get.current.id }}');
+                {{ /get.current.filtered.useReflow }}
+            }
+        }
+    }());
+    </script>{{ /get.current.filtered.requireJs }}
+</div>
+
+

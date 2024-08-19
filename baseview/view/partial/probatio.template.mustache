@@ -1,0 +1,84 @@
+        {{ #filtered.abversionsData }}
+        <script>
+            (function() {
+
+                if (typeof(LP4Probatio) == 'undefined') return; // Skip if LP is not used.
+
+                /**
+                 * Linkpulse Probatio AB-tests
+                 * Use supplied data to modify dom-elements of articles with an active ab-test.
+                 * Requires dom-elements of articles to contain an id with "article_<id>".
+                 * Run init() on the LP4Probatio-script after modifications is done to avoid race condition.
+                 */
+
+                var abversionsData = {{{ filtered.abversionsData }}};
+
+                // (int) Return a random integer between (and including) min and max.
+                // If param weightedResult (int) is set: Return this number 75% of the times.
+                var random = function(min, max, weightedResult) {
+                    if (typeof(weightedResult) !== 'undefined') {
+                        if (random(0,3) !== 0) { // 75%
+                            return weightedResult;
+                        }
+                    }
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                // Get params from supplied url
+                var getParams = function(url, params) {
+                    var args = url.split('&');
+                    var result = {};
+                    args.forEach(function(keyVal) {
+                        params.forEach(function(p) {
+                            if (keyVal.indexOf(p + '=') == 0) { // "width=970"
+                                result[p] = keyVal.replace(p + '=', ''); // result.width = 970
+                            }
+                        })
+                    });
+                    return result;
+                }
+
+                // Iterate test-data and modify dom. 
+                // Add data-attribute telling LP that the article has a test and replace content.
+                // Logic: If 'locked' is true the test is finished and version-index 'curId' should be used.
+                // If not, and 'curId' > -1: Last round has a winner and should be used 75% of the times. 
+                for (var articleId in abversionsData) {
+                    var domEl = document.getElementById('article_' + articleId); // article_{{id}}
+                    if (domEl) {
+                        var testData = abversionsData[articleId];
+                        var variantIndex;
+                        if (testData.curId > -1) {
+                            if (testData.locked) {
+                                variantIndex = testData.curId; // Winner. Test ended.
+                            } else {
+                                variantIndex = random(0, testData.variants.length - 1, testData.curId); // Weight testData.curId 75%
+                            }
+                        } else {
+                            variantIndex = random(0, testData.variants.length - 1);
+                        }
+                        if (!testData.variants[variantIndex]) continue;
+                        var variantData = testData.variants[variantIndex];
+                        domEl.setAttribute('data-lp4_pvId', testData.prId + ':' + variantData.id);
+                        if (variantData.image) {
+                            var imageEl = domEl.querySelector('img');
+                            if (imageEl) {
+                                var url = imageEl.getAttribute('src');
+                                var size = getParams(url, ['width', 'height']);
+                                if (size.height && size.width) {
+                                    variantData.image += '&width=' + size.width + '&height=' + size.height;
+                                }
+                                imageEl.setAttribute('src', variantData.image);
+                            }
+                        }
+                        if (variantData.title) {
+                            var titleEl = domEl.querySelector('h1');
+                            if (titleEl) titleEl.innerHTML = variantData.title;
+                        }
+                    }
+                }
+
+                // Make sure Linkpulse register modified dom-elements:
+                LP4Probatio.init();
+            })();
+        </script>
+        {{ /filtered.abversionsData }}

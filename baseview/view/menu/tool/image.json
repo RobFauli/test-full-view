@@ -1,0 +1,70 @@
+{
+    "position": "top",
+    "style": {
+        "margin-top": "-10px"
+    },
+    "items": {
+        "reset": {
+            "icon": "labicon-imgExpand",
+            "title": "Reset to original dimensions",
+            "group": "g4",
+            "callback": "reset"
+        },
+        "setFrontCrop": {
+            "icon": "labicon-imgFrontCrop",
+            "title": "Use image as front-crop",
+            "group": "g4",
+            "callback": "dispatchToolMethod",
+            "displayCondition": "pageIsArticlePage",
+            "params": {
+                "function": "setFrontCrop"
+            }
+        },
+        "advanced": {
+            "title": "Advanced settings. Displayed on bottom of page",
+            "icon": "labicon-edit",
+            "group": "g5",
+            "callback": "displaySettings"
+        },
+        "alignLeft": {
+            "title": "Toggle image-alignment left",
+            "icon": "labicon-align_content_left",
+            "group": "g6",
+            "callback": "toggleImageAlignment",
+            "onValue": "floatLeft",
+            "offValue": false,
+            "params": {
+                "isLeft": true
+            },
+            "bindings": [
+                {
+                    "path": "fields.float",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "alignRight": {
+            "title": "Toggle image-alignment right",
+            "icon": "labicon-align_content_right",
+            "group": "g6",
+            "callback": "toggleImageAlignment",
+            "onValue": "floatRight",
+            "offValue": false,
+            "params": {
+                "isLeft": false
+            },
+            "bindings": [
+                {
+                    "path": "fields.float",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "end": {
+            "title": "Save and end tool",
+            "text": "Done",
+            "group": "g7",
+            "callback": "end"
+        }
+    }
+}

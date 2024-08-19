@@ -1,0 +1,21 @@
+{
+    "plugins": {
+        "UndoManager": {
+            "autoStart": true,
+            "path": "Plugins.UndoManager",
+            "appendToAppMenu": false,
+            "maxBackupLength": 10,
+            "hotKeys": {
+                "undo": {
+                    "keyCode": 90,
+                    "controlKey": "labCtrlKey"
+                },
+                "redo": {
+                    "keyCode": 90,
+                    "controlKey": "labCtrlKey",
+                    "secondaryControlKey": "shiftKey"
+                }
+            }
+        }
+    }
+}

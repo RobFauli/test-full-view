@@ -1,0 +1,31 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 135,
+            "str": "1.3.5"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20230808",
+                "title": "Baseview-bundle for the editor",
+                "description": "Baseview now contain a Webpack-configuration for creating a bundle. Apps are exported as standard modules.",
+                "links": [
+                    "/support/docs/#view/modules/apps.md"
+                ]
+            },
+            {
+                "isImprovement": true,
+                "date": "20230817",
+                "title": "Possible to individually build Baseview modules' SCSS.",
+                "description": "Baseview modules's SCSS individually with all mixins and dependecies imported to each module."
+            },
+            {
+                "isFeature": true,
+                "date": "20230821",
+                "title": "Possible to use dynamic values as value on custom meta tag",
+                "description": "Possible to use dynamic values e.g {{ get.current.id }} as the value on custom meta tags. Use the same variables as the view."
+            }
+        ]
+    }
+}

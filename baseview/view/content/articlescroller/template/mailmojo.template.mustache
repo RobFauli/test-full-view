@@ -1,0 +1,54 @@
+<td class="cell" width="{{size.grid.percentage}}%" valign="top">
+    <table width="100%" cellspacing="0" style="border: 0; border-spacing: 0; border-collapse: collapse; padding-left: 10px; padding-right: 10px;">
+        <tr>
+            <td align="center" valign="top" style="padding-left: 10px;padding-right:10px;">
+                {{ #get.current.fields.title }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td class="font-14 text-silver" align="left" valign="top" style="font-size: 14px; color: #555;">
+                            {{ get.current.fields.title }}
+                        </td>
+                    </tr>
+                </table>
+                {{ /get.current.fields.title }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;border-spacing: 0;border-collapse: collapse;background-color: #d6d6d6;">
+                    <tr>
+                        {{ #get.current.filtered.data }}
+                        <td align="left" valign="top" style="display: inline-block;padding-left:10px;padding-top:10px;padding-bottom:10px;" width="{{#calculator.subtract}}{{ #calculator.divide }}{{size.pixelWidth}} 3{{ /calculator.divide }} 20{{/calculator.subtract}}">
+                            <table cellspacing="0" style="border: 0;border-spacing: 0;border-collapse: collapse;">
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 0;">
+                                        {{ #image }}<table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                                            <tr>
+                                                <td align="left" valign="top" style="padding: 0;">
+                                                    <a href="{{{ url }}}" style="text-decoration: none;">
+                                                        <img editable="true" src="{{{ image }}}&amp;format=jpg" width="{{#calculator.subtract}}{{ #calculator.divide }}{{size.pixelWidth}} 3{{ /calculator.divide }} 20{{/calculator.subtract}}" class="responsive-img" style="display: block; border: 0;" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>{{ /image }}
+                                        <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                                            <tr>
+                                                <td align="left" valign="top" style="padding: 0;">
+                                                    <a href="{{{ url }}}" style="text-decoration: none;">
+                                                        <h1 class="font-14 text-silver" style="font-size: 14px; color: #555;">{{ title }}</h1>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                                            <tr>
+                                                <td align="left" valign="top" style="padding: 0;">{{ subtitle }}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        {{ /get.current.filtered.data }}
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>

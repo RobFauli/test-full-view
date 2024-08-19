@@ -1,0 +1,33 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column tablebox 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    <h3 class="headline {{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h3>
+    
+    <table class="{{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ #get.current.filtered.missingData }}
+        <tbody><tr><td><p style="padding: 1em; text-align: center; color: gray;">No tabular data. Edit the table by clicking the settings-icon above.</p></td></tr></tbody>
+        {{/get.current.filtered.missingData}}
+
+        <thead>
+        {{#get.current.filtered.header}}
+            <tr>
+            {{# row }}
+                <td>
+                {{ content }}
+                </td>
+            {{/ row }}
+            </tr>
+        {{/get.current.filtered.header}}
+        </thead>
+
+        <tbody>
+            {{#get.current.filtered.table}}
+            <tr>{{# row }}<td>{{content}}</td>{{/ row }}</tr>
+            {{/get.current.filtered.table}}
+        </tbody>
+    </table>
+    <p class="description {{ #style.collection }}text_decoration fields.description{{ /style.collection }}">{{ get.current.fields.description }}</p>
+</div>

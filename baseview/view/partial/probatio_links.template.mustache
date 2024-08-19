@@ -1,0 +1,100 @@
+
+    <style>
+        article > .lab-edit-version {
+            display: none;
+            border: 1px solid #b5b5b5;
+            padding: 0.5em;
+            position: absolute;
+            background: #f9f9f9;
+            top: 0.3em;
+            right: 0.3em;
+            outline: 1px solid rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+        }
+        article:hover > .lab-edit-version {
+            display: block;
+            color: #000;
+        }
+        article > .lab-edit-version:hover {
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+        /*iframe.lab-editor-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: white;
+            border: 0;
+            max-width: 100rem;
+            box-shadow: 0px 1px 7px #000;
+            margin: auto;
+            right: 0;
+            bottom: 0;
+            outline: 1px solid white;
+        }
+        .lab-editor-close-frame {
+            position: fixed;
+            top: 0.4em;
+            color: red;
+            border: 1px solid red;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 10rem;
+            background: #fff;
+            padding: 0.4em;
+        }*/
+    </style>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function(event) {
+            if (document.cookie.indexOf("LABACTIVE") > -1) {
+                var createEditBtn = function(domElement) {
+                    var idString = domElement.getAttribute('id');
+                    if (!idString) return null;
+                    var idStringArray = idString.split('_');
+                    if (idStringArray.length !== 2) return null;
+                    var articleId = parseInt(idStringArray[1]);
+                    var el = document.createElement('a');
+                    el.setAttribute('href', '{{{ filtered.cmsUrl }}}' + '/edit/abversions/id/' + articleId);
+                    el.setAttribute('target', '_blank');
+                    el.className = 'lab-edit-version';
+                    el.innerHTML = 'Edit Versions';
+                    // el.addEventListener('click', function(e) {
+                    //     e.stopPropagation();
+                    //     e.preventDefault();
+                    //     editVersions(articleId);
+                    // }, false);
+                    return el;
+                };
+
+                // var editVersions = function(articleId) {
+                //     var frame = document.createElement('iframe');
+                //     frame.className = 'lab-editor-frame';
+                //     frame.width = '90%';
+                //     frame.height = '90%';
+                //     frame.setAttribute('src', '{{{ filtered.cmsUrl }}}' + '/edit/abversions/id/' + articleId + '?skipSubViewports=1');
+                //     document.querySelector('body').appendChild(frame);
+                //     var closeBtn = document.createElement('div');
+                //     closeBtn.innerHTML = 'Close editor';
+                //     closeBtn.className = 'lab-editor-close-frame';
+                //     closeBtn.addEventListener('click', function(e) {
+                //         document.querySelector('body').removeChild(frame);
+                //         document.querySelector('body').removeChild(closeBtn);
+                //     }, false);
+                //     document.querySelector('body').appendChild(closeBtn);
+                // };
+
+                // var articles = document.querySelectorAll('.row > article[data-lp4_pvid]');
+                var articles = document.querySelectorAll('.row > article');
+                for (var i = 0; i < articles.length; i++) {
+                    var el = createEditBtn(articles[i]);
+                    if (el) {
+                        articles[i].appendChild(el);
+                    }
+                }
+            }
+        });
+
+    </script>

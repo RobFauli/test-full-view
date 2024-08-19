@@ -1,0 +1,29 @@
+{
+    "resizable": {
+        "active": false
+    },
+    "draggable": {
+        "active": false
+    },
+    "droppable": {
+        "active": true,
+        "reject": null,
+        "hoverClass": "",
+        "hover": "addItemIfEmpty",
+        "registerOnEmpty": true
+    },
+    "expand": {
+        "active": false
+    },
+    "displayModifiedStatus": false,
+    "menus": null,
+    "addStructureOnEmpty": "row",
+    
+    "lab-comment-excludeFromPath": "Used by code reading the structure_map. If set to true this structure is ignored in the path. Usable for top-level structures like dropzone etc.",
+    "excludeFromPath": true,
+
+
+    "labEditCssClass": {
+        "edit_default": "labFn-dropZone"
+    }
+}

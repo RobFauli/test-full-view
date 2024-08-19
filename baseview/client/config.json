@@ -1,0 +1,33 @@
+{
+    "viewports": {
+        "mobile": {
+            "deviceWidth": 480
+        },
+        "desktop": {
+            "deviceWidth": 1058
+        }
+    },
+    "imageUrlOptions": {
+        "extension": ".webp"
+    },
+    "viewHelper": {
+        "image": {
+            "viewports": [
+                "desktop",
+                "mobile"
+            ],
+            "pixelDensityFactor": 2
+        }
+    },
+    "grid": {
+        "total_grid_spans": 12,
+        "grid_prefix": {
+            "mobile": "small-",
+            "desktop": "large-"
+        },
+        "abs_grid_prefix": {
+            "mobile": "small-abs-",
+            "desktop": "large-abs-"
+        }
+    }
+}

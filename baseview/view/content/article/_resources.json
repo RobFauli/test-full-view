@@ -1,0 +1,95 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/article/front/default.json",
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json"
+                    ],
+                    "mailmojo": [
+                        "content_settings/front/vp_data.json",
+                        "content_settings/front/grid/default.json",
+                        "content/article/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/article/template/default",
+                    "rss" : "content/article/template/rss",
+                    "mailmojo" : "content/article/template/mailmojo",
+                    "newssitemap": "content/article/template/newssitemap"
+                }
+            },
+            "article//": {
+                "template": {
+                    "default": "content/article/template/subarticle"
+                }
+            },
+            "articleList": {
+                "template": {
+                    "default": "content/article/template/articleList"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/article/editor/default.json"
+                    ]
+                }
+            },
+            "article//": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/droppable/disabled.json",
+                        "content/article/editor/subarticle.json"
+                    ]
+                }
+            },
+            "articleList": {
+                "properties": {
+                    "default": [
+                        "content/article/editor/articleList.json"
+                    ]
+                }
+            },
+            "scrollbox": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/droppable/disabled.json",
+                        "content/article/editor/scrollbox.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json",
+                        "content_settings/editor/resize/disabled.json",
+                        "content_settings/editor/redrawPaths/bodytext.json",
+                        "content/bodytext/editor/grid_resize.json",
+                        "content/article/editor/bodytext.json"
+                    ]
+                }
+            },
+            "text_multiline": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/resize/disabled.json",
+                        "content/article/editor/bodytext.json"
+                    ]
+                }
+            }
+        }
+    }
+}

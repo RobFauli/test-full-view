@@ -1,0 +1,3 @@
+{
+    "preDrawHandlers": ["FeedFormatterRitzau.filterExternalData"]
+}

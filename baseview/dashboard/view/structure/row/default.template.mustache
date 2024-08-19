@@ -1,0 +1,10 @@
+<div class="row grid {{view.boxCss.background_color}} {{ view.grid.css }}">
+
+    {{#view.metadata.hasRowTitle}}
+    <h5 class="{{ view.labCss.rowTitle }}">{{& view.metadata.rowTitle}}</h5>
+    {{/view.metadata.hasRowTitle}}
+
+    {{&placeholder.children}}
+
+</div>
+

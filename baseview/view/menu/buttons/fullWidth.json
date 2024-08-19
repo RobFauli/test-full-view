@@ -1,0 +1,21 @@
+{
+    "icon": "labicon-image_fullwidth",
+    "text": "Full width",
+    "callback": "toggleKeyAndValue",
+    "key": "metadata.hasFullWidth",
+    "onValue": true,
+    "offValue": false,
+    "bindings": [
+        {
+            "path": "metadata.hasFullWidth",
+            "attribute": "value"
+        }
+    ],
+    "displayHotkeys": true,
+    "hotkeys": [
+        {
+            "key": "f",
+            "controlkeys": ["shiftKey"]
+        }
+    ]
+}

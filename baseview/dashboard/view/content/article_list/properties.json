@@ -1,0 +1,35 @@
+{
+    "boxTitle": "Article List",
+    "boxDescription": "Display a list of articles",
+    "external": {
+        "data_url": "/api/v1/article?start={{ data.page }}&page=1&site_id={{{ data.site_id }}}&query={{{ data.tagSearch }}} {{{ data.author }}} {{{ data.approved }}} {{{ data.textSearch }}} {{{ data.userQuery }}} {{{ data.visibilityStatusQuery }}} {{{ data.sectionQuery }}} NOT subtype:[* TO *]&order={{{ data.order }}}&orderBy={{{ data.orderBy }}}&limit={{ data.limit }}",
+        "data": {
+            "limit": "this.fields.limit",
+            "userQuery": "this.fields.userQuery",
+            "page": "this.filtered.page",
+            "textSearch": "this.filtered.textSearch",
+            "tagSearch": "this.filtered.tagSearch",
+            "author": "this.filtered.author",
+            "approved": "this.filtered.approved",
+            "visibilityStatusQuery": "this.fields.visibilityStatusQuery",
+            "sectionQuery": "this.fields.sectionQuery",
+            "site_id": "this.fields.site_id",
+            "order": "this.filtered.sortOrder",
+            "orderBy": "this.filtered.sortOrderBy"
+        },
+        "serializer": {
+            "method": "default",
+            "keyValueDelimiter": "=",
+            "keyValuePairDelimiter": "&"
+        },
+        "skipProxy": true
+    },
+
+    "defaultFieldValues": {
+        "limit": 20,
+        "site_id": "",
+        "userQuery": "",
+        "visibilityStatusQuery": "",
+        "sectionQuery": ""
+    }
+}

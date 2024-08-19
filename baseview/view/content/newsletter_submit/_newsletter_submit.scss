@@ -1,0 +1,66 @@
+/* Style for contentbox newsletter_submit */
+@use "../../css_scss/components/vars" as *;
+
+.newsletter_submit {
+    fieldset {
+        padding: 0;
+        border: 0;
+        margin: 0;
+
+        // Assume two input elements: Email and submit:
+        input {
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 0.5em;
+            padding: 0.5em;
+            height: 2.8em;
+            vertical-align: middle;
+            box-sizing: border-box;
+            border: 0;
+        }
+    }
+    @include mobile_up {
+        &.abs_grid_12,
+        &.abs_grid_11,
+        &.abs_grid_10,
+        &.abs_grid_9,
+        &.abs_grid_8
+        {
+            fieldset {
+                input {
+                    width: 49%;
+                    &[type="submit"] {
+                        float: right;
+                    }
+                }
+            }
+        }
+
+    }
+}
+.newsletter_submit--hidden {
+    border: 1px solid #ccc;
+    padding: 1em;
+    background-color: #efefef;
+}
+
+// Labrador 4
+.newsletter_submit {
+    @include tablet_up {
+        &.large-abs-12,
+        &.large-abs-11,
+        &.large-abs-10,
+        &.large-abs-9,
+        &.large-abs-8
+        {
+            fieldset {
+                input {
+                    width: 49%;
+                    &[type="submit"] {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}

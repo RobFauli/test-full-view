@@ -1,0 +1,12 @@
+{
+    "viewHelper" : "bodytext",
+    "bodytextElements": ["p", "h2", "h3", "h4", "ul", "ol", "li"],
+    "boxTitle": "Factbox",
+    "boxKeywords": "Labrador AI artificial intelligence multiline text bodytext topic summary bullet points images",
+    "boxDescription": "Add title, text and optional images",
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes"
+        }
+    }
+}

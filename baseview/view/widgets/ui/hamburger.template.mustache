@@ -1,0 +1,74 @@
+<div class="hamburger to-be-expanded[[ #settings.classes ]] [[.]][[ /settings.classes ]]" data-id="pageElements-[[ id ]]">
+    <div class="positionRelative">
+        <span class="hamburger-button hamburger-expander">
+            <button class="burger-btn" aria-label="[[ #settings.label ]][[ settings.label]][[ /settings.label ]][[ ^settings.label ]]Åpen meny[[ /settings.label ]]" aria-expanded="false" aria-controls="hamburger-container" aria-haspopup="menu">
+                <i class="open [[ ^settings.icon_open ]]fi-list[[ /settings.icon_open ]][[ settings.icon_open ]]"></i>
+                <i class="close [[ ^settings.icon_close ]]fi-x[[ /settings.icon_close ]][[ settings.icon_close ]]"></i>
+            </button>
+        </span>
+        [[ ^settings.positionContainerAbsolute ]]
+            <div class="hamburger-container" id="hamburger-container">        
+                [[& children ]]
+            </div>
+        [[ /settings.positionContainerAbsolute ]]
+    </div>
+
+    [[ #settings.positionContainerAbsolute ]]
+        <div class="hamburger-container" id="hamburger-container">
+        [[ ^settings.noRow ]]
+            <div class="row">
+        [[ /settings.noRow ]]
+                [[& children ]]
+        [[ ^settings.noRow ]]
+            </div>
+        [[ /settings.noRow ]]
+        </div>
+    [[ /settings.positionContainerAbsolute ]]
+</div>
+
+<script>
+    (function(){
+        const burgerButton = document.querySelector('[data-id="pageElements-[[ id ]]"] .burger-btn');
+
+        function toggleDropdown() {
+            // Toggle the expanded class and aria-expanded attribute
+            document.querySelector('[data-id="pageElements-[[ id ]]"].hamburger.to-be-expanded').classList.toggle('expanded');
+            burgerButton.setAttribute('aria-expanded', burgerButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+
+            // This doesn't seem to do anything? But there's styling dependent on it some places
+            document.body.classList.toggle('hamburger-expanded');
+        }
+
+        // Called via the eventlistener - if the key is Escape, toggle the dropdown and remove the eventlistener
+        function closeDropdown(e) {
+            if(e.key === 'Escape') {
+                toggleDropdown();
+                // Set the focus back on the button when clicking escape, so the user can continue tabbing down
+                // the page in a natural flow
+                document.querySelector('[data-id="pageElements-[[ id ]]"] .burger-btn').focus();
+                window.removeEventListener('keydown', closeDropdown);
+            }
+        }
+
+        if(burgerButton) {
+            burgerButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                toggleDropdown();
+
+                // If the menu gets expanded, add the eventlistener that will close it on pressing Escape
+                // else, remove the eventlistener otherwise it will continue to listen for escape even if the menu is closed.
+                if(document.querySelector('[data-id="pageElements-[[ id ]]"] .burger-btn').getAttribute('aria-expanded') === 'true') {
+                    window.addEventListener('keydown', closeDropdown);
+                } else {
+                    window.removeEventListener('keydown', closeDropdown);
+                }
+            })
+        }
+
+        document.querySelectorAll('.hamburger .hamburger-expander, .hamburger .hamburger-container, .stop-propagation').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    }());
+</script>

@@ -1,0 +1,149 @@
+{
+
+    "resizable": {
+        "active":             true,
+        "mode":               "default",
+        "willResize":         null,
+        "didResize":          "default",
+        "params":             {}
+    },
+
+    "draggable": {
+        "active":             true,
+        "dragClass":          "labDs-drag",
+        "drag":               "default",
+        "dropped":            null,
+        "postDrop":           null,
+        "params":             {
+            "autoscroll": true
+        }
+    },
+
+    "droppable": {
+        "active":             true,
+        "accept":             "*",
+        "reject":             ["row", "byline"],
+        "hoverClass":         "labDs-hover",
+        "hover":              "default",
+        "out":                "default",
+        "drop":               "default",
+        "finished":           "default"
+    },
+
+    "dragover": {
+        "active": false
+    },
+
+    "clickable": {
+        "active": false
+    },
+
+    "expand": {
+        "active": true
+    },
+
+    "addChild": {
+        "*": true
+    },
+
+    "displayModifiedStatus": false,
+
+    "la-comment-layoutLock": "If structure is locked: What do that include?",
+    "layoutLock": {
+        "position": false,
+        "layout": true,
+        "content": false
+    },
+
+    "labEditCssClass": {},
+
+    "menus": {
+        "ContentBoxMenu": {
+
+            "lazyLoad": false,
+            "hideOnDrag": false,
+            
+            "targetFrame": "self",
+            "inlineSelector": ".dashboardbox-menu",
+            "outlineOnHover": false,
+            "position": "top",
+            "offset": {
+                "margin-top": 0,
+                "right": 28
+            },
+            
+            "items": {
+                "delete": {
+                    "trigger": ["click"],
+                    "callback": "deleteStructureWithWarning",
+                    "title": "Delete content",
+                    "respectLayoutLock": true
+                },
+                "lockButton": {
+                    "trigger": ["click"],
+                    "callback": "toggleLock",
+                    "type": "boolean",
+                    "key": "lock",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "title": "Lock row"
+                },
+                "refresh": {
+                    "trigger": ["click"],
+                    "ignorePageLock": true,
+                    "callback": "redrawStructure",
+                    "title": "Refresh"
+                },
+                "contentAdminView": {
+                    "trigger": ["click"],
+                    "callback": "toggleAdminView",
+                    "title": "Settings",
+                    "respectLayoutLock": false
+                }
+            },
+            "params": {}
+        },
+        "NavigationMenu": {
+
+            "lazyLoad": false,
+            "hideOnDrag": false,
+            
+            "targetFrame": "self",
+            "inlineSelector": ".dashboardbox-nav",
+            "outlineOnHover": false,
+
+            "position": "bottom",
+            "offset": {
+                "margin-top": 6,
+                "right": 0
+            },
+            
+            "items": {
+                "moveLeft": {
+                    "trigger": ["click"],
+                    "ignorePageLock": true,
+                    "callback": "setNodeKeyAndValue",
+                    "type": "boolean",
+                    "key": "filtered.previous_page",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "title": "Previous page"
+                },
+                "moveRight": {
+                    "trigger": ["click"],
+                    "ignorePageLock": true,
+                    "callback": "setNodeKeyAndValue",
+                    "type": "boolean",
+                    "key": "filtered.next_page",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "title": "Next page"
+                }
+            },
+            "params": {}
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "active": true,
+                    "zones": [
+                        "s"
+                    ]
+                }
+            }
+        }
+    }
+}

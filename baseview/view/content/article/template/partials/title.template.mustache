@@ -1,0 +1,5 @@
+<h2 itemprop="headline" 
+    class="headline {{ #style.collection }}text_decoration fields.title{{ /style.collection }}"
+    style="{{ #style.collection }}text_decoration_inline_style fields.title{{ /style.collection }}"
+    {{ #get.current.fields.title[animate] }}data-content="{{ #helper.sanitizeString }}{{{ get.current.filtered.title }}}{{ /helper.sanitizeString }}"{{ /get.current.fields.title[animate] }}>{{{ get.current.filtered.title }}}
+</h2>

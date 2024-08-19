@@ -1,0 +1,12 @@
+{
+    "boxTitle": "Tester fra Motor",
+    "boxDescription": "For site Motor",
+    "viewHelper" : "external",
+    "external": {
+        "url": "https://api2.naf.no/contenthub-motor/{{ get.current.filtered.apiEndpoint }}/{{ get.current.filtered.testId }}",
+        "type": "json",
+        "headers": {
+            "Ocp-Apim-Subscription-Key": "f5ab86fac4c343789c618a49b18f5395"
+        }
+    }
+}

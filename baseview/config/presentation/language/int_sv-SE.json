@@ -1,0 +1,79 @@
+{
+    "int_sv-SE": {
+        "dates": {
+            "sunday": "söndag",
+            "monday": "måndag",
+            "tuesday": "tisdag",
+            "wednesday": "onsdag",
+            "thursday": "torsdag",
+            "friday": "fredag",
+            "saturday": "lördag",
+            "january": "januari",
+            "february": "februari",
+            "mars": "mars",
+            "april": "april",
+            "may": "maj",
+            "june": "juni",
+            "july": "juli",
+            "august": "augusti",
+            "september": "september",
+            "october": "oktober",
+            "november": "november",
+            "december": "december",
+            "ago": "sedan",
+            "now": "nu",
+            "minute": "minut",
+            "min": "min",
+            "minutes": "minuter",
+            "hour": "timme",
+            "hours": "timmar",
+            "day": "dag",
+            "days": "dagar",
+            "monthdayyear": "{{DD}}/{{MM}} {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{count}} {{period}} {{ago}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Nyhetsbrev",
+                "notice": "Du får detta e-postmeddelande eftersom du prenumererar på vår e-postlista.",
+                "preferences": "Dina inställningar",
+                "unsubscribe": "Avsluta prenumeration",
+                "view": "Öppna i webbläsaren",
+                "date": "d. MMMM Y"
+            }
+        },
+        "ai": {
+            "factbox_disclaimer": "Den här faktarutan har skapats av Labrador AI och korrekturläst av en journalist."
+        },
+        "tags": {
+            "title_text": "{{tagPath}}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Sök...",
+            "label": "Sök"
+        },
+        "header": {
+            "logo_link_text": "Gå till forside"
+        },
+        "slack_notifier": {
+            "publish": {
+                "article": "*Artikel publicerad*\n*Titel*: {{{title}}}\n*Sid-ID*: {{id}}\n{{#modified}}*Datum*: {{modified}}\n{{/modified}}{{#published_ahead}}*Observera: Publicerad i förväg*\n{{/published_ahead}}{{#hidden}}*Publicerad dold*\n{{/hidden}}*Användare*: {{user}}\n*<{{{url_front}}}|Visa sida>* - *<{{{url_editor}}}|Redigera sida>*",
+                "front": "*Framsida publicerad*\n*Titel*: {{{title}}}\n*Sid-ID*: {{id}}\n*Datum*: {{modified}}\n{{#published_ahead}}*Observera: Publicerad i förväg*\n{{/published_ahead}}{{#hidden}}*Publicerad dold*\n{{/hidden}}*Användare*: {{user}}\n*<{{{url_front}}}|Visa sida>* - *<{{{url_editor}}}|Redigera sida>*",
+                "notice": "*Notis publicerad*\n*Titel*: {{{title}}}\n*Sid-ID*: {{id}}\n*Datum*: {{modified}}{{#hidden}}*Publicerad dold*\n{{/hidden}}*Användare*: {{user}}\n*<{{{url_front}}}|Visa sida>* - *<{{{url_editor}}}|Redigera sida>*"
+            },
+            "error": {
+                "all": "*{{ #isCmsError }}CMS-fel{{ /isCmsError }}{{ ^isCmsError }}View-fel{{ /isCmsError }}*: {{{message}}}\n*Stackspår*: ```{{{stackTrace}}}```\n*Användare*: {{user}}\n*<{{{url_editor}}}|Redigera sida>* - *<{{{url_monitor}}}|Utvecklarövervakning>*"
+            }
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Gå till vänster",
+            "articleScrollerRightButton": "Gå till höger"
+        },
+        "metadata": {
+            "publishedLabel": "Publicerad",
+            "modifiedLabel": "Senast uppdaterad",
+            "unpublishedLabel": "Opublicerad"
+        }
+    }
+}

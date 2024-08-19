@@ -1,0 +1,38 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/ritzau/properties.json"
+                },
+                "template": {
+                    "default": "content/ritzau/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/ritzau/edit_properties.json"
+                }
+            }
+        },
+        "modal": {
+            "lab-default": {
+                "template": {
+                    "default": "content/ritzau/admin"
+                }
+            }
+        },
+        "menu": {
+            "contentboxes": {
+                "template": {
+                    "default": "menu/contentbox"
+                }
+            }
+        }
+    }
+}

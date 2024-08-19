@@ -1,0 +1,123 @@
+<div data-element-guid="{{ get.current.guid }}" id="mobiltest{{ get.current.id }}" class="columns mobiltest {{ size.grid.css }} {{ size.grid.absCss }} {{ #style.collection }}box_decoration{{ /style.collection }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ view.boxCss.background_color }} mobiltest">
+
+        <!-- Data from database  -->
+        {{ #get.current.fields.testId }}
+            {{ #get.current.filtered.visible.score }}
+                <div class="score">
+                    {{ #get.current.filtered.score.length }}
+                        <h3>Betyg {{ #get.current.filtered.titleWithGrade }}{{ #get.current.filtered.productName }}{{ get.current.filtered.productName }}{{ /get.current.filtered.productName }}{{ /get.current.filtered.titleWithGrade }}</h3>
+                        <dl>
+                            {{ #get.current.filtered.score }}
+                                <dt>{{ key }}</dt>
+                                <dd class="scoreBar"><span class="{{ #scoreIsPercent }}totalscore{{ /scoreIsPercent }}" style="width: {{ percent }}%;"></span></dd>
+                                {{ #scoreIsPercent }}
+                                    <dd>{{ percent }}%</dd>
+                                {{ /scoreIsPercent }}
+                                {{ ^scoreIsPercent }}
+                                    <dd>{{ score }}/10</dd>
+                                {{ /scoreIsPercent }}
+                            {{ /get.current.filtered.score }}
+                        </dl>
+                    {{ /get.current.filtered.score.length }}
+
+                    {{ #get.current.filtered.topScore }}
+                        <img src="/view-resources/dachser2/public/mobil/topscore.png" />
+                    {{ /get.current.filtered.topScore }}
+
+                    {{ #get.current.filtered.recommended }}
+                        <img src="/view-resources/dachser2/public/mobil/recommended.png" />
+                    {{ /get.current.filtered.recommended }}
+                </div>
+            {{ /get.current.filtered.visible.score }}
+
+            {{ #get.current.filtered.visible.specs }}
+                <div class="specifications">
+                    <h3>Fakta {{ #get.current.filtered.titleWithFacts }}{{ #get.current.filtered.productName }}{{ get.current.filtered.productName }}{{ /get.current.filtered.productName }}{{ /get.current.filtered.titleWithFacts }}</h3>
+                    {{ #get.current.filtered.specifications }}
+                        {{ #v }}
+                            <p><strong>{{ n }}</strong> {{ v }}{{ #procent }}, <span class="tooltip" titel="Jämfört med modeller lanserade ett år tillbaka."><span class="procent">{{ . }} %</span></span>{{ /procent }}</p>
+                        {{ /v }}
+                        {{ ^v }}
+                            <h4>{{ n }}</h4>
+                        {{ /v }}
+                    {{ /get.current.filtered.specifications }}
+                </div>
+            {{ /get.current.filtered.visible.specs }}
+
+            {{ #get.current.filtered.visible.prosCons }}
+                <div class="proscons">
+                    {{ #get.current.filtered.pros.length }}
+                        <div class="pros">
+                        {{ #get.current.filtered.pros }}
+                            <p>{{ . }}</p>
+                        {{ /get.current.filtered.pros }}
+                        </div>
+                    {{ /get.current.filtered.pros.length }}
+
+                    {{ #get.current.filtered.cons.length }}
+                        <div class="cons">
+                            {{ #get.current.filtered.cons }}
+                                <p>{{ . }}</p>
+                            {{ /get.current.filtered.cons }}
+                        </div>
+                    {{ /get.current.filtered.cons.length }}
+                </div>
+            {{ /get.current.filtered.visible.prosCons }}
+        {{ /get.current.fields.testId }}
+
+        {{ #get.current.filtered.structuredData }}
+            <script type="application/ld+json">
+                {{{ . }}}
+            </script>
+        {{ /get.current.filtered.structuredData }}
+
+        <!-- Data from content box -->
+        {{ ^get.current.fields.testId }}
+            {{ #get.current.fields.productName }}
+                {{ #get.current.filtered.visible.score }}
+                    <div class="score">
+                        {{ #get.current.fields.score }}
+                            <dl>
+                                <dt><strong>Betyg:</strong> </dt><dd class="scoreBar"><span style="width: {{ . }}0%;"></span></dd><dd>{{ . }}/10</dd>
+                            </dl>
+                        {{ /get.current.fields.score }}
+
+                        {{ #get.current.filtered.topScore }}
+                            <img src="/view-resources/dachser2/public/mobil/topscore.png" />
+                        {{ /get.current.filtered.topScore }}
+
+                        {{ #get.current.filtered.recommended }}
+                            <img src="/view-resources/dachser2/public/mobil/recommended.png" />
+                        {{ /get.current.filtered.recommended }}
+                    </div>
+                {{ /get.current.filtered.visible.score }}
+
+                {{ #get.current.filtered.visible.specs }}
+                    {{ #get.current.fields.specifications }}
+                        <div class="specifications">
+                        <h3>{{ get.current.fields.productName }}</h3>
+                        {{{ . }}}
+                        </div>
+                    {{ /get.current.fields.specifications }}
+                {{ /get.current.filtered.visible.specs }}
+
+                {{ #get.current.filtered.visible.prosCons }}
+                    <div class="proscons">
+                        {{ #get.current.fields.pros }}
+                            <div class="pros">
+                                {{{ . }}}
+                            </div>
+                        {{ /get.current.fields.pros }}
+                        {{ #get.current.fields.cons }}
+                            <div class="cons">
+                                {{{ . }}}
+                            </div>
+                        {{ /get.current.fields.cons }}
+                    </div>
+                {{ /get.current.filtered.visible.prosCons }}
+            {{ /get.current.fields.productName }}
+        {{ /get.current.fields.testId }}
+    </div>
+</div>

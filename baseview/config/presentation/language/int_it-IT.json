@@ -1,0 +1,77 @@
+{
+    "int_it-IT": {
+        "dates": {
+            "sunday": "domenica",
+            "monday": "lunedì",
+            "tuesday": "martedì",
+            "wednesday": "mercoledì",
+            "thursday": "giovedì",
+            "friday": "venerdì",
+            "saturday": "sabato",
+            "january": "gennaio",
+            "february": "febbraio",
+            "mars": "marzo",
+            "april": "aprile",
+            "may": "maggio",
+            "june": "giugno",
+            "july": "luglio",
+            "august": "agosto",
+            "september": "settembre",
+            "october": "ottobre",
+            "november": "novembre",
+            "december": "dicembre",
+            "ago": "fa",
+            "now": "ora",
+            "minute": "minuto",
+            "min": "min",
+            "minutes": "minuti",
+            "hour": "ora",
+            "hours": "ore",
+            "day": "giorno",
+            "days": "giorni",
+            "monthdayyear": "{{MMMM}} {{DD}}. {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{count}} {{period}} {{ago}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Newsletter",
+                "notice": "Ricevi questa e-mail perché sei iscritto alla nostra lista e-mail.",
+                "preferences": "Le tue impostazioni",
+                "unsubscribe": "Disiscriviti",
+                "view": "Apri nel browser",
+                "date": "d. MMMM Y"
+            }
+        },
+        "embed": {
+            "embed_label": "Incorpora questo",
+            "heading": "Incorpora articolo",
+            "description": "Copia e incolla il codice HTML qui sotto nella pagina in cui vuoi incorporare questo articolo.",
+            "label_teaser": "Anteprima",
+            "label_full": "Articolo completo",
+            "close": "Chiudi"
+        },
+        "ai": {
+            "factbox_disclaimer": "Questa casella informativa è stata generata da Labrador AI e revisionata da un giornalista."
+        },
+        "tags": {
+            "title_text": "{{tagPath}}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Cerca...",
+            "label": "Cerca"
+        },
+        "header": {
+            "logo_link_text": "Vai alla pagina principale"
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Vai a sinistra",
+            "articleScrollerRightButton": "Vai a destra"
+        },
+        "metadata": {
+            "publishedLabel": "Pubblicato",
+            "modifiedLabel": "Ultimo aggiornamento",
+            "unpublishedLabel": "Non pubblicato"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "resourceAllocation": {
+        "resourceMaps": [
+            "_resources"
+        ],
+        "mergeMaps": true
+    },
+    "viewHelper": {
+        "image": {
+            "viewports": [
+                "desktop",
+                "mobile"
+            ],
+            "pixelDensityFactor": 2
+        }
+    }
+}

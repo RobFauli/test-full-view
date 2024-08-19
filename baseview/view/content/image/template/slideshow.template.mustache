@@ -1,0 +1,9 @@
+<figure data-element-guid="{{ get.current.guid }}" class="{{#helper.trim}}
+    {{ get.current.filtered.imageLoadingClass }}
+    {{/helper.trim}}">
+    <div class="img">
+        {{ > content/image/template/partials/img }}
+        {{ > content/image/template/partials/shapes }}
+    </div>
+    {{ > content/image/template/partials/caption }}
+</figure>

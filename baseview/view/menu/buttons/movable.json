@@ -1,0 +1,49 @@
+{
+    "icon": "labicon-dragButton",
+    "title": "Options for positionable content",
+    "onValue": true,
+    "offValue": false,
+    "valueTransformer": "toBoolean",
+    "items": {
+        "toggle": {
+            "icon": "labicon-dragButton",
+            "callback": "toggleKeyAndValue",
+            "text": "Position manually",
+            "key": "metadata.movableContent",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.movableContent",
+                    "attribute": "value"
+                }, {
+                    "target": "parent",
+                    "path": "metadata.movableContent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "collapse": {
+            "icon": "labicon-dragButton",
+            "callback": "toggleKeyAndValue",
+            "text": "Collapse height",
+            "key": "metadata.collapsedContent",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.collapsedContent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "reset": {
+            "icon": "labicon-reset_style",
+            "callback": "toggleKeyAndValue",
+            "text": "Reset position",
+            "key": "metadata.contentPosition",
+            "value": null,
+            "offValue": { "x": 0, "y": 0 }
+        }
+    }
+}

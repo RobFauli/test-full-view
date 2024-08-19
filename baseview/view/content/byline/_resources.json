@@ -1,0 +1,46 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content/byline/front/default.json",
+                        "content_settings/front/vp_data.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/byline/template/default"
+                }
+            },
+            "bodytext": {
+                "template": {
+                    "default": "content/byline/template/bodytext"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/default.json",
+                        "content/byline/editor/default.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/redrawPaths/bodytext.json",
+                        "content/byline/editor/bodytext.json"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "page/dashboard/default/default",
+                    "rss" : "page/dashboard/default/rss"
+                },
+                "properties": {
+                    "default": "page/dashboard/default/properties.json"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "page/dashboard/default/edit_properties.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+{
+    "editors": {
+        "firstname": {
+            "selector": ".firstname",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.firstname",
+            "placeholder": "Click to add first name",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "lastname": {
+            "selector": ".lastname",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.lastname",
+            "placeholder": "Click to add last name",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "public_email": {
+            "selector": ".public_email",
+            "fn": "EditClean",
+            "key": "fields.public_email",
+            "placeholder": "Click to add public email",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "public_url": {
+            "selector": ".public_url",
+            "fn": "EditClean",
+            "key": "fields.public_url",
+            "placeholder": "Click to add public url",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "public_phone": {
+            "selector": ".public_phone",
+            "fn": "EditClean",
+            "key": "fields.public_phone",
+            "placeholder": "Click to add public phone number",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "description": {
+            "selector": ".description",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.description",
+            "placeholder": "Click to add description",
+            "modal": false,
+            "allowReverting": true
+        },
+        "extended_description": {
+            "selector": ".extended_description",
+            "fn": "EditRich",
+            "key": "fields.description2",
+            "placeholder": "Click to add extended description",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "color_bg": null,
+                "settings": null
+            }
+        }
+    },
+    "droppable": {
+        "active": true,
+        "accept": ["image", "byline"],
+        "drop": {
+            "sourceType": {
+                "byline": "addPositionedSibling"
+            },
+            "default": "replaceChild"
+        }
+    }
+
+
+    
+}

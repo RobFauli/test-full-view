@@ -1,0 +1,38 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/lp_keystats/properties.json"
+                },
+                "template": {
+                    "default": "content/lp_keystats/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/lp_keystats/edit_properties.json"
+                }
+            }
+        },
+        "modal": {
+            "lab-default": {
+                "template": {
+                    "default": "content/lp_keystats/admin"
+                }
+            }
+        },
+        "menu": {
+            "contentboxes": {
+                "template": {
+                    "default": "menu/contentbox"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{{ #get.current.filtered.menus.[[ settings.type ]] }}
+<nav class="{{ #helper.trim }}
+    navigation 
+	{{ selector }} 
+	{{ type }}
+	[[ #settings.classes ]]
+	[[.]]
+	[[ /settings.classes ]]
+	[[ #settings.expandable ]]expandable[[ /settings.expandable ]]
+    {{ /helper.trim }}">
+	<ul class="menu-list">
+	{{ #items }}
+		<li class="first-list-item {{ #helper.trim }}
+            {{ selector }}
+            {{ #selected }} selected{{ /selected }}
+			{{ #hasChildren }} has-children{{ /hasChildren }}
+            {{ #hideOnDesktop }} dac-hidden-desktop-up{{ /hideOnDesktop }}
+            {{ #hideOnMobile }} dac-hidden-desktop-down{{ /hideOnMobile }}
+            {{ /helper.trim }}">
+			{{ #url }}
+			<a href="{{{ url }}}" target="{{ target }}">{{ title }}</a>
+			{{ /url }}
+			{{ ^url }}
+			<span tabindex="0">{{ title }}</span>
+			{{ /url }}
+			{{ #hasChildren }}
+			<ul class="children">
+				{{ #children }}
+				<li class="{{ #helper.trim }}
+                    {{ selector }}
+                    {{ #selected }} selected{{ /selected }}
+                    {{ #hideOnDesktop }} dac-hidden-desktop-up{{ /hideOnDesktop }}
+                    {{ #hideOnMobile }} dac-hidden-desktop-down{{ /hideOnMobile }}
+                    {{ /helper.trim }}">
+					{{ #url }}
+					<a href="{{{ url }}}" target="{{ target }}">{{ title }}</a>
+					{{ /url }}
+					{{ ^url }}
+					<span>{{ title }}</span>
+					{{ /url }}
+				</li>
+				{{ /children }}
+			</ul>
+			{{ /hasChildren }}
+		</li>
+	{{ /items }}
+	</ul>
+</nav>
+
+[[ #settings.expandable ]]
+[[ ^settings.skipScript ]]
+<script>
+	(function () {
+		// This is only called when the user presses the escape key.
+		function closeElement(event, element) {
+			if(event.key === 'Escape') {
+				window.removeEventListener('keydown', closeElement);
+
+				// Get all expanded elements and close them
+				const expanded = document.querySelectorAll('nav.{{ type }}.expandable .has-children.expanded');
+				for (let i = 0; i < expanded.length; i++) {
+					expanded[i].classList.remove('expanded');
+					
+					// Traverse up from the element the user has selected to see if it is a child of the expanded element
+					// If it is, set focus to the first child, as that is the span element with tabindex. 
+					// This is so that if the user has moved on from the menu, we shouldn't mess with the focus and flow
+					if(document.activeElement.closest('.has-children') === expanded[i]) {
+						expanded[i].children[0].focus();
+					}
+				}
+			
+			}
+		}
+
+		function toggleElement(event, element) {
+			// Prevent the default link behavior
+			event.preventDefault();
+
+			// Check if there are other expanded elements and close them
+			const expanded = document.querySelectorAll('nav.{{ type }}.expandable .has-children.expanded');
+			for (let i = 0; i < expanded.length; i++) {
+				if(expanded[i] !== element.parentElement) {
+					expanded[i].classList.remove('expanded');
+				}
+			}
+
+			// Toggle the class "expanded" on the parent element
+			// We toggle instead of add/remove the class because we don't know if we are opening or closing the element
+			element.parentElement.classList.toggle('expanded');
+
+			window.addEventListener('keydown', closeElement);
+		}
+
+		// Get all elements with class "has-children" and add two events - one click event and one keydown event
+		const hasChildren = document.querySelectorAll('nav.{{ type }}.expandable .has-children > span');
+		for (let i = 0; i < hasChildren.length; i++) {
+			hasChildren[i].addEventListener('click', function(e) {
+				toggleElement(e, this);
+			})
+
+			hasChildren[i].addEventListener('keydown', function (e) {
+				// Check for both enter and space keys
+				if(e.key === 'Enter' || e.key === ' ') {
+					toggleElement(e, this);
+				}
+			});
+		}
+
+	})();
+</script>
+[[ /settings.skipScript ]]
+[[ /settings.expandable ]]
+
+{{ /get.current.filtered.menus.[[ settings.type ]] }}

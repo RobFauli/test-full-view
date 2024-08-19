@@ -1,0 +1,33 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/apsis_submit/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/apsis_submit/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json"
+                    ]
+                }
+            }
+        }
+    }
+}

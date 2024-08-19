@@ -1,0 +1,14 @@
+{
+    "droppable": {
+        "active": true,
+        "accept": ["byline"],
+        "drop": "addChild"
+    },
+    "publishValidation": {
+        "childCount.byline": {
+            "validator": "notZero",
+            "allowOverride": true,
+            "description": "Article has no byline(s)"
+        }
+    }
+}

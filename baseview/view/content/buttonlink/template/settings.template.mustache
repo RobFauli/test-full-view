@@ -1,0 +1,13 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Button link settings</h2>
+    <div class="lab-formgroup lab-grid lab-grid-gap lab-valign-top">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.url">URL</label>
+            <input type="text" id="input-fields.url" name="fields.url" value="{{ get.current.fields.url }}" min="1" max="8">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="id-fields.openNewTab">Open new tab</label>
+            <input id="id-fields.openNewTab" type="checkbox" name="fields.openNewTab" value=true {{ #get.current.fields.openNewTab }}checked{{ /get.current.fields.openNewTab }}>
+        </div>
+    </div>
+</form>

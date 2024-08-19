@@ -1,0 +1,26 @@
+{{ #get.current.filtered.googleAds }}
+{{ #anchor.enabled }}
+{{ #bidding.provider.name }}
+{{ #render.template }}content/googleAd/template/anchor/{{ bidding.provider.name }}{{ /render.template }}
+{{ /bidding.provider.name }}
+{{ /anchor.enabled }}
+{{ /get.current.filtered.googleAds }}
+
+{{ #get.current.filtered.analytics.google_gtm }}{{ > partial/lab4/analytics/google/gtm_noscript }}{{ /get.current.filtered.analytics.google_gtm }}
+{{ #get.current.filtered.analytics.comscore }}{{ > partial/lab4/analytics/comscore_noscript }}{{ /get.current.filtered.analytics.comscore }}
+{{ #get.current.filtered.customTags.script.body_top }}{{{ . }}}{{ /get.current.filtered.customTags.script.body_top }}
+{{ ^app.isEditor }}
+<script>
+document.addEventListener("DOMContentLoaded", (event) => {
+    setScrollbarWidth();
+    window.addEventListener('resize', setScrollbarWidth);
+});
+function setScrollbarWidth() {
+    const root = document.querySelector(':root');
+    const width = (window.innerWidth - document.body.offsetWidth < 21) ? window.innerWidth - document.body.offsetWidth : 15;
+    root.style.setProperty('--scrollbar-width', `${ width }px`);
+}
+</script>
+{{ /app.isEditor }}
+
+{{{ selector.placement_body_top }}}

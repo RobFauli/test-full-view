@@ -1,0 +1,88 @@
+@use '../../css_scss/components/vars' as *;
+
+.articleLists {
+    h3 {
+        font-size: 30px;
+    }
+    nav {
+        ul {
+            margin: 0.6rem 0 1rem;
+
+            li {
+                display: inline-block;
+                margin-right: $columns_gutter;
+                cursor: pointer;
+            }
+            li:hover, li.selected {
+                border-bottom: 3px solid #141414;
+            }
+        }
+    }
+    .sources {
+        h4 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        figure + h4 {
+            padding-top: 0;
+        }
+        .kicker {
+            font-size: 1rem;
+        }
+        li {
+            clear: both;
+            padding: $columns_gutter 0;
+            a {
+                color: initial;
+                text-decoration: initial;
+                figure {
+                    float: left;
+                    width: 30%;
+                }
+                .kicker, h4, .subtitle {
+                    margin-left: calc(30% + #{$columns_gutter} * 2);
+                }
+            }
+        }
+        ul.noimage {
+            column-count: 1 !important;
+            li a {
+                .kicker, h4, .subtitle {
+                    margin-left: 0;
+                }
+            }
+        }
+        ul:empty {
+            column-count: 1 !important;
+            &:before {
+                content: "Loading articles ...";
+                display: block;
+                text-align: center;
+                padding: 2rem 0;
+                border: 1px solid #dbdbdb;
+                color: gray;
+            }
+        }
+        ul.error {
+            column-count: 1 !important;
+            &:empty:before {
+                border-color: red;
+                content: "No articles ...";
+            }
+        }
+    }
+
+    @include mobile {
+        h3 {
+            font-size: 18px;
+        }
+        .sources li a {
+            figure {
+                width: 25%;
+            }
+            .kicker, h4, .subtitle {
+                margin-left: calc(25% + #{$columns_gutter} * 1.5);
+            }
+        }
+    }
+}

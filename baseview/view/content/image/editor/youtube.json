@@ -1,0 +1,22 @@
+{
+    "contentMenus": {
+        "default": null
+    },
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "active": false
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "image_edit": {
+            "items": {
+                "alignLeft": null,
+                "alignRight": null
+            }
+        }
+    }
+}

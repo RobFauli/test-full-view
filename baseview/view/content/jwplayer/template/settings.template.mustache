@@ -1,0 +1,15 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap some-custom-css-class and-another-class">
+            <label for="jwplayer-settings-vid">ID</label>
+            <input type="text" id="jwplayer-settings-vid" name="fields.vid" {{ #get.current.fields.vid }}value="{{ get.current.fields.vid }}"{{ /get.current.fields.vid }}>
+        </div>
+    </div>
+    <div class="lab-formgroup">
+        <h2>Options</h2>
+        <div class="lab-formgroup-item lab-inline">
+            <input type="checkbox" id="jwplayer-settings-display_caption" name="fields.displayCaption" value="1" {{ #get.current.fields.displayCaption }}checked{{ /get.current.fields.displayCaption }}>
+            <label for="jwplayer-settings-display_caption">Display Caption</label>
+        </div>
+    </div>
+</div>

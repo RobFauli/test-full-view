@@ -1,0 +1,29 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "color_bg": {
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "selector": ".frontContent > .content"
+                            }
+                        }
+                    }
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "runApp",
+                    "title": "Settings",
+                    "params": {
+                        "name": "FrontContentSupport",
+                        "options": [{
+                            "a": 123
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

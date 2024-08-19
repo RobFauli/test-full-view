@@ -1,0 +1,8 @@
+{{ #get.current.metadata.subimage }}
+    {{ #app.isEditor }}
+    <div class="imageChildren {{ #style.collection }}subimage{{ /style.collection }}">{{{ children.all }}}</div>
+    {{ /app.isEditor }}
+    {{ #app.isFront }}{{ #children.all[0] }}
+    <div class="imageChildren {{ #style.collection }}subimage{{ /style.collection }}">{{{ children.all }}}</div>
+    {{ /children.all[0] }}{{ /app.isFront }}
+{{ /get.current.metadata.subimage }}

@@ -1,0 +1,135 @@
+{
+    "font_colors": ["navy", "blue", "aqua", "teal", "olive", "green", "lime", "yellow", "orange", "red", "fuchsia", "purple", "maroon", "white", "silver", "gray", "black"],
+    "background_colors": ["bg-navy", "bg-blue", "bg-aqua", "bg-teal", "bg-olive", "bg-green", "bg-lime", "bg-yellow", "bg-orange", "bg-red", "bg-fuchsia", "bg-purple", "bg-maroon", "bg-white", "bg-gray", "bg-silver", "bg-black"],
+
+    "deactivateImageDropsOnPage": true,
+
+    "showDashboardCopyButton": true,
+
+    "launchMapper": [
+        {
+            "callback": "LabMain.appController.createNewDashboard",
+            "description": "Create new Dashboard",
+            "permission": "dashboard_edit_mine",
+            "tags": "add create mydesk page my desk dashboard",
+            "menu": {
+                "appMenu": {
+                    "title": "New Dashboard",
+                    "zone": "navigation"
+                }
+            },
+            "hotKey": {
+                "keyCode": 78,
+                "controlKey": "shiftKey"
+            }
+        },
+        {
+            "callback": "LabMain.appController.deleteCurrentDashboard",
+            "description": "Delete current Dashboard",
+            "permission": "dashboard_edit_mine",
+            "validator": "LabMain.appController.canDeleteDashboardPage",
+            "tags": "remove delete mydesk page my desk dashboard",
+            "menu": {
+                "appMenu": {
+                    "title": "Delete Dashboard",
+                    "zone": "page"
+                }
+            }
+        },
+        {
+            "callback": "LabMain.appController.toggleDashboardEdit",
+            "description": "Toggle editing of Dashboard",
+            "validator": "LabMain.appController.canEditDashboardPage",
+            "tags": "edit modify page lock unlock change",
+            "menu": {
+                "appMenu": {
+                    "title": "Edit Dashboard",
+                    "zone": "dashboard",
+                    "standAlone": true,
+                    "standAloneOnly": true,
+                    "attributes": {
+                        "id": "edit_toggle"
+                    }
+                }
+            }
+        },
+        {
+            "callback": "lab_toggleMenu",
+            "argument": { "menu": "sharing", "submenu": "submenu_sharing"},
+            "description": "Settings for sharing of current Dashboard",
+            "tags": "mydesk my desk dashboard share pages public settings",
+            "validator": "LabMain.appController.canShareDashboardPage",
+            "menu": {
+                "appMenu": {
+                    "title": "Share Dashboard",
+                    "zone": "page"
+                }
+            }
+        },
+        {
+            "callback": "lab_toggleMenu",
+            "argument": { "menu": "contentbox", "submenu": "submenu_contentboxes"},
+            "description": "Display Content Boxes",
+            "validator": "LabMain.appController.canEditDashboardPage",
+            "tags": "Add content box list mydesk dashboard my desk contentbox",
+            "menu": {
+                "appMenu": {
+                    "title": "Contentbox",
+                    "zone": "add"
+                }
+            },
+            "hotKey": {
+                "keyCode": 67
+            }
+        },
+        {
+            "callback": "Dashboard.search",
+            "description": "Search Labrador-articles",
+            "tags": "Search find article labrador",
+            "permission": "dashboard_search",
+            "menu": {
+                "appMenu": {
+                    "title": "Search articles",
+                    "zone": "dashboard",
+                    "prepend": false,
+                    "standAlone": true
+                }
+            },
+            "hotKey": {
+                "keyCode": 83
+            }
+        }
+    ],
+
+    "exitWarning": "external",
+
+    "structure_map": {
+        "/row/": {
+            "horizontal": {
+                "path": "./columns/row/",
+                "pathForSingleChild": "."
+            },
+            "vertical": {
+                "path": "."
+            }
+        },
+        "/row/columns/row/": {
+            "horizontal": {
+                "path": "."
+            },
+            "vertical": {
+                "path": "./columns/row/"
+            }
+        },
+        "/row/columns/row/columns/row/": {
+            "vertical": {
+                "path": "."
+            }
+        }
+    },
+
+    "createArticles": {
+        "skipSection": true
+    }
+
+}

@@ -1,0 +1,30 @@
+{{ ^app.isEditor }}
+    <script>
+        var adn_kv = adn_kv || [];
+        {{ #get.current.filtered.is_article }}
+        adn_kv.push({ "tags": [{{{ get.current.filtered.tagsStringCommaSeparated }}}] });
+        {{ /get.current.filtered.is_article }}
+        {{ #get.current.filtered.is_front }}
+        adn_kv.push({ "tags": [ "{{ get.current.fields.name }}"] });
+        {{ /get.current.filtered.is_front }}
+
+        var handleAsTablet = (Dac.clientData.device === 'tablet' || Dac.clientData.innerWidth < {{ get.current.filtered.adnuntius.hideOnTabletWidth }});
+        var adUnits = [];
+        {{ #get.current.filtered.adnuntius.adUnits }}
+        if (!(handleAsTablet && '{{ metadata.hideOnTablet }}' === 'true')) {
+            adUnits.push('{{ auId }}');
+        }
+        {{ /get.current.filtered.adnuntius.adUnits }}
+
+        var adnMeta = {
+            kv: adn_kv,
+            adUnits: adUnits
+        }
+
+        {{ #get.current.filtered.adnuntius.contkitEnabled }}
+        if (window.ck != null && typeof window.ck.hasGid === 'function' && window.ck.hasGid()) {
+            adnMeta.userId = window.ck.hasGid();
+        }
+        {{ /get.current.filtered.adnuntius.contkitEnabled }}
+    </script>
+{{ /app.isEditor }}

@@ -1,0 +1,69 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content/markup/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/markup/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/markup/editor/default.json"
+                    ]
+                }
+            },
+            "article": {
+                "properties": {
+                    "default": [
+                        "menu/content/reset/contentMenus.json",
+                        "content/markup/editor/subcontent.json",
+                        "content_settings/editor/draggable/disabled.json",
+                        "content_settings/editor/droppable/disabled.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "menu/content/reset/contentMenus.json",
+                        "content/markup/editor/subcontent.json",
+                        "content_settings/editor/draggable/disabled.json",
+                        "content_settings/editor/droppable/disabled.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json",
+                        "content/bodytext/editor/grid_resize.json"
+                    ]
+                }
+            },
+            "parallax": {
+                "properties": {
+                    "default": [
+                        "content/parallax/editor/layer.json"
+                    ]
+                }
+            }
+        }
+    }
+}

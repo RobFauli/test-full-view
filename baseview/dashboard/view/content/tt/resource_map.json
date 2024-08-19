@@ -1,0 +1,38 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/tt/properties.json"
+                },
+                "template": {
+                    "default": "content/tt/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/tt/edit_properties.json"
+                }
+            }
+        },
+        "modal": {
+            "lab-default": {
+                "template": {
+                    "default": "content/tt/admin"
+                }
+            }
+        },
+        "menu": {
+            "contentboxes": {
+                "template": {
+                    "default": "menu/contentbox"
+                }
+            }
+        }
+    }
+}

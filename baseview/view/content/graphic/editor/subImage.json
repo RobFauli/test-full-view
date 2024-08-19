@@ -1,0 +1,14 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "color_bg": null,
+                "settings": null,
+                "style": null
+            }
+        }
+    },
+    "draggable": {
+        "active": false
+    }
+}

@@ -1,0 +1,15 @@
+<figure data-element-guid="{{ get.current.guid }}" class="{{#helper.trim}}
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #get.current.filtered.hasFloat }}{{ #style.definition }}responsive_size fields.vpWidth{{ /style.definition }}{{ /get.current.filtered.hasFloat }}
+    {{ #style.definition }}imageBorder fields.border{{ /style.definition }}
+    {{ #style.definition }}imageAlign fields.float{{ /style.definition }}
+    {{ get.current.filtered.imageLoadingClass }}
+    {{/helper.trim}}" {{ #get.current.filtered.hasFloat }}{{ ^get.current.fields.vpWidth }}style="width:{{ get.current.filtered.imageWidth }}px;"{{ /get.current.fields.vpWidth }}{{ /get.current.filtered.hasFloat }}>
+    <div class="img{{ #get.current.filtered.allowFullwidth }} fullwidthTarget{{ /get.current.filtered.allowFullwidth }} {{ #style.collection }}content_decoration{{ /style.collection }}">
+        {{ > content/image/template/partials/img }}
+        {{ > content/image/template/partials/shapes }}
+    </div>
+    {{ ^get.parent.filtered.layout.floating }} {{ #get.current.filtered.captionOptions.display }}
+    {{ > content/image/template/partials/caption }}
+    {{ /get.current.filtered.captionOptions.display }} {{ /get.parent.filtered.layout.floating }}
+</figure>

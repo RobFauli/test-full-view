@@ -1,0 +1,65 @@
+// This mixin should be used with defined background-colors, text-colors and gradients for a site
+// It will run methods using the defined colors to set up css for text, backgrounds, gradients, borders etc.
+
+
+// Implementation-example
+
+// @import '../mixins/colortoolsrunner';
+// $background_colors: (
+//     primary-light:      #6db6df,
+//     primary:            #3686ad,
+//     primary-dark:       #00597e,
+//     secondary-light:    #f18389,
+//     secondary:          #d61621,
+//     secondary-dark:     #a70404,
+//     black:              rgb(0, 0, 0),
+//     white:              rgb(255, 255, 255),
+// );
+// $background_colors_opacity: 20, 40, 60, 80;
+// $text_colors: (
+//     primary-light:      #6db6df,
+//     primary:            #3686ad,
+//     primary-dark:       #00597e,
+//     secondary-light:    #f18389,
+//     secondary:          #d61621,
+//     secondary-dark:     #a70404,
+//     black:              rgb(0, 0, 0),
+//     white:              rgb(255, 255, 255),
+// );
+// @include colortoolsrunner($background_colors, $background_colors_opacity, $text_colors);
+
+
+@import "colortools";
+
+@mixin colortoolsrunner($background_colors, $background_colors_opacity, $text_colors) {
+
+    // Text colors
+    @include text_color_list($text_colors);
+    @include desktop_down {
+        @include text_color_list($text_colors, "color_mobile_");
+    }
+
+    // Border colors
+    @include border_color_list($background_colors, "");
+    @include desktop_down {
+        @include border_color_list($background_colors, "mobile_");
+    }
+
+    // Border widths
+    @include border_width_list("border_width_");
+    @include desktop_down {
+        @include border_width_list("border_width_mobile_");
+    }
+
+    // Background colors
+    @include background_color_list($background_colors, $background_colors_opacity, "");
+    @include desktop_down {
+        @include background_color_list($background_colors, $background_colors_opacity, "color_mobile_");
+    }
+
+    // Gradient overlay for images
+    @include image_gradient($background_colors, '', ('top', 'left', 'right'), 'image-gradient-');
+    @include desktop_down {
+        @include image_gradient($background_colors, 'color_mobile_', ('top', 'left', 'right'), 'color_mobile_image-gradient-');
+    }
+}

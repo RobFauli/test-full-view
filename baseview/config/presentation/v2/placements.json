@@ -1,0 +1,454 @@
+{
+    "placements": {
+        "front": {
+            "desktop": [
+                {
+                    "key": "above_header",
+                    "name": "Above header",
+                    "path": "page_front",
+                    "selector": "placement_body_top",
+                    "metadata": {
+                        "css": "placement-body-top"
+                    }
+                },
+                {
+                    "key": "topbanner",
+                    "name": "Top banner",
+                    "path": "page_front",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-top"
+                    }
+                },
+                {
+                    "key": "skyscraper_left",
+                    "name": "Skyscraper left",
+                    "path": "page_front",
+                    "selector": "placement_left",
+                    "metadata": {
+                        "css": "placement-left",
+                        "hideOnTablet": true
+                    }
+                },
+                {
+                    "key": "skyscraper_right",
+                    "name": "Skyscraper right",
+                    "path": "page_front",
+                    "selector": "placement_right",
+                    "metadata": {
+                        "css": "placement-right",
+                        "hideOnTablet": true
+                    }
+                },
+                {
+                    "key": "horseshoe",
+                    "name": "Horseshoe",
+                    "path": "page_front",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-bgTop_150"
+                    },
+                    "options": {
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "key": "horseshoe_300",
+                    "name": "Horseshoe 300",
+                    "path": "page_front",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-bgTop_300"
+                    },
+                    "options": {
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "key": "row",
+                    "name": "Row",
+                    "path": "page_front/dropZone",
+                    "options": {
+                        "useIndex": true,
+                        "skipIfOutOfBounds": true,
+                        "wrap": {
+                            "type": "row"
+                        }
+                    }
+                },
+                {
+                    "key": "parallax",
+                    "name": "Parallax",
+                    "path": "page_front/dropZone",
+                    "options": {
+                        "useIndex": true,
+                        "skipIfOutOfBounds": true,
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    },
+                    "metadata": {
+                        "css": "adZone-parallax"
+                    }
+                },
+                {
+                    "key": "overlay",
+                    "name": "Overlay",
+                    "path": "page_front",
+                    "selector": "placement_non-relative",
+                    "metadata": {
+                        "css": "placement-overlay"
+                    }
+                }
+            ],
+            "mobile": [
+                {
+                    "key": "above_header",
+                    "name": "Above header",
+                    "path": "page_front",
+                    "selector": "placement_body_top",
+                    "metadata": {
+                        "css": "placement-body-top"
+                    }
+                },
+                {
+                    "key": "row",
+                    "name": "Row",
+                    "path": "page_front/dropZone/row/*",
+                    "options": {
+                        "useIndex": true,
+                        "shouldInsert": false,
+                        "skipIfOutOfBounds": true
+                    }
+                },
+                {
+                    "key": "dropZone",
+                    "name": "Between rows",
+                    "path": "page_front/dropZone/*",
+                    "options": {
+                        "useIndex": true,
+                        "shouldInsert": false,
+                        "skipIfOutOfBounds": true,
+                        "wrap": {
+                            "type": "row"
+                        }
+                    }
+                },
+                {
+                    "key": "parallax",
+                    "name": "Parallax",
+                    "path": "page_front/dropZone",
+                    "options": {
+                        "useIndex": true,
+                        "skipIfOutOfBounds": true,
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    },
+                    "metadata": {
+                        "css": "adZone-parallax"
+                    }
+                }
+            ],
+            "mailmojo": [
+                {
+                    "key": "row",
+                    "name": "Row",
+                    "path": "dropZone",
+                    "options": {
+                        "useIndex": true,
+                        "wrap": {
+                            "type": "row"
+                        }
+                    }
+                }
+            ]
+        },
+        "article": {
+            "desktop": [
+                {
+                    "key": "above_header",
+                    "name": "Above header",
+                    "path": "page_article",
+                    "selector": "placement_body_top",
+                    "metadata": {
+                        "css": "placement-body-top"
+                    }
+                },
+                {
+                    "key": "topbanner",
+                    "name": "Top banner",
+                    "path": "page_article",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-top"
+                    }
+                },
+                {
+                    "key": "skyscraper_left",
+                    "name": "Skyscraper left",
+                    "path": "page_article",
+                    "selector": "placement_left",
+                    "metadata": {
+                        "css": "placement-left",
+                        "hideOnTablet": true
+                    }
+                },
+                {
+                    "key": "skyscraper_right",
+                    "name": "Skyscraper right",
+                    "path": "page_article",
+                    "selector": "placement_right",
+                    "metadata": {
+                        "css": "placement-right",
+                        "hideOnTablet": true
+                    }
+                },
+                {
+                    "key": "horseshoe",
+                    "name": "Horseshoe",
+                    "path": "page_article",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-bgTop_150 desktop-fullWidth fullwidthTarget"
+                    },
+                    "options": {
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "key": "horseshoe_300",
+                    "name": "Horseshoe 300",
+                    "path": "page_article",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-bgTop_300 desktop-fullWidth fullwidthTarget"
+                    },
+                    "options": {
+                        "wrap": {
+                            "type": "row",
+                            "metadata": {
+                                "isSection": true,
+                                "fullWidthContent": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "key": "section",
+                    "name": "Bodytext section fullwidth",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "useBodyTextIndex": true,
+                        "skipIfOutOfBounds": true
+                    },
+                    "metadata": {
+                        "css": "widthFull",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "section_inline",
+                    "name": "Bodytext section inline",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "useBodyTextIndex": true,
+                        "skipIfOutOfBounds": true
+                    },
+                    "metadata": {
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "section_right",
+                    "name": "Bodytext section right",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "useBodyTextIndex": true,
+                        "skipIfOutOfBounds": true
+                    },
+                    "metadata": {
+                        "css": "floatRight widthAuto",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "section_header",
+                    "name": "Above bodytext heading",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "useBodyTextHeadingIndex": true,
+                        "skipIfOutOfBounds": true
+                    },
+                    "metadata": {
+                        "css": "widthFull",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "section_above_last_header",
+                    "name": "Above last bodytext heading",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "lastBodyTextHeading": true
+                    },
+                    "metadata": {
+                        "css": "widthFull",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "article_bottom",
+                    "name": "Below article",
+                    "path": "dropZone",
+                    "options": {
+                        "useIndex": true,
+                        "index": 0,
+                        "wrap": {
+                            "type": "row"
+                        }
+                    },
+                    "metadata": {
+                        "css": "large-12 small-12"
+                    }
+                },
+                {
+                    "key": "article_top",
+                    "name": "Above article",
+                    "path": "page_article",
+                    "selector": "placement_above_article",
+                    "metadata": {
+                        "css": "fullWidth"
+                    }
+                },                       
+                {
+                    "key": "parallax",
+                    "name": "Parallax",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "skipIfOutOfBounds": true,
+                        "useBodyTextIndex": true
+                    },
+                    "metadata": {
+                        "css": "adZone-parallax",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "overlay",
+                    "name": "Overlay",
+                    "path": "page_article",
+                    "selector": "placement_non-relative",
+                    "metadata": {
+                        "css": "placement-overlay"
+                    }
+                }
+            ],
+            "mobile": [
+                {
+                    "key": "above_header",
+                    "name": "Above header",
+                    "path": "page_article",
+                    "selector": "placement_body_top",
+                    "metadata": {
+                        "css": "placement-body-top"
+                    }
+                },
+                {
+                    "key": "topbanner",
+                    "name": "Top banner",
+                    "path": "page_article",
+                    "selector": "placement_top",
+                    "metadata": {
+                        "css": "placement-top"
+                    }
+                },
+                {
+                    "key": "section",
+                    "name": "Bodytext section",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "skipIfOutOfBounds": true,
+                        "useBodyTextIndex": true
+                    },
+                    "metadata": {
+                        "css": "small-12"
+                    }
+                },
+                {
+                    "key": "parallax",
+                    "name": "Parallax",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "skipIfOutOfBounds": true,
+                        "useBodyTextIndex": true
+                    },
+                    "metadata": {
+                        "css": "adZone-parallax",
+                        "isBodytext": true
+                    }
+                },
+                {
+                    "key": "section_header",
+                    "name": "Above bodytext heading",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "useBodyTextHeadingIndex": true,
+                        "skipIfOutOfBounds": true
+                    },
+                    "metadata": {
+                        "css": "small-12"
+                    }
+                },
+                {
+                    "key": "section_above_last_header",
+                    "name": "Above last bodytext heading",
+                    "path": "bodytext[0]",
+                    "options": {
+                        "lastBodyTextHeading": true
+                    },
+                    "metadata": {
+                        "css": "small-12"
+                    }
+                },
+                {
+                    "key": "article_bottom",
+                    "name": "Below article",
+                    "path": "dropZone/row",
+                    "options": {
+                        "useIndex": false
+                    },
+                    "metadata": {
+                        "css": "large-12 small-12"
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,110 @@
+{
+    "icon": "labicon-dragButton",
+    "title": "Options for moving row",
+    "onValue": true,
+    "offValue": false,
+    "value": false,
+    "bindings": [
+        {
+            "path": "state.childDragDisabled",
+            "attribute": "value"
+        },
+        {
+            "path": "metadata.movableContent",
+            "attribute": "value"
+        }
+    ],
+    "items": {
+        "dragChildren": {
+            "text": "Make row draggable",
+            "displayHotkeys": true,
+            "icon": "labicon-dragButton",
+            "callback": "toggleChildDrag",
+            "onValue": true,
+            "offValue": false,
+            "value": false,
+            "title": "Toggle draggable row (R)",
+            "group": "g2_1",
+            "hotkeys": [{
+                "key": "R"
+            }],
+            "bindings": [
+                {
+                    "path": "state.childDragDisabled",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "moveUp": {
+            "text": "Move up",
+            "displayHotkeys": true,
+            "icon": "labicon-moveUp",
+            "callback": "moveUp",
+            "title": "Move up (Shift+Arrow Up)",
+            "params": {
+                "restrictToCurrentType": true
+            },
+            "hotkeys": [{
+                "key": "ArrowUp",
+                "controlkeys": ["shiftKey"]
+            }]
+        },
+        "moveDown": {
+            "text": "Move down",
+            "displayHotkeys": true,
+            "icon": "labicon-moveDown",
+            "callback": "moveDown",
+            "title": "Move down (Shift+Arrow Down)",
+            "params": {
+                "restrictToCurrentType": true
+            },
+            "hotkeys": [{
+                "key": "ArrowDown",
+                "controlkeys": ["shiftKey"]
+            }]
+        },
+        "toggleMovable": {
+            "icon": "labicon-dragButton",
+            "callback": "toggleKeyAndValue",
+            "group": "g2_3",
+            "text": "Position manually",
+            "key": "metadata.movableContent",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.movableContent",
+                    "attribute": "value"
+                }, {
+                    "target": "parent",
+                    "path": "metadata.movableContent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "collapseMovable": {
+            "icon": "labicon-dragButton",
+            "callback": "toggleKeyAndValue",
+            "group": "g2_3",
+            "text": "Collapse height",
+            "key": "metadata.collapsedContent",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.collapsedContent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "resetMovable": {
+            "icon": "labicon-reset_style",
+            "callback": "toggleKeyAndValue",
+            "group": "g2_3",
+            "text": "Reset position",
+            "key": "metadata.contentPosition",
+            "value": null,
+            "offValue": { "x": 0, "y": 0 }
+        }
+    }
+}

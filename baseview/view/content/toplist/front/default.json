@@ -1,0 +1,16 @@
+{
+    "boxTitle": "Toplist",
+    "boxDescription": "Display most read articles",
+    "boxKeywords": "popular read views pageviews hits pages posts content news stories blogs kilkaya statistics",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.integration_url }}}/stats/kilkaya/toplist/?limit={{ get.current.filtered.limit }}&hostname={{{ get.current.filtered.domain }}}&endpoint=query&days={{ get.current.fields.days }}&apiUrl={{{ getCmsConfig.front_api_url }}}/",
+        "type": "json"
+    },
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes",
+            "layout": "presets.vp_data"
+        }
+    }
+}

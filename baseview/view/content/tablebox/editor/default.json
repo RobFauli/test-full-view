@@ -1,0 +1,63 @@
+{
+    "editors": {
+        "title": {
+            "selector": "h3",
+            "fn": "EditRich",
+            "key": "fields.title",
+            "menu": "rich_text",
+            "placeholder": "Click to add table title",
+            "modal": false,
+            "allowReverting": true
+        },
+        "description": {
+            "selector": "p.description",
+            "fn": "EditRich",
+            "key": "fields.description",
+            "menu": "rich_text",
+            "placeholder": "Click to add table description",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                },
+                "color_bg": {
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "selector": "table"
+                            }
+                        }
+                    }
+                },
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/tablebox/template/settings"
+        }
+    }
+}

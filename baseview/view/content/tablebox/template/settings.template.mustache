@@ -1,0 +1,17 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Table-view</h2>
+    <p>Type or paste tabular data. Use tab as column-separator and line shift as row-separator (TSV).</p>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <textarea name="fields.tabledata" rows="30" style="height: 260px;"
+    onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"
+    >{{ get.current.filtered.tabledata }}</textarea>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="input-fields.tableheader">Use first row as header</label>
+                <input type="checkbox" name="fields.tableheader" id="input-fields.tableheader" {{ #get.current.fields.tableheader }}checked{{ /get.current.fields.tableheader }}>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,257 @@
+{
+    "icon": "labicon-text_options",
+    "title": "Text options",
+    "items": {
+        "kicker": {
+            "group": "g1",
+            "text": "Kicker",
+            "icon": "labicon-text_kicker",
+            "title": "Kicker-options",
+            "items": {
+                "hide": {
+                    "icon": "labicon-preview",
+                    "text": "Display kicker",
+                    "title": "Show or hide kicker",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.showKicker",
+                    "onValue": true,
+                    "offValue": false,
+                    "callback": "toggleKeyAndValue",
+                    "displayHotkeys": true,
+                    "hotkeys": [{
+                        "key": "k",
+                        "controlkeys": []
+                    }],
+                    "bindings": [
+                        {
+                            "path": "metadata.showKicker",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "below_image": {
+                    "icon": "labicon-image_above",
+                    "text": "Below image",
+                    "title": "Position kicker below image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.kickerBelowImage",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callbacks": ["toggleKeyAndValue", "dispatch"],
+                    "params": {
+                        "function": "contextualmenu.callbacks.displayKicker"
+                    },
+                    "hotkeys": [{
+                        "key": "k",
+                        "controlkeys": ["shiftKey"]
+                    }],
+                    "bindings": [
+                        {
+                            "path": "metadata.kickerBelowImage",
+                            "attribute": "value"
+                        },
+                        {
+                            "path": "metadata.floatingKicker",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "floating": {
+                    "icon": "labicon-image_caption",
+                    "text": "Float above image",
+                    "title": "Float above image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.floatingKicker",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callbacks": ["toggleKeyAndValue", "dispatch"],
+                    "params": {
+                        "function": "contextualmenu.callbacks.displayKicker"
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.floatingKicker",
+                            "attribute": "value"
+                        }
+                    ]
+                }
+            }
+        },
+        "title": {
+            "group": "g1",
+            "text": "Title",
+            "icon": "labicon-text_title",
+            "title": "Title-options",
+            "items": {
+                "hide": {
+                    "icon": "labicon-preview",
+                    "text": "Display title",
+                    "title": "Hide or show title",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.hideTitle",
+                    "onValue": false,
+                    "offValue": true,
+                    "callback": "toggleKeyAndValue",
+                    "displayHotkeys": true,
+                    "hotkeys": [{
+                        "key": "t",
+                        "controlkeys": ["shiftKey"]
+                    }],
+                    "bindings": [
+                        {
+                            "path": "metadata.hideTitle",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "above_image": {
+                    "icon": "labicon-image_above",
+                    "text": "Above image",
+                    "title": "Position title above image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.titleAboveImage",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callback": "toggleKeyAndValue",
+                    "bindings": [
+                        {
+                            "path": "metadata.titleAboveImage",
+                            "attribute": "value"
+                        },
+                        {
+                            "path": "metadata.floatingTitle",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "floating": {
+                    "icon": "labicon-image_caption",
+                    "text": "Float above image",
+                    "title": "Float above image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.floatingTitle",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callback": "toggleKeyAndValue",
+                    "bindings": [
+                        {
+                            "path": "metadata.floatingTitle",
+                            "attribute": "value"
+                        }
+                    ]
+                }
+            }
+        },
+        "subtitle": {
+            "group": "g1",
+            "text": "Subtitle",
+            "icon": "labicon-text_subtitle",
+            "title": "Subtitle-options",
+            "items": {
+                "hide": {
+                    "icon": "labicon-preview",
+                    "text": "Display subtitle",
+                    "title": "Hide or show subtitle",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.hidesubtitle",
+                    "onValue": false,
+                    "offValue": true,
+                    "callback": "toggleKeyAndValue",
+                    "displayHotkeys": true,
+                    "hotkeys": [{
+                        "key": "i",
+                        "controlkeys": []
+                    }],
+                    "bindings": [
+                        {
+                            "path": "metadata.hidesubtitle",
+                            "attribute": "value",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "above_image": {
+                    "icon": "labicon-image_above",
+                    "text": "Above image",
+                    "title": "Position subtitle above image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.subtitleAboveImage",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callback": "toggleKeyAndValue",
+                    "bindings": [
+                        {
+                            "path": "metadata.subtitleAboveImage",
+                            "attribute": "value"
+                        },
+                        {
+                            "path": "metadata.floatingSubtitle",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "floating": {
+                    "icon": "labicon-image_caption",
+                    "text": "Float above image",
+                    "title": "Float above image",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.floatingSubtitle",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "callback": "toggleKeyAndValue",
+                    "bindings": [
+                        {
+                            "path": "metadata.floatingSubtitle",
+                            "attribute": "value"
+                        }
+                    ]
+                }
+            }
+        },
+        "align": {
+            "inheritPath": "menu/buttons/textAlign.json",
+            "group": "g2"
+        },
+        "textOptions": {
+            "group": "g3",
+            "text": "Text options",
+            "icon": "labicon-settings",
+
+            "items": {
+                "allTextOnTopOfImage": {
+                    "icon": "labicon-image_caption",
+                    "text": "Float text above image",
+                    "title": "Float all text above image (Alt+A)",
+                    "callback": "dispatch",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.floatingTitle",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "function": "contextualmenu.callbacks.toggleTextOnImage"
+                    },
+                    "displayHotkeys": true,
+                    "hotkeys": [{
+                        "key": "a",
+                        "controlkeys": ["altKey"]
+                    }]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,297 @@
+{
+    "icon": "labicon-gridResize",
+    "title": "Set grid-size and alignment",
+    "items": {
+        "left_tiny": {
+            "icon": "labicon-align_content_left_mini",
+            "text": "Left - Tiny",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatLeft",
+                "width": 16.66666667
+            },
+            "hotkeys": [{
+                "key": "0"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 16.66666667
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 16.66666667
+                    }
+                }
+            ]
+        },
+        "left_small": {
+            "icon": "labicon-align_content_left_small",
+            "text": "Left - Small",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatLeft",
+                "width": 33.33333333
+            },
+            "hotkeys": [{
+                "key": "1"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 33.33333333
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 33.33333333
+                    }
+                }
+            ]
+        },
+        "left_medium": {
+            "icon": "labicon-align_content_left",
+            "text": "Left - Medium",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatLeft",
+                "width": 66.67
+            },
+            "hotkeys": [{
+                "key": "2"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 66.67
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 66.67
+                    }
+                }
+            ]
+        },
+        "center_large": {
+            "icon": "labicon-align_content_center",
+            "text": "Center - Large",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "",
+                "width": 100
+            },
+            "hotkeys": [{
+                "key": "3"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "",
+                        "width": 100
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "",
+                        "width": 100
+                    }
+                }
+            ]
+        },
+        "right_medium": {
+            "icon": "labicon-align_content_right",
+            "text": "Right - Medium",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatRight",
+                "width": 66.67
+            },
+            "hotkeys": [{
+                "key": "4"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 66.67
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 66.67
+                    }
+                }
+            ]
+        },
+        "right_small": {
+            "icon": "labicon-align_content_right_small",
+            "text": "Right - Small",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatRight",
+                "width": 33.33333333
+            },
+            "hotkeys": [{
+                "key": "5"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "valueTransformerXXX": "hasValue",
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 33.33333333
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 33.33333333
+                    }
+                }
+            ]
+        },
+        "right_tiny": {
+            "icon": "labicon-align_content_right_mini",
+            "text": "Right - Tiny",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatRight",
+                "width": 16.66666667
+            },
+            "hotkeys": [{
+                "key": "6"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 16.66666667
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 16.66666667
+                    }
+                }
+            ]
+        },
+        "center_medium": {
+            "icon": "labicon-align_content_center_medium",
+            "text": "Center - Medium",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatCenter",
+                "width": 66.66666667
+            },
+            "hotkeys": [{
+                "key": "7"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatCenter",
+                        "width": 66.66666667
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatCenter",
+                        "width": 66.66666667
+                    }
+                }
+            ]
+        },
+        "submenu_alignment": {
+            "text": "Aligment",
+            "inheritPath": "menu/buttons/float.json",
+            "group": "g_8"
+        },
+        "submenu_size": {
+            "text": "Size",
+            "inheritPath": "menu/buttons/gridSize.json",
+            "group": "g_8"
+        }
+    }
+}

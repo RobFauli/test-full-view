@@ -1,0 +1,55 @@
+<div data-element-guid="{{ get.current.guid }}" id="motortest_{{ get.current.id }}" class="columns motortest {{ size.grid.css }} {{ size.grid.absCss }} {{ #style.collection }}box_decoration{{ /style.collection }} {{ get.current.filtered.displayDirection }} test-{{ get.current.fields.testType }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ view.boxCss.background_color }}">
+        <nav>
+            <div class="backward"><span></span></div>
+            <div class="forward"><span></span></div>
+        </nav>
+        <div class="elements{{ #get.current.filtered.needSlider }} swipehelper snap-container-x snap-element-start{{ /get.current.filtered.needSlider }}">
+            <section class="title snap-element">
+                <header>
+                    <h1 class="test-title">{{get.current.filtered.testSubject}}</h1>
+                    {{ #get.current.filtered.totalScore }}
+                        <h3 class="test-score"><span>{{get.current.filtered.totalScore}}</span> poeng</h3>
+                    {{ /get.current.filtered.totalScore }}
+                </header>
+                <p class="intro">{{{get.current.filtered.introduction}}}</p>
+            </section>
+            {{ #get.current.filtered.mappedCategories }}
+                <section class="snap-element">
+                    <h3 class="test-subtitle">
+                        {{title}}
+                        {{ #score }}
+                        <span class="test-subscore">
+                            {{score}}<span>/10</span>
+                        </span>
+                        {{ /score }}
+                    </h3>
+                    <p class="description">{{{ description }}}</p>
+                </section>
+            {{ /get.current.filtered.mappedCategories }}
+        </div>
+    </div>
+    {{ #get.current.filtered.needSlider }}
+    <script>
+    (function () {
+        {{ #get.current.id }}
+        window.dachserData.push('swipehelper', {
+            selector: '#motortest_{{ get.current.id }}',
+            itemsContainerSelector: '.elements',
+            itemsSelector: 'section',
+            isHorizontal: true,
+            navItems: {
+                forwardSelector: '.forward',
+                backwardSelector: '.backward',
+            },
+            debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+        });
+        {{ #app.isEditor }}
+        window.dachserData.reflow('swipehelper', 'selector', '#motortest_{{ get.current.id }}');
+        {{ /app.isEditor }}
+        {{ /get.current.id }}
+    }());
+    </script>
+    {{ /get.current.filtered.needSlider }}
+</div>

@@ -1,0 +1,81 @@
+@use "../../css_scss/components/vars" as *;
+
+.youtube {
+    .youtube-container {
+        position: relative; 
+        padding-bottom: 56.25%; 
+        padding-top: 25px; 
+        height: 0;
+    }
+    p {
+        line-height: 1.4em;
+        margin-top: 0.4em;
+    }
+    p.caption {
+        font-size: 0.9em;
+    }
+}
+
+.articleHeader .youtube,
+.bodytext .youtube,
+.articleHeader .youtube-container {
+    margin-bottom: 0.5em;
+}
+.articleHeader .youtube figure,
+.bodytext .youtube figure,
+article.column .content .youtube figure {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.articleHeader .youtube figure:before,
+.bodytext .youtube figure:before,
+article.column .content .youtube figure:before {
+    content: "\f197";
+    font-family: "foundation-icons";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 6em;
+    color: #fff;
+    left: 50%;
+    width: 150px;
+    text-align: center;
+    text-shadow: 1px 1px 7px #000;
+    z-index: 1;
+}
+
+.articleHeader .youtube figure:hover:before,
+.bodytext .youtube figure:hover:before,
+article.column .content .youtube figure:hover:before {
+    color: #e6e6e6;
+}
+
+
+@include desktop {
+    .articleHeader .youtube figure:before {
+        font-size: 8em;
+    }
+}
+
+.content-area.youtube-container {
+    overflow: hidden;
+}
+
+.youtube .has-image-placeholder {
+    > .youtube-container:not(.content-area) {
+        display: none;
+    }
+
+    &.clicked {
+        > .youtube-container:not(.content-area) {
+            display: block;
+        }
+        .youtube-container.content-area {
+            display: none;
+        }
+    }
+}
+

@@ -1,0 +1,249 @@
+/* Style for contentbox parallax */
+@use "../../css_scss/components/vars" as *;
+
+.parallax-container.column {
+    &.isDebug {
+        .parallax-layer {
+            border: 2px solid green;
+            &.isAnimating {
+                outline: 20px solid rgba(255, 0, 174, 0.71);
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+                border: 1px dashed rgba(255, 0, 174, 0.71);
+                z-index: 1000;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                border: 1px dashed rgba(255, 0, 174, 0.71);
+                z-index: 1000;
+            }
+        }
+    }
+
+    & > .content {
+
+        &.fullWidth {
+            margin-left: calc(-50vw + #{$max_width} / 2 - #{$columns_gutter});
+            margin-right: calc(-50vw + #{$max_width} / 2 - #{$columns_gutter});
+            width: 100vw;
+            padding: 0;
+        }
+
+        position: relative;
+        overflow: unset;
+        transform-style: preserve-3d;
+        perspective: 200px;
+        display: flex;
+        flex-direction: column;
+        .parallax-layer {
+            transform: translateZ(0);
+            transform-origin: top center;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            
+            .column {
+                margin: 0;
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                flex: 0 0 100%;
+                
+                .content {
+                    // background-color: transparent;
+                    &[class*="gradient-"],
+                    &[class*="color_mobile_gradient-"] {
+                        background-image: unset;
+                    }
+                }
+            }
+            figure,
+            .img,
+            img {
+                min-width: 100%;
+                min-height: 100%;
+                height: 100vh;
+            }
+            img {
+                object-fit: cover;
+            }
+
+            &[data-parallax-sticky] {
+                position: sticky;
+                top: 0;
+            }
+
+            &[data-parallax-fullwidth] {
+                overflow: visible;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+                figure {
+                    margin: 0;
+                }
+            }
+
+            @include tablet_up {
+                &.large-4 {
+                    width: 33.33%;
+                    &[data-parallax-fullwidth] {
+                        width: 33.33vw;
+                    }
+                }
+                &.large-6 {
+                    width: 50%;
+                    &[data-parallax-fullwidth] {
+                        width: 50vw;
+                    }
+                }
+                &.large-12 {
+                    width: 100%;
+                    &[data-parallax-fullwidth] {
+                        width: 100vw;
+                    }
+                }
+                &[data-parallax-horizontalAlign-desktop="center"] {
+                    align-self: center;
+                }
+    
+                &[data-parallax-horizontalAlign-desktop="right"] {
+                    align-self: flex-end;
+                }
+            }
+
+            @include mobile {
+                &.small-6 {
+                    width: 50%;
+                    &[data-parallax-fullwidth] {
+                        width: 50vw;
+                    }
+                }
+                &.small-12 {
+                    width: 100%;
+                    &[data-parallax-fullwidth] {
+                        width: 100vw;
+                    }
+                }
+                &[data-parallax-horizontalAlign-mobile="center"] {
+                    align-self: center;
+                }
+    
+                &[data-parallax-horizontalAlign-mobile="right"] {
+                    align-self: flex-end;
+                }
+
+                &[data-parallax-height="50"] {
+                    figure,
+                    .img,
+                    img {
+                        height: 50vh;
+                    }
+                }
+            }
+
+            &[data-parallax-verticalalign="center"] {
+                align-items: center;
+            }
+
+            &[data-parallax-verticalalign="bottom"] {
+                align-items: flex-end;
+            }
+
+            &[data-parallax-height="auto"] {
+                min-height: unset;
+                figure,
+                .img,
+                img {
+                    min-height: unset;
+                    height: auto;
+                }
+            }
+            &[data-parallax-height="50"] {
+                min-height: 50vh;
+            }
+            &[data-parallax-height="100"] {
+                min-height: 100vh;
+            }
+            &[data-parallax-height="150"] {
+                min-height: 150vh;
+            }
+            &[data-parallax-height="200"] {
+                min-height: 200vh;
+            }
+
+            &[data-parallax-verticalposition="up50"] {
+                margin-top: -50vh;
+            }
+            &[data-parallax-verticalposition="up100"] {
+                margin-top: -100vh;
+            }
+            &[data-parallax-verticalposition="down50"] {
+                margin-top: 50vh;
+            }
+            &[data-parallax-verticalposition="down100"] {
+                margin-top: -100vh;
+            }
+
+            &[data-parallax-spacebelow="50"] {
+                margin-bottom: 50vh;
+            }
+
+            &[data-parallax-spacebelow="100"] {
+                margin-bottom: 100vh;
+            }
+
+            .text_title {
+                padding: $columns_gutter;
+            }
+
+            &[data-parallax-content-type="image"] {
+                figure {
+                    margin: 0;
+                    .caption {
+                        display: none;
+                    }
+                }
+            }
+
+            &[data-parallax-content-type="youtube"] {
+                .youtube {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include mobile {
+            &.fullWidth {
+                margin-left: - $columns_gutter;
+                margin-right: - $columns_gutter;
+            }
+        }
+    }
+}
+
+.articleHeader .column.parallax-container {
+    padding: 0;
+
+    > .content.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2 - #{$columns_gutter});
+        margin-right: calc(-50vw + #{$max_width} / 2 - #{$columns_gutter});
+        @include mobile {
+            margin-left: - $columns_gutter;
+            margin-right: - $columns_gutter;
+        }
+    }
+}
+
+// Disable sticky when JS is measuring positions of elements.
+.dac-reflow .parallax-container.column>.content .parallax-layer[data-parallax-sticky] {
+    position: relative;
+}

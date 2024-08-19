@@ -1,0 +1,11 @@
+{
+    "offStage": {
+        "title": {
+            "path": null,
+            "content": "Tweet"
+        },
+        "description": {
+            "path": "fields.tweeturl"
+        }
+    }
+}

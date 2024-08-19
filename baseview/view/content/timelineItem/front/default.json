@@ -1,0 +1,5 @@
+{
+    "boxTitle": "TimelineItem",
+    "boxDescription": "A timeline-event displaying a date, title and multiline text",
+    "bodytextElements": ["p", "h2", "h3", "h4", "ul", "ol", "li"]
+}

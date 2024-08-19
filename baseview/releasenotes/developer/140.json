@@ -1,0 +1,69 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 140,
+            "str": "1.4.0"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20231220",
+                "title": "Topic Summary",
+                "description": "Baseview now deliveres the app 'Topic Summary'. The param aiSettings accepts an object with keys 'model', 'provider' and 'integration'. You may change the value for the model and in the future Baseview will add support for other providers and integrations. To trigger the app, go to a factbox's contextual menu and choose option use 'Generate topic summary' to display the modal in the app."
+            },{
+                "isFeature": true,
+                "date": "20231115",
+                "title": "Labrador rendering engine client side",
+                "description": "Baseview now includes the rendering engine from Labrador. This means that you can use the same templates, properties and behaviours for both server side and client side rendering.",
+                "links": [
+                    "https://github.com/publishlab/baseview/blob/dev/docs/readme/readme-client-rendering.md"
+                ]
+            },
+            {
+                "isBug": true,
+                "date": "20231024",
+                "title": "Improved markup",
+                "description": "Fixed lots of W3C validation-errors in markup from Baseview: Trailing slashes on void elements like `link` and `meta`, unnecessary `type` attribute for `script` and `style`, timestamps in `time` elements, missing alt-attributes for images etc. Overall this change improves the quality of the HTML"
+            },
+            {
+                "isImprovement": true,
+                "date": "20231023",
+                "title": "New paths for subarticle-options",
+                "description": "Subarticles now use data from the article to decide if image (`metadata.sub_hideImage`, default: `undefined`), title (`metadata.sub_hideTitle`, default: `undefined`) or subtitle (`metadata.sub_hideSubtitle`, default: `true`) should be hidden. Use fallback-data to set or modify defaults.",
+                "links": [
+                    "/support/docs/#view/data/fallback-data.md"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230911",
+                "title": "Hide tags from article-template",
+                "description": "You can now add tags that should not be visible for user to config `page_settings.article.ignoredTags` (array) and/or config `page_settings.article.ignoredTagPrefix` (array). These tags will not be rendered in the list of tags in an article."
+            },
+            {
+                "isFeature": true,
+                "date": "20230831",
+                "title": "Customize element-search",
+                "description": "Baseview delivers the collection `Search` that allows editors to re-use elements like factboxes and slideshows. You can now use config `collections.search` to add or remove searchable element-types for your view. See comments in the `Search.js` class for implementation examples (requires Baseview acess on Github).",
+                "links": [
+                    "https://github.com/publishlab/baseview/blob/dev/modules/collections/Search.js"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230824",
+                "title": "Clean Lab 4 version of Baseview",
+                "description": "All resources for Labrador 3 is now removed in Baseview `dev` and `main` branch. If you have transitioned to Lab 4 you should use the `main` branch. If you still depend on Lab 3 you should continue to use the `master` branch.",
+                "links": [
+                    "https://github.com/publishlab/baseview"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230822",
+                "title": "Read time and read progress",
+                "description": "Possible to enable estimated read time and read progress bar. Can be set either under article settings in the admin menu, or in the config.json with: <br><code>displayReadProgress.active (bool)<br>displayReadProgress.minElementCount (int, default = 25)<br>displayReadTime.active (bool)<br>displayReadTime.wpm (int, default = 250)<br>displayReadTime.label (string, default = 'Lesetid')</code>"
+            }
+        ]
+    }
+}

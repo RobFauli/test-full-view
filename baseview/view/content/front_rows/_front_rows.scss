@@ -1,0 +1,27 @@
+@use "../../css_scss/components/vars" as *;
+
+.bodytext .front_rows {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@include mobile {
+    .bodytext > .front_rows.small-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// Lab 4
+
+@include mobile {
+    .front_rows.mobile-fullWidth .fullwidthTarget .row {
+        max-width: unset;
+    }
+}
+
+@include tablet_up {
+    .front_rows.desktop-fullWidth .fullwidthTarget .row {
+        max-width: unset;
+    }
+}

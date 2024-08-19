@@ -1,0 +1,115 @@
+{
+    "icon": "labicon-gridResize",
+    "title": "Set grid-size and alignment",
+    "require-disabled": {
+        "parentType": "bodytext"
+    },
+    "items": [
+        {
+            "icon": "labicon-align_content_left_small",
+            "text": "Left - Small",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatLeft",
+                "width": 50
+            },
+            "hotkeys": [{
+                "key": "1"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 50
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft",
+                        "width": 50
+                    }
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_center",
+            "text": "Center - Large",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "",
+                "width": 100
+            },
+            "hotkeys": [{
+                "key": "3"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "",
+                        "width": 100
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "",
+                        "width": 100
+                    }
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_right_small",
+            "text": "Right - Small",
+            "callback": "setWidthAndFloat",
+            "params": {
+                "float": "floatRight",
+                "width": 50
+            },
+            "hotkeys": [{
+                "key": "5"
+            }],
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "valueTransformerXXX": "hasValue",
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 50
+                    }
+                },
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight",
+                        "width": 50
+                    }
+                }
+            ]
+        }
+    ]
+}

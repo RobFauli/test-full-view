@@ -1,0 +1,42 @@
+<div class="widget keystats status_{{ widget.summary.status }}">
+    <div class="figure">
+        <svg class="pie" width="{{ chart.svg.width }}" height="{{ chart.svg.width }}" viewBox="0 0 {{ chart.svg.width }} {{ chart.svg.width }}">
+            <circle class="pie_value outer" cx="{{ chart.svg.outerCircle.cx }}" cy="{{ chart.svg.outerCircle.cy }}" r="{{ chart.svg.outerCircle.r }}" stroke-width="4" style="stroke-dasharray: {{ chart.svg.outerCircle.dasharray }}; stroke-dashoffset: {{ chart.svg.outerCircle.dashoffset }};"></circle>
+            <circle class="pie_value inner" cx="{{ chart.svg.innerCircle.cx }}" cy="{{ chart.svg.innerCircle.cy }}" r="{{ chart.svg.innerCircle.r }}" stroke-width="4" style="stroke-dasharray: {{ chart.svg.innerCircle.dasharray }}; stroke-dashoffset: {{ chart.svg.innerCircle.dashoffset }};"></circle>
+        </svg>
+        <div class="numbers">
+            <h2 title="Clickratio: {{{ widget.current.clickratio }}}">
+                {{ #view.numFormatter }}{{{ widget.current.clickratio }}}{{ /view.numFormatter }}
+            </h2>
+            <h3>{{{ widget.summary.diffPercentPrefix }}}{{ #view.numFormatter }}{{{ widget.summary.diffPercent }}}{{ /view.numFormatter }}</h3>
+        </div>
+    </div>
+    <div class="periods">
+        <div class="current">
+            <span class="range">{{{ widget.current.range }}}</span>
+            <span class="value">{{{ widget.current.clickratio }}}</span>
+        </div>
+        <div class="reference">
+            <span class="range">{{{ widget.reference.range }}}</span>
+            <span class="value">{{{ widget.reference.clickratio }}}</span>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<p>Type: {{{ widget.type }}}</p>
+<p>clickratio: {{{ widget.current.clickratio }}}</p>
+<p>clicks: {{{ widget.current.clicks }}}</p>
+<p>pageviews: {{{ widget.current.pageviews }}}</p>
+
+<p><br>Referense:</p>
+<p>clickratio: {{{ widget.reference.clickratio }}}</p>
+<p>clicks: {{{ widget.reference.clicks }}}</p>
+<p>pageviews: {{{ widget.reference.pageviews }}}</p>
+
+<p><br>Summary (CL):</p>
+<p>currentPercent: {{{ widget.summary.currentPercent }}}</p>
+<p>referencePercent: {{{ widget.summary.referencePercent }}}</p>
+<p>diffPercent: {{{ widget.summary.diffPercent }}}</p>
+<p>status: {{{ widget.summary.status }}}</p>
+-->

@@ -1,0 +1,46 @@
+<div data-element-guid="{{ get.current.guid }}" id="factbox-{{ get.current.id }}" class="{{ #helper.trim }}column factbox
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ get.current.filtered.options.cssString }}
+    {{ get.current.metadata.layout }}
+    {{ #get.current.metadata.ai_class }}{{ get.current.metadata.ai_class }}{{ /get.current.metadata.ai_class }}
+    {{ #get.current.filtered.noContent }}dac-hidden {{ /get.current.filtered.noContent }}
+    {{ #get.current.metadata.hideimage }}dac-hideImage{{ /get.current.metadata.hideimage }}
+    {{ #app.isEditor }}is-editor{{ /app.isEditor }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ #get.current.filtered.options.kicker_editable }}<p class="kicker {{ #style.collection }}text_decoration fields.kicker{{ /style.collection }}">{{{ get.current.fields.kicker }}}</p>{{ /get.current.filtered.options.kicker_editable }}
+        {{ #get.current.filtered.options.kicker }}<div class="desc">{{{ get.current.filtered.options.kicker }}}</div>{{ /get.current.filtered.options.kicker }}
+        <h2 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h2>
+        <div class="fact collapsableContent {{ #style.collection }}text_decoration fields.bodytext{{ /style.collection }}">{{{ get.current.filtered.bodytext }}}</div>
+        <div class="toggle"></div>
+    </div>
+
+    {{ ^app.isEditor }}
+    {{ #get.current.filtered.options.needJs }}
+    <script>
+    (function () {
+        var box = document.getElementById('factbox-{{ get.current.id }}');
+        if (box) {
+            var toggleEl = box.querySelector('.toggle');
+            if (toggleEl) {
+                var isExpanded = box.classList.contains(`state-expanded-${window.Dac.clientData.labDevice}`);
+                toggleEl.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    isExpanded = !isExpanded;
+                    if (!isExpanded) {
+                        box.classList.remove('state-expanded-mobile', 'state-expanded-desktop');
+                    } else {
+                        box.classList.add('state-expanded-mobile', 'state-expanded-desktop');
+                    }
+                }, false);
+            }
+        }
+    }());
+    </script>
+    {{ /get.current.filtered.options.needJs }}
+    {{ /app.isEditor }}
+</div>

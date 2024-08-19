@@ -1,0 +1,18 @@
+{
+    "boxTitle": "Slideshow",
+    "boxDescription": "Display a collection of images",
+    "boxKeywords": "jpg jpeg webp gallery photo foto",
+    "viewportMap": {
+        "fields": {
+            "aspectRatio": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop",
+                    "desktop": "mobile"
+                }
+            }
+        }
+    }
+}

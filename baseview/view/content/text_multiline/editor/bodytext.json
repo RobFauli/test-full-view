@@ -1,0 +1,24 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "gridResize": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g1_b",
+                    "displayCondition": "isNotViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "gridResizeMobile": {
+                    "inheritPath": "menu/buttons/gridOverrideMobile.json",
+                    "group": "g1_b",
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                }
+            }
+        }
+    }
+}

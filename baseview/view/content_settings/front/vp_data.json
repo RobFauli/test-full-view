@@ -1,0 +1,389 @@
+{
+    "viewportMap": {
+        "presets": {
+            "vp_data": {
+                "viewport": {
+                    "default": true
+                },
+                "fallback": {
+                    "default": "desktop",
+                    "desktop": "mobile"
+                },
+                "attributes": "presets.vp_content_attributes.attributes"
+            },
+            "vp_content_attributes": {
+                "attributes": {
+                    "font_weight": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "text_size": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "text_color": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "text_background_color": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "text_align": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "italic": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    }
+                }
+            },
+            "vp_metadata_attributes": {
+                "attributes": {
+                    "bodyTextIndex": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop",
+                            "desktop": "mobile"
+                        }
+                    },
+                    "showKicker": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "hideTitle": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "titleAboveImage": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "floatingTitle": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "floatingSubtitle": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "subtitleAboveImage": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "hidesubtitle": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "kickerBelowImage": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "floatingKicker": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "hasFullWidth": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "hasFullWidthWithLimit": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "background_color": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "gradient": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "image_overlay": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "image_overlay_opacity": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "image_gradient": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "image_gradient_opacity": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "image_gradient_direction": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "background_color_op": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "hideimage": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "spacing_outer_top": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_outer_right": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_outer_bottom": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_outer_left": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_inner_top": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_inner_right": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_inner_bottom": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "spacing_inner_left": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "pull_up": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "float": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "border_color": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "border_side": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "border_width": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "subarticles": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "showSection": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "showTags": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "text_align": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop"
+                        }
+                    },
+                    "vertical_align": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "hideViewport": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "no_viewport": false
+                        }
+                    },
+                    "expandedState": {
+                        "viewport": {
+                            "default": true
+                        }
+                    },
+                    "displayNavigation": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop",
+                            "desktop": "mobile"
+                        }
+                    },
+                    "displayPreview": {
+                        "viewport": {
+                            "default": true
+                        },
+                        "fallback": {
+                            "default": "desktop",
+                            "desktop": "mobile"
+                        }
+                    }
+                }
+            }
+        },
+        "width": {
+            "viewport": {
+                "default": true
+            },
+            "fallback": {
+                "mailmojo": "desktop"
+            }
+        },
+        "metadata": "presets.vp_metadata_attributes"
+    }
+}

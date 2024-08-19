@@ -1,0 +1,10 @@
+{
+    "redrawCallbacks": [
+        "eventhandlers.stopPropagation"
+    ],
+    "layoutLock": {
+        "position": true,
+        "layout": true,
+        "content": true
+    }
+}

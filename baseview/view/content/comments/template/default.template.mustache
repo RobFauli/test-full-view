@@ -1,0 +1,11 @@
+<div data-element-guid="{{ get.current.guid }}" class="column comments {{ size.grid.css }} {{ size.grid.absCss }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ ^get.current.fields.hide_title }}<h3 class="title {{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.filtered.source.name }}}</h3>{{ /get.current.fields.hide_title }}
+        {{ ^get.current.fields.hide_description }}<p class="description {{ #style.collection }}text_decoration fields.description{{ /style.collection }}">{{{ get.current.filtered.source.description }}}</p>{{ /get.current.fields.hide_description }}
+        {{ #get.current.filtered.error }}<p style="color: red;">{{ get.current.filtered.error }}</p>{{ /get.current.filtered.error }}
+        {{ #get.current.filtered.is_disqus_most_popular}}{{ > content/comments/template/providers/disqus_most_popular }}{{ /get.current.filtered.is_disqus_most_popular}}
+        {{ #get.current.filtered.is_hyvor_most_popular}}{{ > content/comments/template/providers/hyvor_most_popular }}{{ /get.current.filtered.is_hyvor_most_popular}}
+        {{ #get.current.filtered.is_hyvor_recent}}{{ > content/comments/template/providers/hyvor_recent }}{{ /get.current.filtered.is_hyvor_recent}}
+    </div>
+</div>

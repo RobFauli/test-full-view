@@ -1,0 +1,40 @@
+{
+    "site_scripts_common": [
+        {
+            "url": "/view-resources/baseview/public/common/imageExpand.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/baseview/public/common/ImageZoom.js",
+            "requireDom": true,
+            "pageType": "article"
+        },
+        {
+            "url": "/view-resources/baseview/public/common/AutoScroller.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/public/common/SwipeHelper.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/public/common/Parallax.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/public/common/Mustache/mustache.min.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/public/common/TabNavigation.js",
+            "requireDom": true
+        },
+        {
+            "url": "/view-resources/baseview/public/common/baseview/moduleHandlers.js",
+            "isModule": true
+        }
+    ],
+    "site_scripts": {
+
+    }
+}

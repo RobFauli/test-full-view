@@ -1,0 +1,406 @@
+{
+    "icon": "labicon-image",
+    "title": "Media-options",
+    "group": "g2",
+    "items": {
+        "toggleImageVisibility": {
+            "icon": "labicon-image_hide",
+            "text": "[bound]",
+            "group": "sg1",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.hideimage",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.hideimage",
+                    "attribute": "value"
+                },
+                {
+                    "path": "metadata.hideimage",
+                    "attribute": "text",
+                    "valueTransformer": "boolToString",
+                    "valueTransformerOptions": {
+                        "offValue": "Hide media element",
+                        "onValue": "Show media element"
+                    }
+                }
+            ],
+            "title": "Toggle image"
+        },
+        "captionOptions": {
+            "inheritPath": "menu/buttons/captionOptions.json",
+            "text": "Image caption",
+            "group": "sg1",
+            "require": {
+                "childType": [
+                    "image"
+                ]
+            }
+        },
+        "toggleCaption": {
+            "group": "g5",
+            "icon": "labicon-image_caption",
+            "text": "Display caption",
+            "title": "Toggle displaying of caption",
+            "autocloseSubmenuAfterAction": false,
+            "callback": "toggleKeyAndValue",
+            "key": "fields.displayCaption",
+            "onValue": true,
+            "offValue": false,
+            "pathHelper": {
+                "type": "child.graphic"
+            },
+            "bindings": [
+                {
+                    "path": "fields.displayCaption",
+                    "attribute": "value",
+                    "valueTransformer": "toBoolean",
+                    "pathHelper": {
+                        "type": "child.graphic"
+                    }
+                }
+            ],
+            "require": {
+                "childType": [
+                    "graphic"
+                ]
+            }
+        },
+        "fullwidth": {
+            "icon": "labicon-image_fullwidth",
+            "group": "sg1",
+            "title": "Options for full width display",
+            "text": "Fullwidth-options",
+            "require": {
+                "childType": [
+                    "image",
+                    "graphic",
+                    "youtube",
+                    "simplestream",
+                    "slideshow",
+                    "markup",
+                    "parallax"
+                ]
+            },
+            "bindings": [
+                {
+                    "path": "absoluteGridWidth",
+                    "attribute": "disabled",
+                    "valueTransformer": "hasValue",
+                    "valueTransformerOptions": {
+                        "value": 12,
+                        "negateBoolean": true
+                    }
+                }
+            ],
+            "items": [
+                {
+                    "inheritPath": "menu/buttons/fullWidth.json"
+                },
+                {
+                    "inheritPath": "menu/buttons/fullWidthLimit.json"
+                }
+            ]
+        },
+        "slideshowOptions": {
+            "icon": "labicon-image_slideshow",
+            "text": "Slideshow options",
+            "group": "sg1",
+            "require": {
+                "childType": [
+                    "slideshow"
+                ]
+            },
+            "items": {
+                "edit": {
+                    "icon": "labicon-startEdit",
+                    "text": "Edit slideshow",
+                    "callback": "editSlideshow",
+                    "title": "Edit slideshow (,)",
+                    "displayHotkeys": true,
+                    "params": {
+                        "modelType": "slideshow",
+                        "target": "childOfType"
+                    },
+                    "hotkeys": [
+                        {
+                            "key": ","
+                        }
+                    ]
+                },
+                "navigation": {
+                    "icon": "labicon-dots",
+                    "text": "Display navigation-dots",
+                    "callback": "toggleKeyAndValue",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.displayNavigation",
+                    "onValue": true,
+                    "offValue": false,
+                    "pathHelper": {
+                        "type": "child.slideshow"
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.displayNavigation",
+                            "attribute": "value",
+                            "pathHelper": {
+                                "type": "child.slideshow"
+                            }
+                        }
+                    ]
+                },
+                "preview": {
+                    "icon": "labicon-grid_extra_tight",
+                    "text": "Display preview of all images",
+                    "callback": "toggleKeyAndValue",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.displayPreview",
+                    "onValue": true,
+                    "offValue": false,
+                    "pathHelper": {
+                        "type": "child.slideshow"
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.displayPreview",
+                            "attribute": "value",
+                            "pathHelper": {
+                                "type": "child.slideshow"
+                            }
+                        }
+                    ]
+                },
+                "autoScroll": {
+                    "icon": "labicon-play",
+                    "text": "Scroll automatically",
+                    "callback": "toggleKeyAndValue",
+                    "autocloseSubmenuAfterAction": false,
+                    "key": "metadata.autoScroll",
+                    "onValue": true,
+                    "offValue": false,
+                    "pathHelper": {
+                        "type": "child.slideshow"
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.autoScroll",
+                            "attribute": "value",
+                            "pathHelper": {
+                                "type": "child.slideshow"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "code": {
+            "icon": "labicon-code",
+            "callback": "displaySettingsPanel",
+            "text": "Edit markup",
+            "title": "Edit markup (,)",
+            "group": "sg1",
+            "hotkeys": [
+                {
+                    "key": ","
+                }
+            ],
+            "displayHotkeys": true,
+            "params": {
+                "settingsPanelOptions": "settingsPanels.admin",
+                "modelType": "markup",
+                "target": "childOfType"
+            },
+            "require": {
+                "childType": [
+                    "markup"
+                ]
+            }
+        },
+        "sleep": {
+            "inheritPath": "menu/buttons/sleep.json",
+            "group": "sg1",
+            "pathHelper": {
+                "type": "child.markup"
+            },
+            "require": {
+                "childType": [
+                    "markup"
+                ]
+            },
+            "bindings": [
+                {
+                    "path": "fields.labIsSleeping",
+                    "attribute": "value",
+                    "pathHelper": {
+                        "type": "child.markup"
+                    }
+                },
+                {
+                    "path": "fields.labIsSleeping",
+                    "attribute": "text",
+                    "valueTransformer": "boolToString",
+                    "valueTransformerOptions": {
+                        "offValue": "Put markup to sleep",
+                        "onValue": "Wake up markup from sleep"
+                    },
+                    "pathHelper": {
+                        "type": "child.markup"
+                    }
+                }
+            ]
+        },
+        "cookieConsent": {
+            "inheritPath": "menu/buttons/cookieConsent.json",
+            "text": "Cookie consent",
+            "group": "sg1",
+            "require": {
+                "childType": [
+                    "markup"
+                ]
+            }
+        },
+        "imageStyling": {
+            "icon": "labicon-image_gradient",
+            "text": "Image styling",
+            "group": "sg1",
+            "displayCondition": "hasChildOfType",
+            "callback": "colorPicker",
+            "autocloseSubmenuAfterAction": false,
+            "params": {
+                "modelType": "image",
+                "recursive": false,
+                "colorPicker": {
+                    "display": {
+                        "position": "after",
+                        "align": "start"
+                    },
+                    "layout": {
+                        "widthDisabled": "250px"
+                    },
+                    "preview": {
+                        "active": true,
+                        "selector": ".content, figure",
+                        "groupSelectors": {
+                            "metadata.image_overlay": ".imageOverlay",
+                            "metadata.image_overlay_opacity": ".imageOverlay"
+                        }
+                    },
+                    "groups": [
+                        {
+                            "values": "background_colors",
+                            "title": "Overlay color",
+                            "label": "",
+                            "useValueAsLabel": false,
+                            "cssPrefix": "",
+                            "key": "metadata.image_overlay",
+                            "removeBtn": true,
+                            "bordered": false,
+                            "styleDefinition": "image_overlay",
+                            "autoborder": {
+                                "attribute": "backgroundColor"
+                            }
+                        },
+                        {
+                            "values": [
+                                25,
+                                50,
+                                75
+                            ],
+                            "valuePrefix": "image_overlay_opacity-",
+                            "title": "Opacity for image overlay",
+                            "label": "<div class=\"img\"><figure></figure></div>",
+                            "key": "metadata.image_overlay_opacity",
+                            "styleDefinition": "image_overlay_opacity",
+                            "removeBtn": true,
+                            "bordered": false
+                        },
+                        {
+                            "values": "background_colors",
+                            "valuePrefix": "image-gradient-",
+                            "objectValues": false,
+                            "title": "Image-gradients",
+                            "label": "<div class=\"img\"><figure></figure></div>",
+                            "useValueAsLabel": false,
+                            "key": "metadata.image_gradient",
+                            "styleDefinition": "image_gradient",
+                            "removeBtn": true,
+                            "bordered": false
+                        },
+                        {
+                            "values": "imageGradientDirections",
+                            "title": "Gradient direction",
+                            "useValueAsLabel": true,
+                            "key": "metadata.image_gradient_direction",
+                            "bordered": true
+                        },
+                        {
+                            "values": [
+                                20,
+                                40,
+                                60,
+                                80
+                            ],
+                            "valuePrefix": "image_gradient_opacity-",
+                            "title": "Opacity for selected gradient",
+                            "label": "<div class=\"img\"><figure></figure></div>",
+                            "key": "metadata.image_gradient_opacity",
+                            "styleDefinition": "image_gradient_opacity",
+                            "removeBtn": true,
+                            "bordered": false
+                        }
+                    ]
+                }
+            }
+        },
+        "video": {
+            "icon": "labicon-play",
+            "text": "Show video icon",
+            "callback": "toggleKeyAndValue",
+            "valueTransformer": "toBoolean",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "key": "fields.has_video",
+            "group": "sg1",
+            "displayCondition": "hasConfig",
+            "params": {
+                "configKey": "teaserIcons.video"
+            },
+            "bindings": [
+                {
+                    "path": "fields.has_video",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "deleteChild": {
+            "icon": "labicon-delete",
+            "text": "Delete media element",
+            "group": "sg2",
+            "callback": "deleteChildrenByTypes",
+            "require": {
+                "childType": [
+                    "image",
+                    "graphic",
+                    "youtube",
+                    "simplestream",
+                    "slideshow",
+                    "markup",
+                    "parallax"
+                ]
+            },
+            "params": {
+                "modelTypes": [
+                    "image",
+                    "graphic",
+                    "youtube",
+                    "simplestream",
+                    "slideshow",
+                    "markup",
+                    "parallax"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "text": "Superscript",
+    "title": "Insert Superscript-tag",
+    "icon": "labicon-text_superscript",
+    "requireSelection": true,
+    "callback": "toggleTag",
+    "value": "sup"
+}

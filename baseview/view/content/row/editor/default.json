@@ -1,0 +1,846 @@
+{
+
+    "droppable": {
+        "active": false,
+        "addSourceToNewSibling": true
+    },
+
+    "draggable": {
+        "icon": "labicon-articles"
+    },
+
+    "expand": {
+        "active": true
+    },
+    
+    "displayModifiedStatus": false,
+
+    "editors": [
+        {
+            "selector": ".row_header_text",
+            "fn": "EditRich",
+            "key": "metadata.rowTitle",
+            "styleKey": "metadata",
+            "menu": "RichTextMenu",
+            "placeholder": "Click to add row title",
+            "stop": ["blur"],
+            "modal": true,
+            "displayWordCount": true,
+            "displayCharCount": true,
+            "useTabNavigation": true,
+            "allowReverting": true,
+            "alignViewports": true,
+            "attributes": {
+                "text_align": {
+                    "name": "text_align_row",
+                    "active": true,
+                    "styleDefinition": "text_align_row"
+                }
+            }
+        }
+    ],
+
+    "settingsPanels": {
+        "notes": {
+            "template": "content/row/template/noteEditor",
+            "keyValidation": [],
+            "title": "Edit notes for row"
+        },
+        "visibleAfterDate": {
+            "template": "content/row/template/visibleAfterDateEditor",
+            "footer": {
+                "informalText": "Note: Each page is cached for 10 minutes. If the timestamp is reached during this period a delay of up to 10 minutes may occur."
+            }
+        }
+    },
+
+    "disableEditorAfterIndex": 99,
+
+    "labEditCssClass": {
+        "edit_row": "labDs-structure-min-height"
+    },
+
+    "outlineOnHover": false,
+
+    "movables": {
+        "content": {
+            "active": true,
+            "requirePath": "metadata.movableContent",
+            "selector": "",
+            "selectorIdPrefix": "[data-element-guid=\"",
+            "selectorIdPostfix": "\"]",
+            "identifier": "content",
+            "path": "metadata.contentPosition",
+            "useGuid": true,
+            "disableDraggable": true
+        }
+    },
+
+    "contentMenus": {
+        "row-menu": {
+            "labels": {
+                "before": ["lab-content-type"],
+                "after": ["lab-persistent-index-readable", "lab-divider", "lab-persistent-sibling-count"]
+            },
+            "position": "left",
+            "expandable": false,
+            "autoHeight": true,
+            "snapToTop": true,
+            "style": {
+                "margin-top": "20px"
+            },
+            "items": {
+                "delete": {
+                    "inheritPath": "menu/buttons/delete.json",
+                    "group": "g1",
+                    "title": "Delete row (Ctrl+Shift+Backspace)",
+                    "hotkeys": [{
+                        "key": "backspace",
+                        "controlkeys": ["labCtrlKey", "shiftKey"]
+                    }]
+                },
+                "lock": {
+                    "inheritPath": "menu/buttons/lock.json",
+                    "group": "g1",
+                    "hotkeys": null
+                },
+                "move": {
+                    "inheritPath": "menu/buttons/move_row.json",
+                    "group": "g2"
+                },
+                "pasteboard": {
+                    "inheritPath": "menu/buttons/pasteboard.json",
+                    "group": "g2"
+                },
+                "gridResize": {
+                    "icon": "labicon-align_weight_start",
+                    "title": "Distribute children-size",
+                    "group": "g2",
+                    "displayCondition": "hasMultipleChildren",
+                    "items": [
+                        {
+                            "icon": "labicon-align_weight_start",
+                            "text": "Prioritize start",
+                            "displayHotkeys": true,
+                            "callback": "weightChildren",
+                            "key": "weightLeft",
+                            "hotkeys": [{
+                                "key": "1"
+                            }]
+                        },
+                        {
+                            "icon": "labicon-align_weight_center",
+                            "text": "Prioritize equal",
+                            "displayHotkeys": true,
+                            "callback": "weightChildren",
+                            "key": "weightEqual",
+                            "hotkeys": [{
+                                "key": "3"
+                            }]
+                        },
+                        {
+                            "icon": "labicon-align_weight_end",
+                            "text": "Prioritize end",
+                            "displayHotkeys": true,
+                            "callback": "weightChildren",
+                            "key": "weightRight",
+                            "hotkeys": [{
+                                "key": "5"
+                            }]
+                        }
+                    ]
+                },
+                "style": {
+                    "icon": "labicon-style",
+                    "title": "Copy, paste and apply style",
+                    "group": "g4",
+                    "itemBinding": "lab_api.v1.model.utils.getStyleMenuItems",
+                    "items": [
+                        {
+                            "callback": "copyStyle",
+                            "text": "Copy appearance",
+                            "icon": "labicon-style_copy",
+                            "respectLayoutLock": false,
+                            "group": "_sg1",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "c",
+                                "controlkeys": ["altKey", "shiftKey"]
+                            }]
+                        },
+                        {
+                            "callback": "pasteStyle",
+                            "text": "Paste appearance",
+                            "icon": "labicon-style_paste",
+                            "group": "_sg1",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "v",
+                                "controlkeys": ["altKey", "shiftKey"]
+                            }],
+                            "bindings": [
+                                {
+                                    "source": "lab_api.v1.model.utils.getInstance",
+                                    "path": "clipboard",
+                                    "attribute": "disabled",
+                                    "valueTransformer": "hasNotLength"
+                                }
+                            ]
+                        },
+                        {
+                            "callback": "clearStyle",
+                            "text": "Clear appearance",
+                            "icon": "labicon-reset_style",
+                            "group": "_sg2",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "0",
+                                "controlkeys": ["altKey", "shiftKey"]
+                            }]
+                        },
+                        {
+                            "callback": "saveStyle",
+                            "requiredPermissions": ["admin_batchoperations"],
+                            "text": "Save current appearance",
+                            "title": "Store current data as a new style",
+                            "icon": "labicon-style_add",
+                            "group": "g2"
+                        }
+                    ]
+                },
+                "backgroundColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "group": "g4",
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "selector": ""
+                            },
+                            "display": {
+                                "position": "before",
+                                "align": "end"
+                            }
+                        }
+                    }
+                },
+                "insertTitle": {
+                    "icon": "labicon-insertTitle",
+                    "group": "g4",
+                    "title": "Insert title",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.hasRowTitle",
+                    "value": false,
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.hasRowTitle",
+                            "attribute": "value"
+                        }
+                    ]
+                },
+                "settings": {
+                    "icon": "labicon-settings",
+                    "group": "g5",
+                    "title": "More settings",
+                    "items": {
+                        "duplicateRow": {
+                            "text": "Duplicate row",
+                            "icon": "labicon-copy_content",
+                            "callback": "duplicateModel",
+                            "group": "sub_1",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "D",
+                                "controlkeys": ["shiftKey"]
+                            }]
+                        },
+                        "fullwidth": {
+                            "icon": "labicon-image_fullwidth",
+                            "group": "sg1",
+                            "title": "Options for full width display",
+                            "text": "Fullwidth-options",
+                            "bindings": [
+                                {
+                                    "path": "absoluteGridWidth",
+                                    "attribute": "disabled",
+                                    "valueTransformer": "hasValue",
+                                    "valueTransformerOptions": {
+                                        "value": 12,
+                                        "negateBoolean": true
+                                    }
+                                }
+                            ],
+                            "items": [
+                                {
+                                    "icon": "labicon-image_fullwidth",
+                                    "text": "Full width - row + content",
+                                    "callbacks": ["toggleKeyAndValue", "dispatch"],
+                                    "key": "metadata.fullWidthContent",
+                                    "onValue": true,
+                                    "offValue": false,
+                                    "params": {
+                                        "function": "contextualmenu.callbacks.rowFullwidth"
+                                    },
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.fullWidthContent",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "icon": "labicon-rowFullWidth",
+                                    "text": "Full width - row only",
+                                    "callbacks": ["toggleKeyAndValue", "dispatch"],
+                                    "key": "metadata.isSection",
+                                    "onValue": true,
+                                    "offValue": false,
+                                    "params": {
+                                        "function": "contextualmenu.callbacks.rowFullwidth"
+                                    },
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.isSection",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "verticalAlignContent": {
+                            "inheritPath": "menu/buttons/verticalAlignContent.json",
+                            "group": "sub_2"
+                        },
+                        "verticalSpacingOutside": {
+                            "group": "sub_2",
+                            "text": "Space outside",
+                            "icon": "labicon-vertical_margin",
+                            "onValue": true,
+                            "offValue": false,
+                            "valueTransformer": "toBoolean",
+                            "items": {
+                                "above_none": {
+                                    "text": "Top: none",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceOutsideTop",
+                                    "onValue": "none",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_small": {
+                                    "text": "Top: small",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceOutsideTop",
+                                    "onValue": "small",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_medium": {
+                                    "text": "Top: medium",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceOutsideTop",
+                                    "onValue": "medium",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_large": {
+                                    "text": "Top: large",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceOutsideTop",
+                                    "onValue": "large",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_none": {
+                                    "text": "Bottom: none",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceOutsideBottom",
+                                    "onValue": "none",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_small": {
+                                    "text": "Bottom: small",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceOutsideBottom",
+                                    "onValue": "small",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_medium": {
+                                    "text": "Bottom: medium",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceOutsideBottom",
+                                    "onValue": "medium",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_large": {
+                                    "text": "Bottom: large",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceOutsideBottom",
+                                    "onValue": "large",
+                                    "offValue": true,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceOutsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "verticalSpaceingInside": {
+                            "group": "sub_2",
+                            "text": "Space inside",
+                            "icon": "labicon-vertical_padding",
+                            "onValue": true,
+                            "offValue": false,
+                            "valueTransformer": "toBoolean",
+                            "items": {
+                                "above_none": {
+                                    "text": "Top: none",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceInsideTop",
+                                    "onValue": "none",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_small": {
+                                    "text": "Top: small",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceInsideTop",
+                                    "onValue": "small",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_medium": {
+                                    "text": "Top: medium",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceInsideTop",
+                                    "onValue": "medium",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "above_large": {
+                                    "text": "Top: large",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_1",
+                                    "key": "metadata.spaceInsideTop",
+                                    "onValue": "large",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideTop",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_none": {
+                                    "text": "Bottom: none",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceInsideBottom",
+                                    "onValue": "none",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_small": {
+                                    "text": "Bottom: small",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceInsideBottom",
+                                    "onValue": "small",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_medium": {
+                                    "text": "Bottom: medium",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceInsideBottom",
+                                    "onValue": "medium",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                "below_large": {
+                                    "text": "Bottom: large",
+                                    "callback": "toggleKeyAndValue",
+                                    "group": "space_2",
+                                    "key": "metadata.spaceInsideBottom",
+                                    "onValue": "large",
+                                    "offValue": null,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }, {
+                                            "target": "parent",
+                                            "path": "metadata.spaceInsideBottom",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "backgroundImage": {
+                            "icon": "labicon-image",
+                            "text": "Background image",
+                            "callback": "dispatch",
+                            "group": "sub_3",
+                            "onValue": true,
+                            "offValue": false,
+                            "params": {
+                                "function": "contextualmenu.callbacks.toggleMediaContainer"
+                            },
+                            "bindings": [
+                                {
+                                    "path": "childCount.mediaContainer",
+                                    "attribute": "value",
+                                    "valueTransformer": "toBoolean"
+                                }
+                            ]
+                        },
+                        "editBackground": {
+                            "icon": "labicon-image",
+                            "text": "Edit background",
+                            "callback": "dispatch",
+                            "group": "sub_3",
+                            "onValue": true,
+                            "offValue": false,
+                            "displayCondition": "hasChildOfType",
+                            "params": {
+                                "modelType": "mediaContainer",
+                                "function": "contextualmenu.callbacks.toggleEditMediaContainer"
+                            },
+                            "bindings": [
+                                {
+                                    "path": "state.editMediaContainer",
+                                    "attribute": "value",
+                                    "valueTransformer": "toBoolean"
+                                }
+                            ]
+                        },
+                        "section": {
+                            "icon": "labicon-id",
+                            "text": "Set id / anchor link",
+                            "callback": "setValueByUserInput",
+                            "group": "sub_3",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sectionId",
+                                    "attribute": "value",
+                                    "valueTransformer": "toBoolean"
+                                }
+                            ],
+                            "params": {
+                                "title": "Set section id - anchor link",
+                                "attributeArray": [
+                                    {
+                                        "key": "metadata.sectionId",
+                                        "type": "text",
+                                        "validators": ["lab_api.v1.util.valueTransformer.noWhiteSpace"],
+                                        "placeholder": "String without whitespsace ...",
+                                        "label": "ID - Can be used as anchor link: #my_id"
+                                    }
+                                ]
+                            }
+                        },
+                        "shapes": {
+                            "text": "Shapes",
+                            "icon": "labicon-gridShapes",
+                            "autocloseSubmenuAfterAction": false,
+                            "group": "sub_3",
+                            "callback": "displayShapes",
+                            "params": {
+                                "shapes": {
+                                    "configPath": "shapes.row_shapes"
+                                }
+                            }
+                        },
+                        "notes": {
+                            "text": "Notes",
+                            "icon": "labicon-notes",
+                            "callback": "displaySettingsPanel",
+                            "params": {
+                                "settingsPanelOptions": "settingsPanels.notes"
+                            },
+                            "title": "Edit Notes for this row",
+                            "group": "sub_3",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.notes",
+                                    "attribute": "value",
+                                    "valueTransformer": "toBoolean"
+                                }
+                            ]
+                        },
+                        "visibleAfterDate": {
+                            "text": "Publish date",
+                            "title": "Make row visible after a set date",
+                            "group": "sub_4",
+                            "icon": "labicon-calendar",
+                            "callback": "displaySettingsPanel",
+                            "params": {
+                                "settingsPanelOptions": "settingsPanels.visibleAfterDate"
+                            },
+                            "value": false,
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.visibleAfterDate",
+                                    "attribute": "value",
+                                    "valueTransformer": "toBoolean"
+                                }
+                            ]
+                        },
+                        "hideViewport": {
+                            "inheritPath": "menu/buttons/hideViewport.json",
+                            "text": "Hide in current viewport",
+                            "title": null,
+                            "group": "sub_5"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "RichTextMenu": {
+            "inheritPath": "menu/tool/rich_text.json",
+            "items": {
+                "style": {
+                    "group": "g2",
+                    "text": "Style",
+                    "title": "choose html tag",
+                    "items": [
+                        {
+                            "text": "Normal",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.rowTitleTag",
+                            "onValue": "p",
+                            "offValue": null,
+                            "bindings": [
+                                {
+                                    "path": "metadata.rowTitleTag",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Heading 2",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.rowTitleTag",
+                            "onValue": "h2",
+                            "offValue": null,
+                            "bindings": [
+                                {
+                                    "path": "metadata.rowTitleTag",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Heading 3",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.rowTitleTag",
+                            "onValue": "h3",
+                            "offValue": null,
+                            "bindings": [
+                                {
+                                    "path": "metadata.rowTitleTag",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Heading 4",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.rowTitleTag",
+                            "onValue": "h4",
+                            "offValue": null,
+                            "bindings": [
+                                {
+                                    "path": "metadata.rowTitleTag",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Heading 5",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.rowTitleTag",
+                            "onValue": "h5",
+                            "offValue": null,
+                            "bindings": [
+                                {
+                                    "path": "metadata.rowTitleTag",
+                                    "attribute": "value"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "align": {
+                    "bindToSelection": "text_align_row",
+                    "items": {
+                        "left": {
+                            "key": "text_align_row",
+                            "bindToSelection": "text_align_row"
+                        },
+                        "center": {
+                            "key": "text_align_row",
+                            "bindToSelection": "text_align_row"
+                        },
+                        "right": {
+                            "key": "text_align_row",
+                            "bindToSelection": "text_align_row"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

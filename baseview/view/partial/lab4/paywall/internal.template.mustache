@@ -1,0 +1,35 @@
+<div class="paywallTeaser column">
+    <div class="inner">
+        <div class="header">
+            {{ #getConfig.paywall.teaser.title }}<h3>{{{ getConfig.paywall.teaser.title }}}</h3>{{ /getConfig.paywall.teaser.title }}
+            {{ #getConfig.paywall.teaser.login.url }}<h4><a class="login" href="{{{ getConfig.paywall.teaser.login.url }}}&siteAlias={{{ getCmsConfig.site.alias }}}&&siteId={{{ getCmsConfig.site.id }}}&contentUrl={{ #helper.encodeURIComponent }}{{{ get.root.filtered.url }}}{{ /helper.encodeURIComponent }}">{{{ getConfig.paywall.teaser.login.title }}}</a></h4>{{ /getConfig.paywall.teaser.login.url }}
+            {{ #getConfig.paywall.teaser.description }}<p>{{{ getConfig.paywall.teaser.description }}}</p>{{ /getConfig.paywall.teaser.description }}
+        </div>
+
+        {{ ^get.root.filtered.paywall.hidePaywallOffers }}<div class="offers">
+        {{ #getConfig.paywall.teaser.offers }}
+            <div class="offer {{ css }}">
+                {{ #title }}<h4>{{{ title }}}</h4>{{ /title }}
+                {{ #price }}<h3 class="price">{{{ price }}}</h3>{{ /price }}
+                {{ #price_description }}<p class="price_description">{{{ price_description }}}</p>{{ /price_description }}
+                {{ #url }}<p>
+                    <a href="{{{ url }}}&siteAlias={{{ getCmsConfig.site.alias }}}&&siteId={{{ getCmsConfig.site.id }}}&contentUrl={{ #helper.encodeURIComponent }}{{{ get.root.filtered.url }}}{{ /helper.encodeURIComponent }}">{{{ action }}}</a>
+                </p>{{ /url }}
+                {{ #customUrl }}<p>
+                    <a href="{{{ customUrl }}}">{{{ action }}}</a>
+                </p>{{ /customUrl }}
+            </div>
+        {{ /getConfig.paywall.teaser.offers }}
+        </div>{{ /get.root.filtered.paywall.hidePaywallOffers }}
+
+        <div class="offersDescription">
+            {{ #getConfig.paywall.teaser.offersDescription }} {{{ getConfig.paywall.teaser.offersDescription }}} {{ /getConfig.paywall.teaser.offersDescription }}
+        </div>
+
+        <div class="nav">
+            {{ #getConfig.paywall.teaser.login.url  }}<p><a class="login" href="{{{ getConfig.paywall.teaser.login.url  }}}&siteAlias={{{ getCmsConfig.site.alias }}}&&siteId={{{ getCmsConfig.site.id }}}&contentUrl={{ #helper.encodeURIComponent }}{{{ get.root.filtered.url }}}{{ /helper.encodeURIComponent }}">{{{ getConfig.paywall.teaser.login.title }}}</a></p>{{  /getConfig.paywall.teaser.login.url }}
+            {{ #getConfig.paywall.teaser.update.url }}<p><a class="login" href="{{{ getConfig.paywall.teaser.update.url }}}&siteAlias={{{ getCmsConfig.site.alias }}}&&siteId={{{ getCmsConfig.site.id }}}&contentUrl={{ #helper.encodeURIComponent }}{{{ get.root.filtered.url }}}{{ /helper.encodeURIComponent }}">{{{ getConfig.paywall.teaser.update.title }}}</a></p>{{ /getConfig.paywall.teaser.update.url }}
+            {{ #getConfig.paywall.teaser.mypage.url }}<p><a class="login" href="{{{ getConfig.paywall.teaser.mypage.url }}}&siteAlias={{{ getCmsConfig.site.alias }}}&&siteId={{{ getCmsConfig.site.id }}}&contentUrl={{ #helper.encodeURIComponent }}{{{ get.root.filtered.url }}}{{ /helper.encodeURIComponent }}">{{{ getConfig.paywall.teaser.mypage.title }}}</a></p>{{ /getConfig.paywall.teaser.mypage.url }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <h2 class="lab-title lab-grid-gap lab-grid-large-12 lab-space-below-large">{{ #id }}Edit teaser{{ /id }}{{ ^id }}Create teaser{{ /id }}</h2>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="teaser-title">Title</label>
+            <input type="text" id="teaser-title" name="title" value="{{ fields.title }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="teaser-subtitle">Subtitle</label>
+            <textarea id="teaser-subtitle" name="subtitle">{{{ fields.subtitle }}}</textarea>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="teaser-url">Url</label>
+            <input type="url" id="teaser-url" name="published_url" value="{{ fields.published_url }}">
+        </div>
+    </div>
+</div>

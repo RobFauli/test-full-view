@@ -1,0 +1,16 @@
+{
+    "boxTitle": "Article Header",
+    "source": {
+        "node": "page",
+        "keys": ["fields.title", "fields.subtitle", "fields.kicker", "fields.published", "fields.modified", "fields.created"]
+    },
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes",
+            "subtitle": "presets.vp_content_attributes",
+            "kicker": "presets.vp_content_attributes",
+            "displayByline": "presets.vp_data",
+            "displayCaption": "presets.vp_data"
+        }
+    }
+}

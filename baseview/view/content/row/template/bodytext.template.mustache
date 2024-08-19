@@ -1,0 +1,36 @@
+{{ #get.current.metadata.isSection }}
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+row-section 
+columns
+btxt_row
+{{ #style.collection }}box_decoration{{ /style.collection }}
+{{ #style.collection }}content_decoration{{ /style.collection }}
+{{ #style.definition }}movableContainer metadata.movableContent{{ /style.definition }}
+{{ #style.definition }}movableElement metadata.movableContent{{ /style.definition }}
+{{ #style.definition }}collapsedContent metadata.collapsedContent{{ /style.definition }}
+{{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+{{ /get.current.metadata.isSection }}
+<div {{ ^get.current.metadata.isSection }}data-element-guid="{{ get.current.guid }}" {{ /get.current.metadata.isSection }}class="{{ #helper.trim }}
+    columns
+    btxt_row
+    row
+    {{ size.grid.css }}
+    {{ #get.current.metadata.fullWidthContent }}fullWidthContent{{ /get.current.metadata.fullWidthContent }}
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{ #style.definition }}movableContainer metadata.movableContent{{ /style.definition }}
+    {{ #style.definition }}movableElement metadata.movableContent{{ /style.definition }}
+    {{ #style.definition }}collapsedContent metadata.collapsedContent{{ /style.definition }}
+    {{ #get.current.metadata.hasRowTitle }}has-row-header{{ /get.current.metadata.hasRowTitle }}
+    {{ #get.children.mediaContainer }}has-media-container{{ /get.children.mediaContainer }}
+    {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}"{{ #get.current.metadata.sectionId }} id="{{ get.current.metadata.sectionId }}"{{ /get.current.metadata.sectionId }}>{{ #get.current.metadata.hasRowTitle }}
+    {{ #get.current.metadata.rowTitleTag }}
+    <{{ get.current.metadata.rowTitleTag }} class="row_header_text large-12 small-12 {{ #style.collection }}text_decoration metadata{{ /style.collection }} {{ #style.definition }}text_align_row{{ /style.definition }}">{{{ get.current.metadata.rowTitle }}}</{{ get.current.metadata.rowTitleTag }}>
+    {{ /get.current.metadata.rowTitleTag }}
+    {{ ^get.current.metadata.rowTitleTag }}
+    <h5 class="row_header_text large-12 small-12 {{ #style.collection }}text_decoration metadata{{ /style.collection }} {{ #style.definition }}text_align_row{{ /style.definition }}">{{{ get.current.metadata.rowTitle }}}</h5>
+    {{ /get.current.metadata.rowTitleTag }}
+    {{ /get.current.metadata.hasRowTitle }}{{ #get.current.metadata.movableContent }}{{{ get.current.filtered.movableStyle }}}{{ /get.current.metadata.movableContent }}{{{ children.all }}}</div>
+{{ #get.current.metadata.isSection }}
+</div>
+{{ /get.current.metadata.isSection }}

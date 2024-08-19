@@ -1,0 +1,114 @@
+{
+    "drawer": [
+        {
+            "label": "Articles",
+            "hotkeyLabel": "A",
+            "collection": "ArticlesLatest",
+            "identifier": "articles",
+            "items": [
+                {
+                    "collection": "ArticlesLatest",
+                    "identifier": "articles-latest",
+                    "label": "Latest",
+                    "hotkeyLabel": "A"
+                },
+                {
+                    "collection": "ArticlesAuto",
+                    "identifier": "articles-auto",
+                    "label": "Automatic",
+                    "hotkeyLabel": "⇧A"
+                },
+                {
+                    "collection": "ArticleTeasers",
+                    "identifier": "article-teasers",
+                    "label": "Teasers",
+                    "hotkeyLabel": "T"
+                }
+            ]
+        },
+        {
+            "label": "Media",
+            "hotkeyLabel": "M",
+            "collection": "MediaImages",
+            "identifier": "media",
+            "items": [
+                {
+                    "collection": "MediaImages",
+                    "identifier": "media-images",
+                    "label": "Images",
+                    "hotkeyLabel": "M"
+                },
+                {
+                    "collection": "MediaImagesThisPage",
+                    "identifier": "media-images-this-page",
+                    "pageType": "article",
+                    "label": "This page"
+                },
+                {
+                    "collection": "YouTube",
+                    "identifier": "media-youtube",
+                    "label": "YouTube",
+                    "hotkeyLabel": "⇧V"
+                },
+                {
+                    "identifier": "media_dropdown",
+                    "dropdown": true,
+                    "items": [
+                        {
+                            "collection": "Graphics",
+                            "identifier": "media-graphics",
+                            "label": "Graphics",
+                            "hotkeyLabel": "⇧M"
+                        },
+                        {
+                            "collection": "MediaSlideshow",
+                            "identifier": "media-slideshow",
+                            "label": "Slideshow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Content",
+            "hotkeyLabel": "C",
+            "collection": "Elements",
+            "identifier": "elements",
+            "items": [
+                {
+                    "label": "Add element",
+                    "identifier": "elements-elements",
+                    "collection": "Elements"
+                },
+                {
+                    "label": "Bylines",
+                    "identifier": "elements-bylines",
+                    "pageType": "article",
+                    "collection": "Bylines",
+                    "hotkeyLabel": "⇧B"
+                },
+                {
+                    "label": "Search",
+                    "identifier": "elements-search",
+                    "collection": "Search"
+                }
+            ]
+        },
+        {
+            "label": "Settings",
+            "hotkeyLabel": "⇧S",
+            "pageType": "article",
+            "callback": "lab_api.v1.apps.start",
+            "identifier": "settings-article",
+            "argument": "ArticleSettings"
+        },
+        {
+            "label": "Settings",
+            "hotkeyLabel": "⇧S",
+            "pageType": "front",
+            "callback": "lab_api.v1.apps.start",
+            "identifier": "settings-front",
+            "argument": "SettingsFront"
+        }
+    ]
+}

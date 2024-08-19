@@ -1,0 +1,130 @@
+<article {{ #helper.trim }}
+    data-element-guid="{{ get.current.guid }}"
+    class="column
+        {{ #style.collection }}box_decoration{{ /style.collection }}
+        {{ #get.current.filtered.paywall }}paywall{{ /get.current.filtered.paywall }}
+        {{ size.grid.css }}
+        {{ size.grid.absCss }}
+        {{ get.current.filtered.autodata_css }}"
+    {{ #get.current.filtered.autodata_attributes }} {{ key }}="{{ value }}"{{ /get.current.filtered.autodata_attributes }} 
+    data-site-alias="{{ get.current.filtered.site_alias }}" 
+    data-section="{{ get.current.filtered.section }}" 
+    data-instance="{{ get.current.instance_of }}{{ ^get.current.instance_of }}{{ get.current.id }}{{ /get.current.instance_of }}" 
+    {{ #get.child.image.fields.float }}data-image-float="{{ get.child.image.fields.float }}"{{ /get.child.image.fields.float }}
+    itemscope itemtype="http://schema.org/NewsArticle"
+    {{ /helper.trim }}>
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ #get.current.metadata.image_gradient_direction }}image-gradient-{{ get.current.metadata.image_gradient_direction }}{{ /get.current.metadata.image_gradient_direction }} 
+        {{ #style.collection }}box_fullWidth{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        
+        {{#get.current.fields.published_url}}<a itemprop="url"{{ #get.current.fields.open_in_new_window }} target="_blank"{{ /get.current.fields.open_in_new_window }} class="" href="{{{ get.current.fields.published_url }}}" data-k5a-url="{{{ get.current.filtered.canonical_url }}}">{{/get.current.fields.published_url}}
+
+        {{ #get.current.filtered.layout.top }}
+        {{ #render.template }}content/article/template/partials/{{ . }}{{ /render.template }}
+        {{ /get.current.filtered.layout.top }}
+
+        <div class="media{{ #get.current.metadata.floatingTextSubset }} floatingTextSubset{{ /get.current.metadata.floatingTextSubset }} {{ #style.definition }}imageAlign child.image.fields.float{{ /style.definition }}">
+            {{^get.current.metadata.hideimage}}
+                {{{ placeholder.no_media }}}
+
+                {{{ child.image }}}
+                {{{ child.graphic }}}
+                {{{ child.slideshow }}}
+                {{{ child.youtube }}}
+                {{{ child.simplestream }}}
+                {{{ child.markup }}}
+                {{{ child.parallax }}}
+            
+            {{/get.current.metadata.hideimage}}
+            <div class="floatingText">
+                {{ #get.current.filtered.layout.floating }}
+                {{ #render.template }}content/article/template/partials/{{ . }}{{ /render.template }}
+                {{ /get.current.filtered.layout.floating }}
+
+                <div class="labels">
+                    {{ #get.current.filtered.autodata_custom.labels }}
+                    <div class="label" data-label-key="{{ key }}" data-label-value="{{ value }}"><span class="label-value">{{ value }}</span></div>
+                    {{ /get.current.filtered.autodata_custom.labels }}
+                    {{ #get.current.filtered.sectionPlacement.floating }}
+                        {{ #get.current.metadata.showSection }}
+                            {{ #get.current.filtered.section }}<p itemprop="section" class="section" data-tag="{{ get.current.filtered.section }}">{{ get.current.filtered.section }}</p>{{ /get.current.filtered.section }}
+                        {{ /get.current.metadata.showSection }}
+                    {{ /get.current.filtered.sectionPlacement.floating }}
+                </div>
+            </div>
+            {{ #get.current.filtered.paywallLabel }}{{> partial/elements/paywallLabel }}{{ /get.current.filtered.paywallLabel }}
+        </div>
+        {{ #get.current.fields.displayCaption }}
+            <div class="caption {{ #helper.trim }}
+                {{ #app.isEditor }}expanded{{ /app.isEditor }}
+                {{ #get.current.fields.truncateCaption }}truncate{{ /get.current.fields.truncateCaption }}
+                {{ ^get.current.fields.truncateCaption }}
+                    {{ #get.child.image.fields.truncateCaption }}truncate{{ /get.child.image.fields.truncateCaption }}
+                {{ /get.current.fields.truncateCaption }}
+                {{ /helper.trim }}" data-showmore="{{{ getConfig.image.caption.showMoreLabel }}}"{{ #get.child.image.filtered.captionOptions.expandable }} data-expandable="true"{{ /get.child.image.filtered.captionOptions.expandable }}>
+                <figcaption itemprop="caption" class="{{ #style.collection }}text_decoration child.image.fields.imageCaption{{ /style.collection }}">{{ #helper.stripLinks }}{{ #get.child.image.fields.globalCaption }}{{{ get.child.image.fields.globalCaption }}}{{ /get.child.image.fields.globalCaption }}{{ ^get.child.image.fields.globalCaption }}{{{ get.child.image.fields.imageCaption }}}{{ /get.child.image.fields.globalCaption }}{{ /helper.stripLinks }}</figcaption>
+                <figcaption itemprop="author" class="{{ #style.collection }}text_decoration child.image.fields.byline{{ /style.collection }}" data-byline-prefix="{{{ getConfig.image.imageBylinePrefix }}}">{{ #helper.stripLinks }}{{{ get.child.image.fields.byline }}}{{ /helper.stripLinks }}</figcaption>
+            </div>
+        {{ /get.current.fields.displayCaption }}
+
+        {{ #get.current.metadata.vertical_text_align }}
+            <div class="vertically-aligned-text">
+        {{ /get.current.metadata.vertical_text_align }}
+
+            {{ #get.current.filtered.sectionPlacement.underImage }}
+                {{ #get.current.metadata.showSection }}
+                    {{ #get.current.filtered.section }}<p itemprop="section" class="section" data-tag="{{ get.current.filtered.section }}">{{ get.current.filtered.section }}</p>{{ /get.current.filtered.section }}
+                {{ /get.current.metadata.showSection }}
+            {{ /get.current.filtered.sectionPlacement.underImage }}
+
+        
+            {{ #get.current.metadata.showTags }}
+            <div itemprop="tags" class="tags">{{#get.current.filtered.tags}}
+                <span itemprop="tag" class="tag" data-tag="{{ . }}">{{.}}</span>
+            {{/get.current.filtered.tags}}</div>
+            {{ /get.current.metadata.showTags }}
+            {{ #get.current.filtered.layout.bottom }}
+            {{ #render.template }}content/article/template/partials/{{ . }}{{ /render.template }}
+            {{ /get.current.filtered.layout.bottom }}
+        
+
+            {{ #get.current.filtered.sectionPlacement.underText }}
+                {{ #get.current.metadata.showSection }}
+                    {{ #get.current.filtered.section }}<p itemprop="section" class="section" data-tag="{{ get.current.filtered.section }}">{{ get.current.filtered.section }}</p>{{ /get.current.filtered.section }}
+                {{ /get.current.metadata.showSection }}
+            {{ /get.current.filtered.sectionPlacement.underText }}
+
+        {{ #get.current.metadata.vertical_text_align }}
+            </div>
+        {{ /get.current.metadata.vertical_text_align }}
+
+        {{ #get.current.filtered.displayByline }}
+        <div class="bylines">{{ #get.current.filtered.bylines }}
+            <div class="byline column" itemscope="" itemtype="http://schema.org/Person">
+                <div class="content">
+                    {{ #imageUrl}}
+                    <figure>
+                        <img itemprop="image" src="{{{ imageUrl}}}">
+                    </figure>
+                    {{ /imageUrl}}
+                    <address class="name">{{{ firstname }}} {{{ lastname }}}</address>
+                </div>
+            </div>
+        {{ /get.current.filtered.bylines }}</div>
+        {{ /get.current.filtered.displayByline}}
+
+        {{#get.current.fields.published_url}}</a>{{/get.current.fields.published_url}}
+
+        {{ #get.current.metadata.subarticles }}
+            <p class="subarticlesTitle bold {{ #style.collection }}text_decoration fields.subarticlesTitle{{ /style.collection }}" style="margin: 0.6em 0 0;">{{{ get.current.fields.subarticlesTitle }}}</p>
+            <ul class="relatedArticles">{{ #children.article[]+ }}
+            {{{ . }}}
+            {{ /children.article[]+ }}</ul>
+        {{ /get.current.metadata.subarticles }}
+        <time itemprop="datePublished" datetime="{{ get.current.filtered.published }}"></time>
+    </div>
+</article>

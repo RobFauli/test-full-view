@@ -1,0 +1,13 @@
+<div>
+    <h3>toppages ...</h3>
+    
+    <p>endpoint: {{{ plugin.nodeData.endpoint }}}</p>
+    <p>Range: {{{ plugin.nodeData.filter.range }}}</p>
+    
+    {{ #data }}
+    <p>id: {{{ id }}}</p>
+    <p>pageviews: {{ attributes.pageviews }}</p>
+    <p>url: {{ attributes.url }}</p>
+    {{ /data }}
+
+</div>

@@ -1,0 +1,11 @@
+{
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "active": false
+                }
+            }
+        }
+    }
+}

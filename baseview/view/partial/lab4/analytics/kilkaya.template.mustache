@@ -1,0 +1,14 @@
+{{ #get.current.filtered.analytics.kilkayaSettings }}
+    {{ #useDefaultScript }}
+        <script src="//cl.k5a.io/6156b8c81b4d741e051f44c2.js" async></script>
+    {{ /useDefaultScript }}
+{{ /get.current.filtered.analytics.kilkayaSettings }}
+
+{{ #get.current.filtered.analytics.kilkaya }}
+    {{ #url }}
+        <script src="{{{ url }}}" async></script>
+    {{ /url }}
+    {{ ^url }}
+        <script src="//cl.k5a.io/{{{ id }}}.js" async></script>
+    {{ /url }}
+{{ /get.current.filtered.analytics.kilkaya }}

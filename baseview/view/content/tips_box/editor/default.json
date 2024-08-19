@@ -1,0 +1,33 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                },
+                "settings": {
+                    "items": {
+                        "btn2": {
+                            "callback": "reloadExternal",
+                            "text": "Re-fetch external"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/tips_box/template/settings"
+        }
+    }
+}

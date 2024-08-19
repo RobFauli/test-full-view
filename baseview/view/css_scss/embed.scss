@@ -1,0 +1,38 @@
+.embed {
+    .main.article {
+        padding: 0;
+        margin:0;
+        .articleHeader {
+            padding-top: 0;
+        }
+        .articleHeader a {
+            color: initial;
+        }
+        a .subtitle {
+            text-decoration: none;
+            margin-bottom: 0;
+        }
+        .meta .social {
+            display: none;
+        }
+    }
+
+    footer.page {
+        text-align: right;
+        margin:0;
+        padding:0;
+    }
+
+    footer.page .row {
+        padding: 0.5em 0;
+        border: 0;
+    }
+
+    footer.page svg,
+    footer.page img {
+        width: 120px;
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: 0.5em;
+    }
+}

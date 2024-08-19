@@ -1,0 +1,16 @@
+<div class="dac-embed-this">
+    <form action="">
+        <input type="button" value="{{ #lang }}embed.embed_label{{ /lang }}">
+        <div class="dac-embed-this-popup">
+            <h3>{{ #lang }}embed.heading{{ /lang }}</h3>
+            <p>{{ #lang }}embed.description{{ /lang }}</p>
+            <p>
+                <label for="dac-embed-type-teaser"><input type="radio" name="dac-embed-content-type" id="dac-embed-type-teaser" value="teaser" checked> {{ #lang }}embed.label_teaser{{ /lang }}</label>
+                <label for="dac-embed-type-full"><input type="radio" name="dac-embed-content-type" id="dac-embed-type-full" value="full"> {{ #lang }}embed.label_full{{ /lang }}</label>
+            </p>
+            <textarea readonly class="dac-embed-content-teaser"><div class="labrador-cms-embed" data-lab-content="teaser" data-lab-id="{{ get.current.id }}" data-lab-site="{{ get.current.filtered.site.domain_no_protocol }}"><script async defer src="{{ get.current.filtered.site.domain }}/embed.js?v=2"></script></div></textarea>
+            <textarea readonly class="dac-embed-content-full"><div class="labrador-cms-embed" data-lab-content="full" data-lab-id="{{ get.current.id }}" data-lab-site="{{ get.current.filtered.site.domain_no_protocol }}"><script async defer src="{{ get.current.filtered.site.domain }}/embed.js?v=2"></script></div></textarea>
+            <p class="dac-embed-close"><a href="#">{{ #lang }}embed.close{{ /lang }}</a></p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+<form>
+    <h4>Toppages</h4>
+
+    <p>
+        Display pages with highest number of page-views
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 4% 0 0;">
+        <label>
+            Range 
+            <select name="fields.linkpulse_json.query.range">
+                {{ #filtered.rangeList }}
+                    <option value="{{{ value }}}"{{ #selected }} selected{{ /selected }}>{{{ value }}}</option>
+                {{ /filtered.rangeList }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 0 0;">
+        <label>
+            Domain 
+            <select name="fields.linkpulse_json.query.domain">
+                {{ #filtered.domainList }}
+                    <option value="{{{ value }}}"{{ #selected }} selected{{ /selected }}>{{{ name }}}</option>
+                {{ /filtered.domainList }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 4% 0 0;">
+        <label>
+            Count 
+            <input type="number" name="fields.linkpulse_json.query.limit" value="{{ fields.linkpulse_json.query.limit }}">
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 0 0;">
+        <label>
+            Channel 
+            <select name="fields.linkpulse_json.query.channel">
+                {{ #filtered.channelList }}
+                    <option value="{{{ value }}}"{{ #selected }} selected{{ /selected }}>{{{ name }}}</option>
+                {{ /filtered.channelList }}
+            </select>
+        </label>
+    </p>
+
+    <p style="clear: both; padding-top: 1em;"><input class="labDs-btn" style="float:right;" type="submit" value="OK"></p>
+
+</form>

@@ -1,0 +1,40 @@
+<div class="fab-container[[ #settings.right ]] right-align [[ /settings.right ]][[ #settings.classes]] [[.]] [[ /settings.classes ]]">
+    <div class="fab-relative">
+        <div class="fab-wrapper"> 
+            <button title="Open menu" aria-label="Open menu" aria-controls="fab-menu-wrapper" aria-expanded="false" class="fab">
+                <i class="open [[ ^settings.icon_open ]]fi-list[[ /settings.icon_open ]][[ settings.icon_open ]]"></i>
+                <i class="close [[ ^settings.icon_close ]]fi-x[[ /settings.icon_close ]][[ settings.icon_close ]]"></i>
+            </button>
+        </div>
+        [[ ^settings.menuOnBottom ]]
+        <div class="fab-menu-wrapper">
+            <div class="fab-menu-content">
+                [[& children]]
+            </div>
+        </div>
+        [[ /settings.menuOnBottom ]]
+    </div>
+
+    [[ #settings.menuOnBottom ]]
+    <div class="fab-menu-wrapper">
+        <div class="fab-menu-content">
+            [[& children]]
+        </div>
+    </div>
+    [[ /settings.menuOnBottom ]]
+</div>
+
+<script>
+    const labFabMenu = document.querySelector('.fab-menu-wrapper');
+    const labFabButton = document.querySelector('button[aria-controls="fab-menu-wrapper"]');
+    const labFabWrapper = document.querySelector('.fab-container');
+    const labFabBody = document.querySelector('body');
+
+    labFabButton.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded', !expanded);
+        labFabMenu.classList.toggle('open');
+        labFabWrapper.classList.toggle('expanded');
+        labFabBody.classList.toggle('fab-open');
+    });
+</script>

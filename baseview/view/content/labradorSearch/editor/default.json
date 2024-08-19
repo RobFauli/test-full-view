@@ -1,0 +1,103 @@
+{
+    "editors": [
+        {
+            "selector": "h1",
+            "fn": "EditRich",
+            "displaySizeChange": true,
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title"
+        },
+        {
+            "selector": ".nextBtn",
+            "key": "fields.navLabel",
+            "placeholder": "Click to add label",
+            "fn": "EditClean"
+        },
+        {
+            "selector": "button[type=submit]",
+            "key": "fields.submitLabel",
+            "placeholder": "Click to add label",
+            "fn": "EditClean"
+        }
+    ],
+
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "image_edit": {
+            "inheritPath": "menu/tool/image.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "uiColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "icon": "labicon-color_palette",
+                    "group": "g4",
+                    "bindings": [
+                        {
+                            "path": "metadata.ui_color",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "active": true,
+                                "selector": "a.nextBtn, button[type=submit]",
+                                "styleDefinition": "background_color",
+                                "stylePath": null
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "title": "Buttons Background Color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "backgroundColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "objectValues": false,
+                                    "title": "Buttons Text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/labradorSearch/template/settings"
+        }
+    }
+}

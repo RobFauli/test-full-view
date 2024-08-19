@@ -1,0 +1,33 @@
+{
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "image_edit": {
+            "inheritPath": "menu/tool/image.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/twitter/template/settings"
+        }
+    }
+}

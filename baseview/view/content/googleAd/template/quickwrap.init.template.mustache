@@ -1,0 +1,38 @@
+<script>
+  window.Quickwrap = window.Quickwrap || {};
+  window.Quickwrap.cmd = window.Quickwrap.cmd || [];
+</script>
+
+<script src="https://{{get.current.filtered.googleAds.bidding.provider.id}}.ay.delivery/manager/{{get.current.filtered.googleAds.bidding.provider.id}}" type="text/javascript" referrerpolicy="no-referrer-when-downgrade" async></script>
+
+<script>
+    function removeNordicCharacters(string) {
+        // Regular expression that matches common Nordic characters
+        const nordicCharsRegexToA = /[äåÄÅ]/g;
+        const nordicCharsRegexToO = /[öÖøØ]/g;
+        const nordicCharsRegexToAe = /[æÆ]/g;
+
+        return string
+            .replace(nordicCharsRegexToA, 'a')
+            .replace(nordicCharsRegexToO, 'o')
+            .replace(nordicCharsRegexToAe, 'ae');
+    }
+
+    const tagsStrings = '{{ get.current.filtered.tagsString }}';
+    const section = '{{ get.current.filtered.section }}';
+    const categoryName = '{{ getConfig.adEnvironment.bidding.provider.trackingCategoryLabel }}' || 'tags';
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function(){
+        googletag.pubads().setTargeting("site", "{{ get.current.filtered.siteAlias }}");
+        googletag.pubads().setTargeting("context", "{{ get.current.filtered.pageType }}");
+        {{ #get.current.filtered.is_tagpage }}
+        googletag.pubads().setTargeting("is_tagpage", "true");
+        {{ /get.current.filtered.is_tagpage }}
+        {{ #get.current.filtered.tagsString }}
+        googletag.pubads().setTargeting(categoryName, removeNordicCharacters(tagsStrings));
+        {{ /get.current.filtered.tagsString }}
+        {{ #get.current.filtered.section }}
+        googletag.pubads().setTargeting('section', removeNordicCharacters(section));
+        {{ /get.current.filtered.section }}
+    });
+</script>

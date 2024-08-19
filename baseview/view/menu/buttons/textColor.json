@@ -1,0 +1,36 @@
+{
+    "icon": "labicon-color_bucket_text",
+    "callback": "colorPicker",
+    "params": {
+        "colorPicker": {
+            "display": {
+                "position": "before",
+                "align": "start"
+            },
+            "layout": {
+                "widthDisabled": "250px"
+            },
+            "groups": [
+                {
+                    "values": "font_colors",
+                    "eyeDropper": {
+                        "key": "custom_text_color"
+                    },
+                    "objectValues": false,
+                    "title": "Text Color",
+                    "label": "A",
+                    "useValueAsLabel": false,
+                    "cssPrefix": "",
+                    "key": "text_color",
+                    "removeBtn": true,
+                    "bordered": true
+                }
+            ]
+        }
+    },
+    "onValue": true,
+    "offValue": false,
+    "bindToSelection": "text_color",
+    "onValueCondition": "lab-key-is-true",
+    "title": "Set text color"
+}

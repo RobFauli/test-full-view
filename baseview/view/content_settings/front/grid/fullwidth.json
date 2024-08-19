@@ -1,0 +1,20 @@
+{
+    "gridRules": {
+        "oddRule": {
+            "condition": "odd",
+            "values": {
+                "mobile": {
+                    "default": 12
+                }
+            }
+        },
+        "evenRule": {
+            "condition": "even",
+            "values": {
+                "mobile": {
+                    "default": 12
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column
+    jwplayer
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+{{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        <div class="container">
+            {{ #get.current.fields.vid }}
+            <iframe src="https://cdn.jwplayer.com/players/{{ get.current.fields.vid }}.html" width="100%" height="100%" frameborder="0" scrolling="auto" {{ #get.current.fields.caption }}title="{{ get.current.fields.caption }}"{{ /get.current.fields.caption }} allowfullscreen=""></iframe>
+            {{ /get.current.fields.vid }}
+            {{ ^get.current.fields.vid }}
+            <div class="notice">No video ID provided for JW Player.</div>
+            {{ /get.current.fields.vid }}
+        </div>
+        {{ #get.current.fields.displayCaption }}
+        {{ > content/jwplayer/template/partials/caption }}
+        {{ /get.current.fields.displayCaption }}
+    </div>
+</div>

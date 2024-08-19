@@ -1,0 +1,22 @@
+<div class="lab-formgroup lab-grid lab-grid-gap ">
+    <div class="lab-formgroup-item lab-grid-large-10 lab-grid-gap">
+        <label for="mailmojo-bg-{{ get.current.guid }}">Background color (hex value)</label>
+        <input type="text" id="mailmojo-bg-{{ get.current.guid }}" name="metadata.mailmojo_bg_color" placeholder="Hex-value like #0091ae" value="{{{ get.current.metadata.mailmojo_bg_color }}}">
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-2 lab-grid-gap">
+        <label for="mailmojo-colorpicker-{{ get.current.guid }}">Color picker</label>
+        <input type="color" id="mailmojo-colorpicker-{{ get.current.guid }}" name="head" value="{{{ get.current.metadata.mailmojo_bg_color }}}" />
+    </div>
+    <script type="module">
+        const targetEl = document.querySelector('#mailmojo-bg-{{ get.current.guid }}');
+        const sourceEl = document.querySelector('#mailmojo-colorpicker-{{ get.current.guid }}');
+        if (targetEl && sourceEl) {
+            sourceEl.addEventListener('input', (event) => {
+                targetEl.value = sourceEl.value;
+            });
+            targetEl.addEventListener('input', (event) => {
+                sourceEl.value = targetEl.value;
+            });
+        }
+    </script>
+</div>

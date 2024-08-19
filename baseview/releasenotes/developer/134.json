@@ -1,0 +1,25 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 134,
+            "str": "1.3.4"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20230620",
+                "title": "Removed lazy-loading for article header image",
+                "description": "If config `imageLoading.lazy` is set to `true` Baseview will add the attribute `loading` with the value `lazy` to images. Each element can use property `image.noLazy` (boolean) to override this. The property is added to images in the article-header."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230606",
+                "title": "Updated filtered data in templates",
+                "description": "Due to a change in Labrador all elements holds separate filtered data regardless of source-data. Baseview-templates for `articleFooter` and `articleMeta` are updated to read filtered data from root (page).",
+                "links": [
+                    "/support/docs/#view/data/source-data.md"
+                ]
+            }
+        ]
+    }
+}

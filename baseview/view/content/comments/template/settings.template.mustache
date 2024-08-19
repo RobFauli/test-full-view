@@ -1,0 +1,35 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Comments - settings</h2>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-8 lab-grid-gap">
+                <label for="id-fields.source">Select source</label>
+                <select id="id-fields.source" name="fields.source">
+                    {{ #get.current.filtered.sourceList }}
+                    <option value="{{{ name }}}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+                    {{ /get.current.filtered.sourceList }}
+                </select>
+            </div>
+        </div>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+                <label for="id-fields.limit">Number of items</label>
+                <input type="number" name="fields.limit" id="id-fields.limit" value="{{ get.current.filtered.limit }}" max="30">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+                <label for="id-fields.maxCharLength">Max character limit</label>
+                <input type="number" name="fields.maxCharLength" id="id-fields.maxCharLength" value="{{ get.current.fields.maxCharLength }}">
+            </div>
+        </div>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-inline">
+                <label for="id-fields.hide_title">Hide Title</label>
+                <input type="checkbox" name="fields.hide_title" id="id-fields.hide_title" {{ #get.current.fields.hide_title }}checked{{ /get.current.fields.hide_title }} value="1">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-9 lab-grid-gap lab-inline">
+                <label for="id-fields.hide_description">Hide Description</label>
+                <input type="checkbox" name="fields.hide_description" id="id-fields.hide_description" {{ #get.current.fields.hide_description }}checked{{ /get.current.fields.hide_description }} value="1">
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,629 @@
+/* Style for contentbox article */
+@use "../../css_scss/mixins/paywall";
+@use "../../css_scss/components/font-size" as *;
+@use "../../css_scss/components/vars" as *;
+
+article.column {
+    .content {
+        .headline,
+        .subtitle {
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        &.vertical-text-align-center,
+        &.mobile-vertical-text-align-center {
+            .media .floatingText {
+                bottom: unset;
+                top: 50%;
+                justify-content: center;
+                transform: translateY(-50%);
+            }
+
+            &:has([class*= "-floatLeft"]),
+            &:has([class*= "-floatRight"]) {
+                display: flex;
+
+                &:has([class*= "-floatRight"]) {
+                    flex-direction: row-reverse;
+
+                    a {
+                        flex-direction: row-reverse;
+                    }
+                }
+
+                @include mobile {
+                    flex-direction: column;
+                }
+
+                a {
+                    display: flex;
+                    flex: 1;
+
+                    @include mobile {
+                        flex-direction: column;
+                    }
+                }
+                
+                .vertically-aligned-text {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    a {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        text-decoration: none;
+        
+        // Allow row class "grid-align-stretch" to make all articles equal height
+        height: 100%;
+
+        // Use overflow hidden to let class ".animate" function without scroll-bars.
+        overflow: hidden;
+
+        a {
+            color: inherit;
+        }
+        figure {
+            margin-bottom: 0.4rem;
+            position: relative;
+            
+            // Figure-element may have grid. Override
+            width: auto;
+
+            &.floatLeft {
+                margin-right: 0.7em;
+            }
+            &.floatRight {
+                margin-left: 0.4em;
+            }
+        }
+        .headline {
+            font-weight: 600;
+            @include font-size(32);
+        }
+        .subtitle {
+            font-weight: 500;
+            @include font-size(16);
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        .kicker {
+            padding: 0 0 8px;
+            @include font-size(19);
+            &:empty {
+                display: none;
+            }
+            &.below {
+                padding-top: 0.7rem;
+                margin-bottom: -0.5rem;
+                &:last-child {
+                    margin-bottom: unset;
+                }
+            }
+            @include mobile_up {
+                &.kicker[class*=" bg-"] {
+                    margin-bottom: unset;
+                }
+            }
+            @include mobile {
+                &.kicker[class*=" color_mobile_bg-"] {
+                    margin-bottom: unset;
+                }
+            }            
+        }
+
+        @include mobile {
+            .headline {
+                @include font-size(27);
+            }
+        }
+
+        .section, .tags .tag {
+            background-color: #ffffff;
+            color: #000;
+            display: inline-block;
+            padding: 0.2em 0.5em;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+        .tags .tag {
+            background-color: #e7e7e7;
+        }
+        .media {
+            position: relative;
+
+            &:last-child {
+                figure {
+                    margin-bottom: 0;
+                    margin-top: .4rem;
+                }
+            }
+
+            .floatingText {
+                position: absolute;
+                bottom: 0;
+                color: #fff;
+                padding-bottom: $columns_gutter;
+                width: 100%;
+
+                &:empty {
+                    display: none;
+                }
+
+                @include mobile {
+                    width: 100%;
+                    .section, .tags .tag {
+                        font-size: 0.6rem;
+                    }
+                }
+
+                .kicker,
+                .headline,
+                .subtitle,
+                .section,
+                .tags{
+                    margin-right: $columns_gutter;
+                    margin-left: $columns_gutter;
+                    margin-bottom: calc($columns_gutter / 2);
+                }
+                .kicker[class*=" bg-"],
+                .subtitle[class*=" bg-"] {
+                    display: inline-block;
+                }
+            }
+
+            &.floatingTextSubset {
+                margin-bottom: 1.4rem;
+                .floatingText {
+                    bottom: -1rem;
+                    padding: 0;
+                    margin: 0;
+                    color: inherit;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+                    left: $columns_gutter;
+                    right: $columns_gutter;
+                    width: auto;
+                    background-color: #fff;
+                    > .headline,
+                    > .subtitle,
+                    > .kicker {
+                        margin: 0;
+                        padding:  0 $columns_gutter $columns_gutter;
+                        display: block;
+                        &:first-child {
+                            padding-top: $columns_gutter;
+                        }
+                    }
+                }
+            }
+
+        }
+        .kicker,
+        .headline,
+        .subtitle {
+            &[class*=" bg-"] {
+                padding: 0.6rem $columns_gutter;
+            }
+        }
+
+        @include mobile {
+            .kicker,
+            .headline,
+            .subtitle {
+                &[class*=" color_mobile_bg-"] {
+                    padding: 0.6rem $columns_gutter;
+                }
+            }
+        }
+
+        &[class*=" bg-"] figure.floatLeft {
+            margin-right: $columns_gutter;
+            
+            img { // Fix image render bug in chrome
+                min-width: 20px;
+                min-height: 20px;
+            }
+        }
+        &[class*=" bg-"] figure.floatRight {
+            margin-left: $columns_gutter;
+        }
+
+        // Lab 4 float-classes
+        @include mobile {
+            figure.mobile-floatLeft {
+                margin-right: $columns_gutter;
+            }
+            figure.mobile-floatRight {
+                margin-left: $columns_gutter;
+            }
+        }
+        @include desktop {
+            figure.desktop-floatLeft {
+                margin-right: $columns_gutter;
+            }
+            figure.desktop-floatRight {
+                margin-left: $columns_gutter;
+            }
+        }
+
+        // Compansating for the comuns_gutter on figure.dekstop-floatRight
+        @include desktop {
+            div.media.desktop-floatRight > div.floatingText {
+                margin-left: $columns_gutter;
+            }
+        }
+        @include mobile {
+            div.media.mobile-floatRight > div.floatingText {
+                margin-left: $columns_gutter;
+            }
+        }
+
+        &[class*=" bg-"] .kicker:first-child {
+            margin-bottom: $columns_gutter;
+        }
+
+        @include desktop-down {
+            &[class*=" color_mobile_bg-"] .kicker:first-child {
+                margin-bottom: $bg_text_padding;
+            }
+        }
+        @include desktop {
+            &[class*=" bg-"] .kicker:first-child {
+                margin-bottom: $bg_text_padding;
+            }
+        }       
+
+        .animate {
+            position: relative;
+            animation: dac-text-slider 4s infinite linear;
+            // will-change: transform;
+            &:before,
+            &:after {
+                content: attr(data-content);
+                position: absolute;
+                left: -100%;
+                background-color: inherit;
+                width: 100%;
+                padding: inherit;
+                top: 0;
+            }
+            &:after {
+                left: 100%;
+            }
+        }
+
+        .flash {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            &:before {
+                content: "";
+                background-color: #0093c8;
+                border-radius: 100%;
+                animation-duration: 3s;
+                animation-name: dac-text-flash;
+                animation-timing-function: ease-out;
+                animation-iteration-count: infinite;
+                animation-fill-mode: forwards;
+                height: 1em;
+                left: 0;
+                position: absolute;
+                top: 50%;
+                width: 1em;
+                z-index: 1;
+                margin-top: -0.5em;
+            }
+            &.align-center:before {
+                left: 50%;
+                margin-left: -0.5em;    
+            }
+            &.align-right:before {
+                left: auto;
+                right: 0;
+            }
+        }
+
+        @mixin breaking-animation {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 25px;
+
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                top: calc(50% - 4px);
+                left: 8px;
+                border-radius: 50%;
+                animation: pulse 1s infinite;
+                border: 2px solid white;
+            }
+
+            &[class*=" bg-"] {
+                padding-left: 25px;
+                &::before {
+                    top: 50%;
+                }
+            }
+        }
+
+        .headline.breaking-white,
+        .subtitle.breaking-white,
+        .kicker.breaking-white {
+            --pulse-color: rgba(255, 255, 255, 0.2);
+            @include breaking-animation;
+
+            &::before {
+                background-color: white;
+                box-shadow: 
+                    0 0 0 1px var(--pulse-color), 
+                    0 0 0 2px var(--pulse-color), 
+                    0 0 0 3px var(--pulse-color);
+                border: 2px solid black;
+                box-shadow: 0 0 0 3px black;
+            }
+            
+        }
+
+        .headline.breaking-red,
+        .subtitle.breaking-red,
+        .kicker.breaking-red {
+            --pulse-color: rgba(255, 0, 0, 0.2);
+            @include breaking-animation;
+
+            &::before {
+                background-color: red;
+                box-shadow: 
+                    0 0 0 1px var(--pulse-color), 
+                    0 0 0 2px var(--pulse-color), 
+                    0 0 0 3px var(--pulse-color);
+            }
+        }
+
+        // This MUST stay belove the breaking-* selector rules as they have the same specificity, but since this is last it will override the others.
+        .headline,
+        .subtitle {
+            &[class*=breaking] {
+                padding-left: 30px;
+
+                &::before {
+                    top: 50%;
+                }
+            }
+        }
+
+        .headline {
+            &[class*=breaking] {
+                &::before {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+
+        &[class*="bg-"] {
+            .subtitle:last-child {
+                &[class*=breaking] {
+                    &::before {
+                        top: calc(50% - 0.5rem);
+                    }
+                }
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translateY(-50%) scale(1);
+                opacity: 1;
+                box-shadow: 
+                    0 0 0 1px var(--pulse-color, rgba(255, 0, 0, 1)), 
+                    0 0 0 2px var(--pulse-color, rgba(255, 0, 0, 0.7)), 
+                    0 0 0 3px var(--pulse-color, rgba(255, 0, 0, 0.5)), 
+            }
+
+            50% {
+                transform: translateY(-50%) scale(1.1);
+                opacity: 0.5;
+                box-shadow: 
+                    0 0 0 2px var(--pulse-color, rgba(255, 0, 0, 0.5)), 
+                    0 0 0 3px var(--pulse-color, rgba(255, 0, 0, 0.3)), 
+                    0 0 0 4px var(--pulse-color, rgba(255, 0, 0, 0.1)), 
+            }
+
+            100% {
+                transform: translateY(-50%) scale(1);
+                opacity: 1;
+                box-shadow: 
+                    0 0 0 1px var(--pulse-color, rgba(255, 0, 0, 1)), 
+                    0 0 0 2px var(--pulse-color, rgba(255, 0, 0, 0.7)), 
+                    0 0 0 3px var(--pulse-color, rgba(255, 0, 0, 0.5)), 
+            }
+        }
+
+        &.align-center .flash:before {
+            left: 50%;
+            margin-left: -0.5em;
+        }
+        &.align-right .flash:before {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    @include tablet_up {
+        &.large-abs-12 {
+            .headline {
+                @include font-size(48);
+            }
+        }
+
+        &.large-abs-4,
+        &.large-abs-3,
+        &.large-abs-2,
+        &.large-abs-1 {
+            .headline {
+                @include font-size(26);
+            }
+        }
+    }
+
+    @include mobile {
+        &.small-6 {
+            .headline {
+                @include font-size(22);
+            }
+        }
+    }
+
+    @for $i from 1 through 12 {
+        &.large-abs-#{$i} {
+            .content .animate {
+                animation-duration: $i * 1s;
+            }
+        }
+        @include mobile {
+            &.small-#{$i} {
+                .content .animate {
+                    animation-duration: $i * 0.5s;
+                }
+            }
+        }
+    }
+
+    ul.relatedArticles {
+        li.column {
+            a {
+                display: flex;
+            }
+            line-height: 1.2em;
+            margin: 0.5em 0 0.7em;
+            padding: 0;
+            float: none;
+            clear: both;
+            h5 {
+                margin: 0;
+                padding: 0;
+            }
+            p {
+                margin: 0;
+                padding: 0;
+            }
+            figure {
+                flex: 0 0 80px;
+                margin: 0.1em 0.7em 0.3em 0;
+            }
+            .text {
+                flex: 1;
+            }
+            &:hover a h5 {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &.compactDisplay {
+        ul.relatedArticles {
+            li {
+                margin: 0.1em 0 0.3em;
+                h5 {
+                    margin: 0;
+                    font-size: 1em;
+                }
+                figure {
+                    flex: 0 0 40px;
+                }
+            }
+        }
+    }
+
+    &.paywall .media .paywallLabel {
+        @include paywall.label;
+    }
+}
+
+// Note: Use transform (transform: translateX()), not position (left:xxx) to ensure GPU-rendering.
+@keyframes dac-text-slider {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes dac-text-flash {
+    0%   {
+        transform: scale(0);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+        transform: scale(15);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+article.column .content.fullWidth {
+    overflow: visible;
+    figure {
+        margin-bottom: 0.5em;
+        width: auto;
+        // max-height: 500px;
+        // overflow: hidden;
+    }
+    &.fullWithLimit {
+        figure {
+            max-height: none;
+            img {
+                max-width: 1500px;
+            }
+        }
+    }
+}
+
+article.column .markupbox.column {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+// Lab4
+
+.l4 article {
+    .caption {
+        margin-bottom: 0.3em;
+    }
+}
+
+@include mobile {
+    article.column .content.mobile-fullWidth {
+        overflow: visible;
+    }
+    article.column .content[class*=" bg-"] figure.mobile-floatLeft,
+    article.column .content[class*=" bg-"] figure.mobile-floatRight {
+        margin-bottom: 0;
+    }
+}
+
+@include tablet_up {
+    article.column .content.desktop-fullWidth {
+        overflow: visible;
+    }
+    article.column .content[class*=" bg-"] figure.desktop-floatLeft,
+    article.column .content[class*=" bg-"] figure.desktop-floatRight {
+        margin-bottom: 0;
+    }
+}

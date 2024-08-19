@@ -1,0 +1,27 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "page/front/default/template/default",
+                    "mailmojo": "page/front/default/template/mailmojo",
+                    "rss" : "page/front/default/template/rss",
+                    "embed": "page/front/default/template/embed",
+                    "newssitemap": "page/front/default/template/newssitemap"
+                },
+                "properties": {
+                    "default": "page/front/default/front/default.json"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "page/front/default/editor/default.json"
+                }
+            }
+        }
+    }
+}

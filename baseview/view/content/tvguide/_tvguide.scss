@@ -1,0 +1,57 @@
+@use "../../css_scss/components/vars" as *;
+
+.tvguide {
+    .tvguide-date {
+        background-color: #de0000;
+        color: #fff;
+        padding: 1rem;
+    }
+    ul {
+        margin-bottom: 5rem;
+        li {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid gray;
+
+            div {
+                padding: 2rem;
+                flex: 1 1 auto;
+            }
+
+            .col-date {
+                flex-basis: 15%;
+                font-size: 2rem;
+            }
+
+            .col-image {
+                flex-basis: 30%;
+            }
+
+            .col-description {
+                flex-basis: 55%;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .tvguide ul li {
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+        div {
+            padding: 0.5rem 0;
+        }
+        .col-date {
+            flex-basis: 20%;
+            font-size: 1.2rem;
+        }
+        .col-description {
+            flex-basis: 80%;
+        }
+        .col-image {
+            order: -1;
+            flex-basis: 100%;
+        }
+    }
+}

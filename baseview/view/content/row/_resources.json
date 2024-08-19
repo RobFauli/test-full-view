@@ -1,0 +1,65 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "content/row/template/default",
+                    "mailmojo": "content/row/template/mailmojo"
+                },
+                "properties": {
+                    "default": [
+                        "content_settings/front/vp_data.json",
+                        "content/row/front/default.json"
+                    ],
+                    "mailmojo": [
+                        "content_settings/front/vp_data.json",
+                        "content/row/front/default.json"
+                    ]
+                }
+            },
+            "bodytext//": {
+                "template": {
+                    "default": "content/row/template/bodytext"
+                },
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json"
+                    ]
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/position.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content/row/editor/default.json"
+
+                    ],
+                    "mobile": [
+                        "content_settings/editor/lock/position.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content/row/editor/default.json",
+                        "content/row/editor/mobile.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": "content/row/editor/bodytext.json"
+                }
+            },
+            "row//": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/no_edit.json",
+                        "content/row/editor/subrow.json"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "boxTitle": "Tests from mobil.se",
+    "boxDescription": "For site mobil.se",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.integration_url }}}/feed/square/?id={{ get.current.filtered.testId }}",
+        "type": "json"
+    }
+}

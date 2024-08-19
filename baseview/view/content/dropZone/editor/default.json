@@ -1,0 +1,34 @@
+{
+    "resizable": {
+        "active": false
+    },
+    "draggable": {
+        "active": false
+    },
+    "droppable": {
+        "active": true,
+        "drop": "addChild",
+        "wrapSourceInType": "row",
+        "registerOnEmpty": true
+    },
+    "expand": {
+        "active": false
+    },
+    "displayModifiedStatus": false,
+    "menus": null,
+    
+    "allowEmpty": true,
+
+    "outlineOnHover": false,
+
+    "publishValidation": {
+        "childCount": {
+            "validator": "max",
+            "allowOverride": true,
+            "description": "High number of rows. Make sure not to exceed 150",
+            "params": {
+                "max": 145
+            }
+        }
+    }
+}

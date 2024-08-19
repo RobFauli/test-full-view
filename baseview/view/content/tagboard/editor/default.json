@@ -1,0 +1,44 @@
+{
+    "editors": {
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "key": "fields.title",
+            "menu": "rich_text",
+            "placeholder": "Click to add tag-board title",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "runApp",
+                    "title": "Settings",
+                    "params": {
+                        "name": "FrontContentSupport",
+                        "options": [{
+                            "confPath": "contentbox_settings.tagboard"
+                        }]
+                    },
+                    "hotkeys": [{
+                        "key": ","
+                    }]
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/tips_box/template/settings"
+        }
+    }
+}

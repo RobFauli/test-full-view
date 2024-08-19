@@ -1,0 +1,20 @@
+{{ #get.current.filtered.logo }}
+<figure class="logo[[ #settings.classes ]] [[.]][[ /settings.classes ]]">
+    {{ #href }}
+    <a href=" {{{href}}}" aria-label="{{ #lang }}header.logo_link_text{{ /lang }}">
+    {{ /href }}
+    {{ ^href }}
+    <span class="logo">
+    {{ /href }}
+        <img src="{{{src}}}"
+            {{ #title }}alt="{{ #lang }}header.logo_link_text{{ /lang }}. Logo, {{title}}"{{ /title }}
+            {{ #size.width }}width="{{size.width}}"{{ /size.width }}
+            {{ #size.height }}height="{{size.height}}"{{ /size.height }}>
+    {{ #href }}
+    </a>
+    {{ /href }}
+    {{ ^href }}
+    </span>
+    {{ /href }}
+</figure>
+{{ /get.current.filtered.logo }}

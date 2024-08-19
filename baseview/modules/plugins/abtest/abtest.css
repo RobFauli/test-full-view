@@ -1,0 +1,270 @@
+.abtest-ui-container {
+    position: fixed;
+    min-height: 200px;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid gray;
+    padding: 1.8rem 2rem 1rem;
+    margin: 0;
+    z-index: 2000;
+    transition: bottom 0.3s;
+}
+
+.ab_test_running_indicator {
+    position: absolute;
+}
+
+.abtest-ui-container.abtest-article {
+    min-height: 450px;
+}
+
+[data-lab-type="article"] .ab_test_running_indicator {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    background-color: #FFF;
+    border-radius: .5em;
+    padding: .5em 1em;
+}
+
+.abtest-ui-container .abtest-close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.abtest-ui-container.abtest-will-hide {
+    bottom: -500px;
+}
+
+.abtest-ui-container.abtest-hidden {
+    display:none;
+}
+
+.abtest-ui-container .abtest-tabs {
+    position: absolute;
+    top: -40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .25em;
+}
+
+.abtest-ui-container .abtest-tabs li {
+    float: left;
+    background-color: #fff;
+    height: 40px;
+    padding: 10px 20px;
+    min-width: 90px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid gray;
+    color: #a8a8a8;
+    /*border-bottom: 0;*/
+    margin-right: -1px;
+    box-sizing: border-box;
+    transition: background-color .25s ease-in-out, border .25s ease-in-out;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+}
+
+.abtest-ui-container .abtest-tabs li:not(.lab-selected):hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.abtest-ui-container .abtest-tabs li.lab-selected {
+    color: #000;
+    border-top: 3px solid rgb(7, 129, 7);
+    box-sizing: border-box;
+    border-bottom: none;
+}
+
+.abtest-ui-container .lab-formgroup {
+    border-left: 1px solid #d5d5d5;
+    padding: 0 20px;
+    align-content: flex-start;
+}
+
+.abtest-ui-container .lab-formgroup:last-child {
+    padding-right: 10px;
+}
+
+.abtest-ui-container .lab-formgroup .lab-formgroup {
+    border-left: 0;
+}
+
+.abtest-ui-container .lab-formgroup .font-weight-bold {
+    font-weight: bold;
+}
+
+.abtest-ui-container .abtest-image {
+    padding-left: 2em;
+}
+
+.abtest-ui-container .abtest-image figure {
+    margin: 0;
+}
+
+.abtest-ui-container .abtest-image img,
+.abtest-ui-container .abtest-image .lab-empty-placeholder {
+    width: 220px;
+}
+
+.abtest-ui-container .abtest-image .lab-empty-placeholder {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.abtest-ui-container .lab-title.abtest-text-title {
+    font-size: 1.4em;
+}
+
+.abtest-ui-container .lab-title.abtest-text-kicker,
+.abtest-ui-container .lab-title.abtest-text-subtitle {
+    font-size: 1em;
+}
+
+.abtest-ui-container .lab-formgroup.abtest-logo {
+    padding-left: 0;
+    border:0;
+}
+
+.abtest-ui-container .abtest-logo h3 {
+    font-size: 1em;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+.abtest-ui-container .abtest-logo h3:before {
+    font-size: 70px;
+    display: block;
+    margin: 10px auto 20px;
+    color: #3f3f3f;
+}
+
+.abtest-ui-container .abtest-logo span {
+    display: block;
+    font-weight: normal;
+}
+
+.abtest-ui-container h4 {
+    margin-bottom: 1rem;
+}
+
+.abtest-ui-container .variants .lab-btn {
+    margin-right: 0.5rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    max-width: 170px;
+    min-width: 100px;
+    overflow: visible;
+}
+
+.abtest-ui-container .variants .lab-btn[data-test-score]:after {
+    content: "Score: " attr(data-test-score);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: #000;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.abtest-ui-container .variants .lab-btn[data-test-winner]:before {
+    content: "";
+    background-image: url(/view-resources/baseview/modules/plugins/abtest/trophy.png);
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-size: 22px;
+    left: 50%;
+    transform: translateX(-11px);
+    top: -26px;
+}
+
+.abtest-ui-container .variants span.abtest-disabled {
+    color: gray;
+}
+
+.abtest-ui-container .variants span.abtest-disabled:after {
+    content: "DISABLED";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55%;
+    font-size: 8.5px;
+    letter-spacing: 0.5px;
+}
+
+.abtest-ui-container .variants span.abtest-disabled.lab-selected,
+.abtest-ui-container .variants span.abtest-disabled:hover {
+    color: #d9d9d9;
+}
+
+.abtest-ui-container textarea {
+    height: 42px;
+    transition: height 0.3s;
+}
+
+.abtest-ui-container textarea:focus {
+    height: 6em;
+}
+
+.abtest-ui-container .abtest-publish-btn {
+    background-color: rgb(7, 129, 7) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    margin-top: 15px !important;
+}
+
+.abtest-ui-container .abtest-publish-btn.abtest-modified {
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0, 0, 0, 0.5) 3px, rgba(0, 0, 0, 0.5) 6px);
+}
+
+.abtest-ui-container.lab-content .lab-formgroup .lab-formgroup-item {
+    align-items: center;
+    gap: .25em;
+}
+
+.abtest-ui-container.lab-content .lab-formgroup .lab-formgroup-item label {
+    font-weight: bold;
+}
+
+.ab-results .ab-result {
+    display: flex;
+    margin: 0.5em 0;
+}
+
+.ab-results .ab-result .ab-name {
+    flex: 0 0 35%;
+    text-align: right;
+    padding-right: 1em;
+}
+.ab-results .ab-result .ab-value {
+    flex: 0 0 65%;
+    border-radius: 20px;
+    position: relative;
+    font-size: 0.9em;
+    background-color: #e7e7e7;
+    overflow: hidden
+}
+
+.ab-results .ab-result .ab-value-area {
+    display: block;
+    background-color: green;
+    height: 100%;
+}
+
+.ab-results .ab-result .ab-value-number {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px black;
+}

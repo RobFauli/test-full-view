@@ -1,0 +1,9 @@
+<form class="lab-grid lab-valign-center">
+    <select name="type" class="lab-grid-large-5 lab-grid-gap">
+        <option value="">Select type</option>
+        {{ #items }}
+        <option value="{{ elementType }}" {{ #selected }}selected="selected"{{ /selected }}>{{ elementType }}</option>
+        {{ /items }}
+    </select>
+    <input type="text" name="query" placeholder="Filter by text ..." autocomplete="off" class="lab-grid-large-7 lab-grid-gap" />
+</form>

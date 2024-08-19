@@ -1,0 +1,117 @@
+<form method="post">
+    <h4>Settings for article-list</h4>
+
+    <p style="width: 48%; float: left; margin: 1em 4% 0 0;">
+        <label>Number of articles
+            <input name="fields.limit" value="{{fields.limit}}" type="number" min="1" max="1000" placeholder="Number of items to display" />
+        </label>
+    </p>
+    
+    <p style="width: 48%; float: left; margin: 1em 0 0;">
+        <label>User
+            <select name="fields.userQuery">
+                {{ #filtered.userQuery }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ text }}}</option>
+                {{ /filtered.userQuery }}
+            </select>
+        </label>
+    </p>
+    
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Published-status
+            <select name="fields.visibilityStatusQuery">
+                {{ #filtered.visibilityStatusQuery }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ text }}}</option>
+                {{ /filtered.visibilityStatusQuery }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Section
+            <select name="fields.sectionQuery">
+                {{ #filtered.sectionQuery }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ text }}}</option>
+                {{ /filtered.sectionQuery }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Site
+            <select name="fields.site_id">
+                {{ #filtered.site_id_list }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ name }}}</option>
+                {{ /filtered.site_id_list }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Tag-search
+            <input name="fields.tagSearch" value="{{fields.tagSearch}}" type="text" placeholder="Search tag ..." />
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Author
+            <input name="fields.author" value="{{fields.author}}" type="text" placeholder="Search author ..." />
+        </label>
+    </p>
+    
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Approval status
+            <select name="fields.approved">
+                {{ #filtered.approvedOptions }}
+                <option value="{{{ value }}}" {{#selected}}selected{{/selected}}>{{{ text }}}</option>
+                {{ /filtered.approvedOptions }}
+            </select>
+        </label>
+    </p>
+
+    <p style="clear: both; margin: 0;">
+        <label>Text-search
+            <input name="fields.textSearch" value="{{fields.textSearch}}" type="text" placeholder="Search title, subtitle, bodytext or ID ..." />
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Display section and tags
+            <input type="checkbox" name="fields.displayTags" value="1" {{ #fields.displayTags }}checked{{ /fields.displayTags }}/>
+        </label>
+    </p>
+    
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Compact view
+            <input type="checkbox" name="fields.compactView" value="1" {{ #fields.compactView }}checked{{ /fields.compactView }}/>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Display author
+            <input type="checkbox" name="fields.displayAuthor" value="1" {{ #fields.displayAuthor }}checked{{ /fields.displayAuthor }}/>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Hide summary
+            <input type="checkbox" name="fields.hideSummary" value="1" {{ #fields.hideSummary }}checked{{ /fields.hideSummary }}/>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0 4% 0 0;">
+        <label>Large images
+            <input type="checkbox" name="fields.largeImages" value="1" {{ #fields.largeImages }}checked{{ /fields.largeImages }}/>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 0;">
+        <label>Large titles
+            <input type="checkbox" name="fields.largeTitles" value="1" {{ #fields.largeTitles }}checked{{ /fields.largeTitles }}/>
+        </label>
+    </p>
+
+    <input type="hidden" value="0" name="filtered.page" />
+
+    <p style="clear: both; padding-top: 1em;"><input class="labDs-btn" style="float:right;" type="submit" value="OK"></p>
+</form>

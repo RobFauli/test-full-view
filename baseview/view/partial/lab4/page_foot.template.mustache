@@ -1,0 +1,13 @@
+{{ #get.current.filtered.siteScriptList }}
+{{ #placeholderKey.requireDom }}{{ > partial/lab4/elements/script }}{{ /placeholderKey.requireDom }}
+{{ /get.current.filtered.siteScriptList }}
+{{ #get.current.filtered.style_slidein }}
+{{ > partial/lab4/pagescripts/style_slidein }}
+{{ /get.current.filtered.style_slidein }}
+
+{{ > partial/lab4/pagescripts/dachserDataHandlers }}
+
+{{ #get.current.filtered.footerSettings.poweredBy.display }}
+    <div class="powered-by {{ get.current.filtered.footerSettings.poweredBy.css }}"><a href="{{ get.current.filtered.footerSettings.poweredBy.href }}" target="{{ get.current.filtered.footerSettings.poweredBy.target }}">{{ get.current.filtered.footerSettings.poweredBy.text }}</a></div>
+{{ /get.current.filtered.footerSettings.poweredBy.display }}
+{{ #get.current.filtered.customTags.script.body_bottom }}{{{ . }}}{{ /get.current.filtered.customTags.script.body_bottom }}

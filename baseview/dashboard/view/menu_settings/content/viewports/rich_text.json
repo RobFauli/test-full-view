@@ -1,0 +1,68 @@
+{
+            
+    "toolsClass": "RichTextMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "position": "top",
+    "offset": null,
+    "hideStructureMenus": true,
+    "targetFrame": "self",
+
+    "items": {
+        "text_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "font_colors",
+                    "title": "Text color",
+                    "label": "A",
+                    "key": "text_color",
+                    "removeBtn": true,
+                    "bordered": true
+                }]
+            },
+            "group": "g1",
+            "title": "Change text color"
+        },
+        "text_background_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "background_colors",
+                    "title": "Background colors",
+                    "label": "",
+                    "key": "text_background_color",
+                    "removeBtn": true,
+                    "bordered": false
+                }]
+            },
+            "group": "g1",
+            "title": "Change text background color"
+        },
+        
+        "textSizeDown": {
+            "trigger": ["click"],
+            "callback": "textSizeDown",
+            "group": "g4",
+            "title": "Decrease font size (Page down)"
+        },
+
+        "textSizeUp": {
+            "trigger": ["click"],
+            "callback": "textSizeUp",
+            "group": "g4",
+            "title": "Increase font size (Page up)"
+        },
+
+        "reset": {
+            "trigger": ["click"],
+            "callback": "reset",
+            "group": "g6",
+            "title": "Remove textformatting"
+        }
+
+    },
+    "params": {}
+}

@@ -1,0 +1,10 @@
+{
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ getCmsConfig.front_api_url }}}/fragment/structure/?pageId={{ get.current.fields.fragment_json.pageId }}&path=/dropZone&structureType=row&start={{ get.current.fields.fragment_json.start }}&count={{ get.current.fields.fragment_json.count }}&lab_viewport={{ app.viewport.name }}{{ #app.isEditor }}&simulatedMode=editor{{ /app.isEditor }}",
+        "type": "html"
+    },
+    "boxTitle": "Front Rows",
+    "boxDescription": "Include content from another Labrador page",
+    "boxKeywords": "Labrador API feeds embed below articles copy replicate"
+}

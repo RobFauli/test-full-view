@@ -1,0 +1,105 @@
+{
+    "placeholders": [
+        {
+            "name": "bodytext",
+            "conditions": [{
+                "fn": "hasNoData",
+                "params": {
+                    "key": "fields.bodytext"
+                }
+            }],
+            "prepareForBodytext": true,
+            "templatePath": "content/text_multiline/template/placeholder"
+        }
+    ],
+    "editors": [
+        {
+            "selector": "div.bodytext",
+            "fn": "EditFull",
+            "key": "fields.bodytext",
+            "menu": "rich_text",
+            "modal": false,
+            "allowRichTextPasting": false,
+            "allowedPastedTags": {
+                "a": {
+                    "attributes": ["href", "target"]
+                },
+                "p": { "attributes": [] },
+                "h2": { "attributes": [] },
+                "h3": { "attributes": [] },
+                "ul": { "attributes": [] },
+                "ol": { "attributes": [] },
+                "li": { "attributes": [] }
+            },
+            "allowedEmptyTags": {
+                "span": {
+                    "attributes": ["class"]
+                },
+                "br": {
+                    "attributes": []
+                }
+            },
+            "displayReadtime": false
+        }
+    ],
+    "editorSelectors": {
+        "edit": ["lab-content-min-height"]
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text_bodytext.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "align": {
+                    "inheritPath": "menu/buttons/textAlign.json",
+                    "group": "g2",
+                    "text": null
+                },
+                "vertical_align": {
+                    "inheritPath": "menu/buttons/verticalAlign.json",
+                    "group": "g2",
+                    "text": null
+                }
+            }
+        }
+    },
+    "droppable": {
+        "active": true,
+        "delegate": "TextDrop",
+        "drop": {
+            "default": "default"
+        },
+        "reject": ["image"],
+        "params": {
+            "textDrop": {
+                "selector": ".bodytext",
+                "accept": ["image", "buttonlink", "tablebox"],
+                "reject": [],
+                "zones": [
+                    {
+                        "triggerZone": [0, 30],
+                        "alignCss": "floatLeft",
+                        "labCss": "lab-width-33",
+                        "grid": [4]
+                    },
+                    {
+                        "triggerZone": [30, 70],
+                        "alignCss": "",
+                        "labCss": "",
+                        "grid": [12]
+                    },
+                    {
+                        "triggerZone": [70, 100],
+                        "alignCss": "floatRight",
+                        "labCss": "lab-width-33",
+                        "grid": [4]
+                    }
+                ]
+            }
+        }
+    }
+}

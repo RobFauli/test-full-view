@@ -1,0 +1,20 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="id-fields.format">Type</label>
+            <select id="id-fields.format" name="fields.format">
+                {{ #get.current.filtered.formatConfigKeys }}
+                <option value="{{ format }}"{{ #selected }}selected="selected"{{ /selected }}>{{ format }} ({{ width }} x {{ height }})</option>
+                {{ /get.current.filtered.formatConfigKeys }}
+            </select>
+        </div>      
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="id-fields.label">Label text</label>
+            <input id="id-fields.label" type="text" {{#get.current.filtered.label}}value="{{get.current.filtered.label}}"{{/get.current.filtered.label}} name="fields.label">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="id-fields.css">Show label</label>
+            <input id="id-fields.css" type="checkbox" {{#get.current.fields.css}}checked{{/get.current.fields.css}} name="fields.css" value="display-label">
+        </div>
+    </div>
+</div>

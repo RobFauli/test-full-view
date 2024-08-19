@@ -1,0 +1,54 @@
+{
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "fullwidth": {
+                    "inheritPath": "menu/buttons/fullWidth.json",
+                    "text": "",
+                    "displayHotkeys": false,
+                    "group": "g4"
+                },
+                "edit-settings": {
+                    "group": "g5_5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                },
+                "settings": {
+                    "items": {
+                        "btn2": {
+                            "callback": "reloadExternal",
+                            "text": "Re-fetch external"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/front_rows/template/settings",
+            "title": "Front-row options",
+            "keyValidation": [{
+                "key": "pageId",
+                "validator": "notEmpty"
+            }, {
+                "key": "siteId",
+                "validator": "notEmpty"
+            }, {
+                "key": "start",
+                "validator": "notEmpty"
+            }, {
+                "key": "count",
+                "validator": "notEmpty"
+            }]
+        }
+    }
+}

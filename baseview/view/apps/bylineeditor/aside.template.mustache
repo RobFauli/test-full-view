@@ -1,0 +1,21 @@
+<div class="lab-aside-settings">
+    <h4 class="lab-title lab-space-above-medium lab-space-below-large">Byline image</h4>
+    {{ #url }}
+    <p class="lab-para bylineimage" style="position: relative;">
+        <img src="{{{ url }}}" alt="" style="width:100%;">   
+    </p>
+    {{ /url }}
+    {{ ^url }}
+    <div class="lab-empty-placeholder lab-color-light lab-bordered bylineimage-empty" style="position: relative;width: 206px; height: 150px; padding-top: 20px;">
+        <div class="lab-inner">
+            <div class="lab-icon-large labicon-images">
+            </div>
+        </div>
+    </div>
+    {{ /url }}
+    {{ #url }}<p class="lab-info">Click on image to edit crop</p>{{ /url }}
+    <p class="lab-grid lab-grid-gap">
+        <input class="lab-grid-large-6 lab-grid-gap" type="button" id="btn-remove-image" value="Remove">
+        <input class="lab-grid-large-6 lab-grid-gap" type="button" id="btn-change-image" value="{{#url}}Change{{/url}}{{^url}}Add{{/url}}">
+    </p>
+</div>

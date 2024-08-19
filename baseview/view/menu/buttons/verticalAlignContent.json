@@ -1,0 +1,77 @@
+{
+    "icon": "labicon-align_vertical_top",
+    "text": "Vertical alignment",
+    "title": "Vertical-align items",
+    "onValue": true,
+    "offValue": false,
+    "key": "metadata.vertical_align_content",
+    "bindings": [
+        {
+            "path": "metadata.vertical_align_content",
+            "attribute": "value",
+            "valueTransformer": "lab-key-is-true"
+        }
+    ],
+    "items": [
+        {
+            "icon": "labicon-align_vertical_top",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align_content",
+            "onValue": "start",
+            "offValue": null,
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align_content",
+                    "attribute": "value"
+                }
+            ],
+            "title": "Vertical align top",
+            "text": "Align top"
+        },
+        {
+            "icon": "labicon-align_vertical_center",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align_content",
+            "onValue": "center",
+            "offValue": null,
+            "title": "Vertical align center",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align_content",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align centered"
+        },
+        {
+            "icon": "labicon-align_vertical_bottom",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align_content",
+            "onValue": "end",
+            "offValue": null,
+            "title": "Vertical align bottom",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align_content",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align bottom"
+        },
+        {
+            "icon": "labicon-align_vertical_stretch",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align_content",
+            "onValue": "stretch",
+            "offValue": null,
+            "title": "Vertical align stretch",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align_content",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Stretch height"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "plugins": {
+        "Linkpulse": {
+            "autoStart": true,
+            "path": "Plugins.Linkpulse",
+            "appendToAppMenu": false,
+            "servicePath": "customer/publishlab/probatio/",
+            "containerSelector": ".content",
+            "queryField": "fields.linkpulse_json"
+        }
+    },
+
+    "edit": [
+        {
+            "selector": "form",
+            "fn": "editForm",
+            "isNonLazy": true
+        }
+    ],
+
+    "admin": {
+        "isModal": true,
+        "width": 650,
+        "autoheight": true
+    },
+
+    "defaultFieldValues": {
+        "linkpulse_json": {
+            "type": "scores",
+            "query": {
+                "range": "today",
+                "domain": "${site.domain}",
+                "field": {
+                    "score_pageviews": "on",
+                    "score_viewtime": "on",
+                    "score_clickratio": "on",
+                    "score_articlescroll": "on"
+                },
+                "weight": {
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+<script>
+document.addEventListener('K5A:NisaReady', function(evt) {
+    const tests = evt.detail.nisa.getTests();
+    if (tests.length) {
+        if (window.labradorRunAbTests) {
+            window.labradorRunAbTests({ callback: () => {
+                evt.detail.nisa.renderDone();
+            }, data: tests });
+        } else {
+            window.labradorAbTestData = { callback: () => {
+                evt.detail.nisa.renderDone();
+            }, data: tests };
+        }
+    }
+});
+</script>
+
+<script type="module">
+
+import { Renderer } from '/view-resources/baseview/public/common/labrador/Renderer.js';
+const state = { data: [], collections: {}, elements: {}, idMaps: {} };
+{{ #getPreload.ab_collections.result }}
+state.collections['{{ ab_collection.field.test_id }}'] = {{{ ab_collection.field.variants_json }}};
+{{ /getPreload.ab_collections.result }}
+
+window.labradorRunAbTests = (params) => {
+    console.groupCollapsed('Labrador AB-tests');
+    console.log(`Will use ${ params.data.length } test(s) from ${ Object.keys(state.collections).length } collection(s)`);
+
+    const getVariantById = (variants, id) => {
+        for (const variant of variants) {
+            if (variant.guid === id) { return variant; }
+        }
+        return null;
+    };
+
+    for (const test of params.data) {
+        const testArray = (test.testId || '').split(':');
+        const testId = testArray[0];
+        const testIndex = testArray[1] || 0;
+        const { identifier } = test.data;
+        if (state.collections[testId]) {
+            const variant = getVariantById(state.collections[testId], identifier);
+            if (variant) {
+                state.elements[variant.referenceId] = document.querySelector(`[data-instance="${ variant.referenceId }"]`);
+                if (state.elements[variant.referenceId]) {
+                    console.log(`Will select variant "${ identifier }", name: ${ variant.name }, instance: ${ variant.referenceId }, testId: ${ testId }`);
+                    state.data.push(variant.data);
+                    state.idMaps[variant.referenceId] = {
+                        id: testId,
+                        index: testIndex
+                    };
+                } else {
+                    console.warn(`Warning: domElement not found for "data-instance": ${ variant.referenceId }`);
+                }
+            } else {
+                if (identifier === 'original') {
+                    const domElement = document.querySelector(`[data-instance="${ test.placementId }"]`);
+                    if (domElement) {
+                        console.log(`Will render original article, testId: ${ testId }, data-instance: ${ test.placementId }`);
+                        domElement.setAttribute('data-k5a-nisa', `${ testId }:1`);
+                    } else {
+                        console.warn(`Warning: Cannot find dom-element for original article, testId: ${ testId }, data-instance: ${ test.placementId }`);
+                    }
+                } else {
+                    console.warn(`Warning: Variant not found. testId: ${ testId }, identifier: ${ identifier }`);
+                }
+            }
+        }
+    }
+    console.log(`Will render ${ state.data.length } variant(s)`);
+    if (state.data.length) {
+        const renderer = new Renderer({
+            site: {
+                alias: '{{ getCmsConfig.site.alias }}',
+                display_name: '{{ getCmsConfig.site.display_name }}',
+                domain: '{{{ getCmsConfig.site.domain }}}',
+                id: '{{ getCmsConfig.site.id }}'
+            },
+            app: {
+                image_server: '{{{ getCmsConfig.image_server }}}',
+                device: '{{ app.viewport.name }}'
+            }
+        });
+        renderer.setData(state.data);
+        renderer.render().then((markup) => {
+            for (const item of markup) {
+                const el = document.createElement('div');
+                el.innerHTML = item;
+                const domElement = el.children[0];
+                const referenceId = domElement.getAttribute('data-instance');
+                if (state.elements[referenceId]) {
+                    domElement.setAttribute('data-k5a-nisa', `${ state.idMaps[referenceId].id }:${ state.idMaps[referenceId].index }`);
+                    state.elements[referenceId].replaceWith(domElement);
+                } else {
+                    console.log('Warning: domElement not found for "data-instance": ', referenceId);
+                }
+            }
+            params.callback();
+            console.groupEnd();
+        }).catch((err) => {
+            console.log('Error: ', err);
+            console.groupEnd();
+        });
+    } else {
+        console.groupEnd();
+    }
+};
+
+if (window.labradorAbTestData) {
+    window.labradorRunAbTests(window.labradorAbTestData);
+}
+
+</script>

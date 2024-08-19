@@ -1,0 +1,101 @@
+{
+    "icon": "labicon-color_bucket",
+    "callback": "colorPicker",
+    "autocloseSubmenuAfterAction": false,
+    "params": {
+        "colorPicker": {
+            "display": {
+                "position": "before",
+                "align": "start",
+                "width": 330
+            },
+            "preview": {
+                "active": true,
+                "selector": ".content",
+                "styleDefinition": "background_color",
+                "stylePath": null
+            },
+            "groups": [
+                {
+                    "values": "background_colors",
+                    "eyeDropper": {
+                        "key": "metadata.custom_background_color"
+                    },
+                    "title": "Background Color",
+                    "label": "",
+                    "useValueAsLabel": false,
+                    "cssPrefix": "",
+                    "key": "metadata.background_color",
+                    "removeBtn": true,
+                    "bordered": false,
+                    "autoborder": {
+                        "attribute": "backgroundColor"
+                    }
+                },
+                {
+                    "values": "background_colors_opacity",
+                    "valuePrefix": "op-bg_",
+                    "title": "Background Opacity",
+                    "label": "",
+                    "key": "metadata.background_color_op",
+                    "styleDefinition": "background_opacity",
+                    "removeBtn": true,
+                    "bordered": true
+                },
+                {
+                    "values": "gradients",
+                    "title": "Background Gradient",
+                    "label": "",
+                    "key": "metadata.gradient",
+                    "styleDefinition": "background_gradient",
+                    "removeBtn": true,
+                    "bordered": true
+                },
+
+                {
+                    "values": "background_colors",
+                    "eyeDropper": {
+                        "key": "metadata.custom_border_color"
+                    },
+                    "title": "Border Color",
+                    "label": "",
+                    "key": "metadata.border_color",
+                    "styleDefinition": "border_color",
+                    "removeBtn": true,
+                    "bordered": false,
+                    "valuePrefix": "border-"
+                },
+                {
+                    "values": ["left", "right", "top", "bottom"],
+                    "title": "Border one side only",
+                    "label": "",
+                    "key": "metadata.border_side",
+                    "styleDefinition": "border_side",
+                    "removeBtn": true,
+                    "bordered": false,
+                    "valuePrefix": "border-side-"
+                },
+                {
+                    "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                    "title": "Border width",
+                    "label": "",
+                    "key": "metadata.border_width",
+                    "styleDefinition": "border_width",
+                    "removeBtn": false,
+                    "bordered": true,
+                    "valuePrefix": ""
+                }
+            ]
+        }
+    },
+    "onValue": true,
+    "offValue": false,
+    "bindings": [
+        {
+            "path": "metadata.background_color",
+            "attribute": "value"
+        }
+    ],
+    "valueTransformer": "toBoolean",
+    "title": "Color-options"
+}

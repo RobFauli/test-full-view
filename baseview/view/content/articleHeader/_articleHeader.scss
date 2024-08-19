@@ -1,0 +1,212 @@
+
+/* Style for contentbox articleHeader */
+@use "../../css_scss/components/font-size" as *;
+@use "../../css_scss/components/vars" as *;
+
+.articleHeader {
+    padding-top: 1em;
+    margin-bottom: 1em;
+
+    figure,
+    .graphic {
+        margin-bottom: 1.5em;
+    }
+    &.hasCaption figure {
+        margin-bottom: 0.5em;
+    }
+
+    .headline {
+        margin: 0;
+        padding: 0;
+        @include font-size(44);
+    }
+
+    .subtitle {
+        @include font-size(21);
+        margin: 12px 0;
+    }
+
+    .kicker {
+        @include font-size(21);
+        &:empty {
+            display: none;
+        }
+    }
+
+    .kicker, .headline, .subtitle {
+        &[class*=" bg-"] {
+            padding: 0.6rem $columns_gutter;
+        }
+        overflow-wrap: break-word;
+        // hyphens: auto;
+    }
+    .media {
+        position: relative;
+        .floatingText {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            color: #fff;
+            padding-bottom: $columns_gutter;
+            &:empty {
+                display:none;
+            }
+
+            @include mobile {
+                width: 100%;
+            }
+
+            .kicker, .headline, .subtitle {
+                margin-right: $columns_gutter;
+                margin-left: $columns_gutter;
+                margin-bottom: calc($columns_gutter / 2);
+                margin-top: 0;
+            }
+
+            &:only-child {
+                position: initial;
+            }
+        }
+        &.floatingText {
+            margin-bottom: 60px;
+            figure {
+                margin-bottom: 0;
+                .caption {
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    .figcaption {
+        font-size: 0.9em;
+        margin-bottom: 1.5em;
+    }
+
+    &.vertical-text-align-center {
+        .media .floatingText {
+            bottom: unset;
+            top: 50%;
+            justify-content: center;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.articleHeader.fullWidth {
+    // Note: Fullwidth also defined in main.scss
+    figure {
+        overflow: hidden;
+        position: relative;
+        clear: both;
+    }
+    &.fullWithLimit {
+        figure {
+            figcaption {
+                background-color: transparent;
+                position: relative;
+                color: inherit;
+            }
+        }
+    }
+    .media {
+        .floatingText {
+            .kicker, .headline, .subtitle {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .articleHeader .headline {
+        @include font-size(34);
+    }
+    .articleHeader.fullWidth figure p {
+        margin-left: 0.95rem;
+        margin-right: 0.95rem;
+        position: relative;
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+        width: auto;
+    }
+}
+
+.custom-bodytext-width, .custom-bodytext-alignment {
+    &.articleHeader-bodytext-width, &.articleHeader-image-bodytext-width, &.articleHeader-meta-bodytext-width {
+        .articleHeader {
+            padding-inline: 0;
+            .kicker, .headline, .subtitle, .caption, .media, .meta {
+                padding-inline: var(--columns-gutter) !important;
+            }
+        }
+    }
+}
+
+.custom-bodytext-width {
+    &.articleHeader-bodytext-width {
+        .articleHeader {
+            .kicker, .headline, .subtitle, .caption {
+                max-width: calc(var(--bodytext-width, 100%) + var(--columns-gutter) * 2);
+            }
+        }
+    }
+    &.articleHeader-image-bodytext-width {
+        .articleHeader {
+            .media {
+                max-width: calc(var(--bodytext-width, 100%) + var(--columns-gutter) * 2);
+            }
+        }
+    }
+}
+
+.custom-bodytext-alignment {
+    &.articleHeader-bodytext-width {
+        .articleHeader {
+            .kicker, .headline, .subtitle, .caption {
+                margin-inline: calc(var(--bodytext-alignment) - var(--columns-gutter));
+            }
+        }
+    }
+    &.articleHeader-image-bodytext-width {
+        .articleHeader {
+            .media {
+                margin-inline: calc(var(--bodytext-alignment) - var(--columns-gutter));
+            }
+        }
+    }
+}
+
+
+
+// Page-styles:
+
+.pagestyle_centered .articleHeader {
+    text-align: center;
+
+    figure .caption {
+        text-align: left;
+    }
+
+    &.fullWidth .floatingText {
+        left: 0;
+        right: 0;
+    }
+}
+.pagestyle_centered:not(.custom-bodytext-alignment) {
+    .kicker, .headline, .subtitle, .caption, .media {
+        margin-inline: auto;
+    }
+}
+
+// Style for Lab 4
+.l4 .articleHeader {
+    .media.floatingText {
+        margin-bottom: 0.7em;
+    }
+    .caption {
+        margin-bottom: 1em;
+    }
+}

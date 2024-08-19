@@ -1,0 +1,39 @@
+{
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "image": "addChild",
+                "youtube": "addChild",
+                "simplestream": "addChild",
+                "slideshow": "addChild",
+                "markup": "addChild",
+                "text_multiline": "addChild",
+                "text_title": "addChild",
+                "text_subtitle": "addChild"
+            },
+            "default": "default"
+        },
+        "replacementWarning": {
+            "title": "Replace parallax-content?",
+            "description": "You are about to replace the parallax-content.<br>Are you sure you want to continue?"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "fullwidth": {
+                    "inheritPath": "menu/buttons/fullWidth.json",
+                    "group": "g5",
+                    "text": "",
+                    "displayHotkeys": false
+                },
+                "color_bg": null
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/parallax/template/settings"
+        }
+    }
+}

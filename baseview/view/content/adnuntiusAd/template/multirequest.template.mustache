@@ -1,0 +1,39 @@
+{{ ^app.isEditor }}
+    <script>
+        window.adn = window.adn || {};
+        var adUnits = [];
+        var handleAsTablet = (Dac.clientData.device === 'tablet' || Dac.clientData.innerWidth < {{ get.current.filtered.adnuntius.hideOnTabletWidth }});
+
+        {{ #get.current.filtered.adnuntius.adUnits }}
+        if (!(handleAsTablet && '{{ metadata.hideOnTablet }}' === 'true')) {
+            adUnits.push({ auId: '{{ auId }}', auW: {{ width }}, auH: {{ height }} {{ #refresh }}, refresh: { delay: {{ get.current.filtered.adnuntius.refreshdelay }}, count: {{ get.current.filtered.adnuntius.refreshcount }} } {{ /refresh }} });
+        }
+        {{ /get.current.filtered.adnuntius.adUnits }}
+
+        var adn_kv = adn_kv || [];
+        {{ #get.current.filtered.is_article }}
+        adn_kv.push({ "tags": [{{{ get.current.filtered.tagsStringCommaSeparated }}}] });
+        {{ /get.current.filtered.is_article }}
+        {{ #get.current.filtered.is_front }}
+        adn_kv.push({ "tags": [ "{{ get.current.fields.name }}"] });
+        {{ /get.current.filtered.is_front }}
+
+        const adnRequest = {
+            requestTiming: 'onReady',
+            adUnits: adUnits,
+            kv: adn_kv
+        };
+
+        {{ #get.current.filtered.adnuntius.lazyload }}
+        adnRequest.requestParams = {proximity: 100, load: 'lazy'},
+        {{ /get.current.filtered.adnuntius.lazyload }}
+
+        {{ #get.current.filtered.adnuntius.contkitEnabled }}
+        if (window.ck != null && typeof window.ck.hasGid === 'function' && window.ck.hasGid()) {
+            adnRequest.userId = window.ck.hasGid();
+        }
+        {{ /get.current.filtered.adnuntius.contkitEnabled }}
+
+        adn.request(adnRequest);
+    </script>
+{{ /app.isEditor }}

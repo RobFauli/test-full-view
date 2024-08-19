@@ -1,0 +1,6 @@
+<div class="caption {{ #helper.trim }}
+    {{ #app.isEditor }}expanded{{ /app.isEditor }}
+    {{ /helper.trim }}">
+    <figcaption itemprop="caption" class="{{ #style.collection }}text_decoration fields.caption{{ /style.collection }}">{{{ get.current.fields.caption }}}</figcaption>
+    <figcaption itemprop="author" class="{{ #style.collection }}text_decoration fields.byline{{ /style.collection }}">{{{ get.current.fields.byline }}}</figcaption>
+</div>

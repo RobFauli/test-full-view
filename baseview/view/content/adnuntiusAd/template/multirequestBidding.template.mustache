@@ -1,0 +1,41 @@
+{{ ^app.isEditor }}
+    <script>
+        window.adn = window.adn || {};
+        adn.calls = adn.calls || [];
+        adn.calls.push(function() {
+            var adUnits = [];
+            var handleAsTablet = (Dac.clientData.device === 'tablet' || Dac.clientData.innerWidth < {{ get.current.filtered.adnuntius.hideOnTabletWidth }});
+
+            {{ #get.current.filtered.adnuntius.adUnits }}
+            if (!(handleAsTablet && '{{ metadata.hideOnTablet }}' === 'true')) {
+                adUnits.push({ auId: '{{ auId }}', auW: {{ width }}, auH: {{ height }}, collapsible: true });
+            }
+            {{ /get.current.filtered.adnuntius.adUnits }}
+
+            var prebidConfig = [];
+            {{ #get.current.filtered.adnuntius.adUnits }}
+            {{ #prebidConfig}}
+            prebidConfig.push({{{ prebidConfig }}});
+            {{ /prebidConfig }}
+            {{ /get.current.filtered.adnuntius.adUnits }}
+
+            const adnRequest = {
+                requestTiming: 'onReady',
+                {{ #get.current.filtered.adnuntius.lazyload }}requestParams: {proximity: 100, load: 'lazy'},{{ /get.current.filtered.adnuntius.lazyload }}
+                adUnits: adUnits
+            };
+
+            {{ #get.current.filtered.adnuntius.contkitEnabled }}
+            if (window.ck != null && typeof window.ck.hasGid === 'function' && window.ck.hasGid()) {
+                adnRequest.userId = window.ck.hasGid();
+            }
+            {{ /get.current.filtered.adnuntius.contkitEnabled }}
+
+            adn.chbRequest(
+                prebidConfig,
+                adnRequest,
+                { debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }} }
+            );
+        });
+    </script>
+{{ /app.isEditor }}

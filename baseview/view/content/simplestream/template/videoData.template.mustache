@@ -1,0 +1,23 @@
+<div id="video-{{ get.current.id }}" 
+    class="simplestream" 
+    data-id="{{ get.current.filtered.dataAttributes.id }}" 
+    data-type="{{ get.current.filtered.dataAttributes.type }}" 
+    data-key="3Li3Nt2Qs8Ct3Xq9Fi5Uy0Mb2Bj0Qs" 
+    data-token="{{ get.current.filtered.dataAttributes.token }}" 
+    data-expiry="{{ get.current.filtered.dataAttributes.expire }}" 
+    data-uvid="{{ get.current.fields.uvid }}" 
+    data-poster="{{{ get.current.fields.image }}}" 
+    data-npaw="false"
+    data-env="production">
+</div>
+
+{{ #get.current.id }}{{ #app.isEditor }}
+<script>
+    (function() {
+        // Videos are initiated automatically on page load, only init on redraw
+        if (document.readyState === "complete") { 
+            initPlayer($('#video-{{ get.current.id }}'));
+        }
+    }());
+</script>
+{{ /app.isEditor }}{{ /get.current.id }}

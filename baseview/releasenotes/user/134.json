@@ -1,0 +1,22 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 134,
+            "str": "1.3.4"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20230612",
+                "title": "Publish-time for rows",
+                "description": "Rows can now set a date and time for when the row should be visible on a published page. Before this date and time the row will not render on the published page. In the editor it will render but be visually marked <span class=\"labicon-time\"> </span> To use: Click the hamburger <span class=\"labicon-settings\"> </span> in the row-menu and select 'Publish date' <span class=\"labicon-calendar\"> </span>"
+            },
+            {
+                "isFeature": true,
+                "date": "20230605",
+                "title": "Text suggestions with Labrador AI",
+                "description": "Labrador can now suggest title, subtitle, SEO-title, SEO-description, SoMe-title, SoMe-descriptions and tags for you. These are based on the bodytext you type in an article. Click the magic wand <span class=\"labicon-magic_wand\"> </span> on top of the page to use. You can also have Labrador create a summary for you by adding a factbox and clicking the magic wand and select `Create summary af article`."
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "icon": "labicon-image_caption",
+    "items": {
+        "toggleCaption": {
+            "icon": "labicon-image_caption",
+            "text": "Display caption",
+            "autocloseSubmenuAfterAction": false,
+            "callback": "toggleKeyAndValue",
+            "key": "fields.displayCaption",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "fields.displayCaption",
+                    "attribute": "value",
+                    "valueTransformer": "toBoolean"
+                }
+            ]
+        },
+        "expandable": {
+            "icon": "labicon-pluss_slim",
+            "text": "Expandable caption",
+            "autocloseSubmenuAfterAction": false,
+            "callback": "toggleKeyAndValue",
+            "key": "fields.expandableCaption",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "fields.expandableCaption",
+                    "attribute": "value",
+                    "valueTransformer": "toBoolean"
+                }
+            ]
+        },
+        "truncate": {
+            "icon": "labicon-dots",
+            "text": "Truncate caption",
+            "autocloseSubmenuAfterAction": false,
+            "callback": "toggleKeyAndValue",
+            "key": "fields.truncateCaption",
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "fields.truncateCaption",
+                    "attribute": "value",
+                    "valueTransformer": "toBoolean"
+                }
+            ]
+        },
+        "generate":{
+            "icon": "labicon-magic_wand",
+            "title": "Generate caption",
+            "respectLayoutLock": false,
+            "text": "Generate caption",
+            "callback": "dispatch",
+            "params": {
+                "function": "textAssistant.generateCaption"
+            },
+            "require": {
+                "parentType": ["page_article", "bodytext", "factbox"]
+            }
+        }
+    }
+}

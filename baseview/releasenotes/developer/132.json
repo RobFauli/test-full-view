@@ -1,0 +1,25 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 132,
+            "str": "1.3.2"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20230504",
+                "title": "Updated tag-search in article settings",
+                "description": "A new API-endpoint is now used to search for tags in article-settings",
+                "links": [
+                    "/support/docs/#js-api/v1/util/tags/searchRich.md"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230310",
+                "title": "Settings for original-url for articles",
+                "description": "In the settings-panel (`Shift+S`) for articles you can now add 3 earlier url's for current article. Available in the Advanced Settings-tab. Require user-permission `admin_batchoperations`."
+            }
+        ]
+    }
+}

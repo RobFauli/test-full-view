@@ -1,0 +1,97 @@
+<div data-element-guid="{{ get.current.guid }}" id="labradorSearch_{{ get.current.id }}" class="{{ #helper.trim }}
+    labradorSearch 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}">
+        <form action="" class="row grid-justify-center{{ ^get.current.filtered.allowSites }} nosites{{ /get.current.filtered.allowSites }}" role="search"><!-- grid-align-stretch -->
+            {{ #get.current.fields.title }}<div class="column large-12 small-12">
+                <h1 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h1>
+            </div>{{ /get.current.fields.title }}
+            {{ #app.isEditor }}{{ ^get.current.fields.title }}<div class="column large-12 small-12">
+                <h1 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h1>
+            </div>{{ /get.current.fields.title }}{{ /app.isEditor }}
+            <div class="column large-12 small-12 grid">
+                <input type="text" name="query" placeholder="{{ get.current.fields.searchPlaceholder }}">
+                <button type="submit" class="ellipsis {{ get.current.metadata.ui_color }} {{ get.current.metadata.ui_text_color }}" value="">{{{ get.current.fields.submitLabel }}}</button>
+            </div>
+            {{ #get.current.fields.displayAdvanced }}
+            <input type="hidden" name="sites" class="sites">
+            {{ /get.current.fields.displayAdvanced }}
+        </form>
+        
+        {{ #get.current.fields.displayAdvanced }}
+        <aside class="advanced-options">
+            <span class="advanced-expander fi-list" role="button" aria-label="{{ get.current.fields.advancedOpenText }}">{{ get.current.fields.advancedOpenText }}</span>
+            <div class="advanced-content">
+                <h3 class="heading">Sites</h3>
+
+                <label class="toggleAll">
+                    ( Alle <input type="checkbox" name="site_whitelist_all" value="all"> )
+                </label>
+
+                <ul class="sites">
+                    {{ #get.current.filtered.allowedSites }}
+                    <li class="site" title="{{ displayName }}">
+                        <label>
+                            <input type="checkbox" name="site_whitelist" value="{{ id }}">
+                            <span>{{ displayName }}</span>
+                        </label>
+                    </li>
+                    {{ /get.current.filtered.allowedSites }}
+                </ul>
+            </div>
+        </aside>
+        {{ /get.current.fields.displayAdvanced }}
+
+        <div class="labclient-content"></div>
+        <span class="dac-hidden" id="loading-spinner"><i class="lab-spinner"></i></span>
+
+        <nav {{ ^app.isEditor }}class="dac-hidden"{{ /app.isEditor }}>
+            <a class="nextBtn {{ #style.collection }}text_decoration fields.navLabel{{ /style.collection }} {{ get.current.metadata.ui_color }} {{ get.current.metadata.ui_text_color }}" href="" data-nav="next" title="Display more hits">{{{ get.current.fields.navLabel }}}</a>
+        </nav>
+    </div>
+
+    <script>
+        (function() {
+            const id = '{{ get.current.id }}' || null;
+            if (id && window.dachserData) {
+                window.dachserData.push('labradorsearch', {
+                    fallbackImage: '{{{ getConfig.image.fallbackUrl }}}',
+                    id,
+                    isEditor: ({{ #app.isEditor }}true{{ /app.isEditor }}{{ ^app.isEditor }}false{{ /app.isEditor }}),
+                    viewport: '{{{ app.viewport.name }}}',
+                    articleCount: '{{{ get.current.fields.articleCount }}}',
+                    imageServer: '{{{ getCmsConfig.image_server }}}',
+                    selector: '#labradorSearch_{{ get.current.id }} .labclient-content',
+                    apiUrl: '{{{ getCmsConfig.front_api_url }}}/article',
+                    bodytextLength: 190,
+                    nohitsLabel: '{{{ get.current.fields.nohitsLabel }}}',
+                    container: document.querySelector('#labradorSearch_{{ get.current.id }}'),
+                    spinner: document.querySelector('#loading-spinner'),
+                    nav: document.querySelector('#labradorSearch_{{ get.current.id }} nav'),
+                    orderBy: '{{ get.current.fields.orderBy }}',
+                    advanced: {
+                        display: {{ #get.current.fields.displayAdvanced }}true{{ /get.current.fields.displayAdvanced }}{{ ^get.current.fields.displayAdvanced }}false{{ /get.current.fields.displayAdvanced }},
+                        button: {
+                            element: document.querySelector('#labradorSearch_{{ get.current.id }} .advanced-expander'),
+                            openText: '{{ get.current.fields.advancedOpenText }}',
+                            closeText: '{{ get.current.fields.advancedCloseText }}'
+                        },
+                        container: document.querySelector('#labradorSearch_{{ get.current.id }} .advanced-options'),
+                        sites: {
+                            input: document.querySelector('#labradorSearch_{{ get.current.id }} input[name="sites"]'),
+                            checkboxes: document.querySelectorAll('#labradorSearch_{{ get.current.id }} input[name="site_whitelist"]'),
+                            toggleAll: document.querySelector('#labradorSearch_{{ get.current.id }} input[name="site_whitelist_all"]'),
+                            allowed: '{{{ get.current.filtered.allowedSitesString }}}'
+                        }
+                    },
+                    config: {{{ get.current.filtered.clientConfig }}}
+                });
+            }
+        }());
+    </script>
+</div>

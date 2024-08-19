@@ -1,0 +1,16 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Embed tweet from Twitter</h2>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.tweeturl">Tweet URL</label>
+                <textarea name="fields.tweeturl" id="id-fields.tweeturl" cols="30" rows="10">{{{ get.current.fields.tweeturl }}}</textarea>
+                <p class="lab-para">Tip: Find tweet to embed at <a target="_blank" href="https://www.twitter.com">twitter.com</a> and copy the tweet url into the field above.</p>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.lang">Language</label>
+                <input type="text" id="id-fields.lang" name="fields.lang" value="{{ get.current.filtered.lang }}">
+            </div>
+        </div>
+    </div>
+</form>

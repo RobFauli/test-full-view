@@ -1,0 +1,4 @@
+{
+    "boxTitle": "Edge Side Includes",
+    "boxDescription": "Programmatically inserted. Prints an esi-tag on front using url defined in 'fields.url' and uses a http-request to the url in the editor."
+}

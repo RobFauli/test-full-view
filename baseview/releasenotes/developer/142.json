@@ -1,0 +1,16 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 142,
+            "str": "1.4.2"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20240122",
+                "title": "Added custom headers to RSS-viewport",
+                "description": "The headers `Access-Control-Allow-Origin` and `Access-Control-Allow-Headers` are added to the `RSS` viewport with the value of `*`. This will allow fetching RSS-files from other domains without CORS errors. To render a frontpage as RSS in Baseview, add `?lab_viewport=rss` to the url."
+            }
+        ]
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "icon": "labicon-image_fullscreen",
+    "text": "Image overlay",
+    "autocloseSubmenuAfterAction": false,
+    "value": false,
+    "onValue": true,
+    "offValue": false,
+    "onValueCondition": "lab-key-is-true",
+    "bindToSelection": "overlay",
+    "require": {
+        "childType": [
+            "image",
+            "graphic"
+        ]
+    },
+    "items": [
+        {
+            "values": "background_colors_opacity",
+            "valuePrefix": "overlay_opacity",
+            "title": "Background Opacity",
+            "label": "",
+            "key": "metadata.imageOverlay",
+            "styleDefinition": "background_opacity",
+            "removeBtn": true,
+            "bordered": true
+        },
+        {
+            "values": "gradients",
+            "title": "Background Gradient",
+            "label": "",
+            "key": "metadata.gradient",
+            "styleDefinition": "background_gradient",
+            "removeBtn": true,
+            "bordered": true
+        },
+        {
+            "icon": "labicon-align_content_left",
+            "text": "White - 75%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "white75",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_left_small",
+            "text": "White - 50%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "white50",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_left_mini",
+            "text": "White - 25%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "white25",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_right",
+            "text": "Black - 75%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "black75",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_right_small",
+            "text": "Black - 50%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "black50",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-align_content_right_mini",
+            "text": "Black - 25%",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.imageOverlay",
+            "value": false,
+            "onValue": "black25",
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.imageOverlay",
+                    "attribute": "value"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+.userFeedback {
+    .dacBtn {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+        &:not([class*="bg-"]) {
+            background-color: #484848;
+        }
+    }
+    .buttons {
+        padding: 0.5rem 0;
+    }
+}

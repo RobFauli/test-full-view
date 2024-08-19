@@ -1,0 +1,319 @@
+// ---------------- $columns_gutter ----------------
+// Sites overriding variable $columns_gutter and/or $columns_gutter_outer should include this mixin
+// to redefine all declarations involving the variable:
+
+@mixin overrideGutter($gutter, $gutter_outer, $text_padding) {
+    .column,
+    .columns {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+    .column {
+        margin-bottom: $gutter;
+    }
+    .row {
+        > .row_header_text {
+            margin-left: $gutter;
+            margin-right: $gutter;
+
+            @include mobile {
+                margin-left: $gutter_outer;
+                margin-right: $gutter_outer;
+            }
+
+            &[class*=" bg-"] {
+                padding: $gutter / 2 $gutter;
+                margin-bottom: $gutter;
+            }
+            @include mobile {
+                &[class*=" color_mobile_bg-"] {
+                    padding: $gutter / 2 $gutter;
+                    margin-bottom: $gutter;
+                }
+            }
+        }
+    }
+    .row[class*=" bg-"],
+    .row-section[class*=" bg-"] {
+        padding-top: $gutter;
+        margin-bottom: $gutter;
+        >.row_header_text[class*=" bg-"] {
+            padding-left: $gutter;
+            padding-right: $gutter;
+            margin: - $gutter 0 $gutter 0;
+        }
+        @include mobile {
+            > .row_header_text[class*=" color_mobile_bg-"] {
+                margin: - $gutter 0 $gutter 0;
+                padding-left: $gutter_outer;
+                padding-right: $gutter_outer;
+            }
+        }
+    }
+
+    .bodytext .slideshow nav ul {
+        padding: $gutter;
+    }
+
+    .slideshow.columns nav ul {
+        margin: 0 $gutter;
+    }
+
+    .bodytext {
+        & > * {
+            padding: $gutter;
+        }
+        & > p {
+            padding-left: $gutter;
+        }
+        & > .column.floatLeft {
+            padding-left: $gutter;
+        }
+        & > .column.floatRight {
+            padding-right: $gutter;
+        }
+    }
+
+    .pagestyle_centered {
+        .bodytext > p,
+        .bodytext > h2,
+        .bodytext > h3,
+        .bodytext > h4,
+        .bodytext > ul,
+        .bodytext > ol {
+            @include mobile {
+                padding-right: $gutter;
+                padding-left: $gutter;
+            }
+        }
+    }
+
+    .articlescroller {
+        ul {
+            margin-right: -$gutter;
+            margin-left: -$gutter;
+        }
+    }
+
+    .articleHeader {
+        .kicker,
+        .headline,
+        .subtitle {
+            &[class*=" bg-"] {
+                padding: 0.6rem $gutter;
+            }
+        }
+        .media {
+            .floatingText {
+                padding-bottom: $gutter;
+                .kicker,
+                .headline,
+                .subtitle {
+                    margin-right: $gutter;
+                    margin-left: $gutter;
+                    margin-bottom: $gutter / 2;
+                }
+            }
+        }
+    }
+
+    .articleCalendar {
+        ul.articles {
+            grid-column-gap: $gutter;
+            grid-row-gap: $gutter;
+        }
+    }
+
+    article.column {
+        .content {
+            .media {
+                .floatingText {
+                    padding-bottom: $gutter;
+                    .kicker,
+                    .headline,
+                    .subtitle {
+                        margin-right: $gutter;
+                        margin-left: $gutter;
+                        margin-bottom: $gutter / 2;
+                    }
+                }
+            }
+            .kicker,
+            .headline,
+            .subtitle {
+                &[class*=" bg-"] {
+                    padding: 0.6rem $gutter;
+                }
+            }
+            &[class*=" bg-"] figure.floatLeft {
+                margin-right: $gutter;
+            }
+            &[class*=" bg-"] figure.floatRight {
+                margin-left: $gutter;
+            }
+
+            &[class*=" bg-"] .kicker {
+                margin-bottom: $gutter;
+            }
+            &[class*=" bg-"].fullWidth a .media figure {
+                margin-left: calc(-50vw + 68rem / 2 - (#{$gutter} + #{$text_padding}));
+                margin-right: calc(-50vw + 68rem / 2 - (#{$gutter} + #{$text_padding}));
+            }
+        }
+    }
+
+    // Full-width images / markup
+    .column .content.fullWidth figure,
+    .articleHeader.fullWidth > .media figure,
+    .articleHeader.fullWidth .markupbox,
+    .column.markupbox.fullWidth .content,
+    .bodytext > .fullWidth figure,
+    .articleHeader.fullWidth > figure {
+        margin-left: calc(-50vw + 68rem / 2 - #{$gutter});
+        margin-right: calc(-50vw + 68rem / 2 - #{$gutter});
+    }
+
+    .fullWidth > figure .caption,
+    .fullWidth .media figure .caption {
+        padding-left: calc(50vw - 68rem / 2 + #{$gutter});
+        padding-right: calc(50vw - 68rem / 2 + #{$gutter});
+    }
+
+    .parallax-container.column > .content.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+        margin-right: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+    }
+
+    .articleHeader .column.parallax-container > .content.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+        margin-right: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+    }
+
+    .text_multiline.column {
+        .bodytext > p, .bodytext > h2, .bodytext > h3, .bodytext > h4, .bodytext > ul, .bodytext > ol {
+            padding-right: $gutter;
+        }
+    }
+
+    @include mobile {
+        article.column {
+            .content[class*=" bg-"] {
+                &.fullWidth a .media figure {
+                    margin-left: 0 - ($gutter_outer + $text_padding);
+                    margin-right: 0 - ($gutter_outer + $text_padding);
+                }
+            }
+        }
+
+        .row,
+        .bodytext {
+            & > .column:first-child,
+            & > .column.small-12 + .column:not(.small-12) {
+                padding-left: $gutter_outer;
+            }
+            & > .column:last-child {
+                padding-right: $gutter_outer;
+            }
+            & > .column.small-12,
+            & > .columns.small-12 {
+                padding-left: $gutter_outer;
+                padding-right: $gutter_outer;
+            }
+        }
+        .row.fullWidth .scrollbox,
+        .column.scrollbox.fullWidth {
+            margin-left: -$gutter;
+            margin-right: -$gutter;
+        }
+        .fullWidth > figure .caption {
+            padding-left: $gutter_outer;
+            padding-right: $gutter_outer;
+        }
+        .articleHeader.column {
+            padding-left: $gutter_outer;
+            padding-right: $gutter_outer;
+        }
+        .column .content.fullWidth figure,
+        .articleHeader.fullWidth > .media figure,
+        .articleHeader.fullWidth .markupbox,
+        .column.markupbox.fullWidth .content,
+        .bodytext > .fullWidth figure,
+        .articleHeader.fullWidth > figure {
+            margin-left: -$gutter_outer;
+            margin-right: -$gutter_outer;
+            .caption {
+                margin-right: $gutter_outer;
+                margin-left: $gutter_outer;
+            }
+        }
+        .articleHeader.fullWidth figure {
+            .caption {
+                padding-left: $gutter_outer;
+                padding-right: $gutter_outer;
+            }
+        }
+        .bodytext {
+            & > p,
+            & > h2,
+            & > h3,
+            & > h4,
+            & > ul,
+            & > ol {
+                padding-right: $gutter_outer;
+                padding-left: $gutter_outer;
+            }
+            & > .small-12 {
+                padding-left: $gutter_outer;
+            }
+            & > .column.floatLeft {
+                padding-left: $gutter_outer;
+            }
+            & > .column.floatRight {
+                padding-right: $gutter_outer;
+            }
+        }
+        .column.articleFooter {
+            padding-right: $gutter_outer;
+            padding-left: $gutter_outer;
+        }
+        .articleHeader .column.parallax-container > .content.fullWidth {
+            margin-left: -$gutter_outer;
+            margin-right: -$gutter_outer;
+        }
+        .parallax-container.column > .content.fullWidth {
+            margin-left: -$gutter_outer;
+            margin-right: -$gutter_outer;
+        }
+    }
+}
+
+// ---------------- $bg_text_padding ----------------
+// Sites overriding variable $bg_text_padding should include this mixin
+// to redefine all declarations involving the variable:
+
+@mixin overrideBgTextPadding($gutter) {
+    .content[class*=" bg-"],
+    .content[class*=" border-"],
+    figure[class*="bg-"] p {
+        padding: $gutter;
+    }
+
+    .content[class*=" bg-"] figure {
+        margin-top: -$gutter;
+        margin-right: -$gutter;
+        margin-left: -$gutter;
+    }
+
+    @include desktop_down {
+        .content[class*="color_mobile_bg-"],
+        .content[class*="mobile_border-bg-"],
+        figure[class*="color_mobile_bg-"] p {
+            padding: $gutter;
+        }
+        .content[class*="color_mobile_bg-"] figure {
+            margin-top: -$gutter;
+            margin-right: -$gutter;
+            margin-left: -$gutter;
+        }
+    }
+}

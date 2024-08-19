@@ -1,0 +1,32 @@
+<picture>
+    {{ #get.current.filtered.viewport_list.desktop.formats }}
+    <source srcset="{{{ get.current.filtered.viewport_list.desktop.url }}}&format={{ format }}" 
+        width="{{{ get.current.filtered.viewport_list.desktop.width }}}"
+        height="{{{ get.current.filtered.viewport_list.desktop.height }}}"
+        media="(min-width: 768px)"
+        type="{{{ type }}}">    
+    {{ /get.current.filtered.viewport_list.desktop.formats }}
+    {{ #get.current.filtered.viewport_list.mobile.formats }}
+    <source srcset="{{{ get.current.filtered.viewport_list.mobile.url }}}&format={{ format }}" 
+        width="{{{ get.current.filtered.viewport_list.mobile.width }}}"
+        height="{{{ get.current.filtered.viewport_list.mobile.height }}}"
+        media="(max-width: 767px)"
+        type="{{{ type }}}">    
+    {{ /get.current.filtered.viewport_list.mobile.formats }}
+    <img src="{{{ get.current.filtered.viewport_list.mobile.url }}}&format=jpg"
+        width="{{{ get.current.filtered.viewport_list.mobile.width }}}"
+        height="{{{ get.current.filtered.viewport_list.mobile.height }}}"
+        title="{{ #helper.sanitizeString }}
+        {{ #getConfig.image.showBylineAsTitle }}{{ get.current.fields.byline }}{{ /getConfig.image.showBylineAsTitle }}
+        {{ ^getConfig.image.showBylineAsTitle }}{{ get.current.filtered.captionOptions.title }}{{ /getConfig.image.showBylineAsTitle }}
+        {{ /helper.sanitizeString }}"
+        alt="{{ #helper.sanitizeString }}{{ #get.current.fields.altText }}{{{ get.current.fields.altText }}}{{ /get.current.fields.altText }}{{ /helper.sanitizeString }}" 
+        {{ #get.current.filtered.lazyloadImages }}loading="lazy"{{ /get.current.filtered.lazyloadImages }}
+        {{ #app.isEditor }}
+        class="{{ #helper.getEditorLoadingClass }}{{ /helper.getEditorLoadingClass }}"
+        style="{{ #helper.getEditorLoadingStyle }}{{ /helper.getEditorLoadingStyle }} {{{ get.current.filtered.filters }}}"    
+        {{ /app.isEditor }}
+        {{ ^app.isEditor }}
+        style="{{{ get.current.filtered.filters }}}"    
+        {{ /app.isEditor }}>
+</picture>

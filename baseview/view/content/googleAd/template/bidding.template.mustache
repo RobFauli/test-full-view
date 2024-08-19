@@ -1,0 +1,5 @@
+{{ ^app.isEditor }}
+    {{ #get.current.filtered.googleAds.bidding.provider.name }}
+        {{ #render.template }}content/googleAd/template/{{ get.current.filtered.googleAds.bidding.provider.name }}.init{{ /render.template }}
+    {{ /get.current.filtered.googleAds.bidding.provider.name }}
+{{ /app.isEditor }}

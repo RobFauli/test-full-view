@@ -1,0 +1,11 @@
+// Adjust items due to sticky topbar.
+// To be called from sites with sticky topbar only.
+
+@mixin stickyTopbarAdjustments($height) {
+    .parallax-container.column > .content .parallax-layer[data-parallax-sticky] {
+        top: $height;
+    }
+    .l3.imagezoom.visible {
+        margin-top: $height;
+    }
+}

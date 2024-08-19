@@ -1,0 +1,19 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column twitter-contentbox
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content twitter-contentbox-container {{ ^get.current.external.html }}large-12 small-12 {{ /get.current.external.html }}{{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+    {{{ get.current.external.html }}}
+    {{ ^get.current.external.html }}{{ #app.isEditor }}
+        <div class="lab-align-center">
+            <span class="boxIcon fi-social-twitter"></span>
+            Missing Twitter-url<br>
+            Click the settings-icon in the menu to set a url
+        </div>
+    {{ /app.isEditor }}{{ /get.current.external.html }}
+    </div>
+</div>
+

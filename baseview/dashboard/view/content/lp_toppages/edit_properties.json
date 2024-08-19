@@ -1,0 +1,31 @@
+{
+    "plugins": {
+        "Linkpulse": {
+            "autoStart": true,
+            "path": "Plugins.Linkpulse",
+            "appendToAppMenu": false,
+            "servicePath": "customer/publishlab/probatio/",
+            "containerSelector": ".content",
+            "queryField": "fields.linkpulse_json"
+        }
+    },
+
+    "edit": [
+        {
+            "selector": "form",
+            "fn": "editForm",
+            "isNonLazy": true
+        }
+    ],
+
+    "defaultFieldValues": {
+        "linkpulse_json": {
+            "type": "toppages",
+            "query": {
+                "range": "today",
+                "domain": "${site.domain}",
+                "limit": 10
+            }
+        }
+    }
+}

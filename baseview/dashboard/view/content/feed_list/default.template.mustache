@@ -1,0 +1,37 @@
+<div class="columns dashboardbox feed_list {{ view.grid.css }} abs_grid_{{ view.grid.absoluteWidth }} {{ view.boxCss.background_color }}{{ #fields.compactView }} compact{{ /fields.compactView }}">
+    <div class="dashboardbox-menu">
+        <h3>{{{ fields.title }}}, site: {{{filtered.site_alias}}}</h3>
+    </div>
+    <div class="content">
+        <ul class="articles">{{ #external.data }}
+            <li class="{{ #labId }}lab-article-exists{{ /labId }}">
+                <div class="controls">
+                    {{ ^labId }}<span title="Import article" class="control_el import_ntb lab-icon-import" data-ntb-id="{{ id }}"></span>{{ /labId }}
+                    {{ #labId }}<a title="Edit article" data-lab-ignore-exitwarning="1" href="/edit/article/id/{{ labId }}" target="_blank" class="control_el lab-icon-startEdit"></a>{{ /labId }}
+                </div>
+                <div class="article">
+                    <h4 class="{{^title}}no-title{{/title}}">{{{ title }}}{{^title}}Missing{{/title}}</h4>
+                    {{#bodytext}}<p class="subtitle">
+                        {{ bodytext }}
+                    </p>{{/bodytext}}
+
+                    {{ #fields.displayTags}}
+                    <p class="meta">
+                        Section: <span class="tag lab-icon-tag">{{ sectiontag }}</span> 
+                        Tags: <span class="tag lab-icon-tag">{{ tags }}</span>
+                    </p>
+                    {{ /fields.displayTags}}
+                    <p class="meta">
+                        {{#timeString}}
+                            Created: <span class="date lab-icon-time">{{{ timeString }}}</span>
+                        {{/timeString}}
+                        {{#publishedString}}
+                         Published: <span class="date lab-icon-time">{{{ publishedString }}}</span>
+                        {{/publishedString}}
+                    </p>
+                </div>
+            </li>
+        {{ /external.data }}</ul>
+    </div>
+    <div class="dashboardbox-nav"><span class="pager">Page {{ filtered.pageNumber }}</span></div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "icon": "labicon-rowFullWidth",
+    "text": "Restricted full width",
+    "callback": ["toggleKeyAndValue"],
+    "key": "metadata.hasFullWidthWithLimit",
+    "onValue": true,
+    "offValue": false
+}

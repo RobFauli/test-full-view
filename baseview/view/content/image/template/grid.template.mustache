@@ -1,0 +1,20 @@
+<figure data-element-guid="{{ get.current.guid }}"{{ #get.current.metadata.zoomable }} data-zoomable="1"{{ /get.current.metadata.zoomable }} class="{{#helper.trim}}
+    column
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ get.current.filtered.borderClass }}
+    {{ get.current.filtered.imageLoadingClass }}
+    {{/helper.trim}}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}">
+        <div class="img fullwidthTarget">
+            {{ > content/image/template/partials/img }}
+            {{ > content/image/template/partials/shapes }}
+        </div>
+        {{ #get.current.filtered.captionOptions.displayDefault }}
+        {{ > content/image/template/partials/caption_links }}
+        {{ /get.current.filtered.captionOptions.displayDefault }}
+    </div>
+</figure>

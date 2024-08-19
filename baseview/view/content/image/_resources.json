@@ -1,0 +1,259 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/image/front/default.json",
+                    "json": "content/image/front/rss.json",
+                    "rss": "content/image/front/rss.json",
+                    "mailmojo": "content/image/front/default.json"
+                },
+                "template": {
+                    "default": "content/image/template/default",
+                    "rss": "content/image/template/rss",
+                    "mailmojo" : "content/image/template/mailmojo"
+                }
+            },
+            "article": {
+                "template": {
+                    "default": "content/image/template/article"
+                }
+            },
+            "articleHeader": {
+                "template": {
+                    "default": "content/image/template/articleHeader"
+                },
+                "properties": {
+                    "default": [
+                        "content/image/front/tallImage.json",
+                        "content/image/front/noLazy.json"
+                    ]
+                }
+            },
+            "row": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/image/template/row"
+                }
+            },
+            "articleHeader//slideshow": {
+                "properties": {
+                    "default": "content/image/front/tallImage.json"
+                }
+            },
+            "slideshow": {
+                "template": {
+                    "default": "content/image/template/slideshow"
+                }
+            },
+            "parallax": {
+                "template": {
+                    "default": "content/image/template/slideshow"
+                },
+                "properties": {
+                    "default": [
+                        "content/image/front/parallax.json"
+                    ],
+                    "mobile": [
+                        "content/image/front/parallax.json",
+                        "content/image/front/parallax_mobile.json"
+                    ]
+                }
+            },
+            "byline": {
+                "template": {
+                    "default": "content/image/template/byline"
+                },
+                "properties": {
+                    "default": "content/image/front/byline.json"
+                }
+            },
+            "article//article": {
+                "properties": {
+                    "default": "content/image/front/subarticle.json"
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content/image/front/tallImage.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/image/template/grid"
+                }
+            },
+            "bodytext/row": {
+                "properties": {
+                    "default": [
+                        "content/image/front/tallImage.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/image/template/grid"
+                }
+            },
+            "factbox": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json"
+                    ]
+                }
+            },
+            "text_multiline": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/image/template/grid"
+                }
+            },
+            "youtube": {
+                "properties": {
+                    "default": "content/image/front/youtube.json"
+                }
+            },
+            "articleHeader//youtube": {
+                "properties": {
+                    "default": "content/image/front/articleHeader_youtube.json"
+                }
+            },
+            "image": {
+                "properties": {
+                    "default": "content/image/front/subImage.json",
+                    "mobile": "content/image/front/subImageMobile.json"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/default.json",
+                        "content/image/editor/default.json"
+                    ]
+                }
+            },
+            "row": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content/image/editor/row.json"
+                    ]
+                }
+            },
+            "row/mediaContainer": {
+                "properties": {
+                    "default": "content/image/editor/noResize.json"
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": "content/image/editor/articleHeader.json"
+                }
+            },
+            "article": {
+                "properties": {
+                    "default": "content/image/editor/child.json"
+                }
+            },
+            "image": {
+                "properties": {
+                    "default": "content/image/editor/subImage.json"
+                }
+            },
+            "article/article": {
+                "properties": {
+                    "default": "content/image/editor/subarticle.json"
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json",
+                        "content_settings/editor/resize/disabled.json",
+                        "content/image/editor/bodytext.json"
+                    ]
+                }
+            },
+            "bodytext/row": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/bodytext_row.json"
+                    ]
+                }
+            },
+            "factbox": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/draggable/default.json",
+                        "content/image/editor/multiline.json"
+                    ]
+                }
+            },
+            "text_multiline": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/bodytext.json",
+                        "content/image/editor/multiline.json"
+                    ]
+                }
+            },
+            "byline": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/child.json",
+                        "content/image/editor/noResize.json"
+                    ]
+                }
+            },
+            "parallax": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/resizeSouth.json",
+                        "content/parallax/editor/layer.json"
+                    ]
+                }
+            },
+            "slideshow": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/child.json",
+                        "content/image/editor/slideshow.json"
+                    ]
+                }
+            },
+            "youtube": {
+                "properties": {
+                    "default": [
+                        "content/image/front/youtube.json",
+                        "content/image/editor/youtube.json"
+                    ]
+                }
+            },
+            "articleHeader//youtube": {
+                "properties": {
+                    "default": [
+                        "content/image/editor/articleHeader_youtube.json",
+                        "content/image/editor/youtube.json"
+                    ]
+                }
+            }
+        }
+    }
+}

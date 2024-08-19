@@ -1,0 +1,318 @@
+{
+    "lang": "no",
+    "contentLanguage": "nb-NO",
+    "timezone": "+1",
+    "textDirection": "ltr",
+    "grid": {
+        "total_grid_spans": 12,
+        "grid_prefix": {
+            "mobile": "small-",
+            "desktop": "large-"
+        },
+        "abs_grid_prefix": {
+            "mobile": "small-abs-",
+            "desktop": "large-abs-"
+        }
+    },
+
+    "viewports": {
+        "mobile": {
+            "deviceWidth": 480,
+            "editSlotWidth": 380,
+            "padding": 96,
+            "defaultVisible": true,
+            "extendToAvailableWidth": false,
+            "class_prefix": {
+                "text_size": "tm",
+                "text_color": "color_mobile_",
+                "text_background_color": "color_mobile_",
+                "text_align": "mobile_text_align_"
+            }
+        },
+        "desktop": {
+            "deviceWidth": 1058,
+            "padding": 0,
+            "defaultVisible": true,
+            "extendToAvailableWidth": true
+        },
+        "rss": {
+            "deviceWidth": 1058,
+            "padding": 0,
+            "noFallback": true,
+            "noEdit" : true,
+            "customHeaders": {
+                "Content-Type": "text/xml",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "*"
+            },
+            "descriptionPrefix": "Artikler fra forsiden "
+        },
+        "newssitemap": {
+            "deviceWidth": 1058,
+            "padding": 0,
+            "noFallback": true,
+            "noEdit" : true,
+            "customHeaders": {"Content-Type": "application/xml"}
+        },
+        "json": {
+            "deviceWidth": 1058,
+            "padding": 0,
+            "noFallback": true,
+            "noEdit" : true,
+            "renderer": "PageExport.jsonData",
+            "customHeaders": {"Content-Type": "application/json"}
+        },
+        "mobileApp": {
+            "deviceWidth": 320,
+            "editSlotWidth": 320,
+            "padding": 0,
+            "extendToAvailableWidth": true,
+            "disallowOthers": true,
+            "noEdit" : true
+        },
+        "mailmojo": {
+            "deviceWidth": 640,
+            "padding": 0,
+            "noFallback": true,
+            "noEdit" : true
+        },
+        "embed": {
+            "deviceWidth": 640,
+            "padding": 0,
+            "noFallback": false,
+            "noEdit" : true
+        }
+    },
+
+    "sites": {
+        "default": {
+            "resource_map": "resource_map"
+        }
+    },
+
+    "viewport": "desktop",
+    "touchEditingViewport": "mobileApp",
+
+    "image": {
+        "defaultAspectRatio": 0.45,
+        "socialAspectRatio": 0.57,
+        "defaultBoundingBoxWidthRatio": 1,
+        "caption": {
+            "showMoreLabel": "Vis mer"
+        },
+        "fallbackUrl": ""
+    },
+
+    "displayReadProgress": {
+        "active": false,
+        "minElementCount": 25
+    },
+
+    "contentbox_settings": {
+        "articlescroller": {
+            "require": {
+                "js": [
+                    "/view-resources/public/common/SwipeHelper.js"
+                ]
+            }
+        },
+        "tvguide": {
+            "require": {
+                "css": [
+                    "/view-resources/baseview/view/css/elements/tvguide.css"
+                ]
+            }
+        },
+        "byline": {
+            "template": [{
+                "keys": ["firstname", "lastname"],
+                "url": "public_email"
+            }, {
+                "keys": ["description"]
+            }],
+            "imageAbove": true,
+            "imageBelow": false,
+            "enableDescriptionLength": false,
+            "descriptionLength": 45
+        },
+        "parallax": {
+            "require": {
+                "js": [
+                    "/view-resources/public/common/Parallax.js"
+                ]
+            }
+        },
+        "frontContent": {
+            "sources": [
+                {
+                    "url": "${front_api_url}/api/v1/article/?orderBy=published&htmlText=1&query=visibility_status:P%20AND%20published:[*%20NOW]%20AND%20NOT%20hidefromfp_time:[*%20NOW]",
+                    "urlEditor": "${customer_cms_url}/api/v1/article/?orderBy=published&htmlText=1&query=visibility_status:P%20AND%20published:[*%20NOW]%20AND%20NOT%20hidefromfp_time:[*%20NOW]",
+                    "type": "LabradorApi",
+                    "name": "Labrador-artikler",
+                    "identifier": "lab-api-all"
+                }
+            ]
+        },
+        "tagboard": {
+            "tagsOptions": {
+                "displayTagsString": false,
+                "displayTagsGroups": true,
+                "tagsGroupsDefaultVisible": false
+            },
+            "displaySites": true,
+            "sources": [
+                {
+                    "url": "${front_api_url}/api/v1/article/?orderBy=published&htmlText=1&query=visibility_status:P%20AND%20published:[*%20NOW]%20AND%20NOT%20hidefromfp_time:[*%20NOW]",
+                    "urlEditor": "${customer_cms_url}/api/v1/article/?orderBy=published&htmlText=1&query=visibility_status:P%20AND%20published:[*%20NOW]%20AND%20NOT%20hidefromfp_time:[*%20NOW]",
+                    "type": "LabradorApi",
+                    "name": "Labrador-artikler",
+                    "identifier": "lab-api-all"
+                }
+            ]
+        },
+        "scrollbox": {
+            "require": {
+                "js": [
+                    "/view-resources/public/common/SwipeHelper.js"
+                ]
+            },
+            "dataForAddedChild": {
+                "article": {
+                    "metadata": {
+                        "floatingTitle": true,
+                        "floatingSubtitle": true,
+                        "floatingKicker": true,
+                        "hidesubtitle": true,
+                        "floatingTextSubset": true,
+                        "floatingTextStyle": "bg-white"
+                    },
+                    "contentdata": {
+                        "fields.displayByline": false
+                    },
+                    "children": {
+                        "image": {
+                            "contentdata": {
+                                "fields.whRatio": "1.0",
+                                "fields.bbRatio": "0.4",
+                                "fields.viewports_json.mobile.fields.whRatio": "0.6"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "articleLists": {
+            "require": {
+                "js": [
+                    "/view-resources/public/common/ArticleLists.js"
+                ]
+            }
+        },
+        "topcomments": {
+            "dateTemplate": "{{ D }}. {{ MMMM }} {{ YYYY }} - {{ HH }}:{{ mm }}"
+        }
+    },
+
+    "page_settings": {
+        "article": {
+            "social": {
+                "display": {
+                    "bodytext_before": false,
+                    "bodytext_after": true,
+                    "header": true
+                },
+                "items": {
+                    "facebook": {
+                        "display": true,
+                        "icon": "fi-social-facebook",
+                        "shareText": "Del på Facebook"
+                    },
+                    "twitter": {
+                        "display": true,
+                        "icon": "fi-social-twitter",
+                        "shareText": "Del på Twitter"
+                    },
+                    "linkedin": {
+                        "display": false,
+                        "icon": "fi-social-linkedin",
+                        "shareText": "Del på LinkedIn"
+                    },
+                    "mail": {
+                        "display": true,
+                        "icon": "fi-mail",
+                        "shareText": "Del på e-post"
+                    },
+                    "threads": {
+                        "display": false,
+                        "icon": "fi-social-threads",
+                        "shareText": "Share on Threads"
+                    },
+                    "copyLink": {
+                        "display": false,
+                        "icon": "fi-social-copyLink",
+                        "isButton": true
+                    },
+                    "glimta": {
+                        "display": false,
+                        "icon": "fi-social-glimta",
+                        "shareText": "Unlock with Glimta"
+                    },
+                    "talandeWebb": {
+                        "display": false,
+                        "icon": "fi-social-talandeWebb",
+                        "isButton": true
+                    }
+                }
+            },
+            "showTags": true
+        },
+        "footer": {
+            "poweredBy": {
+                "display": true,
+                "text": "Powered by Labrador CMS",
+                "target": "_blank",
+                "href": "https://labradorcms.com/",
+                "css": ""
+            }
+        }
+    },
+
+    "imageUrlOptions" : {
+        "extension" : ".webp",
+        "nameField" : "instance_of"
+    },
+
+    "embeddable": {
+        "active": false,
+        "sitelink": {
+            "prefix": "Les mer på",
+            "postfix": ""
+        }
+    },
+
+    "imageLoading": {
+        "lazy": true
+    },
+    "cookieConsent": {
+        "enabled": false,
+        "cookieName": "CookieConsent",
+        "consents": [
+            "necessary",
+            "preferences",
+            "statistics",
+            "marketing"
+        ],
+        "insufficientConsentMessage": "Content is hidden due to insufficient cookie consent.",
+        "contentboxes": [
+            {
+                "name": "youtube",
+                "requiredConsent": "necessary",
+                "insufficientConsentMessage": "Video is hidden due to insufficient cookie consent."
+            }
+        ]
+    },
+    "style_definitions": {
+        "fontface": [],
+        "rules": []
+    }
+}

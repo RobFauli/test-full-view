@@ -1,0 +1,19 @@
+{
+    "contentMenus": {
+        "default": null
+    },
+    "droppable": {
+        "active": false
+    },
+    "dropzones": {
+        "subarticles": {
+            "active": true,
+            "accept": [
+                "image",
+                "graphic"
+            ],
+            "drop": "addChild",
+            "selector": ".imageChildren"
+        }
+    }
+}

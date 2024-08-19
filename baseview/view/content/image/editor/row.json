@@ -1,0 +1,29 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "color_bg": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "group": "g1_b"
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "image_edit": {
+            "items": {
+                "alignLeft": null,
+                "alignRight": null
+            }
+        }
+    },
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "zones": ["s"]
+                }
+            }
+        }
+    }
+}

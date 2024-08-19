@@ -1,0 +1,26 @@
+@media(min-width: 1000px) {
+    .baseview-textcompletion.lab-content .lab-formgroup {
+        padding-right: 20px;
+    }
+    .baseview-textcompletion.lab-content .lab-formgroup.lab-grid-large-2 {
+        padding-right: 0;
+    }
+}
+
+.lab-modal.baseview-textcompletion.lab-busy .labicon-refresh,
+.lab-modal.baseview-textcompletion .labicon-refresh.animate-reload {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.lab-modal.baseview-textcompletion.lab-busy .labicon-refresh:before,
+.lab-modal.baseview-textcompletion .labicon-refresh.animate-reload:before {
+    transform: rotate(0deg);
+    animation-name: rotateReloadItem;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateReloadItem {
+    0%    { transform: rotate(0deg); }
+    100%    { transform: rotate(-360deg); }
+}

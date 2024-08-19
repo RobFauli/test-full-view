@@ -1,0 +1,89 @@
+/* Style for contentbox toplist */
+
+.toplist {
+    .content {
+        border: 1px solid #dadada;
+        padding: 0;
+    
+        &.hide-border {
+            border: none;
+        }
+    }
+    h3.headline {
+        font-size: 1em;
+        padding: 0.5em 1em;
+        margin: 0 0 0.5em;
+
+        &:not([class*=" bg-"]) {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    ul {
+        li {
+            border-bottom: 1px solid #dadada;
+            margin: 0.4rem 0rem;
+            padding: 0.4rem 1rem;
+            display: flex;
+            &:last-child {
+                border-bottom: 0;
+            }
+            .media {
+                flex: 0 0 68px;
+                margin-right: 0.8rem;
+                margin-top: 0;
+                margin-left: 0;
+            }
+            .text {
+                flex: 1 1 auto;
+                h4 {
+                    font-size: 1em;
+                    padding: 0;
+                }
+                time {
+                    &:before {
+                        margin-right: 0.3rem;
+                    }
+                }    
+            }
+        }
+        &:empty{
+            background-color: #ececec;
+            padding: 1rem;
+            margin: 1rem;
+            text-align: center;
+            &:after {
+                content: "No data ..."
+            }
+        }
+    }
+    &.layout_horizontal {
+        ul {
+            display: grid;
+            grid-auto-columns: minmax(0, 1fr);
+            grid-auto-flow: column;
+            li {
+                border-bottom: 0;
+                border-right: 1px solid #dadada;
+                // flex: 1 1 0px;
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+    a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        &:hover h4 {
+            text-decoration: underline;
+        }
+    }
+    .content[class*=" bg-"] {
+        ul li {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

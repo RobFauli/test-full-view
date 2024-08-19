@@ -1,0 +1,37 @@
+@import '../mixins/header';
+@import '../mixins/fonttools';
+@import '../components/vars';
+@import '../mixins/mediaqueries';
+
+$fontPath: '/view-resources/custom-starter-view/public/demosite/fonts';
+
+@include font-face("Poppins", '#{$fontPath}/Poppins-ExtraLight', 200, normal, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-Medium', 500, normal, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-Bold', 600, normal, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-ExtraBold', 800, normal, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-ExtraLightItalic', 200, italic, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-MediumItalic', 500, italic, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-BoldItalic', 600, italic, ttf);
+@include font-face("Poppins", '#{$fontPath}/Poppins-ExtraBoldItalic', 800, italic, ttf);
+
+// HEADER STYLES
+.pageHeader {
+    background-color: #eeeeee;
+    box-shadow: 0px 0px 10px 0px #eeeeee;
+    & > .row {
+        align-items: center;
+    }
+    nav.mainMenu {
+        ul {
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+    @include mobile {
+        nav.mainMenu {
+            ul {
+                flex-direction: row;
+            }
+        }
+    }
+}

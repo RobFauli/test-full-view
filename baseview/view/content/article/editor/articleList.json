@@ -1,0 +1,24 @@
+
+{
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "mediaOptions": null,
+                "moveUp": {
+                    "inheritPath": "menu/buttons/moveUp.json"
+                },
+                "moveDown": {
+                    "inheritPath": "menu/buttons/moveDown.json"
+                },
+                "color_bg": null
+            }
+        }
+    },
+    "droppable": {
+        "accept": "image"
+    },
+    "draggable": {
+        "active": false
+    }
+}

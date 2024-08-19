@@ -1,0 +1,43 @@
+<nav class="{{ #helper.trim }}
+    navigation 
+	{{ selector }} 
+	{{ type }}
+    {{ /helper.trim }}">
+	<ul>
+	{{ #items }}
+		<li class="{{ #helper.trim }}
+            {{ selector }}
+            {{ #selected }} selected{{ /selected }}
+			{{ #hasChildren }} has-children{{ /hasChildren }}
+            {{ #hideOnDesktop }} dac-hidden-desktop-up{{ /hideOnDesktop }}
+            {{ #hideOnMobile }} dac-hidden-desktop-down{{ /hideOnMobile }}
+            {{ /helper.trim }}">
+			{{ #url }}
+			<a href="{{{ url }}}" target="{{ target }}" {{ #alt }}role="button" aria-label="{{ alt }}"{{ /alt }}>{{ title }}</a>
+			{{ /url }}
+			{{ ^url }}
+			<span>{{ title }}</span>
+			{{ /url }}
+			{{ #hasChildren }}
+			<ul class="children">
+				{{ #children }}
+				<li class="{{ #helper.trim }}
+                    {{ selector }}
+                    {{ #selected }} selected{{ /selected }}
+                    {{ #hideOnDesktop }} dac-hidden-desktop-up{{ /hideOnDesktop }}
+                    {{ #hideOnMobile }} dac-hidden-desktop-down{{ /hideOnMobile }}
+                    {{ /helper.trim }}">
+					{{ #url }}
+					<a href="{{{ url }}}" target="{{ target }}"{{ #alt }}role="button" aria-label="{{ alt }}"{{ /alt }}>{{ title }}</a>
+					{{ /url }}
+					{{ ^url }}
+					<span>{{ title }}</span>
+					{{ /url }}
+				</li>
+				{{ /children }}
+			</ul>
+			{{ /hasChildren }}
+		</li>
+	{{ /items }}
+	</ul>
+</nav>

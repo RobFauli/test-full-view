@@ -1,0 +1,53 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 145,
+            "str": "1.4.5"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20240627",
+                "title": "Custom Social Media Image for Frontpages",
+                "description": "You will now be able to select a custom image for your frontpages. This image will be used when sharing the frontpage on social media. You can set the image in the settings page on any frontpage, under \"SEO-settings\" > \"Social Media\"."
+            },
+            {
+                "isFeature": true,
+                "date": "20240611",
+                "title": "Slack notifications",
+                "description": "We've added the plugin `Slack notifier` that will post messages to a Slack channel when an article, front page or notice is published. It can also notify you in a Slack channel if an error occurred in the editor. You activate this feature in the settings-pages for plugins. You need to create a Slack app and get a webhook URL to use this feature. You can define requirements for when a message should be posted, such as only for articles with a specific tag or section. You can also define a message template with placeholders for the page title, user, tags and URLs. You set up the template in the settings page for language options.",
+                "links": [
+                    "/settings/cp?page=plugins",
+                    "/settings/cp?page=localisation"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20240606",
+                "title": "Buttonlink content element",
+                "description": "New element Button link. This is a link shaped as a button. You can set the text, link and color of the button, alongside shadow and shape, and hover colors. May require a new save of Colors in admin panel."
+            },
+            {
+                "isBug": true,
+                "date": "20240524",
+                "title": "Paywall label in editor",
+                "description": "When adding an article teaser to the bodytext of an article the paywall label is now shown in the editor as well as on the published page. Previously it was only shown on the published page."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240523",
+                "title": "Improved UI for tags",
+                "description": "When you add or remove tags in the settings panel for articles the input field is automatically focused to make it easier to add multiple tags."
+            },
+            {
+                "isFeature": true,
+                "date": "20240516",
+                "title": "Self service for comments providers",
+                "description": "[Baseview] You can now set up your preferred comments provider in the settings page. Supported providers: Disqus, Facebook, Hyvor and Commento. Option to hide comment section for articles behind paywall for users without access added.",
+                "links": [
+                    "/settings/cp?page=comments_provider"
+                ]
+            }
+        ]
+    }
+}

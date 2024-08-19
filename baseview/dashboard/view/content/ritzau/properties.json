@@ -1,0 +1,13 @@
+{
+    "boxTitle": "Ritzau feed",
+    "boxDescription": "Display a list of Ritzau-articles",
+    "external": {
+        "data_url": "/api/v2/feed/ritzau?amount={{ data.limit }}&skipOver={{ data.page }}&siteId={{ data.siteId }}",
+        "data": {
+            "limit": "this.filtered.limit",
+            "page": "this.filtered.page",
+            "siteId": "this.filtered.siteId"
+        },
+        "skipProxy": true
+    }
+}

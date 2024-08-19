@@ -1,0 +1,29 @@
+{
+    "draggable": {
+        "icon": "labicon-images"
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "ad_settings": {
+                    "title": "Edit ad settings (,)",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "editor": null,
+            "template": "content/adnuntiusAd/template/settings",
+            "title": "Settings for Adnuntius ad"
+        }
+    }
+}

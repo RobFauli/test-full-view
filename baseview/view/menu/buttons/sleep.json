@@ -1,0 +1,25 @@
+{
+    "icon": "labicon-sleep_small",
+    "callback": "toggleSleep",
+    "value": false,
+    "onValue": true,
+    "offValue": false,
+    "key": "fields.labIsSleeping",
+    "valueTransformer": "toBoolean",
+    "bindings": [
+        {
+            "path": "fields.labIsSleeping",
+            "attribute": "value"
+        },
+        {
+            "path": "fields.labIsSleeping",
+            "attribute": "text",
+            "valueTransformer": "boolToString",
+            "valueTransformerOptions": {
+                "offValue": "Put content to sleep",
+                "onValue": "Wake up from sleep"
+            }
+        }
+    ],
+    "title": "Toggle sleep in edit-mode"
+}

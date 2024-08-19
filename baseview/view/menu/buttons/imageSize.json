@@ -1,0 +1,71 @@
+{
+    "text": "Image size",
+    "title": "Image size",
+    "icon": "labicon-imgExpand",
+    "items": {
+        "small": {
+            "text": "Small",
+            "icon": "labicon-dot_s",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimageSize",
+            "onValue": "s",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimageSize",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "medium": {
+            "text": "Medium",
+            "icon": "labicon-dot_m",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimageSize",
+            "onValue": "m",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimageSize",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "large": {
+            "text": "Large",
+            "icon": "labicon-dot_l",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimageSize",
+            "onValue": "l",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimageSize",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "extra_large": {
+            "text": "Extra large",
+            "icon": "labicon-dot_xl",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimageSize",
+            "onValue": "xl",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimageSize",
+                    "attribute": "value"
+                }
+            ]
+        }      
+    }
+}

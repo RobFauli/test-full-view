@@ -1,0 +1,80 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 143,
+            "str": "1.4.3"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20240430",
+                "title": "Adjust header elements width and alignment",
+                "description": "You can now adjust the header elements width and alignment to be the same as the bodytext. Adjustment is done in Article Style in Settings panel."
+            },
+            {
+                "isFeature": true,
+                "date": "20240429",
+                "title": "Transparent overlay for images",
+                "description": "You can now add a transparent overlay for images in the article header and in article teasers. If you place text floating above the image the overlay can improve readability. To use: Click the image-menu <span class=\"labicon-image\"> </span> and select 'Image Styling' <span class=\"labicon-image_gradient\"> </span>"
+            },
+            {
+                "isBug": true,
+                "date": "20240430",
+                "title": "Reset UI-state for Labrador AI",
+                "description": "When Labrador AI suggest and insert text that is identical to the existing text in the editor, the editor will now reset the UI-state. Before this change the editor would indicate a permanent busy state."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240422",
+                "title": "Image in image",
+                "description": "You can now insert an image inside another image. This is useful when you want to create a collage or similar. To insert an image in an image, click `Display extra images` from the context menu. Supports standard images (hotkey `M`) and graphics (hotkey `Shift+M`). You can select position and size of the content."
+            },
+            {
+                "isBug": true,
+                "date": "20240402",
+                "title": "Parallax images",
+                "description": "A bug rendering images in parallax-layouts has been fixed. The bug caused images to render with poor quality on mobile."
+            },
+            {
+                "isBug": true,
+                "date": "20240320",
+                "title": "Improved image crops in client side rendering",
+                "description": "Images in article teasers now use the same crop-settings as in the editor and server side rendering when rendered client side. This affects articles fetched using the Labrador API by the elements TagBoard, FrontContent and LabradorSearch."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240313",
+                "title": "Display all bylines in article teasers",
+                "description": "Articles with several authors will now display all bylines when displayed on a front page. Previously only the first byline was displayed. To display bylines on an article teaser click the hamburger-menu and select `Toggle bylines`."
+            },
+            {
+                "isFeature": true,
+                "date": "20240308",
+                "title": "Translate article",
+                "description": "Translate an article from Article Settings/Translate. You can choose to overwrite current article with a translated version or create/overwrite another article. Select site and prototype to store the translation as another article. The translation is generated with Labrador AI through an LLM."
+            },
+            {
+                "isFeature": true,
+                "date": "20240301",
+                "title": "AB-testing",
+                "description": "Baseview now delivers AB-testing through the plugin system. This allows you to test different versions of your article teasers etc. and see which one performs best. Requires Kilkaya Nisa. To enable, please contact us at support@publishlab.com. We need an `access token` and `url` that you must get from Kilkaya.",
+                "links": [
+                    "/support/docs/#features/ab-test/overview.md",
+                    "https://www.kilkaya.com"
+                ]
+            },
+            {
+                "isImprovement": true,
+                "date": "20240228",
+                "title": "Custom background color for pages",
+                "description": "You can now set custom background color for the whole page. Both articles and front pages. On articles you can also use the header image to find matching background colors from the image. This allows you to create really beautiful layouts. To start, hit `Shift-S` to open the settings-panel for the page and select 'Colors'."
+            },
+            {
+                "isFeature": true,
+                "date": "20240228",
+                "title": "Browse and insert revisions of bodytext",
+                "description": "You can now browse and insert revisions of bodytext in the editor. This is useful when you want to revert to an earlier version of the bodytext. To access the tool, click the <span class=\"labicon-arrow_undo\"> </span> button in the menu for bodytext on articles."
+            }
+        ]
+    }
+}

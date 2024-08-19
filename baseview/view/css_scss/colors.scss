@@ -1,0 +1,86 @@
+
+@import 'components/vars';
+@import 'components/colors';
+
+// Default button-color.
+// Customers may override in view-editor at: /settings/cp?page=colors
+.bg-btn-color {
+    background-color: #0787d6;
+    color: #fff !important;
+}
+
+// Colors using custom properties
+[class*="border-bg-"] {
+    --border-color: rgba(0,0,0,1);
+    --mobile-border-color: rgba(0,0,0,1);
+    border-color: var(--border-color) !important;
+}
+[class*="image-overlay-bg-"] {
+    --background-color: rgba(0,0,0,1);
+    --mobile-background-color: rgba(0,0,0,1);
+
+    background-color: var(--background-color);
+}
+[class*="image-gradient-bg-"] {
+    --background-color: rgba(0,0,0,1);
+    --mobile-background-color: rgba(0,0,0,1);
+    .img:after {
+        background-image: linear-gradient(to bottom, transparent 50%, var(--background-color));
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+    &.image-gradient-left {
+        .img:after {
+            background-image: linear-gradient(to left, transparent 50%, var(--background-color));
+        }
+    }
+    &.image-gradient-right {
+        .img:after {
+            background-image: linear-gradient(to right, transparent 50%, var(--background-color));
+        }
+    }
+    &.image-gradient-top {
+        .img:after {
+            background-image: linear-gradient(to top, transparent 50%, var(--background-color));
+        }
+    }
+    &.desktop-fullWithLimit {
+        .img:after {
+            left: 50%;
+            transform: translateX(-50%);
+            right: initial;
+            width: 1500px;
+            max-width: 100%;
+        }
+    }
+}
+@media (max-width: 1023px) {
+    [class*="mobile_border-bg-"] {
+        border-color: var(--mobile-border-color) !important;
+    }
+    [class*="color_mobile_image-gradient-bg-"] {
+        .img:after {
+            background-image: linear-gradient(to bottom, transparent 50%, var(--mobile-background-color));
+        }
+        &.image-gradient-left {
+            .img:after {
+                background-image: linear-gradient(to left, transparent 50%, var(--mobile-background-color));
+            }
+        }
+        &.image-gradient-right {
+            .img:after {
+                background-image: linear-gradient(to right, transparent 50%, var(--mobile-background-color));
+            }
+        }
+        &.image-gradient-top {
+            .img:after {
+                background-image: linear-gradient(to top, transparent 50%, var(--mobile-background-color));
+            }
+        }
+    }
+}

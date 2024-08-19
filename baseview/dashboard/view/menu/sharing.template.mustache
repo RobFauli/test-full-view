@@ -1,0 +1,55 @@
+<form>
+    
+    <!-- <div id="sharing_list" style="position: absolute; left: 0; border: 1px solid red; width: 100%; background: #fff; z-index: 100; height: 100%; padding: 1em 3em;">#sharing_list</div> -->
+
+    <fieldset>
+        <label for="settings_is_shared"><b>Share Dashboard</b></label><input type="checkbox" id="settings_is_shared" name="is_shared" value="1" {{ #settings.is_shared }}checked{{ /settings.is_shared }}/>
+        <span style="display: inline-block; padding:0.55em;">Let other users view this Dashboard</span>
+    </fieldset>  
+
+        <!-- 
+        sites: [],
+        permissions: [],
+        groups: [],
+        is_shared: false 
+        -->
+    
+    <div class="{{ ^settings.is_shared }}labDs-disabled{{ /settings.is_shared }}">
+        <fieldset>
+            <label>Restrict to Sites</label>
+            <div class="lab-values">
+            {{#sites}}
+                <label>{{{name}}}<input type="checkbox" name="sites.{{{name}}}" value="{{{value}}}" {{ #selected }}checked{{ /selected }} {{ ^settings.is_shared }}disabled{{ /settings.is_shared }}/></label>
+            {{/sites}}
+            </div>
+        </fieldset>  
+
+        <!-- <fieldset>
+            <button id="add-permission-btn" type="button" style="padding: 7px 15px; margin: 0 50px 0 1em; float: right;" {{ ^settings.is_shared }}disabled{{ /settings.is_shared }}>Add</button>
+            <label>Permissions</label>
+            <div class="lab-values">
+            {{#settings.permissions}}
+                <label>{{{.}}}<input type="checkbox" name="permissions.{{{.}}}" value="{{{.}}}" checked {{ ^settings.is_shared }}disabled{{ /settings.is_shared }}/></label>
+            {{/settings.permissions}}
+            </div>
+        </fieldset> -->
+
+        <fieldset>
+            <button id="add-group-btn" type="button" style="padding: 7px 15px; margin: 0 50px 0 1em; float: right;" {{ ^settings.is_shared }}disabled{{ /settings.is_shared }}>Add</button>
+            <label>Groups</label>
+            <div class="lab-values">
+            {{#settings.groups}}
+                <label>{{{.}}}<input type="checkbox" name="groups.{{{.}}}" value="{{{.}}}" checked {{ ^settings.is_shared }}disabled{{ /settings.is_shared }}/></label>
+            {{/settings.groups}}
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="lab-menu-controls">
+        <button type="reset" class="labFn-form-reset">Cancel</button>
+        <button type="submit">Save</button>        
+    </div>
+    <div id="sharing_info_extended"></div>
+
+</form>
+  

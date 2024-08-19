@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo of client side rendering using Labrador CMS</title>
+    
+    <!-- Set some styling for demonstration -->
+    <link rel="stylesheet" href="/view-resources/view/css/grid.css" />
+    <link rel="stylesheet" href="/view-resources/view/css/main.css" />
+    <link rel="stylesheet" href="/view-resources/view/css/colors.css" />
+    <link rel="stylesheet" href="/view-resources/view/css/foundation-icons/foundation-icons.css" />
+    <style>
+        .bg-red {
+            background-color: red;
+            color: #fff;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+
+    <!-- Load dependencies -->
+    <script src="/Mustache/mustache.min.js"></script>
+    <script type="module" src="/labrador/demo/app.js"></script>
+
+</head>
+<body>
+    <header style="background-color: gray; color: #fff; padding: 14px; margin-bottom: 2rem;">
+        <h3 class="row columns large-12 small-12">
+            <img src="/labrador/demo/labrador-logo.svg" alt="Labrador CMS" style="width: 60px; margin: -11px 16px -18px 0;">
+            Client side rendering using Labrador CMS
+        </h3>
+    </header>
+    <section class="row">
+        <p class="columns large-12 small-12" style="margin: 0 0 2rem;">
+            Labrador rendering engine will render test-data below.
+        </p>
+        <p class="columns large-12 small-12" style="margin: 0 0 2rem;">
+            View source-code or look at implementation in Baseview for more info.
+        </p>
+
+        <!-- Rendered markup will be inserted into #container by app.js -->
+        <div id="container" class="large-12 small-12"></div>
+
+    </section>
+    <section style="border-top: 1px solid gray; padding: 2rem 0; margin: 2rem 0;">
+        <div class="row">
+            <p class="columns">
+                <strong>Timing: </strong>
+            </p>
+            <ul class="column large-12 small-12">
+                <li>Setup engine: <span style="font-weight: bold;" id="initTime"></span> ms.</li>
+                <li>Set data: <span style="font-weight: bold;" id="setDataTime"></span> ms.</li>
+                <li>Render: <span style="font-weight: bold;" id="endTime"></span> ms.</li>
+                <li>Total time: <span style="font-weight: bold;" id="totalTime"></span> ms.</li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="row">
+            <p class="columns large-12 small-12" style="text-align: center; color: gray;">
+                (c) Labrador CMS AS<br>
+                Use of the rendering engine requires a valid licence from Labrador.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

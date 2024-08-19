@@ -1,0 +1,38 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/lp_scores/properties.json"
+                },
+                "template": {
+                    "default": "content/lp_scores/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/lp_scores/edit_properties.json"
+                }
+            }
+        },
+        "modal": {
+            "lab-default": {
+                "template": {
+                    "default": "content/lp_scores/admin"
+                }
+            }
+        },
+        "menu": {
+            "contentboxes": {
+                "template": {
+                    "default": "menu/contentbox"
+                }
+            }
+        }
+    }
+}

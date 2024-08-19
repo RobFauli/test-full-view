@@ -1,0 +1,419 @@
+{
+    "snapToTop": true,
+    "labels": {
+        "before": ["lab-content-type"]
+    },
+    "items": {
+        "delete": {
+            "inheritPath": "menu/buttons/delete.json",
+            "group": "g1"
+        },
+        "lock": {
+            "inheritPath": "menu/buttons/lock.json",
+            "group": "g1"
+        },
+        "color_bg": {
+            "inheritPath": "menu/buttons/backgroundColor.json",
+            "group": "g1_b"
+        },
+        "style": {
+            "inheritPath": "menu/buttons/styles.json",
+            "group": "g1_b"
+        },
+        "text-options": {
+            "inheritPath": "menu/buttons/textOptions.json",
+            "group": "g2"
+        },
+        "labels": {
+            "icon": "labicon-tag",
+            "group": "g2",
+            "items": {
+                "section": {
+                    "group": "g2",
+                    "text": "Section",
+                    "icon": "labicon-tag",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.showSection",
+                            "attribute": "value"
+                        }
+                    ],
+                    "items": {
+                        "section": {
+                            "text": "Display sections",
+                            "icon": "labicon-tag",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.showSection",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.showSection",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "floating": {
+                            "group": "g3",
+                            "text": "Floating",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.sectionPlacement",
+                            "onValue": "floating",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sectionPlacement",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "underImage": {
+                            "group": "g3",
+                            "text": "Under image",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.sectionPlacement",
+                            "onValue": "underImage",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sectionPlacement",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "underText": {
+                            "group": "g3",
+                            "text": "Under Text",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.sectionPlacement",
+                            "onValue": "underText",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sectionPlacement",
+                                    "attribute": "value"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "tag": {
+                    "text": "Display tags",
+                    "icon": "labicon-tag",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.showTags",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.showTags",
+                            "attribute": "value"
+                        }
+                    ]
+                }
+            }
+        },
+        "mediaOptions": {
+            "inheritPath": "menu/buttons/mediaOptions.json",
+            "group": "g2",
+            "items": {
+                "imageThumbnail": {
+                    "inheritPath": "menu/buttons/youtubeThumbnail.json",
+                    "displayCondition": "hasChildOfType",
+                    "params": {
+                        "modelType": "youtube",
+                        "addImageChildType": "youtube"
+                    }
+                },
+                "removeImageThumbnail": {
+                    "inheritPath": "menu/buttons/youtubeThumbnailRemove.json",
+                    "displayCondition": "hasChildOfType",
+                    "params": {
+                        "modelType": "youtube",
+                        "removeChildPath": "article/youtube/image"
+                    }
+                },
+                "displayArticleImages": {
+                    "group": "sg1_1",
+                    "text": "Display images from article",
+                    "callback": "dispatch",
+                    "params": {
+                        "function": "contextualmenu.callbacks.displayArticleImages"
+                    },
+                    "icon": "labicon-image",
+                    "hotkeys": [{
+                        "key": "M",
+                        "controlkeys": ["shiftKey", "altKey"]
+                    }],
+                    "displayHotkeys": true,
+                    "bindings": [
+                        {
+                            "path": "instance_of",
+                            "attribute": "disabled",
+                            "valueTransformer": "isNumeric",
+                            "valueTransformerOptions": {
+                                "negateBoolean": true
+                            }
+                        }
+                    ]
+                },
+                "subImage": {
+                    "inheritPath": "menu/buttons/subImage.json",
+                    "group": "sg1_0"
+                }
+            }
+        },
+        "settings": {
+            "icon": "labicon-settings",
+            "group": "g6",
+            "title": "More settings",
+            "items": {
+                "spacing": {
+                    "inheritPath": "menu/buttons/spacing.json",
+                    "group": "s0_1"
+                },
+                "vertical_align": {
+                    "inheritPath": "menu/buttons/verticalAlign.json",
+                    "group": "s0_1"
+                },
+                "subarticles": {
+                    "group": "s1",
+                    "icon": "labicon-article_plus",
+                    "text": "Subarticles",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.subarticles",
+                            "attribute": "value"
+                        }
+                    ],
+                    "items": {
+                        "toggle": {
+                            "icon": "labicon-article_plus",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.subarticles",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.subarticles",
+                                    "attribute": "value"
+                                }
+                            ],
+                            "title": "Toggle subarticles",
+                            "text": "Toggle subarticles"
+                        },
+                        "compactDisplay": {
+                            "icon": "labicon-grid_list",
+                            "group": "g3",
+                            "text": "Compact design",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.compactDisplay",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.compactDisplay",
+                                    "attribute": "value"
+                                }
+                            ]
+                        },
+                        "hideImages": {
+                            "icon": "labicon-image_hide",
+                            "group": "g3",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.sub_hideImage",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sub_hideImage",
+                                    "attribute": "value"
+                                }
+                            ],
+                            "text": "Hide images"
+                        },
+                        "hideTitles": {
+                            "icon": "labicon-text_title",
+                            "group": "g3",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.sub_hideTitle",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sub_hideTitle",
+                                    "attribute": "value"
+                                }
+                            ],
+                            "text": "Hide titles"
+                        },
+                        "hideSubtitles": {
+                            "icon": "labicon-text_subtitle",
+                            "group": "g3",
+                            "callback": "toggleKeyAndValue",
+                            "autocloseSubmenuAfterAction": false,
+                            "key": "metadata.sub_hideSubtitle",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.sub_hideSubtitle",
+                                    "attribute": "value"
+                                }
+                            ],
+                            "text": "Hide subtitles"
+                        }
+                    }
+                },
+                "byline": {
+                    "text": "Toggle bylines",
+                    "icon": "labicon-user",
+                    "group": "s1",
+                    "callback": "toggleKeyAndValue",
+                    "key": "fields.displayByline",
+                    "value": true,
+                    "onValue": true,
+                    "offValue": false,
+                    "valueTransformer": "toBoolean",
+                    "bindings": [
+                        {
+                            "path": "fields.displayByline",
+                            "attribute": "value"
+                        }
+                    ]
+                },
+                "paywall": {
+                    "text": "Toggle paywall",
+                    "icon": "labicon-ad_content",
+                    "group": "s1",
+                    "callback": "toggleKeyAndValue",
+                    "key": "fields.paywall",
+                    "value": true,
+                    "onValue": true,
+                    "offValue": false,
+                    "valueTransformer": "toBoolean",
+                    "bindings": [
+                        {
+                            "path": "fields.paywall",
+                            "attribute": "value"
+                        }
+                    ]
+                },
+                "hideViewport": {
+                    "inheritPath": "menu/buttons/hideViewport.json",
+                    "group": "s1_c",
+                    "text": "Hide in current viewport",
+                    "title": null
+                },
+                "mailmojoStyling": {
+                    "group": "s1_c",
+                    "icon": "labicon-color_palette",
+                    "text": "Mailmojo styling",
+                    "displayCondition": "hasConfig",
+                    "callback": "displaySettingsPanel",
+                    "params": {
+                        "configKey": "contentbox_settings.article.mailmojoStyling",
+                        "settingsPanelOptions": "settingsPanels.mailmojoStyling"
+                    }
+                },
+                "viewportOrderUp": {
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    },
+                    "icon": "labicon-moveUp",
+                    "group": "s1_c",
+                    "text": "Pull up",
+                    "title": "Display first in current viewport",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.pull_up",
+                    "value": null,
+                    "onValue": 1,
+                    "offValue": null
+                },
+                "editLink": {
+                    "text": "Edit link",
+                    "icon": "labicon-linkButton",
+                    "group": "s2",
+                    "callback": "displaySettingsPanel",
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.editLink"
+                    }
+                },
+                "pasteboard": {
+                    "inheritPath": "menu/buttons/pasteboard.json",
+                    "text": "Pasteboard",
+                    "group": "s3"
+                },
+                "originalArticle": {
+                    "text": "Original article",
+                    "group": "s4",
+                    "icon": "labicon-article",
+                    "items": {
+                        "gotoOriginal": {
+                            "text": "View original article",
+                            "icon": "labicon-preview",
+                            "callback": "gotoArticleFront",
+                            "bindings": [
+                                {
+                                    "path": "instance_of",
+                                    "attribute": "disabled",
+                                    "valueTransformer": "isNumeric",
+                                    "valueTransformerOptions": {
+                                        "negateBoolean": true
+                                    }
+                                }
+                            ]
+                        },
+                        "editOriginal": {
+                            "text": "Edit original article",
+                            "icon": "labicon-startEdit",
+                            "callback": "gotoArticleEditor",
+                            "bindings": [
+                                {
+                                    "path": "instance_of",
+                                    "attribute": "disabled",
+                                    "valueTransformer": "isNumeric",
+                                    "valueTransformerOptions": {
+                                        "negateBoolean": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "redraw": {
+                    "inheritPath": "menu/buttons/redraw.json",
+                    "group": "s5"
+                },
+                "alignVps": {
+                    "icon": "labicon-break",
+                    "displayCondition": "hasSubViewports",
+                    "respectLayoutLock": false,
+                    "title": "Align viewports (S)",
+                    "callback": "alignViewports",
+                    "hotkeys": [
+                        {
+                            "key": "S"
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "text": "Align viewports",
+                    "group": "s5"
+                },
+                "sleep": {
+                    "inheritPath": "menu/buttons/sleep.json",
+                    "group": "s5"
+                }
+            }
+        }
+    },
+    "params": {}
+}

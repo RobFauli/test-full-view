@@ -1,0 +1,29 @@
+{
+    "contentbox_settings": {
+        "scrollbox": {
+            "require": {
+                "js": []
+            }
+        },
+        "parallax": {
+            "require": {
+                "js": []
+            }
+        },
+        "frontContent": {
+            "require": {
+                "js": []
+            }
+        },
+        "tagboard": {
+            "require": {
+                "js": []
+            }
+        },
+        "articlescroller": {
+            "require": {
+                "js": []
+            }
+        }
+    }
+}

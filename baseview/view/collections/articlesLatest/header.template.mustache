@@ -1,0 +1,34 @@
+<form class="lab-grid lab-valign-center">
+    <div class="site-container lab-grid-large-5 lab-grid-gap"></div>
+    <div class="section-container lab-grid-large-5 lab-grid-gap"></div>
+    <a href="#" title="Display more options" class="lab-btn labicon-settings lab-grid-large-2 lab-grid-gap"></a>
+    <div class="expanded lab-hidden lab-grid-large-12 lab-grid lab-valign-center">
+        <input type="text" placeholder="ID (optional)" name="id" autocomplete="off" class="lab-grid-large-5 lab-grid-gap" />
+        <input type="text" placeholder="Tag (optional)" name="tag" autocomplete="off" class="lab-grid-large-5 lab-grid-gap" />
+        <div class="lab-grid-large-5 lab-grid-gap">
+            <label>From (optional):</label>
+            <input type="date" name="fromDate" autocomplete="off" class="lab-grid-large-5 lab-grid-gap" />
+        </div>
+        <div class="lab-grid-large-5 lab-grid-gap">
+            <label>To (optional):</label>
+            <input type="date" name="toDate" autocomplete="off" class="lab-grid-large-5 lab-grid-gap" />
+        </div>
+        <input type="text" placeholder="Text (optional)" name="text" autocomplete="off" class="lab-grid-large-5 lab-grid-gap" />
+        <div class="lab-grid-large-5 lab-grid-gap"></div>
+        <div class="article_list_only_mine-container lab-grid-large-5 lab-grid-gap"></div>
+        <div class="article_list_only_paywall-container lab-grid-large-5 lab-grid-gap"></div>
+        <div class="size-container lab-grid-large-5 lab-grid-gap" style="padding-top: 0.3rem;"></div>
+        <input type="button" value="Clear all">
+    </div>
+    <script>
+        document.querySelector('input[type="button"]').addEventListener('click', () => {
+            // Get the form and reset it
+            const form = document.querySelector('form');
+            form.reset();
+
+            // Clearing all the inputs won't trigger the search again as they have eventlisteners
+            // for input, and there's no input when resetting a form. So we trigger it manually.
+            document.querySelector('input[name="id"]').dispatchEvent(new Event('input'));
+        })
+    </script>
+</form>

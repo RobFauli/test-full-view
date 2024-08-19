@@ -1,0 +1,38 @@
+<div class="columns dashboardbox feed_list {{ view.grid.css }} abs_grid_{{ view.grid.absoluteWidth }} {{ view.boxCss.background_color }}{{ #fields.compactView }} compact{{ /fields.compactView }}">
+    <div class="dashboardbox-menu">
+        <h3>{{{ fields.title }}}, site: {{{filtered.site_alias}}}</h3>
+    </div>
+    <div class="content">
+        <ul class="articles">{{ #external.feed }}
+            <li class="{{ #labId }}lab-article-exists{{ /labId }} tt-{{ labFrontId }}">
+                <div class="image">
+                    {{ #frontCropUrl }}<img src="{{ frontCropUrl }}" />{{ /frontCropUrl }}
+                    {{ ^frontCropUrl }}<span class="noimage lab-icon-upload"></span>{{ /frontCropUrl }}
+                </div>
+                <div class="controls">
+                    {{ ^labId }}<span title="Import article" class="control_el import_tt lab-icon-import" data-tt-id="{{ labFrontId }}"></span> {{ /labId }}
+                    {{ #labId }}<a title="Edit article" data-lab-ignore-exitwarning="1" href="/edit/article/id/{{ labId }}" target="_blank" class="control_el lab-icon-startEdit"></a>{{ /labId }}
+                </div>
+                <div class="article">
+                    <h4 class="{{^labFrontTitle}}no-title{{/labFrontTitle}}">{{{ labFrontTitle }}}{{^labFrontTitle}}Missing{{/labFrontTitle}}</h4>
+                    {{#labFrontSubtitle}}<p class="subtitle">
+                        {{ labFrontSubtitle }}
+                    </p>{{/labFrontSubtitle}}
+
+                    {{ #fields.displayTags}}
+                    <p class="meta">
+                        Section: <span class="tag lab-icon-tag">{{ labFrontSection.0.name }}</span>
+                        <!-- Tags: <span class="tag lab-icon-tag">{{ tags }}</span> -->
+                    </p>
+                    {{ /fields.displayTags}}
+                    <p class="meta">
+                        {{#publishedString}}
+                         Published: <span class="date lab-icon-time">{{{ publishedString }}}</span>
+                        {{/publishedString}}
+                    </p>
+                </div>
+            </li>
+        {{ /external.feed }}</ul>
+    </div>
+    <div class="dashboardbox-nav"><span class="pager">Page {{ filtered.pageNumber }}</span></div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes",
+            "subtitle": "presets.vp_content_attributes",
+            "kicker": "presets.vp_content_attributes",
+            "displayByline": "presets.vp_data",
+            "displayCaption": "presets.vp_data"
+        }
+    }
+}

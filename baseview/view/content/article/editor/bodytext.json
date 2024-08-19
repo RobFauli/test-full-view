@@ -1,0 +1,14 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "gridResize": {
+                    "group": "g1_b"
+                },
+                "gridResizeMobile": {
+                    "group": "g1_b"
+                }
+            }
+        }
+    }   
+}

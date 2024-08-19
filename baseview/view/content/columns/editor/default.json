@@ -1,0 +1,23 @@
+{
+    "draggable": {
+        "active": false
+    },
+    "droppable": {
+        "active": false
+    },
+    "expand": {
+        "active": true
+    },
+    "menus": null,
+    "displayModifiedStatus": false,
+
+    "layoutLockDefinition": {
+        "layout": {
+            "resize": {
+                "recursion": {
+                    "children": true
+                }
+            }
+        }
+    }
+}

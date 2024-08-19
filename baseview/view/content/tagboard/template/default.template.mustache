@@ -1,0 +1,90 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    frontContent tagboard
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}" id="tagboard_{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content {{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }} column{{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        
+        <div class="column header">
+            <h2 class="headline {{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h2>
+            <span class="taglistToggle" title="Settings"><span class="dac-icon-hamburger{{ #get.current.filtered.tagsGroupsDefaultVisible }} dac-open{{ /get.current.filtered.tagsGroupsDefaultVisible }}"></span></span>
+            <form class="taglist{{ ^get.current.filtered.tagsGroupsDefaultVisible }} dac-hidden{{ /get.current.filtered.tagsGroupsDefaultVisible }}">
+                <ul>{{ #app.isEditor }}{{ ^get.current.filtered.tagGroups }}
+                    <li>
+                        <h3>Missing tags</h3>
+                        <p>Click settings-icon above to edit tags.</p>
+                    </li>
+                    {{ /get.current.filtered.tagGroups }}{{ /app.isEditor }}{{ #get.current.filtered.tagGroups }}
+                    <li class="group">
+                        {{ #label }}<h3>{{ label }}</h3>{{ /label }}
+                        <ul>
+                            {{ #tags }}
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="{{{ . }}}">
+                                    {{{ . }}}
+                                    (<span>0</span>)
+                                </label>
+                            </li>
+                            {{ /tags }}
+                        </ul>
+                    </li>
+                {{ /get.current.filtered.tagGroups }}</ul>
+            </form>
+        </div>
+
+        {{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }}
+        {{ > content/frontContent/template/edit_missing_data }}
+        {{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}
+        <div class="labclient-content{{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }} no-content{{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}"></div>
+    </div>
+
+    <script>
+        (function() {
+            {{ ^get.current.filtered.isConfigured }}
+            return;
+            {{ /get.current.filtered.isConfigured }}
+
+            window.dachserData.push('tagboard', {
+                fallbackImage: '{{{ getConfig.image.fallbackUrl }}}',
+                debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }},
+                isEditor: {{ #app.isEditor }}true{{ /app.isEditor }}{{ ^app.isEditor }}false{{ /app.isEditor }},
+                id: '{{ get.current.id }}',
+                selector: '#tagboard_{{ get.current.id }} .labclient-content',
+                url: '{{{ get.current.filtered.source.url }}}',
+                sourceType: '{{{ get.current.filtered.source.type }}}',
+                articleFilterList: {{{ get.current.filtered.articleFilterList }}},
+                articleCount: '{{{ get.current.filtered.articleCount }}}',
+                siteId: '{{{ get.current.filtered.siteId }}}',
+                organizer: '{{{ get.current.fields.organizer }}}',
+                postprocessor: '{{{ get.current.fields.postprocessor }}}',
+                viewport: '{{{ get.current.filtered.viewport }}}',
+                imageServer: '{{{ get.current.filtered.imageServer }}}',
+                layout: {{{ get.current.filtered.layout }}},
+                style: {{{ get.current.filtered.styleString }}},
+                coockieOptions: {},
+                tagOptions: {
+                    allow: {{ #get.current.filtered.tagOptions.allow }}true{{ /get.current.filtered.tagOptions.allow }}{{ ^get.current.filtered.tagOptions.allow }}false{{ /get.current.filtered.tagOptions.allow }},
+                    tags: {{{ get.current.filtered.tagOptions.tagsString }}},
+                    groups: {{{ get.current.filtered.tagArrayGroups }}}
+                },
+                alignImage: '{{ get.current.fields.alignImage }}',
+                imageWidth: '{{ get.current.filtered.imageWidth }}',
+                imageExtension: '{{ getConfig.imageUrlOptions.extension }}',
+                displayTagsInMarkup: true
+            });
+
+            {{ #app.isEditor }}
+            if (window.baseviewModulesReflow) {
+                window.baseviewModulesReflow('tagboard', 'id', '{{ get.current.id }}'); 
+            }
+            {{ /app.isEditor }}
+
+        }());
+    </script>
+</div>

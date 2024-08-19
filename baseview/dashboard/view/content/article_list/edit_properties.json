@@ -1,0 +1,8 @@
+{
+    "preDrawHandlers": ["ArticleFormatter.filterExternalData"],
+
+    "admin": {
+        "isModal": true,
+        "width": 560
+    }
+}

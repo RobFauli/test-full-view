@@ -1,0 +1,15 @@
+{
+    "boxTitle": "Page Header",
+    "boxDescription": "Display page-title and image",
+
+    "defaultFieldValues": {
+        "test2": 2
+    },
+ 
+    "excludeFromListing": true,
+ 
+    "source": {
+        "node": "page",
+        "derived": true
+    }
+}

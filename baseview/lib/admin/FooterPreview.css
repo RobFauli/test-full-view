@@ -1,0 +1,43 @@
+
+.lab-footerpreview h4 {
+    font-weight: normal;
+    position: relative;
+}
+
+.lab-footerpreview h4:before {
+    content: "Preview: ";
+    color: gray;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+}
+
+.lab-footerpreview h4.lab-busy {
+    color: gray;
+}
+
+.lab-footerpreview h4.lab-busy:after {
+    font-family: 'Labrador';
+    content: "\e635";
+    font-size: 1.6rem;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(222, 222, 222);
+    padding: 0 0.2rem;
+}
+
+.lab-footerpreview h4.lab-busy.lab-error:after {
+    color: red;
+    font-family: inherit;
+    content: "Error ... ";
+    font-size: 1rem;
+}
+
+.lab-footerpreview iframe {
+    width: 100%;
+    height: 800px;
+    border: 1px solid rgb(222, 222, 222);
+}

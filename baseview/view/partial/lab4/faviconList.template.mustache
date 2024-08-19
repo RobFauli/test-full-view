@@ -1,0 +1,8 @@
+{{ #get.current.filtered.faviconList }}
+        <link {{ #helper.trim }}
+            type="{{ #iconType }}{{{ iconType }}}{{ /iconType }}{{ ^iconType }}image/png{{ /iconType }}" 
+            rel="{{ #iconRel }}{{ iconRel }}{{ /iconRel }}{{ ^iconRel }}icon{{ /iconRel }}" 
+            {{ #iconSize }}sizes="{{ iconSize.width }}x{{ iconSize.height }}" {{ /iconSize }}
+            href="{{{ iconPath }}}"
+        {{ /helper.trim }}>
+{{ /get.current.filtered.faviconList }}

@@ -1,0 +1,39 @@
+{{ ^get.current.filtered.hideOnTablet }}
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column
+    google-ad
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ ^get.current.metadata.isBodytext }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /get.current.metadata.isBodytext }}
+    {{ get.current.fields.css }}
+    {{ get.current.metadata.css }}
+    {{ #get.current.filtered.isDebug }}adnuntius-ad-debug{{ /get.current.filtered.isDebug }}
+    {{ /helper.trim }}" {{ #get.current.filtered.isDebug }}data-ad-format="{{{ get.current.fields.format }}}"{{ /get.current.filtered.isDebug }} style="{{get.current.filtered.spacingTop}}{{ #get.current.metadata.style }} {{{ get.current.metadata.style }}}{{ /get.current.metadata.style }}">
+
+    {{ #app.isEditor }}
+    <div class="ad-editor-preview" title="{{ get.current.fields.format }}">
+        <h4>Google-ad</h4>
+        Format: <strong>{{ get.current.fields.format }}</strong>
+    </div>
+    {{ /app.isEditor }}
+    {{ ^app.isEditor }}
+    {{ #get.current.filtered.googleAds.bidding.enabled }}
+        {{ #get.current.filtered.googleAds.bidding.provider.name }}
+            <span class="ad-label">{{ get.current.filtered.label }}</span>
+            {{ #render.template }}content/googleAd/template/{{ get.current.filtered.googleAds.bidding.provider.name}}{{ /render.template }}
+        {{ /get.current.filtered.googleAds.bidding.provider.name }}
+    {{ /get.current.filtered.googleAds.bidding.enabled }}
+    {{ ^get.current.filtered.googleAds.bidding.enabled }}
+        <span class="ad-label">{{ get.current.filtered.label }}</span>
+        <div class="adunit" id="{{{ get.current.filtered.adData.code }}}"></div>
+        <script>
+            googletag.cmd.push(function() {
+                googletag.display('{{{ get.current.filtered.adData.code }}}');
+            });
+        </script>
+    {{ /get.current.filtered.googleAds.bidding.enabled }}
+    {{ /app.isEditor }}
+</div>
+{{ /get.current.filtered.hideOnTablet }}

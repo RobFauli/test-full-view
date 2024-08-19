@@ -1,0 +1,29 @@
+{
+    "edit": [
+        {
+            "selector": "h3",
+            "fn": "editClean",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "trigger": ["click"],
+            "stop": ["blur"],
+            "useKeyboardSave": true,
+            "useTabNavigation": true,
+            "selectTextOnStart": true
+        },
+        {
+            "selector": "form",
+            "fn": "editForm",
+            "isNonLazy": true
+        }
+    ],
+
+    "admin": {
+        "isModal": true,
+        "width": 500,
+        "autoheight": true
+    },
+
+    "cache": "content"
+    
+}

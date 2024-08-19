@@ -1,0 +1,29 @@
+<div class="lab-formgroup lab-grid lab-grid-gap">
+    <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+        <label for="number_of_articles">Number of Articles</label>
+        <input type="number" min="1" max="50" placeholder="1" id="number_of_articles" name="fields.articleCount" value="{{ get.current.fields.articleCount }}">
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+        <label for="site">Site</label>
+        <select id="site" name="fields.site_id">
+            {{ #get.current.filtered.options.site_ids }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+            {{ /get.current.filtered.options.site_ids }}
+        </select>
+    </div>
+</div>
+<div class="lab-formgroup lab-grid lab-grid-gap">
+    <h3 class="lab-grid-large-12 lab-grid-gap">Display on article teaser</h3>
+    <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-inline">
+        <label for="articlecalendar_teasertitle">Title</label>
+        <input type="checkbox" id="articlecalendar_teasertitle" name="fields.displayTitle" {{ #get.current.filtered.options.displayTitle }}checked{{ /get.current.filtered.options.displayTitle }}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-inline">
+        <label for="articlecalendar_teasersubtitle">Subtitle</label>
+        <input type="checkbox" id="articlecalendar_teasersubtitle" name="fields.displaySubtitle" {{ #get.current.filtered.options.displaySubtitle }}checked{{ /get.current.filtered.options.displaySubtitle }}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-inline">
+        <label for="articlecalendar_teaserimage">Image</label>
+        <input type="checkbox" id="articlecalendar_teaserimage" name="fields.displayImage" {{ #get.current.filtered.options.displayImage }}checked{{ /get.current.filtered.options.displayImage }}>
+    </div>
+</div>

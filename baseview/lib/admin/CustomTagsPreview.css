@@ -1,0 +1,23 @@
+.lab-configobject-editor .lab-items > .lab-item.lab-item-container {
+    margin-bottom: 600px;
+}
+
+.lab-items > .lab-item-container > .lab-item-container {
+    border: 1px solid #D9D9D9;
+    padding: 2rem;
+    margin: 0 0 1rem;
+}
+
+.metadata-preview {
+    text-align: center;
+    border-top: 1px solid #D9D9D9;
+    background-color: #f7f7f7;
+    color: rgb(32 153 17);
+    margin: 2rem -2rem -2rem -2rem;
+    padding: 1rem;
+}
+
+.metadata-preview:before {
+    content: "Preview: ";
+    color: #000;
+}

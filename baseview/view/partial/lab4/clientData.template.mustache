@@ -1,0 +1,56 @@
+<script>
+window.Dac = window.Dac || {};
+(function () {
+    if (navigator) {
+        window.Dac.clientData = {
+            language: navigator.language,
+            userAgent: navigator.userAgent,
+            innerWidth: window.innerWidth,
+            innerHeight: window.innerHeight,
+            deviceByMediaQuery: getDeviceByMediaQuery(),
+            labDevice: '{{ get.current.filtered.device }}', // Device from labrador
+            device: '{{ get.current.filtered.xUaDevice }}', // Device from varnish
+            paywall: {
+                isAuthenticated: isPaywallAuthenticated(),
+                toggleAuthenticatedContent: toggleAuthenticatedContent,
+                requiredProducts: {{{ get.current.filtered.paywall.requiredProducts }}},
+            },
+            page: {
+                id: '{{ get.current.id }}',
+                extId: '{{ get.current.fields.extId }}'
+            },
+            siteAlias: '{{ get.current.filtered.siteAlias }}',
+            debug: window.location.href.includes('debug=1')
+        };
+        function getDeviceByMediaQuery() {
+            if (window.matchMedia('(max-width: 767px)').matches) return 'mobile';
+            if (window.matchMedia('(max-width: 1023px)').matches) return 'tablet';
+            return 'desktop';
+        }
+
+        function isPaywallAuthenticated() {
+            if (window.Dac && window.Dac.JWTCookie) {
+                var JWTCookie = new Dac.JWTCookie({ debug: false });
+                return JWTCookie.isAuthenticated();
+            }
+            return false;
+        }
+
+        function toggleAuthenticatedContent(settings) {
+            if (!window.Dac || !window.Dac.Paywall) {
+                return;
+            }
+            var Paywall = new Dac.Paywall();
+            var updateDOM = Paywall.updateDOM;
+
+            if(settings && settings.displayUserName) {
+                var userName = Paywall.getUserName().then((userName) => {
+                    updateDOM(userName !== false, userName, settings.optionalGreetingText);
+                });
+            } else {
+                updateDOM(window.Dac.clientData.paywall.isAuthenticated);
+            }
+        }
+    }
+}());
+</script>

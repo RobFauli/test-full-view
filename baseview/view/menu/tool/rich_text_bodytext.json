@@ -1,0 +1,753 @@
+{
+    "snapToTop": true,
+    "style": {
+        "margin-top": "-10px"
+    },
+    "items": [
+        {
+            "group": "g0",
+            "inheritPath": "menu/buttons/fontfamily.json"
+        },
+        {
+            "inheritPath": "menu/buttons/textColor.json",
+            "group": "g1"
+        },
+        {
+            "inheritPath": "menu/buttons/textBackgroundColor.json",
+            "group": "g1"
+        },
+        {
+            "icon": "labicon-text_bold",
+            "group": "g2",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "onValueCondition": "lab-key-is-true",
+            "bindToSelection": "font_weight",
+            "items": [
+                {
+                    "text": "<span class='font-weight-light'>Light</span>",
+                    "icon": "labicon-dot_s",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-light"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-light",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Light"
+                },
+                {
+                    "text": "<span class='font-weight-normal'>Normal</span>",
+                    "icon": "labicon-dot_m",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-normal"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-normal",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Normal"
+                },
+                {
+                    "text": "<span class='font-weight-bold'>Bold</span>",
+                    "icon": "labicon-dot_l",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-bold"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-bold",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Bold",
+                    "hotkeys": [
+                        {
+                            "key": "B",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ]
+                },
+                {
+                    "text": "<span class='font-weight-black'>Black</span>",
+                    "icon": "labicon-dot_xl",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "font_weight",
+                    "attributes": {
+                        "class": "font-weight-black"
+                    },
+                    "value": false,
+                    "onValue": "font-weight-black",
+                    "offValue": false,
+                    "bindToSelection": "font_weight",
+                    "title": "Font weight - Black"
+                }
+            ]
+        },
+        {
+            "icon": "labicon-text_italic",
+            "callback": "toggleAttribute",
+            "params": {
+                "allowEmpty": true
+            },
+            "key": "italic",
+            "attributes": {
+                "class": "italic"
+            },
+            "value": false,
+            "onValue": "italic",
+            "offValue": false,
+            "bindToSelection": "italic",
+            "group": "g2",
+            "title": "Italic",
+            "hotkeys": [
+                {
+                    "key": "i",
+                    "controlkeys": [
+                        "labCtrlKey"
+                    ],
+                    "preventDefault": true,
+                    "overrideDisable": true
+                }
+            ]
+        },
+        {
+            "icon": "labicon-alignLeft",
+            "group": "g2",
+            "value": false,
+            "onValue": true,
+            "offValue": false,
+            "onValueCondition": "lab-key-is-true",
+            "bindToSelection": "text_align",
+            "items": [
+                {
+                    "icon": "labicon-alignLeft",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": false,
+                        "allowSelection": false
+                    },
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "left"
+                    },
+                    "value": false,
+                    "onValue": "left",
+                    "offValue": false,
+                    "bindToSelection": "text_align",
+                    "title": "left"
+                },
+                {
+                    "icon": "labicon-alignCenter",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": false,
+                        "allowSelection": false
+                    },
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "center"
+                    },
+                    "value": false,
+                    "onValue": "center",
+                    "offValue": false,
+                    "bindToSelection": "text_align",
+                    "title": "center"
+                },
+                {
+                    "icon": "labicon-alignRight",
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": false,
+                        "allowSelection": false
+                    },
+                    "key": "text_align",
+                    "attributes": {
+                        "class": "right"
+                    },
+                    "value": false,
+                    "onValue": "right",
+                    "offValue": false,
+                    "bindToSelection": "text_align",
+                    "title": "right"
+                }
+            ]
+        },
+        {
+            "text": "Styles",
+            "group": "g2_2",
+            "title": "Format selection",
+            "submenuDirection": "lab-align-left",
+            "items": [
+                {
+                    "icon": "labicon-insertTitle",
+                    "callback": "setCurrentTag",
+                    "value": "p",
+                    "text": "Normal",
+                    "hotkeys": [
+                        {
+                            "key": "1",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true
+                },
+                {
+                    "icon": "labicon-text_title",
+                    "callback": "setCurrentTag",
+                    "value": "h2",
+                    "text": "Heading",
+                    "hotkeys": [
+                        {
+                            "key": "2",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true
+                },
+                {
+                    "icon": "labicon-text_subtitle",
+                    "callback": "setCurrentTag",
+                    "value": "h3",
+                    "text": "Subheading",
+                    "hotkeys": [
+                        {
+                            "key": "3",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true
+                },
+                {
+                    "icon": "labicon-orderedList",
+                    "callback": "setCurrentTag",
+                    "value": "ol",
+                    "text": "Ordered list",
+                    "hotkeys": [
+                        {
+                            "key": "4",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "params": {
+                        "innerTag": "li"
+                    }
+                },
+                {
+                    "icon": "labicon-unorderedList",
+                    "callback": "setCurrentTag",
+                    "value": "ul",
+                    "text": "Unordered list",
+                    "hotkeys": [
+                        {
+                            "key": "5",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "params": {
+                        "innerTag": "li"
+                    }
+                },
+                {
+                    "icon": "labicon-quote",
+                    "callback": "setCurrentTag",
+                    "value": "p",
+                    "text": "Inline Quote",
+                    "hotkeys": [
+                        {
+                            "key": "6",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "params": {
+                        "attributes": {
+                            "class": "quote"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "text": "Insert",
+            "group": "g3",
+            "title": "Insert content",
+            "submenuDirection": "lab-align-left",
+            "items": [
+                {
+                    "icon": "labicon-fontIcon",
+                    "text": "Icons",
+                    "items": [
+                        {
+                            "callback": "insertMarkup",
+                            "value": "—",
+                            "icon": "customicon",
+                            "iconContent": "<strong>—</strong>",
+                            "text": "Em-dash"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "€",
+                            "icon": "customicon",
+                            "iconContent": "<strong>€</strong>",
+                            "text": "Euro character"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "©",
+                            "icon": "customicon",
+                            "iconContent": "<strong>©</strong>",
+                            "text": "Copyright character"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-check\"> </span>",
+                            "text": "Check-mark",
+                            "icon": "fi-check"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-clock\"> </span>",
+                            "text": "Clock-symbol",
+                            "icon": "fi-clock"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-comments\"> </span>",
+                            "text": "Comments-symbol",
+                            "icon": "fi-comments"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-graph-trend\"> </span>",
+                            "text": "Trending up graph",
+                            "icon": "fi-graph-trend"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-one\"> </span>",
+                            "text": "Die one-symbol",
+                            "icon": "fi-die-one"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-two\"> </span>",
+                            "text": "Die two-symbol",
+                            "icon": "fi-die-two"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-three\"> </span>",
+                            "text": "Die three-symbol",
+                            "icon": "fi-die-three"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-four\"> </span>",
+                            "text": "Die four-symbol",
+                            "icon": "fi-die-four"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-five\"> </span>",
+                            "text": "Die five-symbol",
+                            "icon": "fi-die-five"
+                        },
+                        {
+                            "callback": "insertMarkup",
+                            "value": "<span class=\"fi-die-six\"> </span>",
+                            "text": "Die six-symbol",
+                            "icon": "fi-die-six"
+                        }
+                    ]
+                },
+                {
+                    "inheritPath": "menu/buttons/link.json"
+                },
+                {
+                    "icon": "labicon-link",
+                    "text": "Button-link",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "a",
+                    "title": "Insert link as button",
+                    "attributeArray": [
+                        {
+                            "name": "href",
+                            "grid": 12,
+                            "type": "text",
+                            "validator": "lab_api.v1.util.valueTransformer.isMultiUrl",
+                            "userInput": true,
+                            "label": "Url, email, telephone or section",
+                            "placeholder": "https://example.com, mailto:user@example.com, tel:+4712345678",
+                            "required": true
+                        },
+                        {
+                            "name": "aria-label",
+                            "type": "text",
+                            "userInput": true,
+                            "label": "Label",
+                            "placeholder": "Text-content for assistive technologies"
+                        },
+                        {
+                            "name": "target",
+                            "grid": 12,
+                            "type": "checkbox",
+                            "value": "_blank",
+                            "userInput": true,
+                            "defaultValueConfigPath": "textTools.defaultValues.link.target",
+                            "label": "Open in new tab"
+                        },
+                        {
+                            "name": "class",
+                            "value": "dacBtn bg-btn-color",
+                            "userInput": false
+                        }
+                    ]
+                },
+                {
+                    "icon": "labicon-id",
+                    "text": "Section ID",
+                    "requireSelection": false,
+                    "callback": "setAttributes",
+                    "title": "Insert id",
+                    "attributeArray": [
+                        {
+                            "name": "id",
+                            "grid": 12,
+                            "type": "text",
+                            "validators": [
+                                "lab_api.v1.util.valueTransformer.notEmpty",
+                                "lab_api.v1.util.valueTransformer.noWhiteSpace"
+                            ],
+                            "placeholder": "String without whitespsace ...",
+                            "userInput": true,
+                            "label": "ID",
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "icon": "labicon-magic_wand",
+                    "callback": "dispatch",
+                    "params": {
+                        "function": "contextualmenu.callbacks.generateCitationArticle",
+                        "menu": {
+                            "name": "ArticleCitation"
+                        }
+                    },
+                    "title": "Generate a citation article/content",
+                    "text": "Citation article"
+                },
+                {
+                    "icon": "labicon-page",
+                    "callback": "dispatch",
+                    "params": {
+                        "function": "contextualmenu.callbacks.insertArticleLink",
+                        "menu": {
+                            "name": "ArticlesLatest"
+                        }
+                    },
+                    "title": "Insert article link",
+                    "hotkeys": [
+                        {
+                            "key": "k",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "shiftKey"
+                            ],
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "text": "Article link"
+                },
+                {
+                    "icon": "labicon-quote",
+                    "text": "Quote from selection",
+                    "requireSelection": true,
+                    "callback": "dispatch",
+                    "params": {
+                        "function": "contextualmenu.callbacks.insertQuote"
+                    },
+                    "title": "Add selection to quote",
+                    "hotkeys": [
+                        {
+                            "key": "b",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "shiftKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true
+                },
+                {
+                    "icon": "labicon-minus",
+                    "text": "Non breaking space",
+                    "hotkeys": [
+                        {
+                            "key": " ",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "shiftKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "callback": "insertRawMarkup",
+                    "value": "&nbsp;",
+                    "title": "Non breaking space"
+                },
+                {
+                    "icon": "labicon-soft_hyphen",
+                    "text": "Soft hyphen (line-break)",
+                    "hotkeys": [
+                        {
+                            "key": "h",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "shiftKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "callback": "insertRawMarkup",
+                    "value": "&shy;",
+                    "title": "Soft hyphen"
+                },
+                {
+                    "icon": "labicon-tag",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "abbr",
+                    "text": "Abbreviation",
+                    "attributeArray": [
+                        {
+                            "name": "title",
+                            "type": "text",
+                            "validator": "LabApi.v1.util.valueTransformer.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Abbreviation title ...",
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "icon": "labicon-tag",
+                    "requireSelection": true,
+                    "callback": "setTag",
+                    "value": "dfn",
+                    "text": "Definition",
+                    "attributeArray": [
+                        {
+                            "name": "title",
+                            "type": "text",
+                            "validator": "LabApi.v1.util.valueTransformer.hasLength",
+                            "userInput": true,
+                            "label": "Title",
+                            "placeholder": "Definition title ...",
+                            "required": true
+                        },
+                        {
+                            "name": "tabindex",
+                            "type": "text",
+                            "userInput": false,
+                            "value": "0"
+                        },
+                        {
+                            "name": "role",
+                            "type": "text",
+                            "userInput": false,
+                            "value": "button"
+                        }
+                    ]
+                },
+                {
+                    "icon": "labicon-dummyText",
+                    "callback": "addDummyText",
+                    "key": "right",
+                    "text": "Placeholder text",
+                    "title": "Add placeholder text"
+                }
+            ]
+        },
+        {
+            "text": "More",
+            "group": "g4",
+            "title": "More options",
+            "submenuDirection": "lab-align-right",
+            "items": [
+                {
+                    "icon": "labicon-text_underline",
+                    "text": "Underline",
+                    "group": "g2",
+                    "hotkeys": [
+                        {
+                            "key": "u",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "underline",
+                    "attributes": {
+                        "class": "underline",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "underline",
+                    "offValue": false,
+                    "bindToSelection": "underline",
+                    "title": "Underline"
+                },
+                {
+                    "icon": "labicon-text_strikethrough",
+                    "text": "Strikethrough",
+                    "group": "g2",
+                    "hotkeys": [
+                        {
+                            "key": "s",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "shiftKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true,
+                    "callback": "toggleAttribute",
+                    "params": {
+                        "allowEmpty": true
+                    },
+                    "key": "strikethrough",
+                    "attributes": {
+                        "class": "strikethrough",
+                        "tag": "span"
+                    },
+                    "value": false,
+                    "onValue": "strikethrough",
+                    "offValue": false,
+                    "bindToSelection": "strikethrough",
+                    "title": "Strikethrough"
+                },
+                {
+                    "group": "g2",
+                    "inheritPath": "menu/buttons/superscript.json"
+                },
+                {
+                    "group": "g2",
+                    "inheritPath": "menu/buttons/subscript.json"
+                },
+                {
+                    "callback": "insertMarkupAround",
+                    "title": "Insert quotes",
+                    "params": {
+                        "insertBefore": "«",
+                        "insertAfter": "»"
+                    },
+                    "icon": "customicon",
+                    "group": "g3",
+                    "iconContent": "«»",
+                    "text": "Quote selection",
+                    "hotkeys": [
+                        {
+                            "key": "k",
+                            "controlkeys": [
+                                "labCtrlKey",
+                                "altKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ],
+                    "displayHotkeys": true
+                }
+            ]
+        },
+        {
+            "icon": "labicon-reset_style",
+            "callback": "reset",
+            "group": "g6",
+            "title": "Remove textformatting in selection for viewport (Ctrl+Escape)",
+            "hotkeys": [
+                {
+                    "key": "Escape",
+                    "controlkeys": [
+                        "labCtrlKey"
+                    ],
+                    "preventDefault": true,
+                    "overrideDisable": true
+                }
+            ]
+        }
+    ],
+    "labels": {
+        "before": [
+            "lab-tool-active-tag"
+        ]
+    },
+    "params": {}
+}

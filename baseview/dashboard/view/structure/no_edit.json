@@ -1,0 +1,18 @@
+{
+    "draggable": {
+        "active": false
+    },
+    "droppable": {
+        "active": false
+    },
+    "resizable": {
+        "active": false
+    },
+    "expand": {
+        "active": false
+    },
+    "displayModifiedStatus": false,
+    "menus": null,
+    "gridAdapter": null,
+    "gridAdapterRules": null
+}

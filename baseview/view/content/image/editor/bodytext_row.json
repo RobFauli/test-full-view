@@ -1,0 +1,24 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "zoomable": {
+                    "inheritPath": "menu/buttons/zoomable.json",
+                    "group": "g4"
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "items": {
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "text": null,
+                    "displayHotkeys": false,
+                    "group": "g3"
+                }
+            }
+        }
+    }
+}

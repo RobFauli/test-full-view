@@ -1,0 +1,90 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{#helper.trim}}
+        column
+        articlescroller
+        {{ #get.current.fields.source }}source_{{ get.current.fields.source }}{{ /get.current.fields.source }}
+        {{ #get.current.fields.layoutAlign }}layout-align-{{ get.current.fields.layoutAlign }}{{ /get.current.fields.layoutAlign }}
+        {{ #get.current.filtered.restrictHeight }}restrictHeight{{ /get.current.filtered.restrictHeight }}
+        {{ #style.collection }}box_fullWidth{{ /style.collection }}
+        {{ size.grid.css }}
+        {{ #style.collection }}box_decoration{{ /style.collection }}
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{/helper.trim}}" id="article_list_{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="inner content fullwidthTarget">
+        {{ ^get.current.fields.hideTextAbove }}
+            {{ #app.isEditor }}{{ #render.template }}content/articlescroller/template/partials/title{{ /render.template }}{{ /app.isEditor }}
+            {{ ^app.isEditor }}{{#get.current.fields.title}}{{ #render.template }}content/articlescroller/template/partials/title{{ /render.template }}{{/get.current.fields.title}}{{ /app.isEditor }}
+        {{ /get.current.fields.hideTextAbove }}
+
+        <ul class="scroll-container swipehelper snap-container-x snap-element-start articles count_{{ get.current.filtered.visibleArticleCount }} {{ #get.current.filtered.hideImages }}imagesHidden{{ /get.current.filtered.hideImages }}">
+            {{ #get.current.filtered.data }}
+                <li data-section="{{ section }}" class="scroll-item snap-element column {{ #image }}hasImage{{ /image }}{{ ^image }}noImage{{ /image }}{{ #get.current.fields.skipLeadText }} skipLeadText{{ /get.current.fields.skipLeadText }}">
+                    <a href="{{{ url }}}">
+                        {{ #image }}
+                            <figure>
+                                {{ #paywall }}
+                                {{ #get.current.filtered.paywallLabel }}{{> partial/elements/paywallLabel }}{{ /get.current.filtered.paywallLabel }}
+                                {{ /paywall }}
+                                <img src="{{{ image }}}" width="{{ get.current.filtered.width }}" height="{{ get.current.filtered.height }}"{{ #get.current.filtered.lazyloadImages }} loading="lazy"{{ /get.current.filtered.lazyloadImages }} alt="">
+                                {{ #autodata.labels }}
+                                    <div class="labels">
+                                        <div class="label" data-label-key="{{ key }}" data-label-value="{{ value }}"><span class="label-value">{{ value }}</span></div>
+                                    </div>
+                                {{ /autodata.labels }}
+                            </figure>
+                        {{ /image }}
+                        <div class="text-container">
+                            {{ #get.current.fields.displayKicker }}{{ #kicker }}<h4>{{ kicker }}</h4>{{ /kicker }}{{ /get.current.fields.displayKicker }}
+                            {{ #get.current.fields.displaySection }}{{ #section }}<p itemprop="section" class="section" data-tag="{{ section }}">{{ section }}</p>{{ /section }}{{ /get.current.fields.displaySection }}
+                            {{ ^get.current.fields.hideTitle }}{{ #title }}<h3>{{{ title }}}</h3>{{ /title }}{{ /get.current.fields.hideTitle }}
+                            {{ ^get.current.fields.skipLeadText }}{{ #subtitle }}<p class="subtitle">{{ #iconImage }}<img class="iconImage" src="{{{ iconImage }}}">{{ /iconImage }}{{{ subtitle }}}</p>{{ /subtitle }}{{ /get.current.fields.skipLeadText }}
+                            {{ #get.current.filtered.showAuthor }}<p class="author">{{{ author }}}</p>{{ /get.current.filtered.showAuthor }}
+                        </div>
+                    </a>
+                </li>
+            {{ /get.current.filtered.data }}
+        </ul>
+
+        {{ ^get.current.fields.hideTextBeneath }}
+            {{ #app.isEditor }}{{ #render.template }}content/articlescroller/template/partials/description{{ /render.template }}{{ /app.isEditor }}
+            {{ ^app.isEditor }}{{#get.current.fields.ingress}}{{ #render.template }}content/articlescroller/template/partials/description{{ /render.template }}{{/get.current.fields.ingress}}{{ /app.isEditor }}
+        {{ /get.current.fields.hideTextBeneath }}
+
+        {{ #get.current.filtered.useNavigation }}
+        <nav>
+            <span class="arrow left" role="button" aria-label="{{ #lang }}contentboxes.articleScrollerLeftButton{{ /lang }}">
+                <span></span>
+            </span>
+            <span class="arrow right" role="button" aria-label="{{ #lang }}contentboxes.articleScrollerRightButton{{ /lang }}">
+                <span></span>
+            </span>
+        </nav>
+        {{ /get.current.filtered.useNavigation }}
+
+    </div>
+
+    {{ #get.current.id }}
+        <script>
+        (function () {
+            window.dachserData.push('swipehelper', {
+                selector: '#article_list_{{ get.current.id }}',
+                itemsContainerSelector: '.scroll-container',
+                itemsSelector: '.scroll-item',
+                isHorizontal: true,
+                autoScroll: {
+                    enabled: {{ #get.current.fields.skipAutoscroll }}false{{ /get.current.fields.skipAutoscroll }}{{ ^get.current.fields.skipAutoscroll }}true{{ /get.current.fields.skipAutoscroll }},
+                    interval: '{{ get.current.filtered.transitionDuration }}'
+                },
+                navItems: {
+                    forwardSelector: 'nav .arrow.right',
+                    backwardSelector: 'nav .arrow.left',
+                },
+                debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+            });
+            {{ #app.isEditor }}
+            window.dachserData.reflow('swipehelper', 'selector', '#article_list_{{ get.current.id }}');
+            {{ /app.isEditor }}
+        }());
+        </script>
+    {{ /get.current.id }}
+</div>

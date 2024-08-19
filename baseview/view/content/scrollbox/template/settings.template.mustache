@@ -1,0 +1,13 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Scrollbox settings</h2>
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="input-fields.hide_navigation">Display navigation</label>
+            <input type="checkbox" data-lab-reverse="1" name="fields.hide_navigation" value="1" id="input-fields.hide_navigation" {{ ^get.current.fields.hide_navigation }}checked{{ /get.current.fields.hide_navigation }}>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="input-fields.hide_title">Display title</label>
+            <input type="checkbox" data-lab-reverse="1" name="fields.hide_title" value="1" id="input-fields.hide_title" {{ ^get.current.fields.hide_title }}checked{{ /get.current.fields.hide_title }}>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,69 @@
+<div data-element-guid="{{ get.current.guid }}" class="meta{{ ^children.byline[0] }} no-bylines{{ /children.byline[0] }}">
+    
+    <div class="bylines">
+        {{ #app.isEditor }}
+            {{ ^children.byline[0] }}
+            <div>Drop bylines here ...</div>
+            {{ /children.byline[0] }}
+        {{ /app.isEditor }}        
+        {{ ^getConfig.paywall.article.hideBylines }}{{{ children.byline }}}{{ /getConfig.paywall.article.hideBylines }}
+        {{ #getConfig.paywall.article.hideBylines }}{{ #get.root.filtered.paywall.hasAccess }}{{{ children.byline }}}{{ /get.root.filtered.paywall.hasAccess }}{{ /getConfig.paywall.article.hideBylines }}
+    </div>
+    
+    <div class="dates">
+    
+        {{ ^get.current.filtered.date.unified.hide }}
+        <span class="dateGroup dateUnified">
+            <span class="dateLabel">{{{ get.current.filtered.date.unified.label }}}</span>
+            <time datetime="{{{ get.current.filtered.date.unified.isoDate }}}" title="{{{ get.current.filtered.date.unified.label }}} {{{ get.current.filtered.date.unified.formatted }}}">{{{ get.current.filtered.date.unified.formatted }}}</time>
+        </span>
+        {{ /get.current.filtered.date.unified.hide }}
+        {{ ^get.current.filtered.date.published.hide }}
+        <span class="dateGroup datePublished">
+         {{ #get.current.filtered.unpublished }}
+            <span class="dateLabel">{{ #lang }}metadata.unpublishedLabel{{ /lang }}</span>
+            <time datetime="{{{ get.current.filtered.date.published.isoDate }}}" title="{{ #lang }}metadata.unpublishedLabel{{ /lang }} {{{ get.current.filtered.date.published.formatted }}}">{{{ get.current.filtered.date.published.formatted }}}</time>
+         {{ /get.current.filtered.unpublished }}
+         {{ ^get.current.filtered.unpublished }}
+            <span class="dateLabel">{{ #lang }}metadata.publishedLabel{{ /lang }}</span>
+            <time datetime="{{{ get.current.filtered.date.published.isoDate }}}" title="{{ #lang }}metadata.publishedLabel{{ /lang }} {{{ get.current.filtered.date.published.formatted }}}">{{{ get.current.filtered.date.published.formatted }}}</time>
+         {{ /get.current.filtered.unpublished }}
+        </span>
+        {{ /get.current.filtered.date.published.hide }}
+        {{ ^get.current.filtered.date.modified.hide }}
+        {{ #get.current.filtered.date.modified.formatted }}
+            <span class="dateGroup dateModified">
+                <span class="dateLabel">{{ #lang }}metadata.modifiedLabel{{ /lang }}</span>
+                <time datetime="{{{ get.current.filtered.date.modified.isoDate }}}" title="{{ #lang }}metadata.modifiedLabel{{ /lang }} {{{ get.current.filtered.date.modified.formatted }}}">{{{ get.current.filtered.date.modified.formatted }}}</time>
+            </span>
+        {{ /get.current.filtered.date.modified.formatted }}
+        {{ /get.current.filtered.date.modified.hide }}
+    </div>
+
+    {{#getConfig.displayReadTime.active}}
+    {{#get.current.fields.displayReadTime}}
+    <div class="read-time">
+        <span>{{ get.current.filtered.readTimeLabel }}: <span class="read-time-value">{{ get.current.filtered.readTime }}</span></span>
+    </div>
+    {{/get.current.fields.displayReadTime}}
+    {{/getConfig.displayReadTime.active}}
+
+    {{ #get.root.filtered.page_settings.social.display.header }}
+    <div class="social">
+        {{ #get.root.filtered.page_settings.social.items }}
+        {{ > partial/social_button }}
+        {{ /get.root.filtered.page_settings.social.items }}
+    </div>
+    {{ /get.root.filtered.page_settings.social.display.header }}
+
+    {{ #get.root.filtered.google_translate.active }}
+    <div class="translate">
+        {{ #get.root.filtered.google_translate.lang }}
+        <a href="https://translate.google.com/translate?sl=no&tl={{ . }}&u={{{ get.root.filtered.urlEncoded }}}" target="_blank">
+            <figure><img src="/view-resources/baseview/public/common/flags/svg/{{ . }}.svg" alt="{{ . }}"></figure>
+        </a>
+        {{ /get.root.filtered.google_translate.lang }}
+    </div>
+    {{ /get.root.filtered.google_translate.active }}
+
+</div>

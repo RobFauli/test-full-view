@@ -1,0 +1,9 @@
+{
+    "icon": "labicon-delete",
+    "callback": "delete",
+    "title": "Delete content (Ctrl+Backspace)",
+    "hotkeys": [{
+        "key": "backspace",
+        "controlkeys": ["labCtrlKey"]
+    }]
+}

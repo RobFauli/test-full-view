@@ -1,0 +1,102 @@
+{
+    
+    "toolsClass": "RichTextMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "position": "top",
+    "offset": null,
+    "hideAllStructureMenus": true,
+    "targetFrame": "self",
+        
+    "items": {
+        "text_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "font_colors",
+                    "title": "Text color",
+                    "label": "A",
+                    "key": "text_color",
+                    "removeBtn": true,
+                    "bordered": true
+                }]
+            },
+            "group": "g1",
+            "title": "Change text color"
+        },
+        "text_background_color": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [{
+                    "values": "background_colors",
+                    "title": "Background colors",
+                    "label": "",
+                    "key": "text_background_color",
+                    "removeBtn": true,
+                    "bordered": false
+                }]
+            },
+            "group": "g1",
+            "title": "Change text background color"
+        },
+        "text_bold": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "bold",
+            "attributes": {
+                "class": "bold",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Bold"
+        },
+
+        "text_italic": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "italic",
+            "attributes": {
+                "class": "italic",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Italic"
+        },
+
+        "text_underline": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "underline",
+            "attributes": {
+                "class": "underline",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Underline"
+        },
+
+        "text_strikethrough": {
+            "trigger": ["click"],
+            "callback": "toggleAttribute",
+            "key": "strikethrough",
+            "attributes": {
+                "class": "strikethrough",
+                "tag": "span"
+            },
+            "group": "g2",
+            "title": "Strikethrough"
+        },
+
+        "reset": {
+            "trigger": ["click"],
+            "callback": "reset",
+            "group": "g5",
+            "title": "Remove textformatting"
+        }
+
+    },
+    "params": {}
+
+}

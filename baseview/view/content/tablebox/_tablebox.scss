@@ -1,0 +1,21 @@
+
+/* CSS for contentbox tablebox */
+@use "../../css_scss/components/vars" as *;
+
+.tablebox {
+    h3 {
+        font-size: 1.2em;
+    }
+    .description {
+        margin: 0;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+@include desktop_down {
+    .tablebox {
+        overflow-x: auto;
+    }
+}

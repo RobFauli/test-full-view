@@ -1,0 +1,10 @@
+{
+    "viewHelper" : "bodytext",
+    "bodytextElements": ["p", "h2", "h3", "h4", "ul", "ol", "li"],
+    "bodytextHeadingElements": ["h1", "h2", "h3", "h4", "h5", "h6"],
+    "boxTitle": "Bodytext",
+    "source": {
+        "node": "page",
+        "derived": true
+    }
+}

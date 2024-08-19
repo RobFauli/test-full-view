@@ -1,0 +1,145 @@
+{
+    "dashboard_data": {
+        "auto_import": {
+            "lab-comment-groups": "Note the order of the groups- and pages-arrays. The first matching group and allowed page is chosen.",
+            "groups": [
+                {
+                    "group": "journalist",
+                    "pages": ["journalist_page"]
+                },
+                {
+                    "group": "admin",
+                    "pages": ["journalist_page"]
+                }
+            ]
+        },
+        "pages": {
+            "journalist_page": {
+                "settings": {
+                    "permission-disabled": "dashboard",
+                    "group-disabled": "journalist",
+                    "site-disabled": "default",
+                    "name": "Dashboard for authors",
+                    "content_data": {
+                        "type": "dashboard",
+                        "fields": {
+                            "title": "Dashboard"
+                        }
+                    }
+                },
+                "type": "dropZone",
+                "selector": "#lab-dz-1",
+                "children": [
+                    {
+                        "type": "row",
+                        "children": [
+                            {
+                                "type": "lp_keystats",
+                                "metadata": {
+                                    "lock": true
+                                },
+                                "width": 33.3,
+                                "content_data": {
+                                    "fields": {
+                                        "linkpulse_json": {
+                                            "type": "keystats",
+                                            "chart": "clickratio",
+                                            "query": {
+                                                "range": "today",
+                                                "compareRange": "yesterday"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "lp_keystats",
+                                "metadata": {
+                                    "lock": true
+                                },
+                                "width": 33.3,
+                                "content_data": {
+                                    "fields": {
+                                        "linkpulse_json": {
+                                            "type": "keystats",
+                                            "chart": "pageviews",
+                                            "query": {
+                                                "range": "today",
+                                                "compareRange": "yesterday"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "lp_keystats",
+                                "metadata": {
+                                    "lock": true
+                                },
+                                "width": 33.3,
+                                "content_data": {
+                                    "fields": {
+                                        "linkpulse_json": {
+                                            "type": "keystats",
+                                            "chart": "clicks",
+                                            "query": {
+                                                "range": "today",
+                                                "compareRange": "yesterday"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "row",
+                        "children": [
+                            {
+                                "type": "article_list",
+                                "metadata": {
+                                    "lock": true
+                                },
+                                "width": 50,
+                                "content_data": {
+                                    "fields": {
+                                        "limit": "10",
+                                        "sectionQuery": "",
+                                        "visibilityStatusQuery": "NOT visibility_status:H AND NOT visibility_status:P AND NOT status:D AND",
+                                        "site_id": "",
+                                        "title": "My articles - Unpublished",
+                                        "userQuery": "(has_published:me OR created_by:me) AND",
+                                        "tagSearch": "",
+                                        "textSearch": "",
+                                        "displayTags": ""
+                                    }
+                                }
+                            },
+                            {
+                                "type": "article_list",
+                                "metadata": {
+                                    "lock": true
+                                },
+                                "width": 50,
+                                "content_data": {
+                                    "fields": {
+                                        "sectionQuery": "",
+                                        "userQuery": "(has_published:me OR created_by:me) AND",
+                                        "limit": "10",
+                                        "visibilityStatusQuery": "(visibility_status:H OR visibility_status:P) AND NOT status:D AND",
+                                        "site_id": "",
+                                        "title": "My articles - Published",
+                                        "displayTags": "",
+                                        "textSearch": "",
+                                        "tagSearch": ""
+                                    }
+                                }
+                            }
+                            
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 142,
+            "str": "1.4.2"
+        },
+        "items": [
+            {
+                "isBug": true,
+                "date": "20240131",
+                "title": "Fixed bug in Tansa plugin",
+                "description": "The integration with Tansa proofing system could through an error if an element, like the kicker, was hidden. This would prevent the UI for the tool to display. This is now fixed."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240129",
+                "title": "Horizontal layout for toplists",
+                "description": "The element `Toplist` now has a new setting called `Layout` which allows you to choose between vertical (default) and horizontal layout. The horizontal layout is useful for toplists with a small number of items."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240124",
+                "title": "No-follow option for links",
+                "description": "When you create a link in text-tools you can now choose to make it a no-follow link using a checkbox in the settings panel. This is useful for SEO purposes."
+            },
+            {
+                "isFeature": true,
+                "date": "20240123",
+                "title": "Prefix for image bylines",
+                "description": "You can now add a default prefix for all image-bylines in the admin-pages. This is useful if you want to add a prefix like \"Photo: \" to all your image-credits.",
+                "links": [
+                    "/settings/cp?page=images"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20240115",
+                "title": "Drag and drop graphics onto your pages",
+                "description": "You can now easily include uploaded `PNG`, `GIF` and `SVG` files on your pages by dragging them from the Graphics collection (`Shift+M`) onto your page."
+            }
+        ]
+    }
+}

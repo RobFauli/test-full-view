@@ -1,0 +1,146 @@
+{
+    "editors": {
+        "kicker": {
+            "selector": "p.kicker",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.kicker",
+            "placeholder": "Fact: Click to add kicker",
+            "modal": false,
+            "allowReverting": true
+        },
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Fact: Click to add title",
+            "modal": false,
+            "allowReverting": true
+        },
+        "bodytext": {
+            "selector": "div.fact",
+            "fn": "EditFull",
+            "key": "fields.bodytext",
+            "placeholder": "Fact: Click to add text",
+            "menu": "rich_text_btxt",
+            "modal": false,
+            "allowNbsp": true,
+            "inlineOnly": true,
+            "contentReplacement": null,
+            "displayWordCount": true,
+            "displayCharCount": true,
+            "displayReadtime": false,
+            "allowRichTextPasting": false,
+            "allowedPastedTags": {
+                "a": {
+                    "attributes": ["href", "target"]
+                },
+                "p": { "attributes": [] },
+                "h2": { "attributes": [] },
+                "h3": { "attributes": [] },
+                "ul": { "attributes": [] },
+                "ol": { "attributes": [] },
+                "li": { "attributes": [] }
+            },
+            "allowedEmptyTags": {
+                "span": {
+                    "attributes": ["class"]
+                },
+                "br": {
+                    "attributes": []
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "rich_text_btxt": {
+            "inheritPath": "menu/tool/rich_text_bodytext.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "mediaOptions": {
+                    "icon": "labicon-image",
+                    "title": "Media-options",
+                    "group": "g4",
+                    "items": {
+                        "toggleImageVisibility": {
+                            "icon": "labicon-image_hide",
+                            "text": "[bound]",
+                            "group": "sg1",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.hideimage",
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.hideimage",
+                                    "attribute": "value"
+                                },
+                                {
+                                    "path": "metadata.hideimage",
+                                    "attribute": "text",
+                                    "valueTransformer": "boolToString",
+                                    "valueTransformerOptions": {
+                                        "offValue": "Hide image(s)",
+                                        "onValue": "Show image(s)"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "expandedState": {
+                    "icon": "labicon-arrows_horizontal",
+                    "title": "Expand box",
+                    "group": "g4",
+                    "callback": "toggleKeyAndValue",
+                    "key": "metadata.expandedState",
+                    "onValue": true,
+                    "offValue": false,
+                    "bindings": [
+                        {
+                            "path": "metadata.expandedState",
+                            "attribute": "value"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "droppable": {
+        "delegate": "TextDrop",
+        "params": {
+            "textDrop": {
+                "accept": ["image"],
+                "reject": [],
+                "selector": "div.fact",
+                "zones": [
+                    {
+                        "triggerZone": [0, 100],
+                        "alignCss": "",
+                        "labCss": "",
+                        "grid": [12]
+                    }
+                ]
+            }
+        },
+        "drop": {
+            "sourceType": {
+                "image": "addChild",
+                "buttonlink": "addChild"
+            },
+            "default": "default"
+        }
+    }
+}

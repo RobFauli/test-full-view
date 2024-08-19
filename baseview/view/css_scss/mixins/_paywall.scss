@@ -1,0 +1,41 @@
+@mixin setPaywallTeaserBackgroundGradient ($color: #fff) {
+    .teaserContent:before {
+        content: "";
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba($color, 1) 0%, rgba($color, 0) 60%, rgba($color, 0) 100%);
+    }
+}
+
+@mixin label {
+    position: absolute;
+    background-color: #fff;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 0.3em 0.5em;
+    bottom: 0.5em;
+    right: 0.4em;
+    box-shadow: 0 0 4px -1px #000;
+    border-radius: 0.2rem;
+    z-index: 1;
+    &:empty {
+        display: none;
+    }
+    &.no-image {
+        position: relative;
+        float: right;
+        right: 0;
+        bottom: auto;
+        margin: 0.7rem;
+    }
+    &.floatLeft {
+        left: 0.4em;
+        right: auto;
+        top: 0.4em;
+        bottom: auto;
+    }
+    &.floatRight {
+        top: 0.4em;
+        bottom: auto;
+    }
+}

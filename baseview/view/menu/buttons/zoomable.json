@@ -1,0 +1,14 @@
+{
+    "icon": "labicon-fullscreen",
+    "title": "Allow users to magnify image",
+    "callback": "toggleKeyAndValue",
+    "key": "metadata.zoomable",
+    "onValue": true,
+    "offValue": false,
+    "bindings": [
+        {
+            "path": "metadata.zoomable",
+            "attribute": "value"
+        }
+    ]
+}

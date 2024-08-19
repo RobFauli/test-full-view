@@ -1,0 +1,33 @@
+{
+    "droppable": {
+        "active": true,
+        "delegate": "TextDrop",
+        "reject": ["timelineItem"],
+        "drop": "addChild",
+        "params": {
+            "textDrop": {
+                "filedrop": true,
+                "zones": [
+                    {
+                        "triggerZone": [0, 30],
+                        "alignCss": "floatLeft",
+                        "labCss": "lab-width-33",
+                        "grid": [4]
+                    },
+                    {
+                        "triggerZone": [30, 70],
+                        "alignCss": "",
+                        "labCss": "",
+                        "grid": [12]
+                    },
+                    {
+                        "triggerZone": [70, 100],
+                        "alignCss": "floatRight",
+                        "labCss": "lab-width-33",
+                        "grid": [4]
+                    }
+                ]
+            }
+        }
+    }
+}

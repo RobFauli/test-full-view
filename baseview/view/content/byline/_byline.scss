@@ -1,0 +1,146 @@
+/* Style for contentbox byline */
+@use "../../css_scss/components/vars" as *;
+
+.bylines {
+    border-bottom: 1px solid #cecece;
+    border-color: inherit;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.4em;
+    display: flex;
+
+    .byline {
+        // color: #000;
+        letter-spacing: 0;
+        line-height: 1.4em;
+        vertical-align: middle;
+        padding: 0.5em 1.2em 0.5em 0;
+        margin: 0;
+        overflow: hidden;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        
+        figure {
+            float: left;
+            margin: 0 0.4em 0 0;
+            width: 42px;
+
+            &:after {
+                display: none;
+            }
+        }
+        .name {
+            display: block;
+            // white-space: nowrap;
+            // margin-left: 50px;
+        }
+        .description {
+            display: block;
+            // color: gray;
+            // margin-left: 50px;
+            text-transform: uppercase;
+            font-size: 0.78em;
+            letter-spacing: 0.05em;
+        }
+
+        .name a {
+            // color: #0078a0;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Bylines in bodytext
+.bodytext .byline {
+
+    .content {
+        line-height: 1.4em;
+        padding-left: 140px;
+        overflow: auto;
+
+        figure {
+            float: left;
+            width: 110px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: 0 0 0 -125px;
+        }
+        address {
+            font-weight: 600;
+            font-style: normal;
+            margin: 0 0 0.5em;
+        }
+        .description {
+            display: block;
+        }
+    }
+}
+
+// Byline in article-box
+article.column .bylines {
+    border-bottom: 0;
+    border-top: 1px solid #cecece;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    flex-wrap: wrap;
+    .content {
+        display: flex;
+    }
+    .byline {
+        // color: gray;
+        padding: 0.3em 0 0;
+        margin-right: 0.7em;
+        flex-basis: auto;
+        figure {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: 0 0.4em 0 0;
+            flex: 0 0 30px;
+        }
+        .name {
+            margin-top: 0.3em;
+            flex: 1 1 100%;
+        }
+    }
+}
+
+
+@include mobile {
+    .bylines {
+        display: block;
+        overflow: auto;
+        .byline {
+            display: block;
+            padding-right: 0;
+        }
+    }
+}
+
+
+
+// Page-styles:
+
+.pagestyle_centered {
+    .bylines .byline figure {
+        float: none;
+        display: inline-block;
+    }
+}
+
+// Page/article custom font colors
+body.custom-font-color {
+    .bylines, article.column .bylines {
+        color: inherit;
+        border-color: currentColor;
+        .byline {
+            color: inherit;
+            .description, .name a {
+                color: inherit;
+            }
+        }
+    }
+}

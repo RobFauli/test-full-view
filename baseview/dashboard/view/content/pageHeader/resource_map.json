@@ -1,0 +1,24 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/pageHeader/properties.json"
+                },
+                "template": {
+                    "default": "content/pageHeader/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/pageHeader/edit_properties.json"
+                }
+            }
+        }
+    }
+}

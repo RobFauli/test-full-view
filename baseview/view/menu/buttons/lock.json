@@ -1,0 +1,28 @@
+{
+    "icon": "labicon-lockButton",
+    "callback": "toggleLock",
+    "onValue": true,
+    "offValue": false,
+    "valueTransformer": "notFalseOrNull",
+    "respectLayoutLock": false,
+    "bindings": [
+        {
+            "path": "metadata.lock",
+            "attribute": "value"
+        },
+        {
+            "path": "metadata.lock",
+            "attribute": "icon",
+            "valueTransformer": "boolToString",
+            "valueTransformerOptions": {
+                "offValue": "labicon-lockButton",
+                "onValue": "labicon-lockButton_locked",
+                "valueTransformer": "notFalseOrNull"
+            }
+        }
+    ],
+    "title": "Lock content (L)",
+    "hotkeys": [{
+        "key": "L"
+    }]
+}

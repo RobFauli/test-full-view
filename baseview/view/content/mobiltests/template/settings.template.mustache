@@ -1,0 +1,72 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Settings for Mobil test box</h2>
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.layoutOption">Layout, what data to be shown</label>
+            <select name="fields.layoutOption" id="input-fields.layoutOption">
+                {{ #get.current.filtered.layoutOptions }}
+                <option value="{{ key }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+                {{ /get.current.filtered.layoutOptions }}
+            </select>
+        </div>
+
+        <h3>Id to test in external database</h3>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.testId">Test id</label>
+            <input type="text" name="fields.testId" value="{{ get.current.fields.testId }}" id="input-fields.testId">
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap">
+            <label for="checkbox.titleWithGrade">Show title with grade</label>
+            <input type="checkbox" name="fields.titleWithGrade" {{ #get.current.filtered.titleWithGrade }}checked="checked"{{ /get.current.filtered.titleWithGrade }} id="checkbox.titleWithGrade">
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap">
+            <label for="checkbox.titleWithFacts">Show title with facts</label>
+            <input type="checkbox" name="fields.titleWithFacts" {{ #get.current.filtered.titleWithFacts }}checked="checked"{{ /get.current.filtered.titleWithFacts }} id="checkbox.titleWithFacts">
+        </div>
+
+        {{ ^get.current.fields.testId }}
+
+            <h3>OR manually added data</h3>
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="input-fields.testId">Product name</label>
+                <input type="text" name="fields.productName" value="{{ get.current.fields.productName }}" id="input-fields.productName">
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap">
+                <label for="select.score">Score</label>
+                <select name="fields.score" id="select.score">
+                    {{ #get.current.filtered.scoreOptions }}
+                        <option value="{{ value }}" {{ selected }}>{{ value }}</option>
+                    {{ /get.current.filtered.scoreOptions }}
+                </select>
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap">
+                <label for="checkbox.topScore">Top score</label>
+                <input type="checkbox" name="fields.topScore" {{ #get.current.filtered.topScore }}checked="checked"{{ /get.current.filtered.topScore }} id="checkbox.topScore">
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap">
+                <label for="checkbox.recommended">Recommended</label>
+                <input type="checkbox" name="fields.recommended" {{ #get.current.filtered.recommended }}checked="checked"{{ /get.current.filtered.recommended }} id="checkbox.recommended">
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap edit-rich">
+                <label for="textarea.specifications">Specifications</label>
+                <div style="min-height: 42px;" data-input-key="fields.specifications" data-input-type-text class="lab-input-text" id="textarea.specifications">{{{ get.current.fields.specifications }}}</div>
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap edit-rich">
+                <label for="textarea.pros">Pros</label>
+                <div style="min-height: 42px;" data-input-key="fields.pros" data-input-type-text class="lab-input-text" id="textarea.pros">{{{ get.current.fields.pros }}}</div>
+            </div>
+
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap edit-rich">
+                <label for="textarea.cons">Cons</label>
+                <div style="min-height: 42px;" data-input-key="fields.cons" data-input-type-text class="lab-input-text" id="textarea.cons">{{{ get.current.fields.cons }}}</div>
+            </div>
+        {{ /get.current.fields.testId }}
+    </div>
+</form>

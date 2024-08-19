@@ -1,0 +1,17 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column userFeedback
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ ^get.current.fields.hidetitle }}<h3 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h3>{{ /get.current.fields.hidetitle }}
+        {{ ^get.current.fields.hidedescription }}<p class="description {{ #style.collection }}text_decoration fields.description{{ /style.collection }}">{{{ get.current.fields.description }}}</p>{{ /get.current.fields.hidedescription }}
+        <div class="buttons">
+            <a href="{{ ^get.current.filtered.url }}mailto:{{{ get.current.filtered.email }}}{{ /get.current.filtered.url }}{{ #get.current.filtered.url }}{{{ get.current.filtered.url }}}{{ /get.current.filtered.url }}"
+            class="dacBtn {{ get.current.metadata.ui_color }} {{ get.current.metadata.ui_text_color }}">{{{ get.current.fields.label }}}</a>
+        </div>
+    </div>
+</div>
+      

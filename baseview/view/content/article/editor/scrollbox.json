@@ -1,0 +1,23 @@
+{
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "moveUp": {
+                    "inheritPath": "menu/buttons/moveUp.json"
+                },
+                "moveDown": {
+                    "inheritPath": "menu/buttons/moveDown.json"
+                },
+                "color_bg": {
+                    "group": "g1_b"
+                },
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g1_b"
+                },
+                "mediaOptions": null
+            }
+        }
+    }
+}

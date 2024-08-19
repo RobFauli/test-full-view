@@ -1,0 +1,114 @@
+{
+    "editors": [
+        {
+            "selector": "h3",
+            "fn": "EditRich",
+            "displaySizeChange": true,
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title"
+        },
+        {
+            "selector": "p",
+            "fn": "EditRich",
+            "displaySizeChange": true,
+            "menu": "rich_text",
+            "key": "fields.description",
+            "placeholder": "Click to add description"
+        },
+        {
+            "selector": ".dacBtn",
+            "fn": "EditClean",
+            "key": "fields.label",
+            "placeholder": "Click to add label"
+        }
+    ],
+
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "image_edit": {
+            "inheritPath": "menu/tool/image.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "uiColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "icon": "labicon-color_palette",
+                    "group": "g4",
+                    "bindings": [
+                        {
+                            "path": "metadata.ui_color",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "active": true,
+                                "selector": ".buttons a",
+                                "styleDefinition": null,
+                                "stylePath": null
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "title": "Buttons Background Color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "backgroundColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "objectValues": false,
+                                    "title": "Buttons Text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                "align": {
+                    "inheritPath": "menu/buttons/textAlign.json",
+                    "group": "g4",
+                    "text": null
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/userFeedback/template/settings"
+        }
+    }
+}

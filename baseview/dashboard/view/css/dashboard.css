@@ -1,0 +1,714 @@
+
+body.dashboard,
+body.labFn-edit.labFn-mainView {
+    background-color: #e6e6e7;
+    font-family: Helvetica, sans-serif;
+}
+
+body.dashboard .dashboard-section {
+    padding: 2em 0;
+    clear: both;
+}
+
+body.labFn-edit .lab-is-non-persistent {
+    background-image: initial;
+}
+
+@media only screen and (min-width: 71em) {
+    .dashboard .labFn-dropZone > .row,
+    .dashboard .dashboard-header .row,
+    body.labFn-edit .labFn-dropZone:empty {
+        max-width: 85%;
+    }
+}
+
+.dashboard-header {
+    border-bottom: 1px solid #D9D9D9;
+    height: 4em;
+}
+
+.dashboard-header .row {
+    margin-top:0;
+}
+
+.dashboard-header .columns {
+    margin-bottom:0;
+}
+
+.dashboard-header h1 {
+    font-size: 1.6em;
+    padding: 0.7em 0 0.2em;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dashboard-header h1[contenteditable] {
+    overflow: initial;
+    text-overflow: initial;
+}
+
+.dashboard-header h1:before {
+    font-size: 1.4em;
+    display: inline-block;
+    padding: 0;
+    margin: 0 0.4em 0 0;
+    vertical-align: middle;
+}
+
+.dashboard-header .pageHeader {
+    position: relative;
+    min-width: 15em;
+    height: 0;
+}
+
+.dashboard-header .pageHeader.lab-add-image:before {
+    min-height: 3em;
+}
+
+.dashboard-header .pageHeader figure {
+    float: left;
+    margin-right: 0.5em;
+}
+
+/*
+Search-box
+ */
+.labDs-dialog.article_search .expanded_search {
+    display: none;
+}
+.labDs-dialog.article_search.expanded .expanded_search {
+    display: block;
+}
+
+.labDs-dialog.article_search.expanded label {
+    width: 100px;
+}
+
+
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search.expanded form input[type="text"].expanded_search,
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search.expanded form select.expanded_search {
+    width: 240px;
+}
+
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search p.options_btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search button.options_btn {
+    padding: 0.6em;
+    margin: 0;
+    background-color: transparent;
+    color: #000;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search button.options_btn:focus {
+    outline: none;
+}
+
+
+.dashboardbox {
+    margin-bottom: 1.8em;
+}
+
+.dashboardbox .content {
+    background-color: #fff;
+    border: 1px solid #d9d7d7;
+    border-top: 0;
+    padding: 1em;
+}
+
+.dashboardbox.no-bg .content {
+    background-color: transparent;
+    border: 0;
+}
+
+
+body.labFn-edit .dashboardbox.labDs-hover {
+    background-color: #fff;
+}
+
+body.labFn-edit .dashboardbox.labDs-hover .content,
+body.labFn-edit .dashboardbox.labDs-hover .dashboardbox-menu {
+    border-color: transparent;
+}
+
+.dashboardbox .dashboardbox-menu {
+    background-color: #fff;
+    border: 1px solid #d9d7d7;
+    min-height: 3.6em;
+    padding: 0.8em 0.8em 0.6em 1em;
+}
+
+.dashboardbox.no-bg .dashboardbox-menu {
+    background-color: transparent;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dashboardbox .labFn-contextualMenu {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 18%);
+}
+
+
+.dashboardbox.no-bg .labFn-contextualMenu {
+    background: linear-gradient(90deg, rgba(230,230,231,0) 0%,rgba(230,230,231,1) 18%);
+}
+
+.dashboardbox.no-bg .labFn-contextualMenu.labDs-position-top {
+    margin-right: -16px;
+}
+
+.dashboardbox:hover .labFn-contextualMenu {
+    display: block;
+}
+
+.dashboardbox .labFn-contextualMenu.labDs-position-top, 
+.dashboardbox .labFn-contextualMenu.labDs-position-right {
+    padding: 3px 0 0 34px;
+    height: 40px;
+}
+
+.dashboardbox .labFn-contextualMenu .labDs-menuItem {
+    border: 0;
+    background-color: transparent;
+    background-image: none;
+    border-bottom: 3px solid transparent;
+    color: #767676;
+    width: 28px;
+}
+
+.dashboardbox.no-bg .labFn-contextualMenu .labDs-menuItem {
+    color: #000;
+}
+
+.dashboardbox .labFn-contextualMenu .labDs-menuItem:hover {
+    border-color: rgb(210, 210, 210);
+    color: #000;
+}
+
+.labFn-contextualMenu .labDs-menuGroup .labDs-menuItem:last-child {
+    border-bottom-width: 3px;
+}
+
+.dashboardbox .labFn-contextualMenu .labDs-menuGroup {
+    margin-right: 0;
+    z-index: 1000;
+}
+
+.labFn-contextualMenu .labDs-menuItem.labDs-has-submenu:hover:after {
+    display: none;
+}
+
+.labFn-contextualMenu .labDs-menuItem.labDs-has-submenu .labDs-menuItem {
+    display: block;
+    background-color: #fff;
+    margin-bottom: -1px;
+    border: 1px solid #dadada;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    text-align: left;
+}
+
+.labFn-contextualMenu .labDs-menuItem.labFn-on {
+    border-color: #0787d6;
+}
+
+.labFn-contextualMenu .labDs-menuItem.labDs-has-submenu .labDs-menuItem:hover {
+    background-color: #0787d6;
+    border-color: #0787d6;
+    color: #fff;
+    text-shadow: none;
+}
+
+.labFn-contextualMenu .labDs-menuItem.labDs-has-submenu .labDs-menuItem.labFn-on:before {
+    content: "\e630";
+    position: absolute;
+    top: 0.4em;
+    left: 0.1em;
+    font-family: 'Labrador';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+.dashboardbox .dashboardbox-nav .pager {
+    float: right;
+    padding: 0.45em 1.2em 0 0;
+    text-transform: uppercase;
+    color: gray;
+    letter-spacing: 0.06em;
+    font-size: 0.9em;
+}
+
+.dashboardbox .dashboardbox-nav .labFn-contextualMenu {
+    position: relative;
+    float: right;
+    display: block;
+    background: transparent;
+}
+
+
+
+.dashboardbox .content {
+    padding: 0;
+}
+
+.dashboardbox h3 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0.2em 0;
+}
+
+.dashboardbox a {
+    text-decoration: none;
+}
+
+.dashboardbox ul.articles {
+    margin: 0;
+    padding: 0;
+}
+
+.dashboardbox ul.articles:empty {
+    min-height: 15em;
+    position: relative;
+}
+
+.dashboardbox ul.articles:empty:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    height: 60px;
+    width: 60px;
+    margin: -40px -30px 0;
+    animation: lab-rotation 1.2s infinite linear;
+    border-left: 3px solid rgba(0,174,239,.25);
+    border-right: 3px solid rgba(0,174,239,.25);
+    border-bottom: 3px solid rgba(0,174,239,.25);
+    border-top: 3px solid rgba(0,174,239,1);
+    border-radius: 100%;
+    z-index: 2020;
+}
+
+body.labFn-edit .dashboardbox.labFn-isBusy:after {
+    display: none;
+}
+
+.dashboardbox ul.articles li {
+    list-style-type: none;
+    padding: 1em 1em 1em 1.2em;
+    margin: 0 0 1px;
+    clear: both;
+    min-height: 6.5em;
+    border-bottom: 1px solid #efefef;
+    position: relative;
+}
+
+.dashboardbox ul.articles li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.dashboardbox ul.articles li.nohits {
+    text-align: center;
+}
+
+.dashboardbox ul.articles li.nohits:hover {
+    background-color: transparent;
+}
+
+.dashboardbox ul.articles li.nohits:first-child {
+    padding-top: 2em;
+}
+
+.dashboardbox ul.articles li.lab-published-ahead:after {
+    content: "\e635";
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    background-color: green;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-family: 'Labrador';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: #fff;
+    font-size: 2em;
+}
+
+.dashboardbox ul.articles li[data-visibility-status='H'].lab-published-ahead:after {
+    background-color: gold;
+}
+
+.dashboardbox ul.articles li.lab-article-exists {
+    background-color: #d2f3d2;
+    border-bottom-color: #8add8a;
+}
+
+.dashboardbox ul.articles li.lab-article-exists:hover {
+    background-color: #d2f3d2;
+}
+
+.dashboardbox ul.articles li[data-visibility-status]:before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: red;
+    transition: left 0.2s linear, width 0.2s linear;
+}
+
+.dashboardbox ul.articles li:first-child {
+    padding-top: 1em;
+}
+
+.dashboardbox ul.articles li:last-child {
+    border-bottom: 0;
+}
+
+.dashboardbox ul.articles li:last-child {
+    padding-bottom: 1em;
+    margin-bottom: 0;
+}
+
+.dashboardbox ul.articles li:hover {
+    background-color: #f5f5f5;
+}
+
+.dashboardbox ul.articles li:hover:before {
+    left: -12px;
+    width: 12px;    
+}
+
+.dashboardbox ul.articles li[data-visibility-status='P']:before {
+    background-color: green;
+}
+
+.dashboardbox ul.articles li[data-visibility-status='H']:before {
+    background-color: gold;
+}
+
+.dashboardbox ul.articles li a {
+    color: inherit;
+    cursor: pointer;
+}
+
+.dashboardbox ul.articles li a:hover h4 {
+    text-decoration: underline;
+}
+
+.dashboardbox ul.articles li h4 {
+    font-size: 1.4em;
+    margin: 0 0 0.2em;
+}
+
+.dashboardbox.largeTitles ul.articles li h4 {
+    font-size: 2.2em;
+}
+
+.dashboardbox ul.articles li p {
+    margin: 0;
+}
+
+.dashboardbox ul.articles li p.subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboardbox ul.articles li p.meta {
+    color: gray;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboardbox ul.articles li p.meta .tag,
+.dashboardbox ul.articles li p.meta .date {
+    margin-right: 0.5em;
+    color: #000;
+}
+
+.dashboardbox ul.articles li .bodytext {
+    margin: 0.5em 6em 0.5em 0;
+    overflow: hidden;
+    display: none;
+}
+
+.abs_grid_1.dashboardbox ul.articles li .article p.subtitle, .abs_grid_2.dashboardbox ul.articles li .article p.subtitle, .abs_grid_3.dashboardbox ul.articles li .article p.subtitle,
+.abs_grid_1.dashboardbox ul.articles li .article p.bodytext, .abs_grid_2.dashboardbox ul.articles li .article p.bodytext, .abs_grid_3.dashboardbox ul.articles li .article p.bodytext {
+    margin-right: 1em;
+}
+
+.dashboardbox ul.articles li.text_expanded .bodytext {
+    display: block;
+}
+
+.dashboardbox ul.articles li.text_expanded p.subtitle {
+    white-space: initial;
+    overflow: initial;
+    text-overflow: initial;
+}
+
+.dashboardbox ul.articles li p.meta .tag:before,
+.dashboardbox ul.articles li p.meta .date:before {
+    margin-right: 0.2em;
+    vertical-align: text-bottom;
+}
+
+.dashboardbox.feed_list ul.articles li .article {
+    margin-left: 0;
+}
+
+.dashboardbox ul.articles li .controls {
+    float: right;
+    margin-left: 0.8em;
+}
+
+.dashboardbox ul.articles li .controls .control_el {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    padding: 0.3em 0.22em;
+    border-bottom: 3px solid transparent;
+    color: #767676;
+}
+
+.dashboardbox ul.articles li .controls .control_el:hover {
+    border-bottom-color: #cacaca;
+    color: #000;
+}
+
+.dashboardbox ul.articles li .controls .control_el.lab-icon-notes {
+    border: 3px solid gold;
+    padding: 0.2em 0.2em;
+}
+
+.dashboardbox ul.articles li .controls .control_el.lab-icon-notes .notes {
+    display: none;
+}
+
+.dashboardbox ul.articles li .image {
+    margin: 0.5em 0;
+    float: left;
+}
+
+.dashboardbox ul.articles li .image img,
+.dashboardbox ul.articles li .image .noimage {
+    display: block;
+    margin-right: 1em;
+    width: 100px;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+.dashboardbox.largeImages ul.articles li .image img {
+    width: 200px;
+    max-height: 180px;
+}
+
+
+.dashboardbox ul.articles li .image .noimage {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    color: #5b5b5b;
+    background-color: #f5f5f5;
+}
+
+.dashboardbox ul.articles li .image .noimage:before {
+    font-size: 2.2em;
+    padding-top: 0.4em;
+    display: block;
+    padding-right: 0.1em;
+}
+
+.dashboardbox.largeImages ul.articles li .image .noimage {
+    width: 200px;
+    height: 125px;
+    max-height: 125px;
+}
+
+.dashboardbox.largeImages ul.articles li .image .noimage:before {
+    padding-top: 1.1em;
+}
+
+.dashboardbox.compact ul.articles li {
+    padding: 0.7em 0.7em 0.5em 0.7em;
+    min-height: 4.5em;
+}
+
+.dashboardbox.feed_list ul.articles li .article p.subtitle {
+    margin-left: 0;
+}
+
+.dashboardbox.compact ul.articles li .image img {
+    max-height: 50px;    
+    max-width: 80px;
+    margin-right: 0.5em;
+}
+
+.dashboardbox.compact ul.articles li .image .noimage {
+    width: 80px;
+    height: 50px;
+    margin-right: 0.5em;
+}
+
+.dashboardbox.compact ul.articles li .image .noimage:before {
+    font-size: 2em;
+    padding-top: 0.2em;
+    display: block;
+    padding-right: 0.1em;
+}
+
+.dashboardbox.compact ul.articles li h4 {
+    font-size: 1.25rem;
+}
+
+.dashboardbox.compact ul.articles li p.meta {
+    display: none;
+}
+
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status] h5:before {
+    content: "";
+    float:left;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    border: 1px solid gray;
+}
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status='P'] h5:before {
+    background-color: green;
+}
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status='H'] h5:before {
+    background-color: gold;
+}
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status='PH'] h5:before {
+    background: linear-gradient(45deg, rgba(0,128,0,1) 0%, rgba(0,128,0,1) 50%, rgba(255,217,0,1) 51%, rgba(255,217,0,1) 100%);
+}
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status='A'] h5:before {
+    background: linear-gradient(45deg, rgba(0,128,0,1) 0%, rgba(0,128,0,1) 33%, rgba(255,0,0,1) 34%, rgba(255,0,0,1) 65%, rgba(255,217,0,1) 66%, rgba(255,217,0,1) 100%);
+}
+
+body.labFn-edit .labFn-appMenu .labDs-menu-structure[data-visibility-status='U'] h5:before {
+    background: linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 50%, rgba(255,217,0,1) 51%, rgba(255,217,0,1) 100%);
+}
+
+
+
+.MyDeskGraph {
+    height: 12em;
+    padding: 1em 0 2.4em;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.MyDeskGraph span {
+    display: block;
+    width: 100%;
+    margin: 0 1px 0 0;
+    position: relative;
+    border: 1px solid green;
+    background: green;
+}
+
+.MyDeskGraph span[data-value]:before {
+    content: attr(data-value);
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    transition: color 0.2s linear;
+}
+
+.MyDeskGraph span[data-value]:hover:before {
+    color: #000;
+}
+
+.MyDeskGraph span[data-value='0'] {
+    border-top: 0;
+}
+
+.MyDeskGraph span[data-label]:after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -24px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+    transform: rotate(45deg);
+    min-height: 1em;
+    min-width: 3em;
+}
+
+
+.abs_grid_1.dashboardbox ul.articles li .article,
+.abs_grid_2.dashboardbox ul.articles li .article,
+.abs_grid_3.dashboardbox ul.articles li .article {
+    margin-left: 0;
+    font-size: 0.8em;
+}
+
+
+.MyDeskGraph:hover span[data-label]:after {
+    color: gray;
+}
+.MyDeskGraph:hover span[data-label]:hover:after {
+    color: #000;
+    font-weight: bold;
+}
+
+.dashboardbox.article_search input {
+    padding: 0.1em 0.6em 0.2em 0;
+    font-size: 1.2em;
+    border: 0;
+    width: 100%;
+}
+
+.dashboardbox.article_search input:placeholder-shown {
+    border-bottom: 2px dashed #c5c5c5;
+}
+
+.dashboardbox.article_search input:focus {
+    outline: 0;
+    border-bottom: 2px dashed rgb(0, 124, 171);
+}
+
+body.labFn-edit.lab-is-none-editable .ui-resizable .ui-resizable-handle.ui-resizable-e {
+    cursor: default;
+}
+
+body.lab-is-none-editable .ui-resizable-handle:hover:after {
+    display: none;
+}
+
+body.lab-is-none-editable .labFn-contextualMenu.pageHeaderMenu {
+    display: none !important;
+}
+

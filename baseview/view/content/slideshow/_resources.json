@@ -1,0 +1,87 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "content/slideshow/template/default"
+                },
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/slideshow/front/default.json"
+                    ]
+                }
+            },
+            "article": {
+                "template": {
+                    "default": "content/slideshow/template/base"
+                },
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "template": {
+                    "default": "content/slideshow/template/base"
+                },
+                "properties": {
+                    "default": "content/slideshow/front/tallSlideshow.json"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/default.json",
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/image.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content/bodytext/editor/child.json",
+                        "content/slideshow/editor/default.json"
+                    ]
+                }
+            },
+            "article": {
+                "properties": {
+                    "default": [
+                        "content/slideshow/editor/child.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "content/slideshow/editor/child.json"
+                    ]
+                }
+            },
+            "parallax": {
+                "properties": {
+                    "default": [
+                        "content/parallax/editor/layer.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json",
+                        "content/bodytext/editor/grid_resize.json",
+                        "content_settings/editor/resize/disabled.json"
+                    ],
+                    "mobile": [
+                        "content/bodytext/editor/grid_resize.json"
+                    ]
+                }
+            }
+        }
+    }
+}

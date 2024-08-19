@@ -1,0 +1,77 @@
+{
+    "icon": "labicon-alignLeft",
+    "text": "Text alignment",
+    "title": "Text-align",
+    "onValue": true,
+    "offValue": false,
+    "bindings": [
+        {
+            "path": "metadata.text_align",
+            "attribute": "value",
+            "valueTransformer": "lab-key-is-true"
+        }
+    ],
+    "items": [
+        {
+            "icon": "labicon-alignLeft",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.text_align",
+            "onValue": "left",
+            "offValue": null,
+            "bindings": [
+                {
+                    "path": "metadata.text_align",
+                    "attribute": "value"
+                }
+            ],
+            "title": "Text alignment left",
+            "text": "Align left"
+        },
+        {
+            "icon": "labicon-alignCenter",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.text_align",
+            "onValue": "center",
+            "offValue": null,
+            "title": "Text alignment center",
+            "bindings": [
+                {
+                    "path": "metadata.text_align",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align centered"
+        },
+        {
+            "icon": "labicon-alignRight",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.text_align",
+            "onValue": "right",
+            "offValue": null,
+            "title": "Text alignment right",
+            "bindings": [
+                {
+                    "path": "metadata.text_align",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align right"
+        },
+        {
+            "icon": "labicon-align_vertical_center",
+            "group": "g2",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_text_align",
+            "onValue": "center",
+            "offValue": null,
+            "title": "Text alignment vertical center",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_text_align",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Vertical center"
+        }
+    ]
+}

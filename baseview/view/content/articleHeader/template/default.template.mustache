@@ -1,0 +1,52 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{#helper.trim}}
+    articleHeader
+    column
+    {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{ #get.current.metadata.image_gradient_direction }}image-gradient-{{ get.current.metadata.image_gradient_direction }}{{ /get.current.metadata.image_gradient_direction }} 
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ #get.child.image.filtered.captionOptions.display }} hasCaption{{ /get.child.image.filtered.captionOptions.display }}
+    {{/helper.trim}}">
+
+    {{{ children.adZone }}}
+
+    {{ #get.current.filtered.layout.top }}
+    {{ #render.template }}content/articleHeader/template/partials/{{ . }}{{ /render.template }}
+    {{ /get.current.filtered.layout.top }}
+
+    <div class="media{{ #get.current.filtered.hasFloatingText }} floatingText{{ /get.current.filtered.hasFloatingText }}">
+        {{^get.current.metadata.hideimage}}
+            {{{ placeholder.no_media }}}
+            {{{ children.image }}}
+            {{{ children.graphic }}}
+            {{{ children.slideshow }}}
+            {{{ children.youtube }}}
+            {{{ children.simplestream }}}
+            {{{ children.markup }}}
+            {{{ children.parallax }}}
+            {{{ children.jwplayer }}}
+        {{/get.current.metadata.hideimage}}
+        <div class="floatingText">{{#helper.trim}}
+            {{ #get.current.filtered.layout.floating }}
+            {{ #render.template }}content/articleHeader/template/partials/{{ . }}{{ /render.template }}
+            {{ /get.current.filtered.layout.floating }}
+        {{/helper.trim}}</div>
+    </div>
+
+    {{ #get.child.image.filtered.captionOptions.display }}
+    <div class="caption {{ #helper.trim }}
+        {{ #app.isEditor }}expanded{{ /app.isEditor }}
+        {{ #get.current.fields.truncateCaption }}truncate{{ /get.current.fields.truncateCaption }}
+        {{ ^get.current.fields.truncateCaption }}
+            {{ #get.child.image.fields.truncateCaption }}truncate{{ /get.child.image.fields.truncateCaption }}
+        {{ /get.current.fields.truncateCaption }}
+        {{ /helper.trim }}" data-showmore="{{{ getConfig.image.caption.showMoreLabel }}}"{{ #get.child.image.filtered.captionOptions.expandable }} data-expandable="true"{{ /get.child.image.filtered.captionOptions.expandable }}>
+        <figcaption itemprop="caption" class="{{ #style.collection }}text_decoration child.image.fields.imageCaption{{ /style.collection }}">{{ #get.child.image.fields.globalCaption }}{{{ get.child.image.fields.globalCaption }}}{{ /get.child.image.fields.globalCaption }}{{ ^get.child.image.fields.globalCaption }}{{{ get.child.image.fields.imageCaption }}}{{ /get.child.image.fields.globalCaption }}</figcaption>
+        <figcaption itemprop="author" class="{{ #style.collection }}text_decoration child.image.fields.byline{{ /style.collection }}" data-byline-prefix="{{{ getConfig.image.imageBylinePrefix }}}">{{{ get.child.image.fields.byline }}}</figcaption>
+    </div>
+    {{ /get.child.image.filtered.captionOptions.display }}
+    {{ #get.current.filtered.layout.bottom }}
+    {{ #render.template }}content/articleHeader/template/partials/{{ . }}{{ /render.template }}
+    {{ /get.current.filtered.layout.bottom }}
+
+    {{{ child.articleMeta }}}
+</div>

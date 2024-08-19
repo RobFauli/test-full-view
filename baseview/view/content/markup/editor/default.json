@@ -1,0 +1,75 @@
+{
+    "placeholders": [
+        {
+            "name": "no_markup",
+            "conditions": [{
+                "fn": "hasNoData",
+                "params": {
+                    "key": "fields.markup"
+                }
+            }],
+            "templatePath": "content/markup/template/placeholder"
+        }
+    ],
+    "settingsPanels": {
+        "admin": {
+            "template": "content/markup/template/settings",
+            "title": "Markup",
+            "container": {
+                "width": 1000
+            }
+        }
+    },
+    "movables": {
+        "content": {
+            "active": true,
+            "requirePath": "metadata.movableContent",
+            "selector": ".content",
+            "selectorIdPrefix": "#markup_",
+            "identifier": "content",
+            "path": "metadata.contentPosition"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "align": {
+                    "inheritPath": "menu/buttons/textAlign.json",
+                    "group": "g5",
+                    "text": null
+                },
+                "code": {
+                    "icon": "labicon-code",
+                    "callback": "displaySettingsPanel",
+                    "title": "Edit markup (,)",
+                    "group": "g5",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                },
+                "cookieConsent": {
+                    "inheritPath": "menu/buttons/cookieConsent.json",
+                    "group": "g5"
+                },
+                "movable": {
+                    "inheritPath": "menu/buttons/movable.json",
+                    "group": "g5"
+                },
+                "fullwidth": {
+                    "inheritPath": "menu/buttons/fullWidth.json",
+                    "text": "",
+                    "displayHotkeys": false,
+                    "group": "g5"
+                }
+            }
+        }
+    }
+}

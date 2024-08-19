@@ -1,0 +1,7 @@
+<div data-element-guid="{{ get.current.guid }}" class="lab4 column articleList layout_{{ get.current.fields.layout }} imageLayout_{{ get.current.fields.imageLayout }} {{ size.grid.css }} {{ size.grid.absCss }} abs_grid_{{ size.grid.absWidth }} {{ #style.collection }}box_decoration{{ /style.collection }}" style="--articleList-columnsDesktop: repeat({{ get.current.filtered.columns.desktop }}, 1fr); --articleList-columnsMobile: repeat({{ get.current.filtered.columns.mobile }}, 1fr);">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}">
+        <h2 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h2>
+        <ul{{ ^children.article[0] }} class="labicon-article"{{ /children.article[0] }}>{{{ children.article }}}</ul>
+    </div>
+</div>

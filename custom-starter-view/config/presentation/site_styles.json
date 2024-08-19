@@ -1,0 +1,8 @@
+{
+    "site_styles": {
+        "demosite": [
+            "/view-resources/custom-starter-view/view/css/elements.css",
+            "/view-resources/custom-starter-view/view/css/site/demosite.css"
+        ]
+    }
+}

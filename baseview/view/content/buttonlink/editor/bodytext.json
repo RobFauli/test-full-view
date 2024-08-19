@@ -1,0 +1,46 @@
+{
+    "includeFiles": [
+        "content_settings/editor/draggable/default.json",
+        "content_settings/editor/droppable/default.json"
+    ],
+    "contentMenus": {
+        "default": {
+            "labels": {
+                "before": ["lab-content-type"]
+            },
+            "items": {
+                "gridResize": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g1_b",
+                    "displayCondition": "isNotViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.hasFullWidth",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                },
+                "gridResizeMobile": {
+                    "inheritPath": "menu/buttons/gridOverrideMobile.json",
+                    "group": "g1_b",
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.hasFullWidth",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                }
+            },
+            "params": {}
+        }
+    }
+}

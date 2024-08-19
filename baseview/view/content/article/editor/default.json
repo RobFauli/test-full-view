@@ -1,0 +1,188 @@
+{
+    "editors": {
+        "kicker": {
+            "selector": ".kicker",
+            "fn": "EditRich",
+            "key": "fields.kicker",
+            "menu": "rich_text",
+            "placeholder": "Click to add kicker",
+            "allowNbsp": true,
+            "allowReverting": true,
+            "textInfoPlacement": "menu"
+        },
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "modal": false,
+            "allowNbsp": true,
+            "allowReverting": true,
+            "lineBreaksPerViewport": true,
+            "textInfoPlacement": "menu"
+        },
+        "subtitle": {
+            "selector": "p.subtitle",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.subtitle",
+            "placeholder": "Click to add subtitle",
+            "allowNbsp": true,
+            "allowReverting": true,
+            "textInfoPlacement": "menu"
+        },
+        "subarticles": {
+            "selector": ".subarticlesTitle",
+            "fn": "EditRich",
+            "key": "fields.subarticlesTitle",
+            "menu": "rich_text",
+            "placeholder": "Click to add subarticles-title",
+            "allowReverting": true,
+            "textInfoPlacement": "menu"
+        },
+        "caption": {
+            "selector": "figcaption[itemprop=caption]",
+            "target": "child.image",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.imageCaption",
+            "placeholder": "Click to add caption",
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": { "active": false },
+                "text_align": { "active": false },
+                "text_color": { "active": false },
+                "text_background_color": { "active": false }
+            },
+            "textInfoPlacement": "menu"
+        },
+        "captionbyline": {
+            "selector": "figcaption[itemprop=author]",
+            "target": "child.image",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.byline",
+            "placeholder": "Click to add byline",
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": { "active": false },
+                "text_align": { "active": false },
+                "text_color": { "active": false },
+                "text_background_color": { "active": false }
+            },
+            "textInfoPlacement": "menu"
+        }
+    },
+
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/article.json",
+            "items": {
+                "mediaOptions": {
+                    "items": {
+                        "imageStyling": {
+                            "params": {
+                                "colorPicker": {
+                                    "preview": {
+                                        "selector": ".content"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    "redrawPaths": {
+        "current": ["metadata.subarticles", "metadata.hasFullWidth", "metadata.hideimage", "fields.displayCaption"]
+    },
+
+    "editorSelectors": {
+        "edit": ["lab-content-min-height"]
+    },
+
+    "publishValidation": {
+        "fields.title": {
+            "validator": "notEmpty",
+            "allowOverride": true,
+            "description": "Article-teaser has no title"
+        }
+    },
+
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "image": "replaceChild",
+                "graphic": "replaceChild",
+                "slideshow": "replaceChild",
+                "youtube": "replaceChild",
+                "simplestream": "replaceChild",
+                "markup": "replaceChild"
+            },
+            "default": "default"
+        },
+        "filedrop": "replaceChild"
+    },
+
+    "dropzones": {
+        "subarticles": {
+            "active": true,
+            "accept": ["article"],
+            "drop": "addChild",
+            "selector": "ul.relatedArticles"
+        }
+    },
+
+    "placeholders": [
+        {
+            "name": "no_media",
+            "conditions": [{
+                "fn": "noChildOfTypes",
+                "params": {
+                    "modelTypes": ["image", "graphic", "youtube", "simplestream", "slideshow", "markup", "parallax"]
+                }
+            }],
+            "templatePath": "content/image/template/placeholder",
+            "handlers": [
+                {
+                    "selector": ".addImageBtn",
+                    "trigger": ["click"],
+                    "fn": "lab_api.v1.collection.display",
+                    "param": {
+                        "name": "MediaImages"
+                    }
+                }
+            ]
+        }
+    ],
+
+    "settingsPanels": {
+        "editLink": {
+            "editor": null,
+            "keyValidation": [],
+            "template": "content/article/template/settings/editLink",
+            "title": "Edit url"
+        },
+        "mailmojoStyling": {
+            "editor": null,
+            "keyValidation": [],
+            "template": "content/article/template/settings/mailmojoStyling",
+            "title": "Style for Mailmojo newsletter"
+        }
+    }
+}

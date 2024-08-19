@@ -1,0 +1,79 @@
+{
+    "int_es-ES": {
+        "dates": {
+            "sunday": "domingo",
+            "monday": "lunes",
+            "tuesday": "martes",
+            "wednesday": "miércoles",
+            "thursday": "jueves",
+            "friday": "viernes",
+            "saturday": "sábado",
+            "january": "enero",
+            "february": "febrero",
+            "mars": "marzo",
+            "april": "abril",
+            "may": "mayo",
+            "june": "junio",
+            "july": "julio",
+            "august": "agosto",
+            "september": "septiembre",
+            "october": "octubre",
+            "november": "noviembre",
+            "december": "diciembre",
+            "ago": "hace",
+            "now": "ahora",
+            "minute": "minuto",
+            "min": "min",
+            "minutes": "minutos",
+            "hour": "hora",
+            "hours": "horas",
+            "day": "día",
+            "days": "días",
+            "monthdayyear": "{{DD}}/{{MM}} {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{ago}} {{count}} {{period}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Boletín de noticias",
+                "notice": "Recibes este correo electrónico porque estás suscrito a nuestra lista de correo.",
+                "preferences": "Tus preferencias",
+                "unsubscribe": "Darse de baja",
+                "view": "Abrir en navegador",
+                "date": "d. de MMMM Y"
+            }
+        },
+        "ai": {
+            "factbox_disclaimer": "Este cuadro informativo fue generado por Labrador AI y revisado por un periodista."
+        },
+        "tags": {
+            "title_text": "{{tagPath}}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Buscar...",
+            "label": "La búsqueda"
+        },
+        "header": {
+            "logo_link_text": "Ir a la portada"
+        },
+        "slack_notifier": {
+            "publish": {
+                "article": "*Artículo publicado*\n*Título*: {{{title}}}\n*ID de página*: {{id}}\n{{#modified}}*Fecha*: {{modified}}\n{{/modified}}{{#published_ahead}}*Nota: Publicado anticipadamente*\n{{/published_ahead}}{{#hidden}}*Publicado oculto*\n{{/hidden}}*Usuario*: {{user}}\n*<{{{url_front}}}|Ver página>* - *<{{{url_editor}}}|Editar página>*",
+                "front": "*Portada publicada*\n*Título*: {{{title}}}\n*ID de página*: {{id}}\n*Fecha*: {{modified}}\n{{#published_ahead}}*Nota: Publicado anticipadamente*\n{{/published_ahead}}{{#hidden}}*Publicado oculto*\n{{/hidden}}*Usuario*: {{user}}\n*<{{{url_front}}}|Ver página>* - *<{{{url_editor}}}|Editar página>*",
+                "notice": "*Notice publicado*\n*Título*: {{{title}}}\n*ID de página*: {{id}}\n*Fecha*: {{modified}}{{#hidden}}*Publicado oculto*\n{{/hidden}}*Usuario*: {{user}}\n*<{{{url_front}}}|Ver página>* - *<{{{url_editor}}}|Editar página>*"
+            },
+            "error": {
+                "all": "*{{ #isCmsError }}Error de CMS{{ /isCmsError }}{{ ^isCmsError }}Error de vista{{ /isCmsError }}*: {{{message}}}\n*Stack trace*: ```{{{stackTrace}}}```\n*Usuario*: {{user}}\n*<{{{url_editor}}}|Editar página>* - *<{{{url_monitor}}}|Monitor de Desarrollador>*"
+            }
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Ve a la izquierda",
+            "articleScrollerRightButton": "Ve a la derecha"
+        },
+        "metadata": {
+            "publishedLabel": "Publicado",
+            "modifiedLabel": "Última actualización",
+            "unpublishedLabel": "No publicado"
+        }
+    }
+}

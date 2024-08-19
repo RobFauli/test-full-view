@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://www.dailymail.co.uk/static/mol-adverts/{{ get.current.filtered.googleAds.bidding.provider.version }}/gbnews-adverts.css">
+<script src="https://www.dailymail.co.uk/static/mol-adverts/{{ get.current.filtered.googleAds.bidding.provider.version }}/gbnews-adverts.js"></script>
+
+<script>
+    window.adverts = window.adverts || { queue:[] };
+    window.adverts.queue = window.adverts.queue || [];
+
+    window.adverts.queue.push({
+        scope: 'metadata',
+        data: {
+            env: '{{ #get.current.filtered.googleAds.debugmode }}test{{ /get.current.filtered.googleAds.debugmode }}{{ ^get.current.filtered.googleAds.debugmode }}prod{{ /get.current.filtered.googleAds.debugmode }}',
+            site: '{{ get.current.filtered.siteAlias }}',
+            section: '{{ get.current.filtered.section }}',
+            context: '{{ get.current.filtered.pageType }}',
+            is_tagpage: {{ #get.current.filtered.is_tagpage }}true{{ /get.current.filtered.is_tagpage }}{{ ^get.current.filtered.is_tagpage }}false{{ /get.current.filtered.is_tagpage }},
+            viewport: '{{ get.current.filtered.device }}',
+            tags: "{{ #helper.sanitizeString }}{{ get.current.filtered.tagsString }}{{ /helper.sanitizeString }}",
+            id: '{{ id }}',
+            published: '{{ fields.published }}',
+            modified: '{{ fields.modified }}',
+            {{ #get.current.filtered.is_article }}
+                authors: [{{ #get.current.filtered.bylines }} "{{ #helper.sanitizeString }}{{{ fields.firstname }}} {{{ fields.lastname }}}{{ /helper.sanitizeString }}", {{ /get.current.filtered.bylines }}],
+                title: "{{ #helper.sanitizeString }}{{{ get.current.fields.title }}}{{ /helper.sanitizeString }}"
+            {{ /get.current.filtered.is_article }}
+        }
+    });
+</script>

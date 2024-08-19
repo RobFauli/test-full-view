@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Labrador Icons</title>
+    <link rel="stylesheet" href="labrador-icons.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.4em;
+            font-family: sans-serif;
+        }
+        h1 {
+            background-color: #69b0d4;
+            padding: 20px 80px;
+            color: #fff;
+            font-size: 1.8em;
+        }
+        h1:before {
+            vertical-align: middle;
+            font-size: 1.7em;
+        }
+        div#demoContainer,
+        body > p {
+            padding: 0 80px;
+        }
+        div#demoContainer {
+            margin: 2em 0;
+            overflow: auto;
+        }
+        div#demoContainer div {
+            float: left;
+            padding: 1em;
+            width: 15em;
+            height: 8em;
+            text-align: center;
+        }
+        div#demoContainer div span {
+            font-size: 3em;
+        }
+        div#demoContainer div p {
+            border-bottom: 1px solid #dedede;
+            padding-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="lab-icon-Labrador-head"> Labrador Icons</h1>
+    <p>Usage: add one of the class-names below to an element. The stylesheet will add a "before" pseudo-element containing a character drawn with the Labrador icon font</p>
+    <p>Example: <span style="display:inline-block; padding: 0.2em 0.4em; border:1px solid green;">&#x3C;span class=&#x22;lab-icon-page&#x22;&#x3E; Page-icon&#x3C;/span&#x3E;</span> will be drawn like this: <span style="display:inline-block; padding: 0.2em 0.4em; border:1px solid green;"><span class="lab-icon-page"> Page-icon</span></span></p>
+    <div id="demoContainer"></div>
+<script>
+
+var addRule = function(rule, demoContainer) {
+
+    var cssClassArray = rule.selectorText.split('::');
+    if (!cssClassArray.length) {
+        console.warn('Skipping class: ' + rule.selectorText);
+        return;
+    }
+    var cssClass = cssClassArray[0].slice(1).replace('.', ' '); // '.lab-icon-hidesubtitle.off' -> 'lab-icon-hidesubtitle off'
+    var charEl = document.createElement('span');
+    charEl.className = cssClass;
+    var descriptionEl = document.createElement('p');
+    descriptionEl.innerHTML = cssClass;
+    var containerEl = document.createElement('div');
+    containerEl.appendChild(charEl);
+    containerEl.appendChild(descriptionEl);
+    demoContainer.appendChild(containerEl);
+};
+
+var demoContainer = document.getElementById('demoContainer');
+
+for (var i = 0; i < document.styleSheets[0].cssRules.length; i++) {
+    var rule = document.styleSheets[0].cssRules[i];
+    if (rule.cssText.indexOf('.lab-icon-') == 0) {
+        addRule(rule, demoContainer);
+    }
+}
+
+</script>
+</body>
+</html>

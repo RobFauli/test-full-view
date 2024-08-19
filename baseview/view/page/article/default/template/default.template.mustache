@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html {{ #get.current.filtered.seolanguage }}lang="{{ . }}"{{ /get.current.filtered.seolanguage }}{{ ^get.current.filtered.seolanguage }}{{ #get.current.filtered.contentLanguage }}lang="{{ . }}"{{ /get.current.filtered.contentLanguage }}{{ /get.current.filtered.seolanguage }} dir="{{ getConfig.textDirection }}" class="{{ #get.current.filtered.featureFlags.responsive_mobile_fonts }}resp_fonts{{ /get.current.filtered.featureFlags.responsive_mobile_fonts }}">
+
+    <head>
+        {{> partial/lab4/page_head }}
+        {{> partial/lab4/page_head_after }}
+        <meta property="article:section" content="{{{ get.current.filtered.section }}}">
+        {{ #get.current.filtered.analytics.kilkayaSettings.showKilkayaMetatags }}{{ > partial/lab4/analytics/kilkaya_metadata }}{{ /get.current.filtered.analytics.kilkayaSettings.showKilkayaMetatags }}
+        {{ > partial/lab4/analytics/kilkaya }}
+        
+        <style>
+            :root {
+                {{ #get.current.fields.bodytextWidth }}--bodytext-width: var({{ get.current.fields.bodytextWidth }});{{ /get.current.fields.bodytextWidth }}
+                {{ #get.current.fields.bodytextAlignment }}--bodytext-alignment: var({{ get.current.fields.bodytextAlignment }});{{ /get.current.fields.bodytextAlignment }}
+            }
+        </style>
+        
+        {{ #app.isEditor }}<link rel="stylesheet" href="/view-resources/baseview/view/css/edit.css">{{ /app.isEditor }}
+    </head>
+
+    <body class="{{ #helper.trim }}
+        l4 article site_{{{ get.current.filtered.site.alias }}}
+        {{ get.current.fields.articleStyle }}
+        {{ #get.current.filtered.section }} section_{{ get.current.filtered.section }}{{ /get.current.filtered.section }}
+        {{ get.current.filtered.autodata_css }}
+        {{ #get.current.fields.pageBackgroundColorStyleDark }} dark-mode{{ /get.current.fields.pageBackgroundColorStyleDark }}
+        {{ #get.current.fields.pageBackgroundColor }}{{ get.current.fields.pageBackgroundColor }} custom-background-color{{ /get.current.fields.pageBackgroundColor }}
+        {{ #get.current.fields.pageBackgroundColorStyle }} custom-background-color{{ /get.current.fields.pageBackgroundColorStyle }}
+        {{ #get.current.fields.pageFontColor }} custom-font-color{{ get.current.fields.pageFontColor }}{{ /get.current.fields.pageFontColor }}
+        {{ #get.current.filtered.paywall.enabled }} has-paywall{{ /get.current.filtered.paywall.enabled }}
+        {{ #get.current.fields.bodytextWidth }} custom-bodytext-width{{ /get.current.fields.bodytextWidth }}
+        {{ #get.current.fields.bodytextAlignment }} custom-bodytext-alignment{{ /get.current.fields.bodytextAlignment }}
+        {{ #get.current.fields.articleHeaderBodytextWidth }} articleHeader-bodytext-width{{ /get.current.fields.articleHeaderBodytextWidth }}
+        {{ #get.current.fields.articleHeaderImageBodytextWidth }} articleHeader-image-bodytext-width{{ /get.current.fields.articleHeaderImageBodytextWidth }}
+        {{ #get.current.fields.articleMetaBodytextWidth }} articleHeader-meta-bodytext-width{{ /get.current.fields.articleMetaBodytextWidth }}
+        {{ /helper.trim }}"
+        {{ #get.current.fields.pageBackgroundColorStyle }} style="background-color:{{ get.current.fields.pageBackgroundColorStyle }};{{ #get.current.fields.pageBackgroundColorStyleDark }}color:#fff;{{ /get.current.fields.pageBackgroundColorStyleDark }}"{{ /get.current.fields.pageBackgroundColorStyle }}
+        {{ #render.partial }}page_body_tag_inside{{ /render.partial }}>
+        {{ > partial/lab4/page_body_prefix }}
+        <a href="#main" class="skip-link">Jump to main content</a>
+
+        {{ #render.pageElement }}page_header lab4/page_header{{ /render.pageElement }}
+
+        {{{ selector.placement_non-relative }}}
+                
+        {{ #get.current.filtered.readProgress.active }}
+        {{> partial/readProgress }}
+        {{ /get.current.filtered.readProgress.active }}
+
+        <main class="pageWidth">
+            {{{ selector.placement_top }}}
+            {{{ selector.placement_left }}}
+            {{{ selector.placement_right }}}
+            <article class="{{ #get.current.fields.pageBackgroundColor }}bg-baseview-custom{{ /get.current.fields.pageBackgroundColor }} {{ get.current.fields.pageFontColor }}{{ #get.current.fields.pageBackgroundColorStyle }} bg-baseview-custom{{ /get.current.fields.pageBackgroundColorStyle }}">
+
+                <section class="main article k5a-article" id="main">
+
+                    {{{ child.articlePreHeader }}}
+
+                    {{{ child.articleHeader }}}
+
+                    {{ #render.partial }}articleAfterArticleHeader{{ /render.partial }}
+
+                    {{{ child.adZone_4 }}}
+                    {{{ selector.placement_above_article }}}
+                    {{ #get.current.filtered.page_settings.social.display.bodytext_before }}
+                    <div class="row social">
+                        <div class="column large-12 small-12">
+                        {{ #get.current.filtered.page_settings.social.items }}
+                        {{ > partial/social_button }}
+                        {{ /get.current.filtered.page_settings.social.items }}
+                        </div>
+                    </div>
+                    {{ /get.current.filtered.page_settings.social.display.bodytext_before }}
+                    {{ #get.current.filtered.ageWarning }}
+                    {{ > partial/ageWarning }}
+                    {{ /get.current.filtered.ageWarning }}
+                    {{{ child.bodytext }}}
+
+                    {{ #render.partial }}belowBodytext{{ /render.partial }}
+                    {{{ child.articleFooter }}}
+
+                    {{ #get.current.filtered.page_settings.social.display.bodytext_after }}
+                    <div class="row social">
+                        <div class="column large-12 small-12">
+                            {{ #get.current.filtered.page_settings.social.items }}
+                            {{ > partial/social_button }}
+                            {{ /get.current.filtered.page_settings.social.items }}
+                        </div>
+                    </div>
+                    {{ /get.current.filtered.page_settings.social.display.bodytext_after }}
+
+                    {{ #get.current.filtered.embeddable.display }}
+                    <div class="row">
+                        <div class="column large-12 small-12 embed">
+                            {{> partial/embedThis}}
+                        </div>
+                    </div>
+                    {{ /get.current.filtered.embeddable.display }}
+                </section>
+                {{ #get.current.filtered.displayComments }}
+                <section class="comments">
+                    {{ #get.current.filtered.facebook }}{{> partial/facebook_comments }}{{ /get.current.filtered.facebook }}
+                    {{ #get.current.filtered.disqus }}{{> partial/lab4/disqus_comments }}{{ /get.current.filtered.disqus }}
+                    {{ #get.current.filtered.commento }}{{> partial/commento_comments }}{{ /get.current.filtered.commento }}
+                    {{ #get.current.filtered.hyvor }}{{> partial/hyvor_comments }}{{ /get.current.filtered.hyvor }}
+                    {{ #get.current.filtered.ifragasatt }}{{> partial/ifragasatt_comments }}{{ /get.current.filtered.ifragasatt }}
+                </section>
+                {{ /get.current.filtered.displayComments }}
+                {{ #get.current.filtered.widgets.strossle }}<div class="column large-12 small-12">{{ > widgets/strossle }}</div>{{ /get.current.filtered.widgets.strossle }}
+            </article>
+            <section class="related desktop-fullWidth mobile-fullWidth fullwidthTarget">
+            {{{ child.dropZone }}}
+            </section>
+        </main>
+        {{ #get.current.filtered.readProgress.active }}
+        <script>
+            (function () {
+                window.dachserData.push('readprogress', {
+                    selector: '.read-progress',
+                    targetSelectors: ['.articleHeader', '.bodytext'],
+                    minElementCount: '{{ get.current.filtered.readProgress.minElementCount }}',
+                    debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+                });
+            }());
+        </script>
+        {{ /get.current.filtered.readProgress.active }}
+
+        {{ #render.partial }}lab4/page_footer{{ /render.partial }}
+
+        {{> partial/lab4/page_foot }}
+
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "content/placeholder/template/default"
+                }
+            }
+        }
+    }
+}

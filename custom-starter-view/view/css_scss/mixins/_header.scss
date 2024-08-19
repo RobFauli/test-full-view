@@ -1,0 +1,66 @@
+// Adjust elements that use header height
+
+@mixin adjustHeaderHeight($height) {
+    .pageHeader {
+        height: $height;
+
+        .mainline {
+            height: $height;
+        }
+
+        [class*="-button"] {
+            height: $height;
+            width: $height;
+        }
+
+        .search {
+            .search-container {
+                height: $height;
+                padding-right: $height;
+
+                input[type="text"] {
+                    height: $height;
+                }
+            }
+
+            &.alignLeft {
+                .search-container {
+                    padding-left: $height;
+                }
+            }
+        }
+
+        .hamburger {
+            .hamburger-container {
+                top: $height;
+            }
+        }
+    }
+}
+
+@mixin adjustSearchAndHamburgerHeight($height) {
+    .pageHeader {
+
+        [class*="-button"] {
+            height: $height;
+            width: $height;
+        }
+
+        .search {
+            .search-container {
+                height: $height;
+                padding-right: $height;
+
+                input[type="text"] {
+                    height: $height;
+                }
+            }
+
+            &.alignLeft {
+                .search-container {
+                    padding-left: $height;
+                }
+            }
+        }
+    }
+}

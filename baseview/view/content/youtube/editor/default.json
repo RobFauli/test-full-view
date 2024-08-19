@@ -1,0 +1,10 @@
+{
+    "editors": [
+        {
+            "selector": "p.caption",
+            "fn": "EditClean",
+            "key": "fields.caption",
+            "placeholder": "Click to add caption"
+        }
+    ]
+}

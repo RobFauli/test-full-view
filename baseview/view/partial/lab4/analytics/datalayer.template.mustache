@@ -1,0 +1,29 @@
+<!-- DataLayer -->
+<script>
+    {{ #get.current.filtered.analytics.usesJWTCookieData }}
+    if (window.Dac && window.Dac.JWTCookie) {
+        var JWTCookie = new Dac.JWTCookie({
+            debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+        });
+    }
+    {{ /get.current.filtered.analytics.usesJWTCookieData }}
+
+    var dataLayerData = {};
+
+    {{ #get.current.filtered.analytics.dataLayer }}
+    {{ #isJWTCookie }}
+    if(JWTCookie) {
+        var cookieValue = JWTCookie.get('{{ value }}');
+        if(cookieValue)
+            dataLayerData['{{{ key }}}'] = cookieValue;
+    }
+    {{ /isJWTCookie }}
+    {{ ^isJWTCookie }}
+    {{ #value }}
+        dataLayerData['{{{ key }}}'] = '{{ #helper.sanitizeString }}{{{ value }}}{{ /helper.sanitizeString }}';
+    {{ /value }}
+    {{ /isJWTCookie }}
+    {{ /get.current.filtered.analytics.dataLayer }}
+
+    dataLayer = [dataLayerData];
+</script>

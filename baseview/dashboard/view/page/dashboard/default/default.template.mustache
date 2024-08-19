@@ -1,0 +1,31 @@
+<html lang="nb-no">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta content="og:image" value="{{fields.meta_image}}" />
+        <link rel="stylesheet" href="/view-resources/dashboard/view/css/main.css" />
+        <link rel="stylesheet" href="/view-resources/dashboard/view/css/grid.css" />
+        <link rel="stylesheet" href="/view-resources/dashboard/view/css/colors.css" />
+        <link rel="stylesheet" href="/view-resources/dashboard/view/css/foundation-icons/foundation-icons.css" />
+        <link rel="stylesheet" href="/view-resources/dashboard/view/css/dashboard.css" />
+    </head>
+    <body class="dashboard">
+        <header class="dashboard-header {{{filtered.bg}}}">
+            <div class="row grid">
+                <div class="columns">
+                    <ul id="header_navigation"></ul>
+                    
+                    {{{ placeholder.pageHeader }}}
+
+                    {{ ^id }}
+                    <h1 class="lab-icon-Labrador-head">{{ ^fields.title }}Labrador Dashboard{{ /fields.title }}{{{ fields.title }}} </h1>
+                    {{ /id }}
+
+                </div>
+            </div>
+        </header>
+        <section class="dashboard-section">
+            {{{ placeholder.lab-dz-1 }}}
+        </section>
+        {{ > partial/page_footer }}
+    </body>
+</html>

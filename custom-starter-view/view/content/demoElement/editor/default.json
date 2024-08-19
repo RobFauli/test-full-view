@@ -1,0 +1,40 @@
+{
+    "editors": {
+        "title": {
+            "selector": ".demoElement-title",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Demo element title"
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/demoElement/template/settings"
+        }
+    }
+}

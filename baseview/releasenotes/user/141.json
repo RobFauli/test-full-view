@@ -1,0 +1,130 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 141,
+            "str": "1.4.1"
+        },
+        "items": [
+            {
+                "isBug": true,
+                "date": "20240111",
+                "title": "Fixed issue with setting for Automatic content for front-pages",
+                "description": "The checkbox for `Require all tags` will now display correct state when you open the settings panel."
+            },
+            {
+                "isBug": true,
+                "date": "20240109",
+                "title": "Fixed issue with validation of markup-elements",
+                "description": "There are reports of issues where embedded javascripts may run during the validation. Validation of javascripts is now disabled. The validator still fixes simple html-errors like missing closing tags etc."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240109",
+                "title": "Markup-validation remembers state",
+                "description": "If you uncheck the \"Validate input\"-checkbox in the markup-elements settings panel, it will now remember this state when you open the panel again."
+            },
+            {
+                "isImprovement": true,
+                "date": "20240110",
+                "title": "Automatic front crops when downloading images",
+                "description": "When you drag and drop an image to the article header it is automatically used as a front crop if no front crop is defined. This now also work when you download an image from any source."
+            },
+            {
+                "isImprovement": true,
+                "date": "20231221",
+                "title": "More paywall-options in admin-pages",
+                "description": "You can now choose to hide bylines and the subtitle on articles behind paywall. You can also define how plus-labels should appear in article-teasers at front pages.",
+                "links": [
+                    "/settings/cp?page=paywallOptions"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20240102",
+                "title": "Generate a Topic Summary",
+                "description": "You can now generate a Topic Summary. It is accessible from the magic wand in the menu of the factbox. You will be able to choose between three types of factbox types, 'Topic overview', 'Contextual development' and 'Brief summary', choose the output language and choose optional visual styles."
+            },
+            {
+                "isFeature": true,
+                "date": "20231222",
+                "title": "More size options for elments in the bodytext",
+                "description": "There are now added more size and alignment options for elements in the bodytext. This is found in the 'Set grid size and alignment' menu on the element."
+            },
+            {
+                "isFeature": true,
+                "date": "20231222",
+                "title": "You can now adjust bodytext width and alignment",
+                "description": "You can now adjust the width and aligment of the bodytext. This is done in Settings->Article Styling."
+            },
+            {
+                "isFeature": true,
+                "date": "20231222",
+                "title": "Define title for tag pages",
+                "description": "You can now define a title for tag pages. This is useful for SEO and for the title of the page when sharing on social media. You can set the title in the admin-pages for the 'Localized strings' under 'Tags'.",
+                "links": [
+                    "/settings/cp?page=localisation"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20231221",
+                "title": "Added options for text directions",
+                "description": "You can now specify text direction in the admin-pages: Left to right (default) og right to left. This is useful for languages like Arabic and Hebrew.",
+                "links": [
+                    "/settings/cp?page=textOptions"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20231211",
+                "title": "Quotebox styles",
+                "description": "You can now set a bubble-style for the quotebox. They default to the same color as links in bodytext, and have three settings; Oval, Square, and Dream"
+            },
+            {
+                "isFeature": true,
+                "date": "20231207",
+                "title": "Font-size and line-height in font-styles admin panel",
+                "description": "You can now set font-size and line-height for each font-style in the font-styles admin panel."
+            },
+            {
+                "isFeature": true,
+                "date": "20231130",
+                "title": "Factbox: Generate bullet points or article summary directly in factbox",
+                "description": "You can now generate either a bullet point-formatted or descriptive summary for an entire article by clicking the \"Labrador AI\"-icon in the factbox toolbar. A new \"AI-settings\"-dialog has been added which lets you specify various options for the AI-generated text."
+            },
+           {
+                "isBug": true,
+                "date": "20231123",
+                "title": "Improved tag-search",
+                "description": "Fixed an issue where tag-search sometimes displayed wrong results."
+            },
+            {
+                "isImprovement": true,
+                "date": "20231123",
+                "title": "WebP as default image format",
+                "description": "WebP is now the default image format for all images. WebP is a modern image format that is smaller and faster than JPEG. WebP is supported by all modern browsers. You can change this in the settings-pages for your site.",
+                "links": [
+                    "/settings/cp?page=images"
+                ]
+            },
+            {
+                "isImprovement": true,
+                "date": "20231122",
+                "title": "Article-teaser: Show floating-kicker/section when image-aligned left or right",
+                "description": "You can now display the floating-kicker and section over image when the image is aligned to left or right. When image is aligned left or right on the article-teaser: \"Text-options -> Kicker -> float-above-image\" or \"display-section\""
+            },
+            {
+                "isFeature": true,
+                "date": "20231120",
+                "title": "Markup validation",
+                "description": "When you insert custom HTML or Javascript in a markup-element the input is now validated. This means that you can't insert invalid HTML or Javascript that will break the page. Simple HTML-errors, like missing closing tags, are automatically fixed."
+            },
+            {
+                "isFeature": true,
+                "date": "20231117",
+                "title": "Vertical center for text on images",
+                "description": "You can now vertically center floating text on images by using Text options -> Text alignment -> Vertical center."
+            }
+        ]
+    }
+}

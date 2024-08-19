@@ -1,0 +1,27 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Settings for Motor test box</h2>
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.testType">Test-type</label>
+            <select name="fields.testType" id="input-fields.testType">
+                {{ #get.current.filtered.typeOptions }}
+                <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+                {{ /get.current.filtered.typeOptions }}
+            </select>
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.testId">ID of test to display</label>
+            <input type="text" name="fields.testId" value="{{ get.current.fields.testId }}" id="input-fields.testId">
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="input-fields.displayDirection">Test-type</label>
+            <select name="fields.displayDirection" id="input-fields.displayDirection">
+                {{ #get.current.filtered.displayDirectionOptions }}
+                <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+                {{ /get.current.filtered.displayDirectionOptions }}
+            </select>
+        </div>
+    </div>
+</form>

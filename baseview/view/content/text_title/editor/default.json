@@ -1,0 +1,18 @@
+{
+    "editors": [
+        {
+            "selector": "h1",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "modal": false,
+            "allowReverting": true
+        }
+    ],
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    }
+}

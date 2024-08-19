@@ -1,0 +1,32 @@
+{
+    "viewportMap": {
+        "metadata": {
+            "attributes": {
+                "subimage": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "subimagePlacement": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                },
+                "subimageSize": {
+                    "viewport": {
+                        "default": true
+                    },
+                    "fallback": {
+                        "default": "desktop"
+                    }
+                }
+            }
+        }
+    }
+}

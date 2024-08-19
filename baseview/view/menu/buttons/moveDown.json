@@ -1,0 +1,13 @@
+{
+    "icon": "labicon-moveDown",
+    "callback": "moveDown",
+    "group": "g2",
+    "title": "Move down (Shift+↓)",
+    "params": {
+        "restrictToCurrentType": true
+    },
+    "hotkeys": [{
+        "key": "ArrowDown",
+        "controlkeys": ["shiftKey"]
+    }]
+}

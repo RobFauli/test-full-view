@@ -1,0 +1,87 @@
+{
+    "int_nb-NO": {
+        "dates": {
+            "sunday": "søndag",
+            "monday": "mandag",
+            "tuesday": "tirsdag",
+            "wednesday": "onsdag",
+            "thursday": "torsdag",
+            "friday": "fredag",
+            "saturday": "lørdag",
+            "january": "januar",
+            "february": "februar",
+            "mars": "mars",
+            "april": "april",
+            "may": "mai",
+            "june": "juni",
+            "july": "juli",
+            "august": "august",
+            "september": "september",
+            "october": "oktober",
+            "november": "november",
+            "december": "desember",
+            "ago": "siden",
+            "now": "nå",
+            "minute": "minutt",
+            "min": "min",
+            "minutes": "minutter",
+            "hour": "time",
+            "hours": "timer",
+            "day": "dag",
+            "days": "dager",
+            "monthdayyear": "{{DD}}/{{MM}} {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{count}} {{period}} {{ago}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Nyhetsbrev",
+                "notice": "Du mottar denne e-posten fordi du er påmeldt vår e-postliste.",
+                "preferences": "Dine innstillinger",
+                "unsubscribe": "Avmelding",
+                "view": "Åpne i nettleser",
+                "date": "d. MMMM Y"
+            }
+        },
+        "embed": {
+            "embed_label": "Bygg inn",
+            "heading": "Bygg inn artikkelen",
+            "description": "Kopier og lim inn HTML-koden under på en side der du vil vise denne artikkelen.",
+            "label_teaser": "Forhåndsvisning",
+            "label_full": "Hele artikkelen",
+            "close": "Lukk"
+        },
+        "ai": {
+            "factbox_disclaimer": "Oppsummeringen er generert av Labrador AI, men gjennomlest av en journalist."
+        },
+        "tags": {
+            "title_text": "{{ tagPath }}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Søk...",
+            "label": "Søk"
+        },
+        "header": {
+            "logo_link_text": "Gå til forside"
+        },
+        "slack_notifier": {
+            "publish": {
+                "article": "*Artikkel publisert*\n*Tittel*: {{{title}}}\n*Side-ID*: {{id}}\n{{#modified}}*Dato*: {{modified}}\n{{/modified}}{{#published_ahead}}*Merk: Publisert frem i tid*\n{{/published_ahead}}{{#hidden}}*Publisert skjult*\n{{/hidden}}*Bruker*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*",
+                "front": "*Forside publisert*\n*Tittel*: {{{title}}}\n*Side-ID*: {{id}}\n*Dato*: {{modified}}\n{{#published_ahead}}*Merk: Publisert frem i tid*\n{{/published_ahead}}{{#hidden}}*Publisert skjult*\n{{/hidden}}*Bruker*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*",
+                "notice": "*Notis publisert*\n*Tittel*: {{{title}}}\n*Side-ID*: {{id}}\n*Dato*: {{modified}}{{#hidden}}*Publisert skjult*\n{{/hidden}}*Bruker*: {{user}}\n*<{{{url_front}}}|Vis side>* - *<{{{url_editor}}}|Rediger side>*"
+            },
+            "error": {
+                "all": "*{{ #isCmsError }}CMS-feil{{ /isCmsError }}{{ ^isCmsError }}View feil{{ /isCmsError }}*: {{{message}}}\n*Stack-sporing*: ```{{{stackTrace}}}```\n*Bruker*: {{user}}\n*<{{{url_editor}}}|Rediger side>* - *<{{{url_monitor}}}|Utviklermonitor>*"
+            }
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Gå til venstre",
+            "articleScrollerRightButton": "Gå til høyre"
+        },
+        "metadata": {
+            "publishedLabel": "Publisert",
+            "modifiedLabel": "Sist oppdatert",
+            "unpublishedLabel": "Upublisert"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div class="apsis_submit column {{ size.grid.css }}" data-element-guid="{{ get.current.guid }}">
+    <script>
+        (function() {
+            if (window.ApsisForms) {
+                var form = new ApsisForms.FormbuilderInstance();
+                form.init({
+                    formId: '{{{ get.current.filtered.apsis.formId }}}'
+                });
+            }
+        })();
+    </script>
+
+    <div class="afp-{{{ get.current.filtered.apsis.formId }}}"></div>
+</div>

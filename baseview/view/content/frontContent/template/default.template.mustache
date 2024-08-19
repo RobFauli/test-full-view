@@ -1,0 +1,52 @@
+<div data-element-guid="{{ get.current.guid }}" class="frontContent {{ #style.collection }}box_decoration{{ /style.collection }} {{ size.grid.css }} {{ size.grid.absCss }}" id="frontContent_{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}{{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }} column{{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}">
+        {{ #render.partial }}lab4/frontContentHeader{{ /render.partial }}
+        {{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }}
+        {{ > content/frontContent/template/edit_missing_data }}
+        {{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}
+        <div class="labclient-content{{ ^get.current.filtered.isConfigured }}{{ #app.isEditor }} no-content{{ /app.isEditor }}{{ /get.current.filtered.isConfigured }}"></div>
+    </div>
+
+    {{ #get.current.filtered.isConfigured }}
+    <script>
+        (function() {
+            window.dachserData.push('frontcontent', {
+                fallbackImage: '{{{ getConfig.image.fallbackUrl }}}',
+                debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }},
+                isEditor: {{ #get.current.filtered.isEditor }}true{{ /get.current.filtered.isEditor }}{{ ^get.current.filtered.isEditor }}false{{ /get.current.filtered.isEditor }},
+                // isLPStream: {{ #get.current.filtered.isLPStream }}true{{ /get.current.filtered.isLPStream }}{{ ^get.current.filtered.isLPStream }}false{{ /get.current.filtered.isLPStream }},
+                id: '{{ get.current.id }}',
+                selector: '#frontContent_{{ get.current.id }} .labclient-content',
+                url: '{{{ get.current.filtered.source.url }}}',
+                // transformer: '{{{ get.current.fields.transformer }}}',
+                sourceType: '{{{ get.current.filtered.source.type }}}',
+                articleFilterList: {{{ get.current.filtered.articleFilterList }}},
+                articleCount: '{{{ get.current.filtered.articleCount }}}',
+                siteId: null,
+                organizer: '{{{ get.current.fields.organizer }}}',
+                postprocessor: '{{{ get.current.fields.postprocessor }}}',
+                viewport: '{{{ get.current.filtered.viewport }}}',
+                imageServer: '{{{ get.current.filtered.imageServer }}}',
+                imageExtension: '{{ getConfig.imageUrlOptions.extension }}',
+                layout: {{{ get.current.filtered.layout }}},
+                style: {{{ get.current.filtered.styleString }}},
+                coockieOptions: {
+                    allow: {{ #get.current.filtered.coockieOptions.allow }}true{{ /get.current.filtered.coockieOptions.allow }}{{ ^get.current.filtered.coockieOptions.allow }}false{{ /get.current.filtered.coockieOptions.allow }},
+                    coockieName: '{{ get.current.filtered.coockieOptions.coockieName }}',
+                    tagsArray: {{{ get.current.filtered.coockieOptions.tagsArrayString }}}
+                },
+                tagOptions: {
+                    allow: {{ #get.current.filtered.tagOptions.allow }}true{{ /get.current.filtered.tagOptions.allow }}{{ ^get.current.filtered.tagOptions.allow }}false{{ /get.current.filtered.tagOptions.allow }},
+                    tags: {{{ get.current.filtered.tagOptions.tagsString }}}
+                }
+            });
+            {{ #app.isEditor }}
+            if (window.baseviewModulesReflow) {
+                window.baseviewModulesReflow('frontcontent', 'id', '{{ get.current.id }}'); 
+            }
+            {{ /app.isEditor }}
+        }());
+    </script>
+    {{ /get.current.filtered.isConfigured }}
+</div>

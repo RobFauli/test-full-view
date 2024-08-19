@@ -1,0 +1,68 @@
+{
+    "snapToTop": true,
+    "labels": {
+        "before": ["lab-content-type"]
+    },
+    "items": {
+        "delete": {
+            "inheritPath": "menu/buttons/delete.json",
+            "group": "g1"
+        },
+        "lock": {
+            "inheritPath": "menu/buttons/lock.json",
+            "group": "g1"
+        },
+        "color_bg": {
+            "inheritPath": "menu/buttons/backgroundColor.json",
+            "group": "g4"
+        },
+        "settings": {
+            "icon": "labicon-settings",
+            "group": "g6",
+            "title": "More settings",
+            "items": {
+                "spacing": {
+                    "inheritPath": "menu/buttons/spacing.json",
+                    "group": "g1"
+                },
+                "vertical_align": {
+                    "inheritPath": "menu/buttons/verticalAlign.json",
+                    "group": "g1"
+                },
+                "btn2": {
+                    "inheritPath": "menu/buttons/redraw.json",
+                    "group": "g2"
+                },
+                "btn3": {
+                    "icon": "labicon-break",
+                    "displayCondition": "hasSubViewports",
+                    "respectLayoutLock": false,
+                    "title": "Align viewports (S)",
+                    "callback": "alignViewports",
+                    "hotkeys": [{
+                        "key": "S"
+                    }],
+                    "displayHotkeys": true,
+                    "text": "Align viewports",
+                    "group": "g2"
+                },
+                "hideViewport": {
+                    "inheritPath": "menu/buttons/hideViewport.json",
+                    "text": "Hide in current viewport",
+                    "title": null,
+                    "group": "g2"
+                },
+                "btn4": {
+                    "inheritPath": "menu/buttons/sleep.json",
+                    "group": "g2"
+                },
+                "btn5": {
+                    "inheritPath": "menu/buttons/pasteboard.json",
+                    "text": "Pasteboard",
+                    "group": "g2"
+                }
+            }
+        }
+    },
+    "params": {}
+}

@@ -1,0 +1,10 @@
+{
+    "boxTitle": "Demo Element",
+    "boxDescription": "This is a demo element fetching external data from a weather service",
+    "boxKeywords": "demo, external data, api, url, json, weather, temperature, city",
+    "viewHelper" : "external",
+    "external": {
+        "url": "https://api.met.no/weatherapi/nowcast/2.0/complete?lat={{ get.current.fields.lat }}&lon={{ get.current.fields.lon }}",
+        "type": "json"
+    }
+}

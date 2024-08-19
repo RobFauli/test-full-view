@@ -1,0 +1,28 @@
+<script async src="https://cdn.onthe.io/io.js/{{get.current.filtered.analytics.io}}"></script>
+<script>
+    window._io_config = window._io_config || {};
+    window._io_config["0.2.0"] = window._io_config["0.2.0"] || [];
+{{#get.current.filtered.is_article}}
+    window._io_config["0.2.0"].push({
+        page_url: "{{{ get.current.filtered.url }}}",
+        page_url_canonical: "{{{ get.current.filtered.specificUrl }}}",
+        page_title: "{{ #helper.stripTags }}{{{ get.current.filtered.seotitle }}}{{ /helper.stripTags }}",
+        page_type: "article",
+        page_language: "{{ get.current.filtered.contentLanguage }}",
+        tags: [{{{ get.current.filtered.tagsStringCommaSeparated }}}],
+        article_authors: [{{{ get.current.filtered.bylinesStringCommaSeparated }}}],
+        article_categories: ["{{ get.current.filtered.section }}"],
+        article_publication_date: "{{ get.current.filtered.date.published.isoDate }}"
+    });
+{{/get.current.filtered.is_article}}
+{{^get.current.filtered.is_article}}
+    window._io_config["0.2.0"].push({
+        page_url: "{{{ get.current.filtered.specificUrl }}}",
+        page_url_canonical: "{{{ get.current.filtered.specificUrl }}}",
+        page_title: "{{ #helper.stripTags }}{{{ get.current.filtered.seotitle }}}{{ /helper.stripTags }}",
+        page_type: "default",
+        page_language: "{{ get.current.filtered.contentLanguage }}",
+        tags: [{{{ get.current.filtered.tagsStringCommaSeparated }}}]
+    });
+{{/get.current.filtered.is_article}}
+</script>

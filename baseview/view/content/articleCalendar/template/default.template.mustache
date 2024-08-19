@@ -1,0 +1,24 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{#helper.trim}}
+        column
+        articleCalendar
+        {{ size.grid.css }}
+        large-abs-{{ size.grid.absWidth }}
+        {{ #style.definition }}background_color{{ /style.definition }}
+    {{/helper.trim}}"{{ #get.current.metadata.box_custom_background }} style="background-color:{{{ get.current.metadata.box_custom_background }}};"{{ /get.current.metadata.box_custom_background }}>
+    <div class="inner">
+
+        {{ #app.isEditor }}{{ #render.template }}content/articleCalendar/template/partials/title{{ /render.template }}{{ /app.isEditor }}
+        {{ ^app.isEditor }}{{#get.current.fields.title}}{{ #render.template }}content/articleCalendar/template/partials/title{{ /render.template }}{{/get.current.fields.title}}{{ /app.isEditor }}
+        <ul class="articles flex">{{ #get.current.filtered.data }}
+            <li>
+                <a href="{{{ url }}}">
+                    {{ #calendarimage }}<figure><img src="{{{ calendarimage }}}"></figure>{{ /calendarimage }}
+                    <h4>{{{ title }}}</h4>
+                    <p>{{{ subtitle }}}</p>
+                </a>
+            </li>
+        {{ /get.current.filtered.data }}</ul>
+        {{ #app.isEditor }}{{ #render.template }}content/articleCalendar/template/partials/description{{ /render.template }}{{ /app.isEditor }}
+        {{ ^app.isEditor }}{{#get.current.fields.description}}{{ #render.template }}content/articleCalendar/template/partials/description{{ /render.template }}{{/get.current.fields.description}}{{ /app.isEditor }}
+    </div>
+</div>

@@ -1,0 +1,87 @@
+{
+    "icon": "labicon-floatNone",
+    "title": "Set alignment",
+    "items": [
+        {
+            "icon": "labicon-floatLeft",
+            "text": "Left",
+            "callback": "setJustFloat",
+            "params": {
+                "float": "floatLeft"
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatLeft"
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "1",
+                    "controlkeys": ["shiftKey", "altKey"]
+                }
+            ]
+        },
+        {
+            "icon": "labicon-floatNone",
+            "text": "Center",
+            "callback": "setJustFloat",
+            "params": {
+                "float": "floatCenter"
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatCenter"
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "2",
+                    "controlkeys": ["shiftKey", "altKey"]
+                }
+            ]
+        },
+        {
+            "icon": "labicon-floatRight",
+            "text": "Right",
+            "callback": "setJustFloat",
+            "params": {
+                "float": "floatRight"
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "metadata.float",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "metadata.float": "floatRight"
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "3",
+                    "controlkeys": ["shiftKey", "altKey"]
+                }
+            ]
+        }
+    ]
+}

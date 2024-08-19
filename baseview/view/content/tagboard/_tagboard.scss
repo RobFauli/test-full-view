@@ -1,0 +1,120 @@
+@use "../../css_scss/components/vars" as *;
+
+.tagboard {
+    .header h2 {
+        padding-right: 3.5rem;
+    }
+    .dac-icon-hamburger {
+        $borderWidth: 3px;
+        $borderColor: #000;
+        position: relative;
+        width: 1.4em;
+        height: 1em;
+        display: inline-block;
+        border-top: $borderWidth solid $borderColor;
+        vertical-align: middle;
+        // transition: transform 0.3s;
+        transition: border-color 0.3s;
+
+        &:before, &:after {
+            content: "";
+            border-top: $borderWidth solid $borderColor;
+            position: absolute;
+            width: 100%;
+            top: calc(50% - #{$borderWidth});
+            transition: transform 0.3s;
+        }
+        &:after {
+            top: calc(100% - #{$borderWidth});
+        }
+
+        &.dac-open {
+            &:before {
+                transform: rotate(45deg);
+                // margin-top: 0.1em;
+                top: calc(50% - #{$borderWidth});
+            }
+            &:after {
+                transform: rotate(-45deg);
+                top: calc(50% - #{$borderWidth});
+                // margin-top: -0.3em;
+            }
+            border-color: transparent;
+            transition: border-color 0.1s;
+            // transform: rotate(180deg);
+        }
+
+    }
+
+    .taglistToggle {
+        position: absolute;
+        right: 1rem;
+        top: 0.5rem;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .taglist {
+
+        > ul {
+            display: flex;
+            flex-direction: row;
+
+            > li {
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: 0;
+
+                padding-left: 1rem;
+                border-left: 1px solid #cecece;
+
+                &:first-child {
+                    padding-left: 0;
+                    border-left: 0;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin: 0 0 0.5rem 0;
+        }
+
+        label {
+            text-transform: uppercase;
+            display: inline-block;
+            margin: 0 1rem 0 0;
+            white-space: nowrap;
+
+            &.disabled {
+                color: gray;
+            }
+        }
+    }
+
+    h2 span {
+        font-size: 1em !important;
+    }
+
+    @include mobile {
+        .taglist {
+            > ul {
+                flex-direction: column;
+
+                > li {
+                    padding-left: 0;
+                    padding-top: 1rem;
+                    margin-top: 0.5rem;
+                    border-left: 0;
+                    border-top: 1px solid #cecece;
+                    &:first-child {
+                        border-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 145,
+            "str": "1.4.5"
+        },
+        "items": [
+            {
+                "isBug": true,
+                "date": "20240516",
+                "title": "Fixed wrong domain in URLs",
+                "description": "Baseview sometimes used the wrong domain in URLs. The domain defined for current site is now always used."
+            }
+        ]
+    }
+}

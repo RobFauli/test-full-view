@@ -1,0 +1,41 @@
+{
+    "gridForms": {
+        "mobile": {
+            "values": [
+                [12, 12],
+                [6, 6],
+
+                [4, 4, 4],
+                [12, 6, 6],
+                [12, 12, 12],
+                [6, 6, 12],
+
+                [12, 12, 6, 6],
+                [12, 4, 4, 4],
+                [6, 6, 6, 6],
+                [4, 4, 4, 12],
+                [3, 3, 3, 3],
+                
+                [12, 12, 6, 6],
+                [12, 4, 4, 4],
+                [4, 4, 4, 12],
+
+                [6, 6, 6, 6],
+                [6, 6, 12, 12]
+            ]
+        }
+    },
+    "contentMenus": {
+        "row-menu": {
+            "items": {
+                "gridForms": {
+                    "callback": "gridForms",
+                    "autocloseSubmenuAfterAction": false,
+                    "group": "g2",
+                    "icon": "labicon-grid_tight",
+                    "title": "Override grid sizes"
+                }
+            }
+        }
+    }
+}

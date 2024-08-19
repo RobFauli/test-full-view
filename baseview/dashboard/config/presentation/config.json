@@ -1,0 +1,29 @@
+{
+    "grid": {
+        "total_grid_spans": 12,
+        "grid_prefix": {
+            "mobile": "small-",
+            "desktop": "large-"
+        }
+    },
+    
+    "viewports": {
+        "desktop": {
+            "deviceWidth": 1000,
+            "padding": 0,
+            "defaultVisible": true,
+            "extendToAvailableWidth": true
+        }
+    },
+
+    "viewport": "desktop",
+    
+    "tags": {
+        "section": [
+            "nyheter",
+            "sport",
+            "kultur"
+        ]
+    }
+
+}

@@ -1,0 +1,23 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/articleMeta/front/default.json"
+                },
+                "template": {
+                    "default": "content/articleMeta/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/articleMeta/editor/default.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "editors": {
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "uiColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "icon": "labicon-color_palette",
+                    "group": "g5",
+                    "bindings": [
+                        {
+                            "path": "metadata.ui_color",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "active": true,
+                                "styleDefinition": "background_color",
+                                "stylePath": null,
+                                "groupSelectors": {
+                                    "metadata.ui_color": ".timeline-marker",
+                                    "metadata.ui_text_color": "time.timelineItm"
+                                }
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "title": "Date-marker background color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "backgroundColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "objectValues": false,
+                                    "title": "Date text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.ui_text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                "addItem": {
+                    "icon": "labicon-pluss_slim",
+                    "title": "Add timeline item",
+                    "group": "g5",
+                    "callbacks": ["dispatch"],
+                    "params": {
+                        "function": "timeline.insertItem",
+                        "functionXXX": "contextualmenu.callbacks.insertTimelineItem"
+                    }
+                }
+            }
+        }
+    },
+    "droppable": {
+        "reject": ["image"]
+    }
+}

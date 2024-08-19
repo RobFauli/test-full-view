@@ -1,0 +1,50 @@
+{
+    "icon": "labicon-link",
+    "text": "Link",
+    "requireSelection": true,
+    "callback": "setTag",
+    "value": "a",
+    "title": "Insert link (Ctrl+K)",
+    "hotkeys": [{
+        "key": "k",
+        "controlkeys": ["labCtrlKey"],
+        "overrideDisable": true
+    }],
+    "displayHotkeys": true,
+    "attributeArray": [
+        {
+            "name": "href",
+            "grid": 12,
+            "type": "text",
+            "validator": "lab_api.v1.util.valueTransformer.isMultiUrl",
+            "userInput": true,
+            "label": "Url, email, telephone or section",
+            "placeholder": "https://example.com, mailto:user@example.com, tel:+4712345678",
+            "required": true
+        }, 
+        {
+            "name": "aria-label",
+            "type": "text",
+            "userInput": true,
+            "label": "Label",
+            "placeholder": "Text-content for assistive technologies"
+        },
+        {
+            "name": "target",
+            "grid": 12,
+            "type": "checkbox",
+            "value": "_blank",
+            "userInput": true,
+            "defaultValueConfigPath": "textTools.defaultValues.link.target",
+            "label": "Open in new tab"
+        },
+        {
+            "name": "rel",
+            "grid": 12,
+            "type": "checkbox",
+            "value": "nofollow",
+            "userInput": true,
+            "label": "Add No-follow attribute"
+        }
+    ]
+}

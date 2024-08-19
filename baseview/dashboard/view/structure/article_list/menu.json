@@ -1,0 +1,10 @@
+{
+
+    "inheritFile": "structure/edit_properties.json",
+
+    "draggable": {
+        "start": "Lab.appController.hideModalSearch"
+    },
+
+    "menus": null
+}

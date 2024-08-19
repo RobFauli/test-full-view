@@ -1,0 +1,10 @@
+{
+    "draggable": {
+        "active":               true,
+        "icon":                 "labicon-article",
+        "params": {
+            "autoscroll":       true,
+            "minimap":          true
+        }
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "content/row/_resources.json": {
+        "presentation": {
+            "stage": {
+                "lab-default": {
+                    "template": {
+                        "default": "content/row/template/default"
+                    },
+                    "properties": {
+                        "default": [
+                            "content_settings/front/vp_data.json",
+                            "content/row/front/default.json"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "content/columns/_resources.json": {
+        "presentation": {
+            "stage": {
+                "lab-default": {
+                    "properties": {
+                        "default": [
+                            "content/columns/front/default.json",
+                            "content_settings/front/grid/default.json"
+                        ]
+                    },
+                    "template": {
+                        "default": "content/columns/template/default"
+                    }
+                }
+            }
+        }
+    },
+    "content/article/_resources.json": {
+        "presentation": {
+            "stage": {
+                "lab-default": {
+                    "properties": {
+                        "default": [
+                            "content/article/front/default.json",
+                            "content_settings/front/grid/default.json",
+                            "content_settings/front/vp_data.json"
+                        ]
+                    },
+                    "template": {
+                        "default": "content/article/template/default",
+                        "partials": [
+                            "content/article/template/partials/kicker",
+                            "content/article/template/partials/subtitle",
+                            "content/article/template/partials/title",
+                            "partial/elements/paywallLabel"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "content/image/_resources.json": {
+        "presentation": {
+            "stage": {
+                "lab-default": {
+                    "template": {
+                        "default": "content/image/template/default",
+                        "partials": [
+                            "content/image/template/partials/caption_links",
+                            "content/image/template/partials/caption",
+                            "content/image/template/partials/img"
+                        ]
+                    },
+                    "properties": {
+                        "default": [
+                            "content/image/front/default.json"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "gridRules": {
+        "evenRule": {
+            "condition": "even",
+            "values": {
+                "mobile": {
+                    "default": 12
+                }
+            }
+        }
+    }
+}

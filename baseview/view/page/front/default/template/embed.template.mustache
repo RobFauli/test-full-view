@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html {{ #get.current.filtered.contentLanguage }}lang="{{ . }}"{{ /get.current.filtered.contentLanguage }} dir="{{ getConfig.textDirection }}" class="{{ #get.current.filtered.featureFlags.responsive_mobile_fonts }}resp_fonts{{ /get.current.filtered.featureFlags.responsive_mobile_fonts }}">
+    <head>
+        {{> partial/lab4/page_head }}
+        {{> partial/lab4/page_head_after }}
+        <meta property="og:type" content="frontpage">
+        <style>
+            .embed {
+                overflow: hidden;
+            }
+        </style>
+        <script src="/view-resources/baseview/public/common/build/baseview_dependencies_dom.js"></script>
+        <script>
+            // The embed-script needs to know the height of the page and will post a message requesting data.
+            function receiveMessage(event) {
+                if (!event.data || !event.data.request || event.data.request !== 'labCmsGetPageHeight') {
+                    return;
+                }
+                var pageHeight = document.body.scrollHeight;
+                event.source.postMessage({ request: 'labCmsGetPageHeight', frameId: event.data.frameId, result: pageHeight }, event.origin);
+            }
+            window.addEventListener("message", receiveMessage, false);
+        </script>
+    </head>
+    <body class="front embed site_{{{ get.current.filtered.site.alias }}}">
+        <section class="main front">
+            {{{ selector.contentFromPath }}}
+        </section>
+        <script>
+        window.addEventListener('load', function(event) {
+            var anchors = document.querySelectorAll('a');
+            anchors.forEach(function(anchor) {
+                anchor.setAttribute('target', '_parent');
+            });
+        }, false);
+        </script>
+        {{ > partial/lab4/pagescripts/dachserDataHandlers }}
+    </body>
+</html>

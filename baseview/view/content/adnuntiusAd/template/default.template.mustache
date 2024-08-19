@@ -1,0 +1,27 @@
+{{ ^get.current.filtered.hideOnTablet }}
+
+<div class="{{ #helper.trim }}
+    column
+    adnuntius-ad
+    {{ get.current.fields.css }}
+    {{ ^get.current.metadata.isBodytext }}
+    {{ size.grid.css }}
+    {{ /get.current.metadata.isBodytext }}
+    {{ get.current.metadata.css }}
+    {{ #get.current.filtered.isDebug }}adnuntius-ad-debug{{ /get.current.filtered.isDebug }}
+    {{ /helper.trim }}" {{ #get.current.filtered.isDebug }}data-ad-format="{{{ get.current.fields.format }}}" data-ad-size="{{ get.current.filtered.adData.width }}x{{ get.current.filtered.adData.height }}"{{ /get.current.filtered.isDebug }}style="{{get.current.filtered.spacingTop}}{{ #get.current.metadata.style }} {{{ get.current.metadata.style }}}{{ /get.current.metadata.style }}" data-element-guid="{{ get.current.guid }}">
+    {{ #app.isEditor }}
+    <div class="ad-editor-preview adnuntius-ad-content" style="width:{{ get.current.filtered.adData.width }}px; height:{{ get.current.filtered.adData.height }}px;" title="{{ get.current.fields.format }}">
+        <h4>Adnuntius-ad</h4>
+        Format: <strong>{{ get.current.fields.format }}</strong><br>
+        size: <strong>{{ get.current.filtered.adData.width }}x{{ get.current.filtered.adData.height }}</strong>
+    </div>
+    {{ /app.isEditor }}
+    {{ ^app.isEditor }}
+    <div id="adn-{{{ get.current.filtered.adData.auId }}}" {{ #get.current.metadata.defaultHeight }}style="display:block;height:{{get.current.metadata.defaultHeight}}px;"{{ /get.current.metadata.defaultHeight }}{{ ^get.current.metadata.defaultHeight }}style="display:none;"{{ /get.current.metadata.defaultHeight }} class="adnuntius-ad-content">
+        <span class="ad-label">{{ get.current.filtered.label }}</span>
+    </div>
+    {{ /app.isEditor }}
+</div>
+
+{{ /get.current.filtered.hideOnTablet }}

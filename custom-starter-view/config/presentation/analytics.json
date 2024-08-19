@@ -1,0 +1,11 @@
+{
+    "analytics": {
+        "google": {
+            "tracking_id": null
+        },
+        "kilkayaSettings": {
+            "showKilkayaMetatags": true,
+            "useDefaultScript": true
+        }
+    }
+}

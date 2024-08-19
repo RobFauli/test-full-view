@@ -1,0 +1,62 @@
+{
+    "icon": "labicon-align_vertical_top",
+    "text": "Vertical alignment",
+    "title": "Vertical-align",
+    "onValue": true,
+    "offValue": false,
+    "key": "metadata.vertical_align",
+    "bindings": [
+        {
+            "path": "metadata.vertical_align",
+            "attribute": "value",
+            "valueTransformer": "lab-key-is-true"
+        }
+    ],
+    "items": [
+        {
+            "icon": "labicon-align_vertical_top",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align",
+            "onValue": "start",
+            "offValue": null,
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align",
+                    "attribute": "value"
+                }
+            ],
+            "title": "Vertical align top",
+            "text": "Align top"
+        },
+        {
+            "icon": "labicon-align_vertical_center",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align",
+            "onValue": "center",
+            "offValue": null,
+            "title": "Vertical align center",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align centered"
+        },
+        {
+            "icon": "labicon-align_vertical_bottom",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.vertical_align",
+            "onValue": "end",
+            "offValue": null,
+            "title": "Vertical align bottom",
+            "bindings": [
+                {
+                    "path": "metadata.vertical_align",
+                    "attribute": "value"
+                }
+            ],
+            "text": "Align bottom"
+        }
+    ]
+}

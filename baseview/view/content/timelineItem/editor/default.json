@@ -1,0 +1,119 @@
+{
+    "editors": {
+        "date": {
+            "selector": "time",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.date",
+            "placeholder": "Click to add date",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                },
+                "text_color": {
+                    "active": false
+                }
+            }
+        },
+        "title": {
+            "selector": "h3",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "modal": false,
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": {
+                    "displaySize": false
+                }
+            }
+        },
+        "text": {
+            "key": "fields.text",
+            "placeholder": "Click to add text",
+            "modal": false,
+            "allowReverting": true,
+            "selector": "div.bodytext",
+            "fn": "EditFull",
+            "menu": "rich_text_btxt",
+            "allowNbsp": true,
+            "inlineOnly": true,
+            "contentReplacement": null,
+            "displayWordCount": false,
+            "displaySelectionLength": false,
+            "displayCharCount": false,
+            "displayReadtime": false,
+            "displayLix": false,
+            "allowRichTextPasting": false,
+            "allowedPastedTags": {
+                "a": {
+                    "attributes": ["href", "target"]
+                },
+                "p": { "attributes": [] },
+                "h2": { "attributes": [] },
+                "h3": { "attributes": [] },
+                "ul": { "attributes": [] },
+                "ol": { "attributes": [] },
+                "li": { "attributes": [] }
+            },
+            "allowedEmptyTags": {
+                "span": {
+                    "attributes": ["class"]
+                },
+                "br": {
+                    "attributes": []
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "rich_text_btxt": {
+            "inheritPath": "menu/tool/rich_text_bodytext.json",
+            "labels": {
+                "before": ["lab-tool-element-tag", "lab-divider", "lab-tool-element-key"]
+            }
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "position": "right",
+            "items": {
+                "moveUp": {
+                    "inheritPath": "menu/buttons/moveUp.json"
+                },
+                "moveDown": {
+                    "inheritPath": "menu/buttons/moveDown.json"
+                },
+                "color_bg": null,
+                "settings": null
+            }
+        }
+    },
+    "droppable": {
+        "active": true,
+        "accept": ["image", "timelineItem"],
+        "drop": {
+            "sourceType": {
+                "image": "replaceChild"
+            },
+            "default": "addPositionedSibling",
+            "siblingPosition": "horizontal"
+        }
+    },
+    "draggable": {
+        "active": true
+    }
+}

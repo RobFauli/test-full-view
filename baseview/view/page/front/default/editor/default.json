@@ -1,0 +1,9 @@
+{
+    "filesForMainWindow": {
+        "css": [
+            "/view-resources/view/css/colors.css",
+            "/view-resources/view/css/edit.css",
+            "/view-resources/view/css/foundation-icons/foundation-icons.css"
+        ]
+    }
+}

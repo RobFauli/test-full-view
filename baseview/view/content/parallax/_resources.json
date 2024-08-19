@@ -1,0 +1,50 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/parallax/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/parallax/template/default",
+                    "mailmojo": "content/parallax/template/mailmojo"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/parallax/editor/default.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "content/parallax/editor/articleHeader.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/editor/child.json"
+                    ]
+                }
+            }
+        }
+    }
+}

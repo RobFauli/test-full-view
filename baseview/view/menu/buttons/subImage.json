@@ -1,0 +1,36 @@
+{
+    "icon": "labicon-images",
+    "text": "Extra images",
+    "displayCondition": "hasChildOfTypes",
+    "params": {
+        "modelTypes": ["image", "graphic"]
+    },
+    "title": "Options for image-in-image",
+    "items": {
+        "displayExtraImages": {
+            "icon": "labicon-images",
+            "text": "Display extra images",
+            "title": "Allow additional image-drops",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimage",
+            "onValue": true,
+            "offValue": false,
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "bindings": [
+                {
+                    "pathHelper": {
+                        "type": ["child.image", "child.graphic"]
+                    },
+                    "path": "metadata.subimage",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "placement": {
+            "inheritPath": "menu/buttons/imagePlacement.json"
+        },
+        "size": {
+            "inheritPath": "menu/buttons/imageSize.json"
+        }
+    }
+}

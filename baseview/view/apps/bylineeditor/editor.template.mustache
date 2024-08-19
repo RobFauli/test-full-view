@@ -1,0 +1,42 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <h2 class="lab-title lab-grid-gap lab-grid-large-12 lab-space-below-large">{{ #id }}Edit byline{{ /id }}{{ ^id }}Create byline{{ /id }}</h2>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-firstname">First name</label>
+            <input type="text" id="byline-firstname" name="firstname" value="{{ fields.firstname }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-lastname">Last name</label>
+            <input type="text" id="byline-lastname" name="lastname" value="{{ fields.lastname }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-email">Login email</label>
+            <input type="email" id="byline-email" name="email" value="{{ fields.email }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-public_email">Public email</label>
+            <input type="email" id="byline-public_email" name="public_email" value="{{ fields.public_email }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-public_phone">Public phone</label>
+            <input type="number" id="byline-public_phone" name="public_phone" value="{{ fields.public_phone }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="byline-public_url">Public url</label>
+            <input type="url" id="byline-public_url" name="public_url" value="{{ fields.public_url }}">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="byline-description">Description</label>
+            <textarea name="description" id="byline-description" rows="10">{{ fields.description }}</textarea>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+            <label for="byline-description2">Extended description</label>
+            <textarea name="description2" id="byline-description2" rows="10">{{ fields.description2 }}</textarea>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap lab-inline">
+            <label for="byline-default-byline">Default byline</label>
+            <input type="checkbox" id="byline-default-byline" value="1" {{ #isDefault }}checked{{ /isDefault }}>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column text_title
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <h1 class="{{ #helper.trim }}
+        content
+        headline
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ #style.collection }}text_decoration fields.title{{ /style.collection }}
+    {{ /helper.trim }}" style="{{ #style.collection }}text_decoration_inline_style fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h1>
+</div>

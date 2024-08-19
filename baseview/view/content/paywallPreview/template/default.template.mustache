@@ -1,0 +1,12 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column
+    paywallPreview
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content">
+        {{> content/bodytext/template/paywall_teaser }}
+    </div>
+  </div>

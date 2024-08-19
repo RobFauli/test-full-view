@@ -1,0 +1,46 @@
+{
+    "filesForMainWindow": {
+        "css": [
+            "/view-resources/view/css/colors.css",
+            "/view-resources/view/css/edit.css",
+            "/view-resources/view/css/foundation-icons/foundation-icons.css",
+            "/view-resources/view/css/components/fontStyle.css",
+            "/view-resources/view/css/components/fontWeight.css"
+        ]
+    },
+    "publishValidation": {
+        "fields.title": {
+            "validator": "notEmpty",
+            "allowOverride": false,
+            "description": "Article has no title"
+        },
+        "fields.subtitle": {
+            "validator": "notEmpty",
+            "allowOverride": true,
+            "description": "Article has no subtitle"
+        },
+        "fields.bodytext": {
+            "validator": "notEmpty",
+            "allowOverride": true,
+            "description": "Article has no bodytext"
+        },
+        "primaryTags.section": {
+            "validator": "notEmpty",
+            "allowOverride": false,
+            "description": "Section is not set",
+            "helper": {
+                "callback": "lab_api.v1.apps.start",
+                "arguments": ["ArticleSettings"]
+            }
+        },
+        "frontCrop": {
+            "validator": "notFalseOrNull",
+            "allowOverride": true,
+            "description": "Article has no front-crop",
+            "helper": {
+                "callback": "lab_api.v1.apps.start",
+                "arguments": ["ArticleSettings"]
+            }
+        }
+    }
+}

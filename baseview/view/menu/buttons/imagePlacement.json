@@ -1,0 +1,67 @@
+{
+    "text": "Image placement",
+    "title": "Image placement",
+    "icon": "labicon-grid_wide",
+    "items": {
+        "topleft": {
+            "text": "Top left",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimagePlacement",
+            "onValue": "topleft",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimagePlacement",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "topright": {
+            "text": "Top right",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimagePlacement",
+            "onValue": "topright",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimagePlacement",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "bottomleft": {
+            "text": "Bottom left",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimagePlacement",
+            "onValue": "bottomleft",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimagePlacement",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "bottomright": {
+            "text": "Bottom right",
+            "pathHelper": { "type": ["child.image", "child.graphic"] },
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.subimagePlacement",
+            "onValue": "bottomright",
+            "offValue": false,
+            "bindings": [
+                {
+                    "pathHelper": { "type": ["child.image", "child.graphic"] },
+                    "path": "metadata.subimagePlacement",
+                    "attribute": "value"
+                }
+            ]
+        }
+    }
+}

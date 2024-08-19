@@ -1,0 +1,23 @@
+{
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "structure/edit_properties.json"
+                }
+            }
+        },
+        "menu": {
+            "lab-default": {
+                "properties": {
+                    "default": "structure/edit_menu_properties.json"
+                }
+            },
+            "contentboxes": {
+                "properties": {
+                    "default": "structure/edit_menu_item_properties.json"
+                }
+            }
+        }
+    }
+}

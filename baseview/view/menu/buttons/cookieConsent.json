@@ -1,0 +1,53 @@
+{
+    "submenuTrigger": "click",
+    "icon": "labicon-warning",
+    "title": "Cookie consent",
+    "displayCondition": "hasConfig",
+    "params": {
+        "configKey": "cookieConsent.enabled"
+    },
+    "items": {
+        "necessary": {
+            "text": "Necessary",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.requiredCookieConsent",
+            "onValue": "necessary",
+            "offValue": false,
+            "title": "Necessary consent",
+            "bindings": [
+                {
+                    "path": "metadata.requiredCookieConsent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "statistics": {
+            "text": "Statistics",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.requiredCookieConsent",
+            "onValue": "statistics",
+            "offValue": false,
+            "title": "Statistics consent",
+            "bindings": [
+                {
+                    "path": "metadata.requiredCookieConsent",
+                    "attribute": "value"
+                }
+            ]
+        },
+        "marketing": {
+            "text": "Marketing",
+            "callback": "toggleKeyAndValue",
+            "key": "metadata.requiredCookieConsent",
+            "onValue": "marketing",
+            "offValue": false,
+            "title": "Marketing consent",
+            "bindings": [
+                {
+                    "path": "metadata.requiredCookieConsent",
+                    "attribute": "value"
+                }
+            ]
+        }
+    }
+}

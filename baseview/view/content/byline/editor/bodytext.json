@@ -1,0 +1,28 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "color_bg": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "group": "g2"
+                },
+                "gridResize": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g3",
+                    "displayCondition": "isNotViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                },
+                "gridResizeMobile": {
+                    "inheritPath": "menu/buttons/gridOverrideMobile.json",
+                    "group": "g3",
+                    "displayCondition": "isViewport",
+                    "params": {
+                        "viewports": ["mobile"]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "structure/columns/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "structure/columns/edit_properties.json"
+                }
+            }
+        }
+    }
+}

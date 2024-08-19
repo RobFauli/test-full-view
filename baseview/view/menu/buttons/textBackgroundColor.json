@@ -1,0 +1,47 @@
+{
+    "icon": "labicon-color_bucket",
+    "callback": "colorPicker",
+    "params": {
+        "colorPicker": {
+            "display": {
+                "position": "before",
+                "align": "start"
+            },
+            "layout": {
+                "widthDisabled": "250px"
+            },
+            "groups": [
+                {
+                    "values": "background_colors",
+                    "eyeDropper": {
+                        "key": "custom_text_background_color"
+                    },
+                    "objectValues": false,
+                    "title": "Text Background Color",
+                    "label": "",
+                    "useValueAsLabel": false,
+                    "cssPrefix": "",
+                    "key": "text_background_color",
+                    "removeBtn": true,
+                    "bordered": false,
+                    "autoborder": {
+                        "attribute": "backgroundColor"
+                    }
+                },
+                {
+                    "values": "background_colors_opacity",
+                    "valuePrefix": "op-bg_",
+                    "title": "Background Opacity",
+                    "key": "text_background_color_op",
+                    "removeBtn": true,
+                    "bordered": true
+                }
+            ]
+        }
+    },
+    "onValue": true,
+    "offValue": false,
+    "bindToSelection": "text_background_color",
+    "onValueCondition": "lab-key-is-true",
+    "title": "Set text background color"
+}

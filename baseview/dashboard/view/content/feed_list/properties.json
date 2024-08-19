@@ -1,0 +1,28 @@
+{
+    "boxTitle": "Feed List",
+    "boxDescription": "Display a list of feeds",
+    "external": {
+        "data_url": "/ajax/feed/list-old?source=ntb&supplier=&page=1&start={{ data.page }}&limit={{ data.limit }}&siteId={{ data.site_id }}&category={{ data.category }}&district={{ data.district }}&service={{ data.service }}",
+        "data": {
+            "limit": "this.fields.limit",
+            "source": "this.fields.source",
+            "site_id": "this.fields.site_id",
+            "category": "this.fields.category",
+            "district": "this.fields.district",
+            "service": "this.fields.service",
+            "page": "this.filtered.page"
+        },
+        "serializer": {
+            "method": "default",
+            "keyValueDelimiter": "=",
+            "keyValuePairDelimiter": "&"
+        },
+        "skipProxy": true
+    },
+
+    "defaultFieldValues": {
+        "limit": 20,
+        "page": 0,
+        "source": ""
+    }
+}

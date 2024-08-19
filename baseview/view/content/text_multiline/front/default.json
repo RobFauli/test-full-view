@@ -1,0 +1,6 @@
+{
+    "boxTitle": "Text - Multiline",
+    "boxDescription": "Display paragraphs, titles, lists etc.",
+    "viewHelper" : "bodytext",
+    "bodytextElements": ["p", "h2", "h3", "h4", "ul", "ol", "li"]
+}

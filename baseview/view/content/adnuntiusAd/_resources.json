@@ -1,0 +1,34 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content/adnuntiusAd/front/default.json",
+                        "content_settings/front/vp_data.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/adnuntiusAd/template/default",
+                    "mailmojo": "content/adnuntiusAd/template/mailmojo"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/adnuntiusAd/editor/default.json"
+                    ]
+                }
+            }
+        }
+    }
+}

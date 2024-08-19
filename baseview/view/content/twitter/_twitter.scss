@@ -1,0 +1,29 @@
+.twitter-contentbox {
+  color: gray;
+
+  .twitter-contentbox-container {
+    display: inline-block;
+
+    &[class*="bg-"] {
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .boxIcon {
+    font-size: 5em;
+    display: block;
+    margin-bottom: -0.2em;
+    color: #B0B0B0;
+  }
+}
+
+.bodytext {
+   & > .twitter-contentbox {
+      margin: 0.1em 0;
+      text-align: center;
+   }
+   & > .row .twitter-contentbox {
+      text-align: center;
+   }
+}

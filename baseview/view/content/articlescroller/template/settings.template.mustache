@@ -1,0 +1,128 @@
+<div class="lab-formgroup lab-grid lab-grid-gap lab-valign-top">
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="sources">Source</label>
+        <select id="sources" name="fields.source">
+            {{ #get.current.filtered.options.sources }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+            {{ /get.current.filtered.options.sources }}
+        </select>
+    </div>    
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="site">Site</label>
+        <select id="site" name="fields.site_id">
+            {{ #get.current.filtered.options.site_ids }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+            {{ /get.current.filtered.options.site_ids }}
+        </select>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="layout">Layout</label>
+        <select name="fields.layoutAlign">
+            <option value="">Default layout</option>
+            {{ #get.current.filtered.options.layout.align }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+            {{ /get.current.filtered.options.layout.align }}
+        </select>
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="fromDate">From Date</label>
+        <select id="fromDate" name="fields.dateLimitFrom">
+            <option value="">Any date</option>
+            {{ #get.current.filtered.options.dateLimit.from }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+            {{ /get.current.filtered.options.dateLimit.from }}
+        </select>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="toDate">To Date</label>
+        <select id="toDate" name="fields.dateLimitTo">
+            <option value="">Any date</option>
+            {{ #get.current.filtered.options.dateLimit.to }}
+            <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ value }}</option>
+            {{ /get.current.filtered.options.dateLimit.to }}
+        </select>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-space-above-medium">
+        <label for="transitionDuration">Transition (seconds)</label>
+        <input 
+            id="transitionDuration"
+            type="range"
+            name="fields.transitionDuration"
+            min="1500"
+            max="10000"
+            step="100"
+            data-value="{{#get.current.fields.transitionDuration}}{{get.current.filtered.transitionDurationSeconds}}{{/get.current.fields.transitionDuration}}{{^get.current.fields.transitionDuration}}4000{{/get.current.fields.transitionDuration}}"
+            value="{{#get.current.fields.transitionDuration}}{{get.current.fields.transitionDuration}}{{/get.current.fields.transitionDuration}}{{^get.current.fields.transitionDuration}}4000{{/get.current.fields.transitionDuration}}"
+            oninput="event.target.setAttribute('data-value', (event.target.value / 1000));"
+        >
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="articleCount">Number of articles</label>
+        <input type="number" min="1" max="100" value="{{ get.current.fields.articleCount }}" name="fields.articleCount" placeholder="From 1 to 100">
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="visibleArticleCount">Visible articles</label>
+        <input id="visibleArticleCount" type="number" min="1" max="6" value="{{ get.current.filtered.maxVisibleArticleCount }}" name="fields.visibleArticleCount" placeholder="From 1 to 6">
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="visibleArticleCountMobile">Mobile</label>
+        <input id="visibleArticleCountMobile" type="number" min="1" max="4" value="{{ get.current.filtered.maxVisibleArticleCountMobile }}" name="fields.visibleArticleCountMobile" placeholder="From 1 to 4">
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="hideTextAbove">Display title</label>
+        <input id="hideTextAbove" type="checkbox" data-lab-reverse="1" name="fields.hideTextAbove" {{^get.current.fields.hideTextAbove}}checked{{/get.current.fields.hideTextAbove}}>
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="hideTextBeneath">Display footer</label>
+        <input id="hideTextBeneath" type="checkbox" data-lab-reverse="1" name="fields.hideTextBeneath" {{^get.current.fields.hideTextBeneath}}checked{{/get.current.fields.hideTextBeneath}}>
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="skipAutoscroll">Autoscroll</label>
+        <input id="skipAutoscroll" type="checkbox" data-lab-reverse="1" name="fields.skipAutoscroll" {{^get.current.fields.skipAutoscroll}}checked{{/get.current.fields.skipAutoscroll}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="hideNavigation">Display navigation</label>
+        <input id="hideNavigation" type="checkbox" data-lab-reverse="1" name="fields.hideNavigation" {{^get.current.fields.hideNavigation}}checked{{/get.current.fields.hideNavigation}}>
+    </div>
+
+    <div class="lab-formgroup-item lab-grid-large-6 lab-grid-small-12 lab-grid-gap"></div>
+
+    <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Article options</h3>
+
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="displaySection">Display section</label>
+        <input id="displaySection" type="checkbox" name="fields.displaySection" {{#get.current.fields.displaySection}}checked{{/get.current.fields.displaySection}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="displayKicker">Display kicker</label>
+        <input id="displayKicker" type="checkbox" name="fields.displayKicker" {{#get.current.fields.displayKicker}}checked{{/get.current.fields.displayKicker}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="hideTitle">Display title</label>
+        <input id="hideTitle" type="checkbox" data-lab-reverse="1" name="fields.hideTitle" {{^get.current.fields.hideTitle}}checked{{/get.current.fields.hideTitle}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="skipLeadText">Display subtitle</label>
+        <input id="skipLeadText" type="checkbox" data-lab-reverse="1" name="fields.skipLeadText" {{^get.current.fields.skipLeadText}}checked{{/get.current.fields.skipLeadText}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="showAuthor">Display byline</label>
+        <input id="showAuthor" type="checkbox" name="fields.showAuthor" {{#get.current.fields.showAuthor}}checked{{/get.current.fields.showAuthor}}>
+    </div>
+
+    <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Image options</h3>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+        <label for="hideImages">Display images</label>
+        <input id="hideImages" type="checkbox" data-lab-reverse="1" name="fields.hideImages" {{^get.current.fields.hideImages}}checked{{/get.current.fields.hideImages}}>
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+        <label for="aspectRatio">Image aspect ratio</label>
+        <input id="aspectRatio" type="number" min="0.1" max="2" step="0.1" value="{{ get.current.fields.aspectRatio }}" name="fields.aspectRatio" placeholder="{{ get.current.filtered.options.aspectRatio }}">
+    </div>
+
+</div>

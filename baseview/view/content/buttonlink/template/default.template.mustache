@@ -1,0 +1,25 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }} 
+    button-link column 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ #get.current.metadata.fitContent }}{{ get.current.metadata.fitContent }}{{ /get.current.metadata.fitContent }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+    content link-content
+    {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{ #get.current.metadata.layout }}{{ get.current.metadata.layout }}{{ /get.current.metadata.layout }}
+    {{ #get.current.metadata.shadow }}{{ get.current.metadata.shadow }}{{ /get.current.metadata.shadow }}
+    {{ #get.current.metadata.border_color }}has-border{{ /get.current.metadata.border_color }}
+    {{ #get.current.metadata.background_color }}{{ get.current.metadata.background_color }}{{ /get.current.metadata.background_color }}
+    {{ /helper.trim }}"
+    style="--bg-color: var(--{{ get.current.metadata.background_color }}, #008CBA); --text-color: var(--{{ get.current.metadata.text_color }}, #fff); --border-color: var(--{{ get.current.metadata.border_color }}, #008CBA); {{ #get.current.metadata.hover_bg_color }}--hover-bg-color: var(--{{ get.current.metadata.hover_bg_color }});{{ /get.current.metadata.hover_bg_color }} {{ #get.current.metadata.hover_text_color }}--hover-text-color: var(--{{ get.current.metadata.hover_text_color }});{{ /get.current.metadata.hover_text_color }}{{ #get.current.metadata.hover_border_color }}--hover-border-color: var(--{{ get.current.metadata.hover_border_color }}{{ /get.current.metadata.hover_border_color }})">
+        <a href="{{ get.current.fields.url }}" class="{{ #helper.trim }}
+        link
+        {{ #style.collection }}text_decoration fields.title{{ /style.collection }}
+        {{ /helper.trim }}" alt="" {{ #get.current.fields.openNewTab }}target="_blank"{{ /get.current.fields.openNewTab }}>
+            {{ get.current.fields.title }}
+        </a>
+    </div>
+</div>

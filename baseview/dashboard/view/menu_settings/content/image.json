@@ -1,0 +1,105 @@
+{
+    "toolsClass": "ImageEditMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "position": "top",
+    "offset": null,
+    "hideAllStructureMenus": true,
+
+    "items": {
+
+        "imgExpand": {
+            "trigger": ["click"],
+            "callback": "expandImage",
+            "group": "g1",
+            "title": "Resize image to original size (Ctrl+Z)"
+        },
+
+        "imgCloneHeight": {
+            "trigger": ["click"],
+            "callback": "cloneHeight",
+            "group": "g1",
+            "title": "Copy height from sibling image (Ctrl+C)"
+        },
+
+        "imgReplace": {
+            "trigger": ["click"],
+            "callback": "displayMenuWithCallback",
+            "group": "g2",
+            "title": "Change image",
+            "params": {
+                "menu": "media",
+                "submenu": "submenu_media_images",
+                "clickCallback": "lab-replace-current-image",
+                "dblclickCallback": null
+            }
+        },
+
+        "imgFrontCrop": {
+            "trigger": ["click"],
+            "callback": "displayMenuWithCallback",
+            "group": "g2",
+            "title": "Create front-crop",
+            "displayCondition": "pageIsArticlePage",
+            "params": {
+                "menu": "settings_article",
+                "submenu": "submenu_article"
+            }
+        },
+
+        "floatLeft": {
+            "trigger": ["click"],
+            "callback": "floatImage",
+            "type": "boolean",
+            "key": "floatLeft",
+            "bindTo": "fields.float",
+            "value": null,
+            "onValue": "floatLeft",
+            "offValue": null,
+            "group": "g3",
+            "title": "Left-align image"
+        },
+
+        "floatRight": {
+            "trigger": ["click"],
+            "callback": "floatImage",
+            "type": "boolean",
+            "key": "floatRight",
+            "bindTo": "fields.float",
+            "value": null,
+            "onValue": "floatRight",
+            "offValue": null,
+            "group": "g3",
+            "title": "Right-align image"
+        },
+
+        "imgBorder": {
+            "trigger": ["click"],
+            "callback": "setKeyAndValue",
+            "type": "boolean",
+            "key": "fields.border",
+            "bindTo": "fields.border",
+            "value": "off",
+            "onValue": "on",
+            "offValue": "off",
+            "group": "g4",
+            "title": "Turn border on or off"
+        },
+
+        "addShape": {
+            "trigger": ["click"],
+            "callback": "addShape",
+            "group": "g5",
+            "title": "Add shape to image"
+        },
+
+        "imgSave": {
+            "trigger": ["click"],
+            "callback": "save",
+            "group": "g6",
+            "title": "Save crop (Ctrl+S)"
+        }
+
+    },
+    "params": {}
+}

@@ -1,0 +1,468 @@
+// ---------------- $columns_gutter ----------------
+// Sites overriding variable $columns_gutter and/or $columns_gutter_outer should include this mixin
+// to redefine all declarations involving the variable:
+
+@use "sass:math";
+@import 'mixins/pixel-to-vw';
+
+// Arguments has to be in rem units.
+@mixin overrideGutter($gutter, $gutter_outer, $text_padding, $mobileVpGutter:2.95) {
+
+    
+
+    // $mobileVpGutterOuter: math.div($mobileVpGutter + (($gutter-outer - $gutter) * $mobileVpGutter), 1px);
+    $mobileVpGutterOuter1: $mobileVpGutter + (($gutter_outer - $gutter) * $mobileVpGutter);
+    $mobileVpGutterOuter: math.div($mobileVpGutterOuter1, $mobileVpGutterOuter1 * 0 + 1);
+
+    :root {
+        --columns-gutter: #{$gutter};
+    }
+    @include mobile {
+        :root {
+            --columns-gutter: #{$mobileVpGutterOuter}vw;
+        }
+    }
+
+    .column,
+    .columns {
+        padding-left: $gutter;
+        padding-right: $gutter;
+
+        @include mobile {
+            padding-left: #{math.div($mobileVpGutter, 2)}vw;
+            padding-right: #{math.div($mobileVpGutter, 2)}vw;
+        }
+    }
+    .column {
+        margin-bottom: $gutter;
+    }
+    .row {
+        > .row_header_text {
+            margin-left: $gutter;
+            margin-right: $gutter;
+
+            @include mobile {
+                margin-left: $gutter_outer;
+                margin-right: $gutter_outer;
+            }
+
+            &[class*=" bg-"] {
+                padding: calc($gutter / 2) $gutter;
+                margin-bottom: $gutter;
+            }
+            @include mobile {
+                &[class*=" color_mobile_bg-"] {
+                    padding: calc($gutter / 2) $mobileVpGutter;
+                    margin-bottom: $gutter;
+                }
+            }
+        }
+    }
+    .row[class*=" bg-"],
+    .row-section[class*=" bg-"] {
+        margin-bottom: $gutter;
+        > .row_header_text[class*=" bg-"] {
+            padding-left: $gutter;
+            padding-right: $gutter;
+            margin: - $gutter 0 $gutter 0;
+        }
+        @include mobile {
+            > .row_header_text[class*=" color_mobile_bg-"] {
+                margin: - $gutter 0 $gutter 0;
+                padding-left: $gutter_outer;
+                padding-right: $gutter_outer;
+            }
+        }
+    }
+    .row[class*=" bg-"] {
+        padding-top: $gutter;
+        @include mobile {
+            padding-top: #{$mobileVpGutter}vw;
+        }
+    }
+
+    @include mobile {
+        .content[class*=color_mobile_bg-],
+        .content[class*=mobile_border-bg-],
+        figure[class*=color_mobile_bg-] p {
+            padding: #{$mobileVpGutter}vw;
+            padding-bottom: 0;
+        }
+        .content[class*=color_mobile_bg-] figure {
+            margin-top: -#{$mobileVpGutter}vw;
+            margin-right: -#{$mobileVpGutter}vw;
+            margin-left: -#{$mobileVpGutter}vw;
+            margin-bottom: 0;
+        }
+        figure [class*=bg-] .img {
+            margin-top: -#{$mobileVpGutter}vw;
+            margin-right: -#{$mobileVpGutter}vw;
+            margin-left: -#{$mobileVpGutter}vw;
+        }
+
+    }
+    .bodytext .slideshow nav ul {
+        padding: $gutter;
+    }
+
+    .slideshow.columns nav ul {
+        margin: 0 $gutter;
+    }
+
+    .bodytext {
+        & > * {
+            padding: var(--columns-gutter);
+        }
+        & > p {
+            padding-inline: var(--bodytext-alignment);
+        }
+        & > .column.floatLeft {
+            padding-left: var(--columns-gutter);
+        }
+        & > .column.floatRight {
+            padding-right: var(--columns-gutter);
+        }
+    }
+
+    .pagestyle_centered {
+        .bodytext > p,
+        .bodytext > h2,
+        .bodytext > h3,
+        .bodytext > h4,
+        .bodytext > ul,
+        .bodytext > ol {
+            @include mobile {
+                padding-right: $gutter;
+                padding-left: $gutter;
+            }
+        }
+    }
+
+    .articlescroller {
+        ul {
+            margin-right: -$gutter;
+            margin-left: -$gutter;
+            @include mobile {
+                margin-right: -#{math.div($mobileVpGutter, 2)}vw;
+                margin-left: -#{math.div($mobileVpGutter, 2)}vw;
+            }
+        }
+        &.mobile-fullWidth {
+            @include mobile {
+                ul {
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .articleHeader {
+        .kicker,
+        .headline,
+        .subtitle {
+            &[class*=" bg-"] {
+                padding: 0.6rem $gutter;
+            }
+        }
+        .media {
+            .floatingText {
+                padding-bottom: $gutter;
+                .kicker,
+                .headline,
+                .subtitle {
+                    margin-right: $gutter;
+                    margin-left: $gutter;
+                    margin-bottom: calc($gutter / 2);
+                }
+            }
+        }
+    }
+
+    .articleCalendar {
+        ul.articles {
+            grid-column-gap: $gutter;
+            grid-row-gap: $gutter;
+        }
+    }
+
+    article.column {
+        .content {
+            .media {
+                .floatingText {
+                    padding-bottom: $gutter;
+                    .kicker,
+                    .headline,
+                    .subtitle {
+                        margin-right: $gutter;
+                        margin-left: $gutter;
+                        margin-bottom: calc($gutter / 2);
+                    }
+                }
+            }
+            .kicker,
+            .headline,
+            .subtitle {
+                &[class*=" bg-"] {
+                    padding: 0.6rem $gutter;
+                }
+            }
+            &[class*=" bg-"] figure.floatLeft {
+                margin-right: $gutter;
+            }
+            &[class*=" bg-"] figure.floatRight {
+                margin-left: $gutter;
+            }
+
+
+            // Lab 4 float-classes
+            @include mobile {
+                figure.mobile-floatLeft {
+                    // margin-right: vw(math.div($mobileVpGutter, 2));
+                    margin-right: #{math.div($mobileVpGutter, 2)}vw;
+                }
+                figure.mobile-floatRight {
+                    margin-left: #{math.div($mobileVpGutter, 2)}vw;
+                }
+            }
+            @include tablet_up {
+                figure.desktop-floatLeft {
+                    margin-right: $gutter;
+                }
+                figure.desktop-floatRight {
+                    margin-left: $gutter;
+                }
+            }
+
+
+            // &[class*=" bg-"] .kicker {
+            //     margin-bottom: $gutter;
+            // }
+            &[class*=" bg-"].fullWidth a .media figure {
+                margin-left: calc(-50vw + 68rem / 2 - (#{$gutter} + #{$text_padding}));
+                margin-right: calc(-50vw + 68rem / 2 - (#{$gutter} + #{$text_padding}));
+            }
+        }
+    }
+
+    // Full-width images / markup
+    .column .content.fullWidth figure,
+    .articleHeader.fullWidth > .media figure,
+    .articleHeader.fullWidth .markupbox,
+    .column.markupbox.fullWidth .content,
+    .bodytext > .fullWidth figure,
+    .articleHeader.fullWidth > figure {
+        margin-left: calc(-50vw + 68rem / 2 - #{$gutter});
+        margin-right: calc(-50vw + 68rem / 2 - #{$gutter});
+    }
+
+    .fullWidth > figure .caption,
+    .fullWidth .media figure .caption {
+        padding-left: calc(50vw - 68rem / 2 + #{$gutter});
+        padding-right: calc(50vw - 68rem / 2 + #{$gutter});
+    }
+
+    .parallax-container.column > .content.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+        margin-right: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+    }
+
+    .articleHeader .column.parallax-container > .content.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+        margin-right: calc(-50vw + #{$max_width} / 2 - #{$gutter});
+    }
+
+    @include mobile {
+        article.column {
+            .content[class*=" bg-"] {
+                &.fullWidth a .media figure {
+                    margin-left: 0 - (#{$mobileVpGutterOuter}vw + $text_padding);
+                    margin-right: 0 - (#{$mobileVpGutterOuter}vw + $text_padding);
+                }
+            }
+        }
+
+        article.column {
+            .content {
+                .kicker,
+                .headline,
+                .subtitle {
+                    &[class*=" color_mobile_bg-"] {
+                        padding: 0.6rem $gutter;
+                    }
+                }
+            }
+        }
+
+        .row {
+            & > .column:first-child,
+            & > .column.small-12 + .column:not(.small-12) {
+                // padding-left: vw($mobileVpGutter);
+                padding-left: #{$mobileVpGutter}vw;
+            }
+            & > .column:last-child {
+                // padding-right: vw($mobileVpGutter);
+                padding-right: #{$mobileVpGutter}vw;
+            }
+            & > .column.small-12,
+            & > .columns.small-12 {
+                // padding-left: vw($mobileVpGutter);
+                padding-left: #{$mobileVpGutter}vw;
+                // padding-right: vw($mobileVpGutter);
+                padding-right: #{$mobileVpGutter}vw;
+            }
+        }
+
+        .bodytext {
+            & > .column:first-child,
+            & > .column.small-12 + .column:not(.small-12) {
+                padding-left: #{$mobileVpGutterOuter}vw;
+            }
+            & > .column:last-child {
+                padding-right: #{$mobileVpGutterOuter}vw;
+            }
+            & > .column.small-12,
+            & > .columns.small-12 {
+                padding-left: #{$mobileVpGutterOuter}vw;
+                padding-right: #{$mobileVpGutterOuter}vw;
+            }
+        }
+        .row.fullWidth .scrollbox,
+        .column.scrollbox.fullWidth {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .fullWidth > figure .caption {
+            padding-left: #{$mobileVpGutterOuter}vw;
+            padding-right: #{$mobileVpGutterOuter}vw;
+        }
+        .articleHeader.column {
+            padding-left: #{$mobileVpGutterOuter}vw;
+            padding-right: #{$mobileVpGutterOuter}vw;
+        }
+        .column .content.fullWidth figure,
+        .articleHeader.fullWidth > .media figure,
+        .articleHeader.fullWidth .markupbox,
+        .column.markupbox.fullWidth .content,
+        .bodytext > .fullWidth figure,
+        .articleHeader.fullWidth > figure {
+            margin-left: -#{$mobileVpGutterOuter}vw;
+            margin-right: -#{$mobileVpGutterOuter}vw;
+            .caption {
+                margin-right: #{$mobileVpGutterOuter}vw;
+                margin-left: #{$mobileVpGutterOuter}vw;
+            }
+        }
+        .articleHeader.fullWidth figure {
+            .caption {
+                padding-left: #{$mobileVpGutterOuter}vw;
+                padding-right: #{$mobileVpGutterOuter}vw;
+            }
+        }
+        .bodytext {
+            & > p,
+            & > h2,
+            & > h3,
+            & > h4,
+            & > ul,
+            & > ol {
+                padding-right: #{$mobileVpGutterOuter}vw;
+                padding-left: #{$mobileVpGutterOuter}vw;
+            }
+            & > .small-12 {
+                padding-left: #{$mobileVpGutterOuter}vw;
+            }
+            & > .column.floatLeft {
+                padding-left: #{$mobileVpGutterOuter}vw;
+            }
+            & > .column.floatRight {
+                padding-right: #{$mobileVpGutterOuter}vw;
+            }
+        }
+        .column.articleFooter {
+            padding-right: #{$mobileVpGutterOuter}vw;
+            padding-left: #{$mobileVpGutterOuter}vw;
+        }
+        .articleHeader .column.parallax-container > .content.fullWidth {
+            margin-left: -#{$mobileVpGutterOuter}vw;
+            margin-right: -#{$mobileVpGutterOuter}vw;
+        }
+        .parallax-container.column > .content.fullWidth {
+            margin-left: -#{$mobileVpGutterOuter}vw;
+            margin-right: -#{$mobileVpGutterOuter}vw;
+        }
+    }
+
+}
+
+// ---------------- $bg_text_padding ----------------
+// Sites overriding variable $bg_text_padding should include this mixin
+// to redefine all declarations involving the variable:
+
+@mixin overrideBgTextPadding($gutter) {
+    .content[class*=" bg-"],
+    .content[class*=" border-"],
+    figure[class*="bg-"] p {
+        padding: $gutter;
+    }
+
+    .content[class*=" bg-"] figure {
+        margin-top: -$gutter;
+        margin-right: -$gutter;
+        margin-left: -$gutter;
+    }
+
+    @include desktop_down {
+        .content[class*="color_mobile_bg-"],
+        .content[class*="mobile_border-bg-"],
+        figure[class*="color_mobile_bg-"] p {
+            padding: $gutter;
+        }
+        .content[class*="color_mobile_bg-"] figure {
+            margin-top: -$gutter;
+            margin-right: -$gutter;
+            margin-left: -$gutter;
+        }
+    }
+}
+
+/**
+// Override fonts defined globally in view/css_scss/components/_font-size-responsive.scss
+// Usage:
+@import '../mixins/grid-override';
+...
+@include mobile {
+    @include overrideFontSize(null, null, null, 50);
+}
+*/
+@mixin overrideFontSize($root: null, $title: null, $subtitle: null, $kicker: null) {
+    .resp_fonts {
+
+        @if $root {
+            font-size: vw($root);
+            body {
+                font-size: vw($root);
+            }
+        }
+
+        article.column .content {
+            @if $title {
+                .headline {
+                    font-size: vw($title);
+                }
+            }
+            @if $subtitle {
+                .subtitle {
+                    font-size: vw($subtitle);
+                }
+            }
+            @if $kicker {
+                .kicker {
+                    font-size: vw($kicker);
+                }
+            }
+        }
+    }
+}

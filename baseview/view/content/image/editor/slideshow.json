@@ -1,0 +1,15 @@
+{
+    "editors": {
+        "image": {
+            "modal": true,
+            "selector": ".slideshowcontainer figure .img picture",
+            "imageSelector": ".slideshowcontainer figure .img picture img",
+            "menu": null,
+            "tools": {
+                "shape": {
+                    "active": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+/* Style for contentbox scrollbox */
+// Uses styles from swipehelper.scss
+@use "../../css_scss/components/vars" as *;
+
+.scrollbox {
+    .scroll-container {
+        display: flex;
+        overflow-x: scroll;
+        .scroll-item {
+            flex: 0 0 auto;
+            width: 30%;
+            margin: 0 $columns_gutter 0 0;
+            article {
+                padding: 0;
+                .content {
+                    overflow: hidden;
+                    h2.headline {
+                        font-size: 1.6rem;
+                        font-family: inherit;
+                        font-style: inherit;
+                        font-weight: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    &.fullWidth {
+        margin-left: calc(-50vw + #{$max_width} / 2);
+        margin-right: calc(-50vw + #{$max_width} / 2);
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    nav {
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            border-radius: 100%;
+            background-color: rgba(0,0,0,0.5);
+            transform: translateY(-70%);
+            cursor: pointer;
+            border: 1px solid transparent;
+            &:hover {
+                border-color: #fff;
+            }
+            span {
+                border-bottom: 2px solid #fff;
+                border-left: 2px solid #fff;
+                width: 1rem;
+                height: 1rem;
+                display: block;
+                margin: 1.2rem;
+                transform: translateX(0.2rem) rotate(45deg);
+            }
+            &.right {
+                left: auto;
+                right: 0;
+                span {
+                    transform: translateX(-0.2rem) rotate(-135deg);
+                }
+            }
+            &.nav-hidden {
+                opacity: 0;
+            }
+        }
+    }
+
+    @include desktop_down {
+        .scroll-container {
+            .scroll-item {
+                width: 85%;
+            }
+        }
+        nav {
+            display: none;
+        }
+    }
+}

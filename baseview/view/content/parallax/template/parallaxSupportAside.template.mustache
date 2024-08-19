@@ -1,0 +1,10 @@
+<div>
+    {{ #content }}
+    <div class="lab-aside-settings">
+        <h4 class="lab-title">{{{ title }}}</h4>
+        {{ #items }}
+        <p class="lab-para lab-link{{ #css }} {{ css }}{{ /css }}" data-nav-target="{{ key }}">{{{ label }}}</p>
+        {{ /items }}
+    </div>
+    {{ /content }}
+</div>

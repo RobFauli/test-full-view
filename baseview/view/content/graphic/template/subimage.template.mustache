@@ -1,0 +1,8 @@
+<div class="graphic type_{{ get.current.fields.fileType }}">
+    <div class="img">
+        <img src="{{ get.current.fields.url }}" alt="{{ get.current.fields.alt }}" />
+    </div>
+    {{ #get.current.fields.displayCaption }}
+    {{ > content/image/template/partials/caption_links }}
+    {{ /get.current.fields.displayCaption }}
+</div>

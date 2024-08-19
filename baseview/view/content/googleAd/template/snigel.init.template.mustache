@@ -1,0 +1,24 @@
+<!-- Start Snigel Ad Engine -->
+<script data-cfasync="false" type="text/javascript">
+  {{! Ad slots fetched from Front and Article root data}}
+  window.snigelPubConf = {
+    "adengine": {
+        "activeAdUnits": [
+          {{#get.root.filtered.googleAds.adUnits}}
+            "{{ format }}",
+          {{/get.root.filtered.googleAds.adUnits}}
+          ]
+    }
+  };
+</script>
+
+{{! Production include }}
+{{ ^getConfig.adEnvironment.stage }}
+  <script async data-cfasync="false" src="https://cdn.snigelweb.com/adengine/{{ getConfig.adEnvironment.domain }}/loader.js" type="text/javascript"></script>
+{{ /getConfig.adEnvironment.stage }}
+
+{{! Stage include }}
+{{ #getConfig.adEnvironment.stage }}
+  <script async data-cfasync="false" src="https://staging-cdn.snigelweb.com/adengine/{{ getConfig.adEnvironment.domain }}/loader.js" type="text/javascript"></script>
+{{ /getConfig.adEnvironment.stage }}
+<!-- End Snigel Ad Engine -->

@@ -1,0 +1,57 @@
+
+$font-size-base: 17px;
+
+// Grid:
+$grid_span: 12;
+$max_width: 68rem; // 1088px.
+$columns_gutter: 0.7rem;
+$columns_gutter_outer: 1.2rem;
+$bg_text_padding: 1rem;
+
+// CSS-breakpoints
+$mobile-width: 380px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$grid-width: $max_width;
+
+$link-color: #0078a0;
+
+$icon-path: '/view-resources/baseview/public/common/icons/';
+
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin mobile_up {
+    @media (min-width: #{$mobile-width}) {
+        @content;
+    }
+}
+@mixin tablet-to-grid-width {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$max_width}) {
+        @content;
+    }
+}
+@mixin tablet_up {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+@mixin desktop_down {
+    @media (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin grid_down {
+    @media (max-width: #{$grid-width}) {
+        @content;
+    }
+}

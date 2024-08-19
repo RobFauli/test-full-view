@@ -1,0 +1,21 @@
+{
+    "includeFiles": [
+        "content_settings/editor/draggable/disabled.json",
+        "content_settings/editor/resize/disabled.json"
+    ],
+    "contentMenus": {
+        "default": null
+    },
+    "droppable": {
+        "active": true,
+        "accept": ["slideshow", "image", "youtube"],
+        "drop": {
+            "sourceType": {
+                "image": "addChild",
+                "youtube": "addChild"
+            },
+            "default": "replace"
+        },
+        "filedrop": "addChild"
+    }
+}

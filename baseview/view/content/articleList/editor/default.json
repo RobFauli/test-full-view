@@ -1,0 +1,59 @@
+{
+    "editors": {
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Click to add title",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "article": "addChild"
+            },
+            "default": "default"
+        }
+    },
+
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+
+    "contentMenus": {
+        "default": {
+            "items": {
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g4"
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [
+                        {
+                            "key": ","
+                        }
+                    ],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+
+    "settingsPanels": {
+        "admin": {
+            "template": "content/articleList/template/settings"
+        }
+    }
+}

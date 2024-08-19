@@ -1,0 +1,11 @@
+{
+    "offStage": {
+        "title": {
+            "path": null,
+            "content": "Toplist"
+        },
+        "description": {
+            "path": "fields.domain"
+        }
+    }
+}

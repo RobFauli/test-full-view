@@ -1,0 +1,49 @@
+{
+    "globals": {
+        "window": true,
+        "Sys": true,
+        "document": true,
+        "lab_api": true,
+        "Mustache": true,
+        "navigator": true
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "mocha": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "extends": ["airbnb-base"],
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "space-before-function-paren": ["error", "never"],
+        "padded-blocks": ["error", { "classes": "always" }],
+        "max-len": 0,
+        "template-curly-spacing": ["error", "always"],
+        "import/no-cycle":0,
+        "import/prefer-default-export": 0,
+        "import/extensions": 0,
+        "no-multi-spaces": 0,
+        "no-restricted-syntax": 0,
+        "no-plusplus": 0,
+        "class-methods-use-this": 0,
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "never"
+        }],
+        "quotes": [2, "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
+        "no-unused-vars": ["error", { "args": "none" }],
+        "camelcase": ["error", { "allow": ["lab_api", "instance_of"] } ],
+        "no-underscore-dangle": "error"
+    }
+}

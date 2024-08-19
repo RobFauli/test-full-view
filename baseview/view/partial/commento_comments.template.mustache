@@ -1,0 +1,18 @@
+{{ #display }}
+<script {{#view.trim}}
+    defer=""
+    src="{{{ script }}}"
+    {{ #cssOverride }}data-css-override="{{{ cssOverride }}}"{{ /cssOverride }}
+    data-auto-init="true"
+    {{ #usePageId }}data-page-id="{{ pageId }}"{{ /usePageId }}
+{{/view.trim}}></script>
+<div class="row">
+    {{ #descriptionText }}<div class="column comment-description">{{{ descriptionText }}}</div>{{ /descriptionText }}
+    <div class="column" id="commento"></div>
+</div>
+{{ /display }}
+{{ #displayPlaceholder }}
+<div class="comments_placeholder">
+    Commento-comments will display in presentation-mode.
+</div>
+{{ /displayPlaceholder }}

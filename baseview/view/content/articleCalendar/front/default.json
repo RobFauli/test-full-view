@@ -1,0 +1,15 @@
+{
+    "boxTitle": "Article calendar",
+    "boxDescription": "A list of retrieved articles sorted by date.",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ get.current.filtered.url }}}",
+        "type": "json"
+    },
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes",
+            "description": "presets.vp_content_attributes"
+        }
+    }
+}

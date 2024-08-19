@@ -1,0 +1,85 @@
+<div data-element-guid="{{ get.current.guid }}" id="topcomments_{{ get.current.id }}" class="{{ #helper.trim }}
+column topcomments
+{{ #style.collection }}box_decoration{{ /style.collection }}
+{{ size.grid.css }}
+{{ size.grid.absCss }}
+{{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        <ul>
+            <li class="{{ get.current.fields.iconLatest }}{{ #get.current.filtered.selectedTabs.latest }} selected{{ /get.current.filtered.selectedTabs.latest }}" title="{{ get.current.fields.labelLatest }}"></li>
+            <li class="{{ get.current.fields.iconMostRead }}{{ #get.current.filtered.selectedTabs.mostRead }} selected{{ /get.current.filtered.selectedTabs.mostRead }}" title="{{ get.current.fields.labelMostRead }}"></li>
+        </ul>
+        
+        <div class="tabs">
+            <div class="tab{{ #get.current.filtered.selectedTabs.latest }} selected{{ /get.current.filtered.selectedTabs.latest }}">
+                <h2 class="primary">{{ get.current.fields.titleLatest }}</h2>
+                {{ #get.current.filtered.latest }}
+                <article>
+                    {{ #resizedImage }}<div class="media">
+                        <a href="{{published_url}}"><img src="{{ resizedImage }}"/></a>
+                    </div>{{ /resizedImage }}
+                    <div class="text">
+                        <h4>
+                            <a href="{{published_url}}">
+                                {{title}}
+                            </a>
+                        </h4>
+                        <a class="comment-count" href="{{published_url}}" data-disqus-identifier="{{disqusId}}"></a>
+                        <time itemprop="datePublished">{{readableDate}}</time>
+                    </div>
+                </article>
+                {{ /get.current.filtered.latest }}
+            </div>
+
+            <div class="tab{{ #get.current.filtered.selectedTabs.mostRead }} selected{{ /get.current.filtered.selectedTabs.mostRead }}">
+                <h2 class="primary">{{ get.current.fields.titleMostRead }}</h2>
+                {{ #get.current.filtered.mostRead }}
+                <article>
+                    {{ #resizedImage }}<div class="media">
+                        <a href="{{fields.srcUrl}}"><img src="{{ resizedImage }}"/></a>
+                    </div>{{ /resizedImage }}
+                    <div class="text">
+                        <h4>
+                            <a href="{{fields.srcUrl}}">
+                                {{fields.title}}
+                            </a>
+                        </h4>    
+                        <a class="comment-count" href="{{fields.srcUrl}}" data-disqus-identifier=""></a>
+                        <time itemprop="datePublished">{{fields.readableDate}}</time>
+                    </div>
+                </article>
+                {{ /get.current.filtered.mostRead }}
+            </div>
+
+            <!-- <div class="tab{{ #get.current.filtered.selectedTabs.topComments }} selected{{ /get.current.filtered.selectedTabs.topComments }}">
+                <h2>Mest diskutert</h2>
+                {{ #external.topComments }}
+                    <article>
+                        <h4>
+                            <a href="{{fields.link}}">{{fields.clean_title}}</a>
+                        </h4>
+                        <a class="comment-count-text" href="{{fields.link}}">{{fields.posts}} kommentarer</a>
+                    </article>
+                {{ /external.topComments }}
+            </div> -->
+        </div>
+    </div>
+
+{{ #get.current.id }}
+<script>
+(function () {
+    window.dachserData.push('tabnavigation', {
+        selector: '#topcomments_{{ get.current.id }}',
+        tabsSelector: '.tab',
+        navigationSelector: 'ul li',
+        defaultIndex: null,
+        debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+    });
+    {{ #app.isEditor }}
+    window.dachserData.reflow('tabnavigation', 'selector', '#topcomments_{{ get.current.id }}');
+    {{ /app.isEditor }}
+}());
+</script>
+{{ /get.current.id }}
+</div>

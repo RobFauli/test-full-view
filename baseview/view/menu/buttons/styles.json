@@ -1,0 +1,57 @@
+{
+    "icon": "labicon-style",
+    "title": "Copy, paste and apply style",
+    "itemBinding": "lab_api.v1.model.utils.getStyleMenuItems",
+    "items": [
+        {
+            "callback": "copyStyle",
+            "text": "Copy appearance",
+            "icon": "labicon-style_copy",
+            "respectLayoutLock": false,
+            "group": "_sg1",
+            "displayHotkeys": true,
+            "hotkeys": [{
+                "key": "c",
+                "controlkeys": ["labCtrlKey"]
+            }]
+        },
+        {
+            "callback": "pasteStyle",
+            "text": "Paste appearance",
+            "icon": "labicon-style_paste",
+            "group": "_sg1",
+            "displayHotkeys": true,
+            "hotkeys": [{
+                "key": "v",
+                "controlkeys": ["labCtrlKey"]
+            }],
+            "bindings": [
+                {
+                    "source": "lab_api.v1.model.utils.getInstance",
+                    "path": "clipboard",
+                    "attribute": "disabled",
+                    "valueTransformer": "hasNotLength"
+                }
+            ]
+        },
+        {
+            "callback": "clearStyle",
+            "text": "Clear appearance",
+            "icon": "labicon-reset_style",
+            "group": "_sg2",
+            "displayHotkeys": true,
+            "hotkeys": [{
+                "key": "0",
+                "controlkeys": ["altKey"]
+            }]
+        },
+        {
+            "callback": "saveStyle",
+            "requiredPermissions": ["admin_styles"],
+            "text": "Save current appearance",
+            "title": "Store current data as a new style",
+            "icon": "labicon-style_add",
+            "group": "g2"
+        }
+    ]
+}

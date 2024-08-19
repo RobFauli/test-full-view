@@ -1,0 +1,15 @@
+<li id="article-{{ get.current.id }}" class="column" itemtype="http://schema.org/NewsArticle" itemscope="">
+    <a itemprop="url" href="{{ get.current.fields.published_url }}" data-k5a-url="{{{ get.current.filtered.canonical_url }}}">
+        {{ ^get.parent.metadata.sub_hideImage }}
+        {{{ children.image[0] }}}
+        {{ /get.parent.metadata.sub_hideImage }}
+        <div class="text">
+            {{ ^get.parent.metadata.sub_hideTitle }}
+            <h5 itemprop="name headline" class="subarticle {{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h5>
+            {{ /get.parent.metadata.sub_hideTitle }}
+            {{ ^get.parent.metadata.sub_hideSubtitle }}
+            <p class="subarticle {{ #style.collection }}text_decoration fields.subtitle{{ /style.collection }}">{{{ get.current.fields.subtitle }}}</p>
+            {{ /get.parent.metadata.sub_hideSubtitle }}
+        </div>
+    </a>
+</li>

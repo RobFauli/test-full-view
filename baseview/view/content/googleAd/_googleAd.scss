@@ -1,0 +1,207 @@
+.google-ad {
+    > * {
+        max-width: 100% !important;
+    }
+    iframe {
+        max-width: 100% !important;
+        margin: 0 auto;
+        display: block;
+    }
+}
+.placement-left,
+.placement-right {
+    .google-ad iframe, .google-ad > * {
+        max-width: unset !important;
+    }
+}
+
+.bodytext .column.google-ad.fullWidth {
+    width: 100%;
+}
+.bodytext .column.google-ad.widthAuto {
+    width: auto;
+}
+
+.column.google-ad.display-label {
+    &:has(.adunit:empty) {
+        margin-bottom: 0;
+    }
+    .adunit:empty {
+        margin-top: 0;
+    }
+}
+
+.bodytext > .column.google-ad,
+.row > .column.google-ad {
+    &.display-label{
+        .ad-label {
+            margin-top: 0;
+        }
+    }
+}
+
+.placement-left,
+.placement-right {
+    .column.google-ad {
+        &.display-label {
+            .adunit {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.column.google-ad {
+    padding-top: 0;
+
+    .adunit {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .ad-label {
+        display: none;
+    }
+
+    &.display-label { 
+        margin-bottom: .8rem;
+        padding-bottom: 0;
+
+        &:has(.adunit > div:empty),
+        &:has(.adunit:empty) {
+            .ad-label {
+                display: none;
+            }
+        }
+
+        &:has(.adunit[style="display: none;"]) {
+            .ad-label {
+                display: none;
+            }
+        }
+
+        &:has(.ad-label) {
+            .adunit {
+                &::before {
+                    content: none;
+                }
+            }
+        }
+
+        .ad-label {
+            display: block;
+            font-size: 12px;
+            color: gray;
+            text-transform: uppercase;
+            overflow: hidden;
+            margin-top: -20px;
+            position: absolute;
+        }
+    }
+
+    &.display-label .adunit {
+        margin-top: 20px;
+        &:before {
+            content: "ANNONSE";
+            display: block;
+            font-size: 12px;
+            color: gray;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &.sticky_banner {
+        width: 100%;
+        position: fixed;
+        text-align: center;
+        left: 0;
+        z-index: 1000;
+        background-color: transparent;
+        display: block;
+        justify-content: center;
+        bottom: 0px;
+        top: auto;
+        background-color: hsla(0,0%,100%,.8);
+        padding: 15px 0 15px 0;
+        margin: 0;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.2)!important;
+    }
+}
+
+.adZone-top
+.placement-top { 
+    .column.google-ad.display-label .adunit:before {
+        top: -18px;
+    }
+}
+
+.adZone-left, .adZone-right,
+.placement-left, .placement-right {
+    .column.google-ad {
+        padding: 0;
+
+        &.display-label .adunit:before {
+            top: -20px;
+        }
+    }
+}
+
+.bodytext {
+    .column.google-ad {
+        &.display-label {
+            &.floatRight {
+                .adunit:before {
+                    right: 10px;
+                }
+            }
+        }
+
+        &.widthFull {
+            width: 100%;
+            display: block;
+            clear: both;
+        }
+    }
+}
+
+body.l4 .placement-top .column.google-ad.display-label .adunit:before {
+    top: -20px;
+}
+
+.placement-overlay {
+    position: initial;
+    margin: 0;
+
+    .google-ad {
+        position: initial;
+    }
+}
+
+// Holid ads styling
+.column.google-ad {
+    .adunit.holidAds { 
+        width: unset !important;
+        text-align: center;
+    }
+
+    &.display-label {
+        &:has(.adunit.holidAds > div:empty) {
+            margin: 0;
+        }
+        
+        .adunit.holidAds:has(div:empty) {
+            margin: 0;
+        }
+        
+        &:has(.adunit.holidAds > div:empty), &:has(.adunit.holidAds > div > div:empty) {
+            .ad-label {
+                display: none;
+            }
+        }
+    }
+}
+.placement-left .google-ad:has(.adunit.holidAds) ,
+.placement-right .google-ad:has(.adunit.holidAds){
+    width: 300px;
+}

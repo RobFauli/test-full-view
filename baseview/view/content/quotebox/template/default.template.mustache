@@ -1,0 +1,23 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    quotebox
+    column
+    {{ #get.current.metadata.speech_bubble }} {{ get.current.metadata.speech_bubble }} {{/get.current.metadata.speech_bubble }}
+    {{ #get.current.metadata.size_small }}size-small {{ /get.current.metadata.size_small }}
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}"
+        style="--bg-color: var(--{{ get.current.metadata.speech_bubble_bg_color }}); --text-color: var(--{{ get.current.metadata.speech_bubble_text_color }});" 
+        >
+        {{{ children.image }}}
+        <h3 class="{{ #style.collection }}text_decoration fields.quote{{ /style.collection }}"
+            style="{{ #style.collection }}text_decoration_inline_style fields.quote{{ /style.collection }}">{{{ get.current.fields.quote }}}</h3>
+        <p class="{{ #style.collection }}text_decoration fields.author{{ /style.collection }}"
+            style="{{ #style.collection }}text_decoration_inline_style fields.author{{ /style.collection }}">{{{ get.current.fields.author }}}</p>
+    </div>
+</div>

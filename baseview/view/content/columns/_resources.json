@@ -1,0 +1,31 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/columns/front/default.json",
+                        "content_settings/front/grid/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/columns/template/default"
+                }
+            }
+        }
+    },
+
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/columns/editor/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/lock/default.json"
+                    ]
+                }
+            }
+        }
+    }
+}

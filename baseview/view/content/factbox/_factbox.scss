@@ -1,0 +1,91 @@
+
+/* Style for contentbox factbox */
+// See view/content/factbox/filter.js for more info
+@use "../../css_scss/components/vars" as *;
+
+// $border-color: rgb(206, 206, 206);
+
+.factbox {
+    .content {
+        padding: $bg_text_padding;
+    }
+    .content > h2 a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .fact {
+        clear: both;
+        line-height: 1.7rem;
+        a {
+            color: $link-color;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        ol {
+            margin: 0.1em 0 0;
+            padding: 0.4em 0;
+            li {
+                list-style-type: decimal;
+                margin: 0 0 0.5rem 1.2rem;
+                list-style-position: outside;
+            }
+        }
+        ul {
+            margin: 0.1em 0 0;
+            padding: 0.4em 0;
+            li {
+                list-style-type: disc;
+                margin: 0 0 0.5rem 1.2rem;
+                list-style-position: outside;
+            }
+        }
+        p {
+            margin: 0 0 1rem 0;
+        }
+    }
+    figure,
+    .content[class*=" bg-"] figure {
+        margin: 0.5em 0;
+    }
+    figure.floatRight,
+    .content[class*=" bg-"] figure.floatRight {
+        margin-left: 0.5rem;
+    }
+    figure.floatLeft,
+    .content[class*=" bg-"] figure.floatLeft {
+        margin-right: 0.5rem;
+    }
+
+    // Lab 4
+    @include desktop_down {
+        figure.mobile-floatRight {
+            padding-left: $columns_gutter;
+        }
+        figure.mobile-floatLeft {
+            padding-right: $columns_gutter;
+        }
+    }
+    @include desktop {
+        figure.desktop-floatRight {
+            padding-left: $columns_gutter;
+        }
+        figure.desktop-floatLeft {
+            padding-right: $columns_gutter;
+        }
+    }
+    &.ai-factbox-summary,
+    &.ai-factbox-bulletpoints {
+        p {
+            &.italic:last-child {
+                margin-top: 1rem;
+                border-top: 1px solid #188093;
+                padding-top: 1rem;
+            }
+        }
+    }
+}

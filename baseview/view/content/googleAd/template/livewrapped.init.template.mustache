@@ -1,0 +1,19 @@
+<script>
+    window.googletag = window.googletag || {cmd: []};
+    var lwhb = lwhb || {cmd:[]};
+
+    googletag.cmd.push(function() {
+        googletag.pubads().setTargeting("env", "{{ #get.current.filtered.googleAds.debugmode }}test{{ /get.current.filtered.googleAds.debugmode }}{{ ^get.current.filtered.googleAds.debugmode }}prod{{ /get.current.filtered.googleAds.debugmode }}");
+        googletag.pubads().setTargeting("site", "{{ get.current.filtered.siteAlias }}");
+        googletag.pubads().setTargeting("section", "{{ get.current.filtered.section }}");
+        googletag.pubads().setTargeting("context", "{{ get.current.filtered.pageType }}");
+        {{ #get.current.filtered.is_article }}
+        googletag.pubads().setTargeting("tags", "{{ get.current.filtered.tagsString }}");
+        {{ /get.current.filtered.is_article }}
+        {{ #get.current.filtered.is_tagpage }}
+        googletag.pubads().setTargeting("is_tagpage", "true");
+        {{ /get.current.filtered.is_tagpage }}
+    });
+</script>
+
+<script async="async" src="https://lwadm.com/lw/pbjs?pid={{ get.current.filtered.googleAds.bidding.provider.id }}"></script>

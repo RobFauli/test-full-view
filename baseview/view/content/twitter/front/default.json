@@ -1,0 +1,12 @@
+{
+    "boxTitle": "Twitter",
+    "boxDescription": "Embed tweet from Twitter",
+    "boxKeywords": "social media X",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{ #get.current.fields.tweeturl }}https://publish.twitter.com/oembed?url={{{ get.current.fields.tweeturl }}}&lang={{ get.current.filtered.lang }}{{ /get.current.fields.tweeturl }}",
+        "type": "json"
+    }
+}
+
+

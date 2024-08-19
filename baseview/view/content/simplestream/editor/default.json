@@ -1,0 +1,12 @@
+{
+    "editors": {
+        "title": {
+            "selector": ".caption",
+            "fn": "EditClean",
+            "key": "fields.caption",
+            "placeholder": "Click to add caption",
+            "modal": false,
+            "allowReverting": true
+        }
+    }
+}

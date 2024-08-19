@@ -1,0 +1,1 @@
+This file is accessible at <all sites www-docroot>/example2.txt

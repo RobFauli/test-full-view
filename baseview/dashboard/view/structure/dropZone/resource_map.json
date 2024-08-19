@@ -1,0 +1,11 @@
+{
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "structure/dropZone/edit_properties.json"
+                }
+            }
+        }
+    }
+}

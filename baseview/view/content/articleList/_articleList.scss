@@ -1,0 +1,92 @@
+/* Style for contentbox articleList */
+@use "../../css_scss/components/vars" as *;
+@use 'sass:math';
+
+.articleList {
+    --articleList-columns: repeat(4, 1fr);
+
+    h2 {
+        font-size: 1.4em;
+
+        &[class*="bg-"] {
+            padding: .3rem 0.4rem;
+            display: grid;
+            margin-bottom: .7rem;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+    ul {
+        display: grid;
+        grid-template-columns: var(--articleList-columns);
+        gap: 22px;
+    }
+    li {
+        overflow: auto;
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &.imageLayout_full li h2 {
+        margin-top: 0.3em;
+        margin-bottom: 0;
+    }
+
+    .content[class*=" bg-"] figure {
+        margin: 0;
+    }
+
+    &.layout_vertical {
+        ul {
+            // column-count: 1;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        // li {
+        //     flex-basis: 100%;
+        // }
+    }
+
+    &.imageLayout_right {
+        figure {
+            float: right;
+            margin-left: 0.6em;
+            max-width: 40%;
+        }
+    }
+
+    &.imageLayout_left {
+        figure {
+            float: left;
+            max-width: 40%;
+        }
+    }
+
+    &.imageLayout_left figure,
+    &.imageLayout_left .content[class*=" bg-"] figure {
+        margin-right: 0.6em;
+        margin-top: 0.5rem;
+    }
+
+    &.imageLayout_right figure,
+    &.imageLayout_right .content[class*=" bg-"] figure {
+        margin-left: 0.6em;
+        margin-top: 0.5rem;
+    }
+
+    @include desktop_down {
+        --articleList-columns: var(--articleList-columnsMobile);
+    }
+
+    @include desktop {
+        --articleList-columns: var(--articleList-columnsDesktop);
+    }
+}
+

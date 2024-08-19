@@ -1,0 +1,36 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    front_rows
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+        content
+        fullwidthTarget
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ #get.current.fields.fragment_json.pageId }}
+            {{ ^get.current.external }}{{ #app.isEditor }}{{ ^get.current.state.isFetching }}<p style="text-align:center; color: red; padding: 2rem;">No content. Check url.</p>{{ /get.current.state.isFetching }}{{ /app.isEditor }}{{ /get.current.external }}
+            {{{ get.current.external }}}
+        {{ /get.current.fields.fragment_json.pageId }}
+        {{ ^get.current.fields.fragment_json.pageId }}
+            <style>
+                .front_rows[data-lab-content] .lab-empty-placeholder {
+                    padding: 2rem;
+                }
+                .front_rows[data-lab-content] .lab-empty-placeholder:before {
+                    font-size: 5rem;
+                    margin: 0.5rem 0 1rem;
+                }
+            </style>
+            <div class="lab-empty-placeholder lab-droppable column large-12 small-12 labicon-edit">
+                <p>
+                    Cannot draw content. Required options not set.<br>
+                    Click settings-icon above to edit.
+                </p>        
+            </div>
+        {{ /get.current.fields.fragment_json.pageId }}
+    </div>
+</div>

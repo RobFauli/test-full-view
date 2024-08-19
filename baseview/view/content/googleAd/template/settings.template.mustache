@@ -1,0 +1,19 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Settings for Google Ad</h2>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.format">Type</label>
+                <select id="id-fields.format" name="fields.format">
+                    {{ #get.current.filtered.formatConfigKeys }}
+                    <option value="{{{ format }}}">{{ format }} ({{ width }} x {{ height }})</option>
+                    {{ /get.current.filtered.formatConfigKeys }}
+                </select>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap lab-inline">
+                <label for="id-fields.css">Show label</label>
+                <input type="checkbox" id="id-fields.css" name="fields.css" value="display-label" {{ #get.current.fields.css }}checked="true"{{ /get.current.fields.css }}>
+            </div>
+        </div>
+    </div>
+</form>

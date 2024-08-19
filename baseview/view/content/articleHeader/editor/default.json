@@ -1,0 +1,351 @@
+{
+    "editors": [
+        {
+            "selector": "p.kicker",
+            "allowNbsp": true,
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.kicker",
+            "placeholder": "Click to add kicker"
+        },
+        {
+            "selector": "figcaption[itemprop=caption]",
+            "target": "child.image",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.imageCaption",
+            "placeholder": "Click to add caption",
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": { "active": false },
+                "text_align": { "active": false },
+                "text_color": { "active": false },
+                "text_background_color": { "active": false }
+            }
+        },
+        {
+            "selector": "figcaption[itemprop=author]",
+            "target": "child.image",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.byline",
+            "placeholder": "Click to add byline",
+            "allowReverting": true,
+            "displayCharCount": false,
+            "displaySelectionLength": false,
+            "displayWordCount": false,
+            "attributes": {
+                "text_size": { "active": false },
+                "text_align": { "active": false },
+                "text_color": { "active": false },
+                "text_background_color": { "active": false }
+            }
+        },
+        {
+            "selector": "h1.headline.mainTitle",
+            "fn": "EditRich",
+            "menu": "rich_text_ai", 
+            "key": "fields.title",
+            "defaultValue": 57,
+            "allowNbsp": true,
+            "placeholder": "Click to add title"
+        },
+        {
+            "selector": "h2.subtitle",
+            "fn": "EditRich",
+            "menu": "rich_text_ai",
+            "key": "fields.subtitle",
+            "allowNbsp": true,
+            "placeholder": "Click to add subtitle"
+        }
+    ],
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        },
+        "rich_text_ai": {
+            "inheritPath": "menu/tool/rich_text.json",
+            "items": {
+                "insert": {
+                    "items": {
+                        "suggestion": {
+                            "icon": "labicon-magic_wand",
+                            "group": "g0_1",
+                            "text": "Generate new",
+                            "callback": "dispatch",
+                            "params": {
+                                "function": "textAssistant.textToolSuggestion"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "snapToTop": true,
+            "labels": {
+                "before": ["lab-content-type"]
+            },
+            "items": {
+                "lock": {
+                    "inheritPath": "menu/buttons/lock.json",
+                    "group": "g1"
+                },
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g1_b"
+                },
+                "text-options": {
+                    "inheritPath": "menu/buttons/textOptions.json",
+                    "group": "g2"
+                },
+                "mediaOptions": {
+                    "inheritPath": "menu/buttons/mediaOptions.json",
+                    "group": "g2",
+                    "items": {
+                        "imageStyling": {
+                            "params": {
+                                "colorPicker": {
+                                    "preview": {
+                                        "selector": ".articleHeader"
+                                    }
+                                }
+                            }
+                        },
+                        "border": {
+                            "icon": "labicon-color_bucket",
+                            "text": "Border options",
+                            "group": "sg1",
+                            "callback": "colorPicker",
+                            "autocloseSubmenuAfterAction": false,
+                            "displayCondition": "hasChildOfType",
+                            "params": {
+                                "modelType": "image",
+                                "colorPicker": {
+                                    "pathHelper": {
+                                        "type": "child.image"
+                                    },
+                                    "display": {
+                                        "position": "before",
+                                        "align": "start",
+                                        "width": 330
+                                    },
+                                    "preview": {
+                                        "active": true,
+                                        "styleDefinition": "background_color",
+                                        "stylePath": null
+                                    },
+                                    "groups": [
+                                        {
+                                            "values": "background_colors",
+                                            "eyeDropper": {
+                                                "key": "metadata.custom_border_color"
+                                            },
+                                            "title": "Border Color",
+                                            "label": "",
+                                            "key": "metadata.border_color",
+                                            "styleDefinition": "border_color",
+                                            "removeBtn": true,
+                                            "bordered": false,
+                                            "valuePrefix": "border-"
+                                        },
+                                        {
+                                            "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                                            "title": "Border width",
+                                            "label": "",
+                                            "key": "metadata.border_width",
+                                            "styleDefinition": "border_width",
+                                            "removeBtn": false,
+                                            "bordered": true,
+                                            "valuePrefix": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            "onValue": true,
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.background_color",
+                                    "attribute": "value"
+                                }
+                            ],
+                            "valueTransformer": "toBoolean",
+                            "title": "Color-options"
+                        },
+                        "imageThumbnail": {
+                            "inheritPath": "menu/buttons/youtubeThumbnail.json",
+                            "displayCondition": "hasChildOfType",
+                            "params": {
+                                "modelType": "youtube",
+                                "addImageChildType": "youtube"
+                            }
+                        },
+                        "removeImageThumbnail": {
+                            "inheritPath": "menu/buttons/youtubeThumbnailRemove.json",
+                            "displayCondition": "hasChildOfType",
+                            "params": {
+                                "modelType": "youtube",
+                                "removeChildPath": "articleHeader/youtube/image"
+                            }
+                        },
+                        "cookieConsent": {
+                            "inheritPath": "menu/buttons/cookieConsent.json",
+                            "text": "Cookie consent",
+                            "displayCondition": ["hasConfig", "hasChildOfType"],
+                            "params": {
+                                "modelType": "markup",
+                                "configKey": "cookieConsent.enabled"
+                            },
+                            "items": {
+                                "necessary": {
+                                    "pathHelper": {
+                                        "type": "child.markup"
+                                    },
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.requiredCookieConsent",
+                                            "attribute": "value",
+                                            "pathHelper": {
+                                                "type": "child.markup"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "statistics": {
+                                    "pathHelper": {
+                                        "type": "child.markup"
+                                    },
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.requiredCookieConsent",
+                                            "attribute": "value",
+                                            "pathHelper": {
+                                                "type": "child.markup"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "marketing": {
+                                    "pathHelper": {
+                                        "type": "child.markup"
+                                    },
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.requiredCookieConsent",
+                                            "attribute": "value",
+                                            "pathHelper": {
+                                                "type": "child.markup"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "imageColors": {
+                            "icon": "labicon-color_picker",
+                            "text": "Get background color from image",
+                            "displayCondition": "hasChildOfType",
+                            "params": {
+                                "modelType": "image",
+                                "function": "contextualmenu.callbacks.getImageColors"
+                            },
+                            "callback": "dispatch",
+                            "group": "sg1"
+                        },
+                        "subImage": {
+                            "inheritPath": "menu/buttons/subImage.json",
+                            "group": "sg1_0"
+                        }
+                    }
+                },
+                "settings": {
+                    "icon": "labicon-settings",
+                    "group": "g6",
+                    "title": "More settings",
+                    "items": {
+                        "redraw": {
+                            "inheritPath": "menu/buttons/redraw.json",
+                            "group": "s5"
+                        },
+                        "alignVps": {
+                            "icon": "labicon-break",
+                            "displayCondition": "hasSubViewports",
+                            "respectLayoutLock": false,
+                            "title": "Align viewports (S)",
+                            "callback": "alignViewports",
+                            "hotkeys": [
+                                {
+                                    "key": "S"
+                                }
+                            ],
+                            "displayHotkeys": true,
+                            "text": "Align viewports",
+                            "group": "s5"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "placeholders": [
+        {
+            "name": "no_media",
+            "conditions": [
+                {
+                    "fn": "noChildOfTypes",
+                    "params": {
+                        "modelTypes": [
+                            "image",
+                            "graphic",
+                            "youtube",
+                            "simplestream",
+                            "slideshow",
+                            "markup",
+                            "parallax",
+                            "jwplayer"
+                        ]
+                    }
+                }
+            ],
+            "templatePath": "content/image/template/placeholder",
+            "handlers": [
+                {
+                    "selector": ".addImageBtn",
+                    "trigger": ["click"],
+                    "fn": "lab_api.v1.collection.display",
+                    "param": {
+                        "name": "MediaImages"
+                    }
+                }
+            ]
+        }
+    ],
+    "droppable": {
+        "active": true,
+        "accept": [
+            "image",
+            "graphic",
+            "slideshow",
+            "youtube",
+            "simplestream",
+            "markup",
+            "parallax",
+            "jwplayer"
+        ],
+        "drop": "replaceChild",
+        "filedrop": "replaceChild"
+    },
+    "redrawPaths": {
+        "current": [
+            "metadata.hasFullWidth",
+            "metadata.hideimage",
+            "fields.displayCaption"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "edit": [
+        {
+            "selector": "h1",
+            "fn": "editRich",
+            "menu": "RichTextMenu",
+            "key": "fields.title",
+            "defaultValue": 78,
+            "placeholder": "Click to add title",
+            "trigger": ["click"],
+            "stop": ["blur"],
+            "useKeyboardSave": true,
+            "selectTextOnStart": true,
+            "noResize": true
+        }
+    ],
+    
+
+    "menus": {   
+        "RichTextMenu": {
+            "inheritPath": "menu_settings/content/rich_text.json",
+            "position": "left"
+        }
+    }
+}

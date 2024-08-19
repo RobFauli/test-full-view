@@ -1,0 +1,68 @@
+<div class="youtube" id="youtube-{{get.current.id}}">
+    {{ #get.current.filtered.requiredCookieConsent }}
+        <script>
+            if (window.Dac && window.Dac.CookieConsent) {
+                var dac_cookieConsent = new Dac.CookieConsent(Dac.clientData.debug, '{{ getConfig.cookieConsent.cookieName }}');
+                var requiredCookieConsent = '{{ get.current.filtered.requiredCookieConsent }}';
+                var markupContent = `<div class="fullwidthTarget">
+                                        <div {{ #child.image }}class="has-image-placeholder" onclick="HandleYoutubePlaceholderImage(event);"{{ /child.image }}>
+                                            {{ #child.image }}
+                                            <div class="content-area youtube-container">
+                                                {{{ children.image }}}
+                                            </div>
+                                            {{ /child.image }}
+                                            <div class="youtube-container">
+                                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="//www.youtube.com/embed/{{get.current.fields.vid}}{{{get.current.filtered.startstop}}}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ #get.current.filtered.displayCaption }}
+                                        <p itemprop="caption" class="caption">{{{ get.current.fields.caption }}}</p>
+                                    {{ /get.current.filtered.displayCaption }}
+                                    {{ #child.image }}
+                                    <script>
+                                    function HandleYoutubePlaceholderImage(e) { 
+                                        e.preventDefault();
+                                        e.target.closest('.has-image-placeholder').classList.add('clicked');
+                                    }
+                                    <\/script>
+                                    {{ /child.image }}`;
+                dac_cookieConsent.renderMarkup(
+                    requiredCookieConsent, 
+                    markupContent, 
+                    `{{{ get.current.filtered.insufficientConsentMessage }}}`
+                );
+            }
+        </script>
+    {{ /get.current.filtered.requiredCookieConsent }}
+        
+    {{ ^get.current.filtered.requiredCookieConsent }}
+        <div class="fullwidthTarget">
+            <div {{ #child.image }}class="has-image-placeholder" onclick="HandleYoutubePlaceholderImage(event);"{{ /child.image }}>
+                {{ #child.image }}
+                <div class="content-area youtube-container">
+                    {{{ children.image }}}
+                    <span class="editor-click-target" style="cursor: pointer; width: 150px; height: 230px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: 1;"></span>
+                 </div>
+                {{ /child.image }}
+                <div class="youtube-container">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="//www.youtube.com/embed/{{get.current.fields.vid}}{{{get.current.filtered.startstop}}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        {{ #get.current.filtered.displayCaption }}
+            <p itemprop="caption" class="caption">{{{ get.current.fields.caption }}}</p>
+        {{ /get.current.filtered.displayCaption }}
+        
+        {{ #child.image }}
+        <script>
+        function HandleYoutubePlaceholderImage(e) { 
+            if (e.target.classList.contains('editor-click-target')) {
+                e.preventDefault();
+                e.target.closest('.has-image-placeholder').classList.add('clicked');
+            }
+        }
+        </script>
+        {{ /child.image }}
+    {{ /get.current.filtered.requiredCookieConsent }}
+</div>

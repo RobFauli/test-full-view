@@ -1,0 +1,11 @@
+<form class="lab-grid lab-valign-center">
+    <select name="type" class="lab-grid-large-4 lab-grid-small-4 lab-grid-gap">
+        {{ #types }}
+        <option value="{{ value }}" {{ #selected }}selected="selected"{{ /selected }}>{{ key }}</option>
+        {{ /types }}
+    </select>
+    <input type="text" name="text" placeholder="Filter by name ..." autocomplete="off" class="lab-grid-large-6 lab-grid-small-6 lab-grid-gap" />
+    <a href="#" title="Display more options" class="lab-btn labicon-settings lab-grid-large-2 lab-grid-gap"></a>
+    <div class="expanded size-container lab-grid-large-12 lab-grid-small-12 lab-grid lab-hidden lab-space-above-small">
+    </div>
+</form>

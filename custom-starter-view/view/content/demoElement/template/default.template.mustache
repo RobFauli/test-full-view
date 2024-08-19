@@ -1,0 +1,28 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column demoElement
+    symbol-{{ get.current.filtered.symbol_code }}
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    <div class="{{ #helper.trim }}
+        content fullwidthTarget
+        {{ #style.collection }}content_decoration{{ /style.collection }}
+        {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+
+        <h2 class="{{ #helper.trim }}
+            demoElement-title
+            {{ #style.collection }}text_decoration fields.title{{ /style.collection }}
+            {{ /helper.trim }}" style="{{ #style.collection }}text_decoration_inline_style fields.title{{ /style.collection }}">
+            {{{ get.current.fields.title }}}
+        </h2>
+        <div class="icon">
+            {{ #get.current.filtered.symbol_code }}<img src="/view-resources/custom-starter-view/public/weather/svg/{{ get.current.filtered.symbol_code }}.svg" alt="{{{ get.current.filtered.symbol_code }}}" />{{ /get.current.filtered.symbol_code }}
+        </div>
+        <div class="demoElement-content">
+            <p class="demoElement-location">{{{ get.current.fields.location }}}</p>
+            <p class="demoElement-temp">{{{ get.current.filtered.air_temperature }}} °C</p>
+            <p class="demoElement-wind">Wind: {{{ get.current.filtered.wind_speed }}} m/s</p>
+        </div>
+    </div>
+</div>

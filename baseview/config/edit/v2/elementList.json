@@ -1,0 +1,50 @@
+{
+
+    "elementList": {
+        "all": [
+            "adnuntiusAd",
+            "articleCalendar",
+            "articleList",
+            "articlesByTag",
+            "articlescroller",
+            "buttonlink",
+            "factbox",
+            "front_rows",
+            "frontContent",
+            "googleCSE",
+            "labradorSearch",
+            "markup",
+            "newsletter_submit",
+            "parallax",
+            "paywallPreview",
+            "quotebox",
+            "scrollbox",
+            "tablebox",
+            "tagboard",
+            "text_multiline",
+            "text_subtitle",
+            "text_title",
+            "tips_box",
+            "toplist",
+            "twitter",
+            "userFeedback",
+            "apsis_submit",
+            "topcomments",
+            "timeline"
+        ],
+        "favourites": [
+            "articlesByTag",
+            "factbox",
+            "markup",
+            "quotebox"
+        ]
+    },
+    "elementListAdditions": {
+        "all": [],
+        "favourites": []
+    },
+    "elementListRemovals": {
+        "all": [],
+        "favourites": []
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "publishValidation": {
+        "tags": {
+            "validator": "hasMinLength",
+            "allowOverride": false,
+            "description": "Please add minimum of a tags and a section",
+            "params": {
+                "length": 2
+            },
+            "helper": {
+                "callback": "lab_api.v1.apps.start",
+                "arguments": ["ArticleSettings"]
+            }
+        }
+    }
+}

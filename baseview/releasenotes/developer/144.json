@@ -1,0 +1,19 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 144,
+            "str": "1.4.4"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20240429",
+                "title": "Tag handling in article settings-panel replaced",
+                "description": "Baseview now uses the Labrador API to deliver UI for searching, adding and removing tags from an article. The new API-method `lab_api.v1.util.tags.ui` allows you ta add tag-handling anywhere. Previous tag handling an helper methods are removed from Baseview.",
+                "links": [
+                    "/support/docs/#js-api/v1/util/tags/ui.md"
+                ]
+            }
+        ]
+    }
+}

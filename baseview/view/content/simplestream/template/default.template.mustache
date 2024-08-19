@@ -1,0 +1,14 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+simple column
+{{ #style.collection }}box_decoration{{ /style.collection }}
+{{ size.grid.css }}
+{{ size.grid.absCss }}
+{{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content">
+        {{ #get.current.filtered.displayCaption }}<p itemprop="caption" class="caption">{{{ get.current.fields.caption }}}</p>{{ /get.current.filtered.displayCaption }}
+        {{ > content/simplestream/template/videoData }}
+    </div>
+</div>
+
+

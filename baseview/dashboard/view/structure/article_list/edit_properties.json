@@ -1,0 +1,61 @@
+{
+
+    "inheritFile": "structure/edit_properties.json",
+
+    "menus": {
+        "ContentBoxMenu": {
+            "items": {
+                "sort": {
+                    "trigger": ["click"],
+                    "type": "boolean",
+                    "callback": "setKeyAndValue",
+                    "ignorePageLock": false,
+                    "key": "sortOrder",
+                    "value": null,
+                    "onValue": "asc",
+                    "offValue": "desc",
+                    "title": "Click to change sort-order",
+                    "submenuTrigger": "hover",
+                    "items": {
+                        "created": {
+                            "trigger": ["click"],
+                            "type": "boolean",
+                            "title": "Sort by created-date",
+                            "callback": "setKeyAndValue",
+                            "ignorePageLock": false,
+                            "text": "Created",
+                            "key": "sortOrderBy",
+                            "value": null,
+                            "onValue": "created",
+                            "offValue": "created"
+                        },
+                        "published": {
+                            "trigger": ["click"],
+                            "type": "boolean",
+                            "title": "Sort by published-date",
+                            "callback": "setKeyAndValue",
+                            "ignorePageLock": false,
+                            "text": "Published",
+                            "key": "sortOrderBy",
+                            "value": null,
+                            "onValue": "published",
+                            "offValue": "published"
+                        },
+                        "modified": {
+                            "trigger": ["click"],
+                            "type": "boolean",
+                            "title": "Sort by modified-date",
+                            "callback": "setKeyAndValue",
+                            "ignorePageLock": false,
+                            "text": "Modified",
+                            "key": "sortOrderBy",
+                            "value": null,
+                            "onValue": "modified",
+                            "offValue": "modified"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

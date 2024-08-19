@@ -1,0 +1,45 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Article list settings</h2>
+    <div class="lab-formgroup lab-grid lab-grid-gap lab-valign-top">
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="input-fields.layout">Layout</label>
+            <select id="input-fields.layout" name="fields.layout">
+                {{ #get.current.filtered.layoutOptions }}
+                <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ label }}</option>
+                {{ /get.current.filtered.layoutOptions }}
+            </select>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="input-fields.columnsDesktop">Columns - Desktop</label>
+            <input type="number" id="input-fields.columnsDesktop" name="fields.columnsDesktop" value="{{ get.current.fields.columnsDesktop }}" min="1" max="8">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="input-fields.columnsMobile">Columns - Mobile</label>
+            <input type="number" id="input-fields.columnsMobile" name="fields.columnsMobile" value="{{ get.current.fields.columnsMobile }}" min="1" max="4">
+        </div>
+
+        <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Article options</h3>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="input-fields.hideTitle">Display title</label>
+            <input type="checkbox" id="input-fields.hideTitle" data-lab-reverse="1" name="fields.hideTitle" value="1" {{ ^get.current.fields.hideTitle }}checked="checked"{{ /get.current.fields.hideTitle }}>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="input-fields.displaySubtitle">Display subtitle</label>
+            <input type="checkbox" id="input-fields.displaySubtitle" name="fields.displaySubtitle" value="1" {{ #get.current.fields.displaySubtitle }}checked="checked"{{ /get.current.fields.displaySubtitle }}>
+        </div>
+
+        <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Image options</h3>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+            <label for="input-fields.hideImage">Display image</label>
+            <input type="checkbox" id="input-fields.hideImage" data-lab-reverse="1" name="fields.hideImage" value="1" {{ ^get.current.fields.hideImage }}checked="checked"{{ /get.current.fields.hideImage }}>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+            <label for="input-fields.imageLayout">Alignment</label>
+            <select id="input-fields.imageLayout" name="fields.imageLayout">
+                {{ #get.current.filtered.imageLayoutOptions }}
+                <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ label }}</option>
+                {{ /get.current.filtered.imageLayoutOptions }}
+            </select>
+        </div>
+    </div>
+</form>

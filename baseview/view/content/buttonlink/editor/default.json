@@ -1,0 +1,274 @@
+{
+    "editors": {
+        "link": {
+            "selector": "a",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "placeholder": "Add link text here..",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json",
+            "items": {
+                "textColor": null,
+                "textBackgroundColor": null,
+                "align": null,
+                "insert": {
+                    "items": {
+                        "link": null,
+                        "button_link": null,
+                        "abbreviation": null,
+                        "definition": null
+                    }
+                }
+            }
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "color_bg": null,
+                "layout_options": {
+                    "group": "g1",
+                    "icon": "labicon-spinner_1",
+                    "title": "Layout options",
+                    "items": [
+                        {
+                            "group": "g1",
+                            "text": "Style",
+                            "title": "Style options",
+                            "value": false,
+                            "onValue": true,
+                            "offValue": false,
+                            "onValueCondition": "lab-key-is-true",
+                            "items": [
+                                {
+                                    "text": "Oval",
+                                    "icon": "labicon-button_checkbox",
+                                    "title": "Oval layout",
+                                    "callback": "toggleKeyAndValue",
+                                    "key": "metadata.layout",
+                                    "value": false,
+                                    "onValue": "layout_oval",
+                                    "offValue": false,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.layout",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "text": "Flat",
+                                    "icon": "labicon-align_content_center",
+                                    "title": "Flat layout",
+                                    "callback": "toggleKeyAndValue",
+                                    "key": "metadata.layout",
+                                    "value": false,
+                                    "onValue": "layout_flat",
+                                    "offValue": false,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.layout",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "group": "g2",
+                            "text": "Shadow",
+                            "title": "shadow options",
+                            "value": false,
+                            "onValue": true,
+                            "offValue": false,
+                            "onValueCondition": "lab-key-is-true",
+                            "items": [
+                                {
+                                    "text": "Underneath",
+                                    "title": "Underneath",
+                                    "callback": "toggleKeyAndValue",
+                                    "key": "metadata.shadow",
+                                    "value": false,
+                                    "onValue": "shadow_underneath",
+                                    "offValue": false,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.shadow",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "text": "All around",
+                                    "title": "All around",
+                                    "callback": "toggleKeyAndValue",
+                                    "key": "metadata.shadow",
+                                    "value": false,
+                                    "onValue": "shadow_around",
+                                    "offValue": false,
+                                    "bindings": [
+                                        {
+                                            "path": "metadata.shadow",
+                                            "attribute": "value"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "group": "g3",
+                            "text": "Fit content",
+                            "title": "Fit width to content only",
+                            "callback": "toggleKeyAndValue",
+                            "key": "metadata.fitContent",
+                            "value": false,
+                            "onValue": "fitContent",
+                            "offValue": false,
+                            "bindings": [
+                                {
+                                    "path": "metadata.fitContent",
+                                    "attribute": "value"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "uiColor": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "icon": "labicon-color_palette",
+                    "group": "g1",
+                    "bindings": [
+                        {
+                            "path": "metadata.ui_color",
+                            "attribute": "value"
+                        }
+                    ],
+                    "params": {
+                        "colorPicker": {
+                            "preview": {
+                                "active": true,
+                                "selector": ".button-link .content",
+                                "styleDefinition": "background_color",
+                                "stylePath": null
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "title": "Button Background Color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.background_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "backgroundColor"
+                                    }
+                                },
+                                {
+                                    "values": "background_colors",
+                                    "title": "Button Border Color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.border_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "borderColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "objectValues": false,
+                                    "title": "Button Text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                },
+                                {
+                                    "values": "background_colors",
+                                    "title": "Hover background color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.hover_bg_color",
+                                    "removeBtn": true,
+                                    "bordered": false
+                                },
+                                {
+                                    "values": "background_colors",
+                                    "title": "Hover border color",
+                                    "label": "",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.hover_border_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "autoborder": {
+                                        "attribute": "borderColor"
+                                    }
+                                },
+                                {
+                                    "values": "font_colors",
+                                    "title": "Hover text color",
+                                    "label": "A",
+                                    "useValueAsLabel": false,
+                                    "cssPrefix": "",
+                                    "key": "metadata.hover_text_color",
+                                    "removeBtn": true,
+                                    "bordered": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                "style": {
+                    "inheritPath": "menu/buttons/styles.json",
+                    "group": "g3"
+                },
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [
+                        {
+                            "key": ","
+                        }
+                    ],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/buttonlink/template/settings"
+        }
+    },
+    "editorSelectors": {
+        "edit": ["lab-content-min-height"]
+    },
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "image": "replaceChild"
+            },
+            "default": "default"
+        },
+        "filedrop": "replaceChild"
+    }
+}

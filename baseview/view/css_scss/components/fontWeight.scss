@@ -1,0 +1,35 @@
+@use "./vars" as *;
+
+.font-weight-light {
+    font-weight: 200 !important;
+}
+
+.font-weight-normal {
+    font-weight: 500 !important;
+}
+
+.font-weight-bold {
+    font-weight: 600 !important;
+}
+
+.font-weight-black {
+    font-weight: 800 !important;
+}
+
+@include desktop_down {
+    .m-font-weight-light {
+        font-weight: 200 !important;
+    }
+    
+    .m-font-weight-normal {
+        font-weight: 500 !important;
+    }
+    
+    .m-font-weight-bold {
+        font-weight: 600 !important;
+    }
+    
+    .m-font-weight-black {
+        font-weight: 800 !important;
+    }  
+}

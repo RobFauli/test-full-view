@@ -1,0 +1,16 @@
+<div class="sesamy-abo">
+    <a href="[[#settings.url]][[settings.url]][[/settings.url]][[^settings.url]]#[[/settings.url]]" class="[[#settings.classes]][[.]][[/settings.classes]]">
+    [[ #settings.text ]][[ settings.text ]][[ /settings.text ]][[ ^settings.text ]]Subscribe[[ /settings.text ]]
+    </a>
+</div>
+
+<script type="module">
+    async function isUserLoggedIn() {
+        const isLoggedIn = await window.sesamy.isLoggedIn();
+        if(isLoggedIn) {
+            document.querySelector('.sesamy-abo').style.display = 'none';
+        }
+    }
+
+    isUserLoggedIn();
+</script>

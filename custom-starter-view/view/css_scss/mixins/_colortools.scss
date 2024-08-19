@@ -1,0 +1,97 @@
+
+// grid-colors
+@mixin grid_background_color($color: #fff) {
+    .main .row:not([class*="bg-"]), section.related .row:not([class*="bg-"]), article.pageWidth:not([class*="bg-"]), main.pageWidth > article:not([class*="bg-"]) {
+        background-color: $color;
+    }
+    .row[class*="bg-"] .row {
+        background-color: transparent;
+    }
+    .main .row-section[class*="bg-"] > .row {
+        background-color: initial;
+    }
+}
+
+// Text-colors
+@mixin text_color_list($text_colors, $color-prefix: '') {
+    @each $colorname, $color in $text_colors {
+        .#{$color-prefix}#{"" + $colorname} {
+            color: $color !important;
+        }
+    }
+}
+
+// Border-colors
+@mixin border_color_list($background_colors, $color-prefix: '') {
+    @each $colorname, $color in $background_colors {
+        .#{$color-prefix}border-bg-#{"" + $colorname} {
+            border: 1px solid $color !important;
+        }
+    }
+}
+
+// Border-width
+$border_widths: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+@mixin border_width_list($width-prefix: '') {
+    @each $width in $border_widths {
+        .#{$width-prefix}#{$width} {
+            border-width: #{$width}px !important;
+        }
+    }
+}
+
+
+// // Background colors. Set white text-color for dark background-colors
+// @mixin background_color_list($color-prefix: '') {
+//     @each $colorname, $color in $background_colors {
+//         .#{$color-prefix}bg-#{$colorname} {
+//             background-color: $color;
+//             @if (lightness($color) < 50) {
+//                 color: #fff;
+//             }
+//         }
+//         @each $opacity in $background_colors_opacity {
+//             .#{$color-prefix}bg-#{$colorname}.op-bg_#{$opacity} {
+//                 background-color: rgba( $color, ($opacity / 100) );
+//             }
+//         }
+//     }
+// }
+
+// Background colors. Set white text-color for dark background-colors
+@mixin background_color_list($colors, $colorOpacity, $color-prefix: '') {
+    @each $colorname, $color in $colors {
+        .#{$color-prefix}bg-#{"" + $colorname} {
+            background-color: $color;
+            @if (lightness($color) < 50) {
+                color: #fff;
+            }
+        }
+        @each $opacity in $colorOpacity {
+            .#{$color-prefix}bg-#{"" + $colorname}.op-bg_#{$opacity} {
+                background-color: rgba( $color, ($opacity / 100) );
+            }
+        }
+    }
+}
+
+@mixin image_gradient($colors, $color-prefix: '', $directions: (), $directionPrefix: '') {
+    @each $colorname, $color in $colors {
+        .#{$color-prefix}image-gradient-bg-#{"" + $colorname} .img:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, transparent 50%, #{$color});
+        }
+        @each $direction in $directions {
+            .#{$color-prefix}image-gradient-bg-#{"" + $colorname}.#{$directionPrefix}#{$direction} .img:after {
+                background-image: linear-gradient(to #{$direction}, transparent 50%, #{$color});
+            }
+        }
+    }
+}
+

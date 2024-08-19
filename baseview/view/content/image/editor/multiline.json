@@ -1,0 +1,6 @@
+{
+    "droppable": {
+        "accept": ["image"],
+        "drop": "replace"
+    }
+}

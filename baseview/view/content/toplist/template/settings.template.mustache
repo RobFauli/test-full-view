@@ -1,0 +1,53 @@
+<form>
+    <h2 class="lab-title lab-space-below-medium">Toplist - Settings</h2>
+    <p>Display a list of most read articles. Source: Kilkaya.</p>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.limit">Number of articles</label>
+                <input id="id-fields.limit" type="number" name="fields.limit" value="{{ get.current.fields.limit }}" min="0">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.days">Number of days</label>
+                <input id="id-fields.days" type="number" name="fields.days" value="{{ get.current.fields.days }}" min="0">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.domain">Site</label>
+                <select id="id-fields.domain" name="fields.domain">
+                    {{ #get.current.filtered.adminView.domains }}
+                    <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+                    {{ /get.current.filtered.adminView.domains }}
+                </select>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.layout">Layout</label>
+                <select id="id-fields.layout" name="fields.layout">
+                    {{ #get.current.filtered.adminView.layout }}
+                    <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{ name }}</option>
+                    {{ /get.current.filtered.adminView.layout }}
+                </select>
+            </div>
+                <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+                    <label for="id-fields.hideBorder">Hide border</label>
+                    <input id="id-fields.hideBorder" type="checkbox" name="fields.hideBorder" value="1" {{ #get.current.fields.hideBorder }}checked{{ /get.current.fields.hideBorder }}>
+                </div>
+                <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+                    <label for="id-fields.hideTitle">Hide toplist title</label>
+                    <input id="id-fields.hideTitle" type="checkbox" name="fields.hideTitle" value="1" {{ #get.current.fields.hideTitle }}checked{{ /get.current.fields.hideTitle }}>
+                </div>
+        </div>
+
+        <h3 class="lab-title lab-grid-large-12 lab-grid-gap lab-space-above-medium">Article options</h3>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+                <label for="id-fields.displayImages">Display images</label>
+                <input id="id-fields.displayImages" type="checkbox" name="fields.displayImages" value="1" {{ #get.current.fields.displayImages }}checked{{ /get.current.fields.displayImages }}>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-small-12 lab-grid-gap lab-inline">
+                <label for="id-fields.hideDate">Hide timestamp</label>
+                <input id="id-fields.hideDate" type="checkbox" name="fields.hideDate" value="1" {{ #get.current.fields.hideDate }}checked{{ /get.current.fields.hideDate }}>
+            </div>
+        </div>
+    </div>
+
+</form>

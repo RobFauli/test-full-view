@@ -1,0 +1,53 @@
+{{ #getConfig.sesamy }}
+  {{ #enabled }}
+  <sesamy-content-container gradient receipt-link="none" {{#getConfig.sesamy.passPage}}pass="{{{get.root.filtered.customer_front_url}}}/{{getConfig.sesamy.passPage}}"{{/getConfig.sesamy.passPage}} checkout-version="2" publisher-content-id="{{ get.root.id }}" class="bodytext">
+    <div slot="preview" class="teaserContent bodytext">
+      {{{ get.current.filtered.paywall.intro }}}
+    </div>
+    <div slot="content">
+      {{{ get.current.filtered.paywall.bodytext }}}
+    </div>
+  </sesamy-content-container>
+  <sesamy-locked-content-container {{#getConfig.sesamy.passPage}}pass="{{{get.root.filtered.customer_front_url}}}/{{getConfig.sesamy.passPage}}"{{/getConfig.sesamy.passPage}} publisher-content-id="{{ get.root.id }}">
+    {{ #getConfig.sesamy.settingsUrl }}
+    <sesamy-paywall-wizard publisher-content-id="{{ get.root.id }}" item-src="{{{get.root.filtered.url}}}" settings-url="{{{getConfig.sesamy.settingsUrl}}}"></sesamy-paywall-wizard>
+    {{ /getConfig.sesamy.settingsUrl }}
+    {{ ^getConfig.sesamy.settingsUrl }}
+    <div class="sesamy-paywall">
+      {{ #getConfig.sesamy.poster.logo }}
+      <div class="sesamy-poster-logo-wrapper">
+        <img src="{{getConfig.sesamy.poster.logo}}" alt="" class="sesamy-poster-logo">
+      </div>
+      <h2>{{getConfig.sesamy.poster.title}}</h2>
+      {{ /getConfig.sesamy.poster.logo }}
+      {{ ^getConfig.sesamy.poster.logo }}
+      <h2>{{getConfig.sesamy.poster.title}}</h2>
+      {{ /getConfig.sesamy.poster.logo }}
+      <ul class="reasons">
+      {{#getConfig.sesamy.poster.reasons}}
+        <li>{{.}}</li>
+      {{/getConfig.sesamy.poster.reasons}}
+      </ul>
+      {{ #getConfig.sesamy.poster.endnote }}
+      <div class="sesamy-poster-endnote">
+        <h3>{{getConfig.sesamy.poster.endnoteTitle}}</h3>
+        <p>{{getConfig.sesamy.poster.endnote}}</p>
+      </div>
+      {{ /getConfig.sesamy.poster.endnote }}
+      <div class="purchase-options">
+        {{#getConfig.sesamy.passPage}}
+        <div class="option-subscription">
+          <p>{{getConfig.sesamy.poster.subscribe}}</p>
+          <a class="sesamy-subscribe" href="{{get.root.filtered.customer_front_url}}/{{getConfig.sesamy.passPage}}">{{getConfig.sesamy.poster.subscribeButton}}</a>
+        </div>
+        {{/getConfig.sesamy.passPage}}
+        <div class="option-single">
+          <p>{{getConfig.sesamy.poster.purchase}}</p>
+          <sesamy-button class="sesamy-single" hide-logo {{#getConfig.sesamy.poster.purchaseButton}}text="{{getConfig.sesamy.poster.purchaseButton}}"{{/getConfig.sesamy.poster.purchaseButton}} checkout-mode="redirect" checkout-version="2" publisher-content-id="{{ get.root.id }}"></sesamy-button>
+        </div>
+      </div>
+    </div>
+    {{ /getConfig.sesamy.settingsUrl }}
+  </sesamy-locked-content-container>
+  {{ /enabled }}
+{{ /getConfig.sesamy }}

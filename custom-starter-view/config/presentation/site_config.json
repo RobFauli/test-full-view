@@ -1,0 +1,7 @@
+{
+    "sites": {
+        "default": {
+            "resource_map": "resource_map"
+        }
+    }
+}

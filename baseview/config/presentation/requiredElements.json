@@ -1,0 +1,82 @@
+{
+    "requiredElements": [
+        {
+            "path": "page_article",
+            "data": {
+                "type": "articlePreHeader",
+                "selector": "#lab-dz-pre-header"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+        {
+            "path": "page_article",
+            "data": {
+                "type": "articleHeader",
+                "selector": "#lab-dz-header"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+        {
+            "path": "page_article/articleHeader",
+            "data": {
+                "type": "articleMeta"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+        {
+            "path": "page_article",
+            "data": {
+                "type": "bodytext",
+                "selector": "#lab-dz-bodytxt"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+        {
+            "path": "page_article",
+            "data": {
+                "type": "articleFooter",
+                "selector": "#articleFooter"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+        {
+            "path": "page_article",
+            "data": {
+                "type": "dropZone",
+                "selector": "#lab-dz-1"
+            },
+            "options": {
+                "articlepage": true,
+                "useExisting": true
+            }
+        },
+
+        {
+            "path": "page_front",
+            "data": {
+                "type": "dropZone",
+                "selector": "#lab-dz-1"
+            },
+            "options": {
+                "frontpage": true,
+                "useExisting": true
+            }
+        }
+
+    ]
+}

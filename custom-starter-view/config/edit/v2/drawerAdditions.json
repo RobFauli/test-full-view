@@ -1,0 +1,11 @@
+{
+    "drawerAdditions": [
+        {
+            "label": "Demo TEST",
+            "identifier": "elements-demoCollection",
+            "collection": "DemoCollection",
+            "appendTo": "elements"
+        }
+    ]
+}
+

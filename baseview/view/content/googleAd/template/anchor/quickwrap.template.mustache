@@ -1,0 +1,116 @@
+<div id="yb_anchor_wrapper">
+  <style>
+    #yb_anchor_wrapper {
+      position: fixed;
+      bottom: 0px;
+      z-index: 999999;
+      text-align: center;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .phone #yb_anchor_wrapper {
+      width: 100%;
+      text-align: center
+    }
+
+    .phone #div-gpt-ad-anchor>div {
+      margin: 0 auto;
+      position: relative
+    }
+
+    .anchor_title {
+      display: none
+    }
+
+    .phone .anchor_title {
+      color: black;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      position: relative;
+      top: 5px
+    }
+
+    .anchor_close {
+      cursor: pointer;
+      color: #b2b2b2;
+      z-index: 9999999;
+      border: 1px solid #b2b2b2;
+      border-radius: 100%;
+      background: #fff;
+      line-height: 28px;
+      font-size: 31px;
+      font-family: arial, sans-serif;
+      position: absolute;
+      top: -6px;
+      right: 3px;
+      height: 33px;
+      width: 33px
+    }
+
+    .phone .anchor_close {
+      top: -16px;
+      right: -17px
+    }
+
+    .anchor_close:hover {
+      color: #fff;
+      background-color: #b2b2b2
+    }
+
+    @media only screen and (max-width: 359px) {
+      .phone .anchor_close {
+        top: -24px;
+        right: 0;
+        height: 23px;
+        width: 23px;
+        font-size: 20px;
+        line-height: 19px
+      }
+    }
+  </style>
+  <span class="anchor_title">Annonce</span>
+  <div id="div-gpt-ad-anchor">
+    <script>
+      var googletag = window.googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      window.Quickwrap.cmd.push(function() {
+        window.Quickwrap.display('div-gpt-ad-anchor');
+      });
+      googletag.cmd.push(function() {
+        googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+          var anchor = document.getElementById('yb_anchor_wrapper');
+          var close = anchor.querySelector('.anchor_close');
+          if (!close) {
+            close = document.createElement("span");
+            close.classList.add('anchor_close');
+            close.style.display = "block";
+            close.innerText = 'x';
+            close.addEventListener('click', function() {
+              anchor.style.display = 'none';
+              this.style.display = 'none';
+            }, false);
+            anchor.appendChild(close);
+          }
+          if (event.isEmpty === false && event.slot.getSlotElementId() === "div-gpt-ad-anchor") {
+            setTimeout(function() {
+              var iframeWidth = document.querySelector('#div-gpt-ad-anchor iframe').width;
+              document.querySelector('#div-gpt-ad-anchor > div').style.width = iframeWidth + 'px';
+              if (document.querySelector('.phone')) {
+                var phoneWrapper = document.querySelector('.phone #yb_anchor_wrapper');
+                phoneWrapper.style.backgroundColor = '#f4f4f4';
+                document.querySelector('.phone .anchor_title').style.display = 'block';
+              }
+              var anchorElement = document.querySelector('#div-gpt-ad-anchor');
+              var paddingValue = (Number(iframeWidth) + 40) > window.innerWidth ? "6px 0 0 0" : "6px 20px 0";
+              anchorElement.style.padding = paddingValue;
+            }, 500);
+          } else if (event.isEmpty === true && event.slot.getSlotElementId() === "div-gpt-ad-anchor") {
+            anchor.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </div>
+</div>

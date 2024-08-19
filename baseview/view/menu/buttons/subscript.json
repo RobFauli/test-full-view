@@ -1,0 +1,8 @@
+{
+    "text": "Subscript",
+    "title": "Insert Subscript-tag",
+    "icon": "labicon-text_subscript",
+    "requireSelection": true,
+    "callback": "toggleTag",
+    "value": "sub"
+}

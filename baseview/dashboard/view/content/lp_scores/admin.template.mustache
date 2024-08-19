@@ -1,0 +1,57 @@
+<form class="scores">
+    <h4>Scores</h4>
+
+    <p>
+        Calculate a value for each of your pages.
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 4% 0 0;">
+        <label>
+            Range 
+            <select name="fields.linkpulse_json.query.range">
+                {{ #filtered.rangeList }}
+                    <option value="{{{ value }}}"{{ #selected }} selected{{ /selected }}>{{{ value }}}</option>
+                {{ /filtered.rangeList }}
+            </select>
+        </label>
+    </p>
+
+    <p style="width: 48%; float: left; margin: 1em 0 0;">
+        <label>
+            Domain 
+            <select name="fields.linkpulse_json.query.domain">
+                {{ #filtered.domainList }}
+                    <option value="{{{ value }}}"{{ #selected }} selected{{ /selected }}>{{{ name }}}</option>
+                {{ /filtered.domainList }}
+            </select>
+        </label>
+    </p>
+
+
+    <h5 style="margin: 0; clear: both; padding-top: 1em;">
+        Score-definition
+    </h5>
+
+    <p style="margin: 1em 0 0 0;">
+        Fine-tune score-definition. Select attributes to consider and weight them (optional).
+        Weight defines the impact of the attribute. The sum of all fields should be 100.
+    </p>
+
+    <p style="margin: 1em 0 0 0;" class="labDs-twoCol">
+        
+        {{ #filtered.scoreWeightList}}
+        <span class="labDs-col">
+        <label class="score">
+            <input type="checkbox" name="{{ scoreField }}" value="on" {{ #scoreValue }}checked{{ /scoreValue }}/>
+            {{ scoreKey }}
+        </label>
+        <label class="weight">
+            <input type="number" name="{{ weightField }}" value="{{ weightValue }}" placeholder="weight">
+        </label>
+        </span>
+        {{ /filtered.scoreWeightList}}
+    </p>
+
+    <p style="clear: both; padding-top: 1em;"><input class="labDs-btn" style="float:right;" type="submit" value="OK"></p>
+
+</form>

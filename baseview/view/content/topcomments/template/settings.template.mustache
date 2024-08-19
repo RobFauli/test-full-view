@@ -1,0 +1,23 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="id-fields.selectedTab">Select default visible tab</label>
+            <select id="id-fields.selectedTab" name="fields.selectedTab">
+                <option value="latest"{{ #get.current.filtered.selectedTabs.latest }} selected{{ /get.current.filtered.selectedTabs.latest }}>Latest</option>
+                <option value="mostRead"{{ #get.current.filtered.selectedTabs.mostRead }} selected{{ /get.current.filtered.selectedTabs.mostRead }}>Most read</option>
+            </select>
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+            <label for="id-fields.articleCount">Number of articles</label>
+            <input id="id-fields.articleCount" type="number" value="{{ get.current.fields.articleCount }}" name="fields.articleCount">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap">
+            <label for="id-fields.days">Number of days</label>
+            <input id="id-fields.days" type="number" value="{{ get.current.fields.days }}" name="fields.days">
+        </div>
+        <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap lab-inline">
+            <label for="id-fields.hideResultOnMobile">Hide initial content on mobile</label>
+            <input id="id-fields.hideResultOnMobile" type="checkbox" value="1" name="fields.hideResultOnMobile" {{ #get.current.fields.hideResultOnMobile }}checked="checked"{{ /get.current.fields.hideResultOnMobile }}>
+        </div>
+    </div>
+</div>

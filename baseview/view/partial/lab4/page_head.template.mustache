@@ -1,0 +1,243 @@
+        {{ #get.current.filtered.consent.cookieconsent }}{{ #render.partial }}lab4/cookieconsent{{ /render.partial }}{{ /get.current.filtered.consent.cookieconsent }}
+        <title>{{ #helper.stripTags }}{{{ get.current.filtered.seotitle }}}{{ /helper.stripTags }}</title>
+        <meta name="title" content="{{ #helper.sanitizeString }}{{{ get.current.filtered.seotitle }}}{{ /helper.sanitizeString }}">
+        <meta name="description" content="{{ #helper.sanitizeString }}{{{ get.current.filtered.seodescription }}}{{ /helper.sanitizeString }}">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="canonical" href="{{{get.current.filtered.specificUrl}}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ #get.current.filtered.norobots }}<meta name="robots" content="noindex">{{ /get.current.filtered.norobots }}
+        {{ #get.current.filtered.facebook.appId}}
+        <meta property="fb:app_id" content="{{get.current.filtered.facebook.appId}}">
+        {{ /get.current.filtered.facebook.appId}}
+        <meta property="og:type" content="{{ #get.current.filtered.is_article }}article{{ /get.current.filtered.is_article }}{{ #get.current.filtered.is_front }}frontpage{{ /get.current.filtered.is_front }}">
+        <meta property="og:title" content="{{ #get.current.filtered.paywall.enabled }}{{ ^getConfig.paywall.labels.hidePlusInMetaTags }}(+) {{ /getConfig.paywall.labels.hidePlusInMetaTags }}{{ /get.current.filtered.paywall.enabled }}{{ #helper.sanitizeString }}{{{ get.current.filtered.sometitle }}}{{ /helper.sanitizeString }}">
+        <meta property="og:description" content="{{ #helper.sanitizeString }}{{{ get.current.filtered.somedescription }}}{{ /helper.sanitizeString }}">
+        {{ #get.current.filtered.is_article }}
+        <meta property="article:published_time" content="{{ get.child.articleMeta+.filtered.date.published.isoDate }}">
+        <meta property="article:modified_time" content="{{ get.child.articleMeta+.filtered.date.modified.isoDate }}">
+        {{ #get.children.byline+ }}
+        <meta property="article:author" content="{{ fields.firstname }} {{ fields.lastname }}">
+        {{ /get.children.byline+ }}
+        {{ #get.current.tags }}
+        <meta property="article:tag" content="{{ . }}">
+        {{ /get.current.tags }}
+        <meta property="og:image" content="{{ #image.getFrontCropUrl }}1200,{{ #calculator.multiply }}1200 {{ getConfig.image.socialAspectRatio }}{{ /calculator.multiply }},jpg{{ /image.getFrontCropUrl }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="{{ #helper.toFixed }}{{ #calculator.multiply }}1200 {{ getConfig.image.socialAspectRatio }}{{ /calculator.multiply }}{{ /helper.toFixed }}">
+        <meta name="twitter:card" content="summary_large_image">
+        {{ #get.current.filtered.contact.twitter.site }}<meta name="twitter:site" content="{{ get.current.filtered.contact.twitter.site }}">{{ /get.current.filtered.contact.twitter.site }}
+        <meta name="twitter:title" content="{{ #get.current.filtered.paywall.enabled }}{{ ^getConfig.paywall.labels.hidePlusInMetaTags }}(+) {{ /getConfig.paywall.labels.hidePlusInMetaTags }}{{ /get.current.filtered.paywall.enabled }}{{ #helper.sanitizeString }}{{{ get.current.filtered.sometitle }}}{{ /helper.sanitizeString }}">
+        <meta name="twitter:description" content="{{ #helper.sanitizeString }}{{{ get.current.filtered.somedescription }}}{{ /helper.sanitizeString }}">
+        <meta name="twitter:image" content="{{ #image.getFrontCropUrl }}1200,{{ #calculator.multiply }}1200 {{ getConfig.image.socialAspectRatio }}{{ /calculator.multiply }},jpg{{ /image.getFrontCropUrl }}">
+        {{ #getConfig.sesamy }}
+            {{ #enabled }}
+                {{#price}}<meta property="sesamy:price" content="{{ price }}">{{/price}}
+                {{#currency}}<meta property="sesamy:currency" content="{{ currency }}">{{/currency}}
+            {{ /enabled}}
+        {{ /getConfig.sesamy }}
+        {{ /get.current.filtered.is_article }}
+        {{ #getConfig.sesamy }}
+            {{ #enabled }}
+                <meta property="sesamy:client-id" content="{{ id }}">
+            {{ /enabled}}
+        {{ /getConfig.sesamy }}
+
+        {{ #get.current.filtered.analytics.adnuntiusConnectCMP.enable }}{{ > partial/lab4/analytics/adnuntiusconnect_cmp }}{{ /get.current.filtered.analytics.adnuntiusConnectCMP.enable }}
+        {{ #get.current.filtered.customTags.meta.head_top }}{{{ . }}}{{ /get.current.filtered.customTags.meta.head_top }}
+        {{ #get.current.filtered.customTags.script.head_top }}{{{ . }}}{{ /get.current.filtered.customTags.script.head_top }}
+        {{ #get.current.filtered.customTags.link.head_top }}{{{ . }}}{{ /get.current.filtered.customTags.link.head_top }}
+        {{ #get.current.filtered.is_front }}
+        {{ #get.current.filtered.someimage }}
+        <meta property="og:image" content="{{{ get.current.filtered.someimage }}}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        {{ /get.current.filtered.someimage }}
+        {{ ^get.current.filtered.someimage }}
+        {{ #get.current.filtered.logo_sm.src }}
+        <meta property="og:image" content="{{{ get.current.filtered.logo_sm.src }}}">
+        {{ #get.current.filtered.logo_sm.size.width }}<meta property="og:image:width" content="{{ get.current.filtered.logo_sm.size.width }}">{{ /get.current.filtered.logo_sm.size.width }}
+        {{ #get.current.filtered.logo_sm.size.height }}<meta property="og:image:height" content="{{ get.current.filtered.logo_sm.size.height }}">{{ /get.current.filtered.logo_sm.size.height }}
+        {{ /get.current.filtered.logo_sm.src }}
+        {{ /get.current.filtered.someimage }}
+        {{ /get.current.filtered.is_front }}
+        <meta property="og:url" content="{{{ get.current.filtered.specificUrl }}}">
+        {{ #get.current.filtered.customMetatags }}
+        <meta {{ #. }}{{ key }}="{{{ value }}}" {{ /. }}>
+        {{ /get.current.filtered.customMetatags }}
+        {{ #get.current.fields.hideFromToplist }}
+        <meta property="k5a:contentTag" content="hidden">
+        {{ /get.current.fields.hideFromToplist }}
+        {{ #get.current.filtered.favicons }}
+        <link rel="shortcut icon" type="{{ #icon_type }}{{{ icon_type }}}{{ /icon_type }}{{ ^icon_type }}image/png{{ /icon_type }}" sizes="{{ size.width }}x{{ size.height }}" href="{{{ path }}}">
+        <link rel="icon" type="{{ #icon_type }}{{{ icon_type }}}{{ /icon_type }}{{ ^icon_type }}image/png{{ /icon_type }}" sizes="{{ size.width }}x{{ size.height }}" href="{{{ path }}}">
+        {{ /get.current.filtered.favicons }}
+        {{ > partial/lab4/faviconList }}
+        {{ ^get.current.filtered.skipDefaultFont }}
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet" {{#getConfig.deferFontLoading.active}} media="print" onload="this.media='all'" {{/getConfig.deferFontLoading.active}}>
+        {{ /get.current.filtered.skipDefaultFont }}
+        <link rel="stylesheet" href="/view-resources/view/css/grid.css{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        <link rel="stylesheet" href="/view-resources/view/css/main.css{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        <link rel="stylesheet" href="/view-resources/view/css/colors.css{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        <link rel="stylesheet" href="/view-resources/view/css/print.css{{ #helper.cachebuster }}{{ /helper.cachebuster }}" media="print">
+        <link rel="stylesheet" href="/view-resources/view/css/foundation-icons/foundation-icons.css{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        {{ #get.current.filtered.siteStylesheetList }}
+        <link rel="stylesheet" href="{{{ . }}}{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        {{ /get.current.filtered.siteStylesheetList }}
+        {{ #get.current.filtered.css_build }}{{ #value }}
+        <style data-key="{{ key }}">
+            {{{ value }}}
+        </style>
+        {{ /value }}{{ /get.current.filtered.css_build }}
+        {{ #get.current.filtered.siteScriptList }}
+            {{ #placeholderKey.headerTop }}{{ > partial/lab4/elements/script }}{{ /placeholderKey.headerTop }}
+        {{ /get.current.filtered.siteScriptList }}
+        {{ > partial/lab4/clientData }}
+        {{ #get.current.filtered.modules }}
+            <script type="module" src="{{{ url }}}{{ #helper.cachebuster }}{{ /helper.cachebuster }}" data-cookieconsent="ignore"></script>
+        {{ /get.current.filtered.modules }}
+        {{ #get.current.filtered.siteFiles.js }}
+            <script src="{{{ . }}}{{ #helper.cachebuster }}{{ /helper.cachebuster }}" data-cookieconsent="ignore"></script>
+        {{ /get.current.filtered.siteFiles.js }}
+        {{ #get.current.filtered.siteFiles.css }}
+            <link rel="stylesheet" href="{{{ . }}}{{ #helper.cachebuster }}{{ /helper.cachebuster }}">
+        {{ /get.current.filtered.siteFiles.css }}
+        {{ #get.current.filtered.analytics.dataLayer.length }}{{ > partial/lab4/analytics/datalayer }}{{ /get.current.filtered.analytics.dataLayer.length }}
+        {{ #get.current.filtered.analytics.google }}{{ > partial/lab4/analytics/google/gtag }}{{ /get.current.filtered.analytics.google }}
+        {{ #get.current.filtered.analytics.google_gtm }}{{ > partial/lab4/analytics/google/gtm }}{{ /get.current.filtered.analytics.google_gtm }}
+        {{ #get.current.filtered.analytics.adnuntiusConnect.length }}{{ > partial/lab4/analytics/adnuntiusconnect }}{{ /get.current.filtered.analytics.adnuntiusConnect.length }}
+        {{ #get.current.filtered.analytics.comscore }}{{ > partial/lab4/analytics/comscore }}{{ /get.current.filtered.analytics.comscore }}
+        {{ #get.current.filtered.analytics.io }}{{ > partial/lab4/analytics/io }}{{ /get.current.filtered.analytics.io }}
+
+        {{ #get.current.filtered.adnuntius.enabled }}
+            {{ ^get.current.filtered.adnuntius.connectLoading }}
+                {{ #get.current.filtered.adnuntius.bidding.enabled }}
+                    <script src="https://tags.adnuntius.com/pb/prebid.js"></script>
+                    {{ #get.current.filtered.siteScriptList }}
+                        {{ #placeholderKey.adnuntius-prebid }}{{ > partial/lab4/elements/script }}{{ /placeholderKey.adnuntius-prebid }}
+                    {{ /get.current.filtered.siteScriptList }}
+                    <script src="https://cdn.adnuntius.com/adn.js" data-cookieconsent="ignore"></script>
+                    {{ > content/adnuntiusAd/template/multirequestBidding }}
+                {{ /get.current.filtered.adnuntius.bidding.enabled }}
+                {{ ^get.current.filtered.adnuntius.bidding.enabled }}
+                    <script src="https://cdn.adnuntius.com/adn.js" data-cookieconsent="ignore"></script>
+                    {{ > content/adnuntiusAd/template/multirequest }}
+                {{ /get.current.filtered.adnuntius.bidding.enabled }}
+            {{ /get.current.filtered.adnuntius.connectLoading }}
+            {{ #get.current.filtered.adnuntius.connectLoading }}
+                {{ > content/adnuntiusAd/template/connectLoading }}
+            {{ /get.current.filtered.adnuntius.connectLoading }}
+        {{ /get.current.filtered.adnuntius.enabled }}
+        {{ #get.current.filtered.googleAds.dfpid }}
+            {{ #get.current.filtered.googleAds.bidding.enabled }}
+                {{ > content/googleAd/template/bidding }}
+            {{ /get.current.filtered.googleAds.bidding.enabled }}
+            {{ ^get.current.filtered.googleAds.bidding.enabled }}
+                <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+                {{ > content/googleAd/template/multirequest }}
+            {{ /get.current.filtered.googleAds.bidding.enabled }}
+        {{ /get.current.filtered.googleAds.dfpid }}
+        {{ #get.current.filtered.style_definitions.fontface }}
+        {{ #link }}
+        <link href="{{{ . }}}" rel="stylesheet" {{#getConfig.deferFontLoading.active}} media="print" onload="this.media='all'" {{/getConfig.deferFontLoading.active}}>
+        {{ /link }}
+        {{ /get.current.filtered.style_definitions.fontface }}
+        {{ #get.current.filtered.style_definitions.hasRules }}
+        <style id="dachser-vieweditor-styles">
+            {{ #get.current.filtered.style_definitions.parsedRules }}
+            {{{ . }}}
+            {{ /get.current.filtered.style_definitions.parsedRules }}
+        </style>
+        {{ /get.current.filtered.style_definitions.hasRules }}
+        {{ #get.current.filtered.fontpreview }}
+        {{ > partial/lab4/pagescripts/fontpreview }}
+        {{ /get.current.filtered.fontpreview }}
+        <style id="css_variables"></style>
+        {{ > partial/pagescripts/dachserData }}
+        {{ #get.current.filtered.siteScriptList }}
+        {{ ^placeholderKey }}{{ > partial/lab4/elements/script }}{{ /placeholderKey }}
+        {{ /get.current.filtered.siteScriptList }}
+        {{ #render.partial }}lab4/page_head_custom{{ /render.partial }}
+
+        {{ #get.current.filtered.simplestreamEnabled }}
+            <script src="https://mm-dev.simplestream.com/ssmp/init-v1.0.9.js{{ #helper.cachebuster }}{{ /helper.cachebuster }}"></script>
+        {{ /get.current.filtered.simplestreamEnabled }}
+        {{> partial/lab4/seo/json_ld }}
+        {{ #get.current.filtered.customTags.meta.head_bottom }}{{{ . }}}{{ /get.current.filtered.customTags.meta.head_bottom }}
+        {{ #get.current.filtered.customTags.script.head_bottom }}{{{ . }}}{{ /get.current.filtered.customTags.script.head_bottom }}
+        {{ #get.current.filtered.customTags.link.head_bottom }}{{{ . }}}{{ /get.current.filtered.customTags.link.head_bottom }}
+        {{#getConfig.sesamy}}
+            {{#enabled}}
+            <script
+            defer
+            src="https://assets.sesamy.com/scripts/web-components/sesamy-bundle.min.js"
+            ></script>
+            {{/enabled}}
+        {{/getConfig.sesamy}}
+
+        {{#getConfig.iteras}}
+          {{#id}}
+          <script src="https://app.iteras.dk/static/api/iteras.js"></script>
+          {{#getConfig.iteras.cookieDomain}}
+          <script>
+            if (window.Iteras) {
+                Iteras.cookieDomain = '{{{getConfig.iteras.cookieDomain}}}';
+            }
+          </script>
+          {{/getConfig.iteras.cookieDomain}}
+          <script src="/iteras.js"></script>
+          <script>
+            // Note: This is made to work with the menu system.
+            // .login-iteras should be set as a selector on the Login button.
+            document.addEventListener('DOMContentLoaded', () => {
+              const loginButton = document.querySelector('.login-iteras a');
+              if (window.Iteras && Iteras.isLoggedIn()) {
+                if (loginButton != null) {
+                  loginButton.innerText = '{{ getConfig.iteras.logoutText }}{{^getConfig.iteras.logoutText}}Log out{{/getConfig.iteras.logoutText}}';
+                  loginButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Method is defined in /public/common/iteras.js
+                    Iteras.logOutAndReload();
+                  });
+                }
+              }
+            });
+          </script>
+          {{/id}}
+        {{/getConfig.iteras}}
+
+        {{#get.current.filtered.is_article}}
+        {{#getConfig.google}}
+            {{#paywall.id}}
+            {{#get.current.fields.paywall}}
+            <script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+            <script>
+            (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+                basicSubscriptions.init({
+                    type: "NewsArticle",
+                    isPartOfType: ["Product"],
+                    isPartOfProductId: "{{paywall.id}}:googlepaywall",
+                    clientOptions: { theme: "light", lang: "{{getConfig.lang}}" },
+                });
+            });
+            </script>
+            {{/get.current.fields.paywall}}
+            {{#paywall.always_display}}
+            {{^get.current.fields.paywall}}
+            <script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+            <script>
+            (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+                basicSubscriptions.init({
+                    type: "NewsArticle",
+                    isPartOfType: ["Product"],
+                    isPartOfProductId: "{{paywall.id}}:openaccess",
+                    clientOptions: { theme: "light", lang: "{{getConfig.lang}}" },
+                });
+            });
+            </script>
+            {{/get.current.fields.paywall}}
+            {{/paywall.always_display}}
+            {{/paywall.id}}
+        {{/getConfig.google}}
+        {{/get.current.filtered.is_article}}

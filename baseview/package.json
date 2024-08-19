@@ -1,0 +1,75 @@
+{
+    "name": "baseview",
+    "version": "1.0.1",
+    "description": "Sass build system for Baseview",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "clean": "rimraf view/css/*.css",
+        "build": "npm run build:sass && npm run build:deps && npm run build:front && npm run build:version && npm run build:modules",
+        "compile:sass": "sass -I view/css_scss -I view/content -I view/structure view/css_scss:view/css --style=compressed",
+        "prefix:css": "postcss view/css/*.css -u autoprefixer -r -m",
+        "build:sass": "npm run compile:sass && npm run prefix:css",
+        "watch:sass": "chokidar \"view/**/*.scss\" -c \"npm run compile:sass --silent && npm run prefix:css --silent && echo Finished build...\"",
+        "build:front": "webpack --config webpack.config.front.cjs",
+        "watch:front": "webpack --config webpack.config.front.cjs --watch",
+        "build:dependencies": "webpack --config webpack.config.dependencies.cjs",
+        "build:dependencieModules": "webpack --config webpack.config.dependencieModules.cjs",
+        "watch:dependencieModules": "webpack --config webpack.config.dependencieModules.cjs --watch",
+        "lint:fix": "./node_modules/.bin/eslint modules/ --fix",
+        "lint:dryrun": "./node_modules/.bin/eslint modules/ --fix-dry-run",
+        "build:deps" : "npm run build:dependencies && npm run build:dependencieModules",
+        "build:modules" : "npm run build:client:modules && npm run build:editor:modules",
+        "build:client:resources": "node client/buildHelpers/builder.js",
+        "build:client:modules": "webpack --config webpack.config.client.cjs",
+        "build:editor:modules": "webpack --config webpack.config.editor.cjs",
+        "watch:editor:modules": "webpack --config webpack.config.editor.cjs --watch",
+        "build:version": "node buildHelpers/version.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/publishlab/baseview.git"
+    },
+    "contributors": [
+        {
+            "name": "Stian Andersen",
+            "email": "stian@publishlab.com"
+        },
+        {
+            "name": "Birk I. Wilberg",
+            "email": "birk@publishlab.com"
+        },
+        {
+            "name": "Bjørn Vidar Dahle",
+            "email": "bdahle@publishlab.com"
+        },
+        {
+            "name": "Daniel André Eikeland",
+            "email": "daniel@publishlab.com"
+        },
+        {
+            "name": "Rolf Helgestad",
+            "email": "rolf@publishlab.com"
+        }
+    ],
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/publishlab/baseview/issues"
+    },
+    "homepage": "https://github.com/publishlab/baseview#readme",
+    "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.12.13",
+        "autoprefixer": "^10.4.7",
+        "chokidar-cli": "^3.0.0",
+        "compression-webpack-plugin": "^10.0.0",
+        "eslint": "^8.3.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "postcss": "^8.4.31",
+        "postcss-cli": "^9.1.0",
+        "rimraf": "^3.0.2",
+        "sass": "^1.51.0",
+        "terser-webpack-plugin": "^5.3.6",
+        "webpack": "^5.76.0",
+        "webpack-cli": "^4.5.0"
+    }
+}

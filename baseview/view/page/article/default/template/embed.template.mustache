@@ -1,0 +1,57 @@
+<html {{ #get.current.filtered.seolanguage }}lang="{{ . }}"{{ /get.current.filtered.seolanguage }}{{ ^get.current.filtered.seolanguage }}{{ #get.current.filtered.contentLanguage }}lang="{{ . }}"{{ /get.current.filtered.contentLanguage }}{{ /get.current.filtered.seolanguage }} dir="{{ getConfig.textDirection }}" class="{{ #get.current.filtered.featureFlags.responsive_mobile_fonts }}resp_fonts{{ /get.current.filtered.featureFlags.responsive_mobile_fonts }}">
+    <head>
+        {{> partial/lab4/page_head }}
+        {{> partial/lab4/page_head_after }}
+        <meta property="article:section" content="{{{ get.current.filtered.section }}}">
+        {{ #get.current.filtered.analytics.kilkayaSettings.showKilkayaMetatags }}{{ > partial/lab4/analytics/kilkaya_metadata }}{{ /get.current.filtered.analytics.kilkayaSettings.showKilkayaMetatags }}
+        {{ > partial/lab4/analytics/kilkaya }}
+        <link rel="stylesheet" href="/view-resources/view/css/embed.css{{ #view.cachebuster }}{{ /view.cachebuster }}">
+        <script src="/view-resources/baseview/public/common/build/baseview_dependencies_dom.js"></script>
+        <script>
+            // The embed-script needs to know the height of the page and will post a message requesting data.
+            function receiveMessage(event) {
+                if (!event.data || !event.data.request || event.data.request !== 'labCmsGetPageHeight') {
+                    return;
+                }
+                var pageHeight = document.body.scrollHeight;
+                event.source.postMessage({ request: 'labCmsGetPageHeight', frameId: event.data.frameId, result: pageHeight }, event.origin);
+            }
+            window.addEventListener("message", receiveMessage, false);
+        </script>
+    </head>
+
+    <body class="l4 article embed site_{{{ get.current.filtered.site.alias }}} {{ get.current.fields.articleStyle }}{{ #get.current.filtered.section }} section_{{ get.current.filtered.section }} {{ /get.current.filtered.section }}{{ get.current.filtered.autodata_css }} {{ get.current.fields.pageBackgroundColor }}{{ #get.current.fields.pageFontColor }} custom-font-color {{ get.current.fields.pageFontColor }}{{ /get.current.fields.pageFontColor }}{{ #get.current.filtered.paywall.enabled }} has-paywall{{ /get.current.filtered.paywall.enabled }} {{ get.current.fields.bodytextWidth }}">
+        <main class="pageWidth">
+            <article class="pageWidth">
+                {{ #get.current.filtered.embeddable.isFullContent }}
+                {{ > page/article/default/template/embed_full }}
+                {{ /get.current.filtered.embeddable.isFullContent }}
+                {{ ^get.current.filtered.embeddable.isFullContent }}
+                {{ > page/article/default/template/embed_teaser }}
+                {{ /get.current.filtered.embeddable.isFullContent }}
+                <footer class="page">
+                    <div class="row">
+                        <div class="columns large-12 small-12">
+                            <a target="_parent" href="{{ get.current.filtered.site.domain }}">
+                                {{ get.current.filtered.embeddable.sitelink.prefix }}
+                                {{ #get.current.filtered.logo }}
+                                    {{ #is_img }}
+                                        <img src="{{ src }}" alt="{{ title }}" />
+                                    {{ /is_img }}
+                                    {{ #is_svg }}
+                                        {{{ src }}}
+                                    {{ /is_svg }}
+                                {{ /get.current.filtered.logo }}
+                                {{ ^get.current.filtered.logo }}
+                                    {{ get.current.filtered.site.domain_no_protocol }}
+                                {{ /get.current.filtered.logo }}
+                                {{ get.current.filtered.embeddable.sitelink.postfix }}
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </main>
+        {{ > partial/lab4/pagescripts/dachserDataHandlers }}
+    </body>
+</html>

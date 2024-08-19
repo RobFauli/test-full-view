@@ -1,0 +1,10 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}column timeline 
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        <h2 class="{{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h2>
+        <ul>{{{ children.all }}}</ul>
+    </div>
+</div>

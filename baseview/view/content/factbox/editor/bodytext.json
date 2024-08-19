@@ -1,0 +1,102 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "ai": {
+                    "icon": "labicon-magic_wand",
+                    "title": "Labrador AI - Text completion",
+                    "group": "g5",
+                    "items": {
+                        "summary": {
+                            "icon": "labicon-magic_wand",
+                            "text": "Generate article summary (paragraphs)",
+                            "callback": "dispatch",
+                            "group": "g5A",
+                            "params": {
+                                "function": "textAssistant.summary",
+                                "path": "fields.bodytext",
+                                "titlePath": "fields.title",
+                                "wordCount": 50
+                            },
+                            "bindings": [
+                                {
+                                    "path": "fields.bodytext",
+                                    "pathHelper": {
+                                        "type": "root"
+                                    },
+                                    "attribute": "disabled",
+                                    "valueTransformer": "hasMinLength",
+                                    "valueTransformerOptions": {
+                                        "negateBoolean": true,
+                                        "length": 1000
+                                    }
+                                }
+                            ]
+                        },
+                        "bulletpoints": {
+                            "icon": "labicon-magic_wand",
+                            "text": "Generate article summary (bullet points)",
+                            "callback": "dispatch",
+                            "group": "g5A",
+                            "params": {
+                                "function": "textAssistant.bulletpoints",
+                                "path": "fields.bodytext",
+                                "titlePath": "fields.title",
+                                "wordCount": 40
+                            },
+                            "bindings": [
+                                {
+                                    "path": "fields.bodytext",
+                                    "pathHelper": {
+                                        "type": "root"
+                                    },
+                                    "attribute": "disabled",
+                                    "valueTransformer": "hasMinLength",
+                                    "valueTransformerOptions": {
+                                        "negateBoolean": true,
+                                        "length": 1000
+                                    }
+                                }
+                            ]
+                        },
+                        "text_generation_settings": {
+                            "icon": "labicon-edit",
+                            "text": "Article summary settings",
+                            "callback": "dispatch",
+                            "group": "g5A",
+                            "params": {
+                                "function": "textAssistant.showAiSettings",
+                                "path": "fields.bodytext",
+                                "titlePath": "fields.title"
+                            },
+                            "bindings": [
+                                {
+                                    "path": "fields.bodytext",
+                                    "pathHelper": {
+                                        "type": "root"
+                                    },
+                                    "attribute": "disabled",
+                                    "valueTransformer": "hasMinLength",
+                                    "valueTransformerOptions": {
+                                        "negateBoolean": true,
+                                        "length": 1000
+                                    }
+                                }
+                            ]
+                        },
+                        "topicSummary": {
+                            "icon": "labicon-magic_wand",
+                            "text": "Generate topic summary",
+                            "callback": "dispatch",
+                            "group": "g5B",
+
+                            "params": {
+                                "function": "contextualmenu.callbacks.generateTopicSummary"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

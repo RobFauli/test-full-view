@@ -1,0 +1,11 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "page/article/default/front/default.json"
+                }
+            }
+        }
+    }
+}

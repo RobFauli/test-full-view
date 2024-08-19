@@ -1,0 +1,16 @@
+// Override width that trigger hiding of skyscrapers
+// Hide markup for ad placements, google ads with bidding don't collapse correctly
+// Default is 1316
+
+@mixin overrideHideOnTabletWidth($width) {
+    @media screen and (max-width: ($width - 1) + 'px') {    
+        .adZone {
+            &.adZone-left {
+                display: none;
+            }
+            &.adZone-right {
+                display: none;
+            }
+        }
+    }
+}

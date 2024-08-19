@@ -1,0 +1,56 @@
+{
+    "snapToTop": true,
+    "labels": {
+        "before": ["lab-content-type"]
+    },
+    "items": {
+        "lock": {
+            "inheritPath": "menu/buttons/lock.json",
+            "group": "g1"
+        },
+        "fullscreen": {
+            "icon": "labicon-fullscreen",
+            "title": "Edit in fullscreen (F)",
+            "callback": "startFullscreenTools",
+            "group": "g1-b",
+            "params": {
+                "templatePath": "content/bodytext/template/fullscreen"
+            },
+            "hotkeys": [{
+                "key": "F"
+            }]
+        },
+        "fieldversions": {
+            "icon": "labicon-arrow_undo",
+            "title": "Browse and insert an earlier version of this text",
+            "group": "g1-c",
+            "callback": "dispatch",
+            "params": {
+                "function": "contextualmenu.callbacks.openFieldVersions"
+            }
+        },
+        "settings": {
+            "icon": "labicon-settings",
+            "group": "g2",
+            "title": "More settings",
+            "items": {
+                "redraw": {
+                    "inheritPath": "menu/buttons/redraw.json"
+                },
+                "align": {
+                    "icon": "labicon-break",
+                    "displayCondition": "hasSubViewports",
+                    "title": "Align viewports (S)",
+                    "callback": "alignViewports",
+                    "hotkeys": [{
+                        "key": "S"
+                    }],
+                    "displayHotkeys": true,
+                    "text": "Align viewports",
+                    "respectLayoutLock": false
+                }
+            }
+        }
+    },
+    "params": {}
+}

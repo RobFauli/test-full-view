@@ -1,0 +1,229 @@
+{
+    "gradients": ["gradient-strong", "gradient-medium", "gradient-light", "gradient-extraLight"],
+    "background_colors_opacity": [20, 40, 60, 80],
+    "background_colors_opacity-comment": "Values must also be added to _colors.scss to generate matching css-styles.",
+    "imageGradientDirections": ["bottom", "left", "right", "top"],
+    "articleStyles": [{
+        "name": "Centered",
+        "value": "pagestyle_centered"
+    }],
+    "bodytextWidths": {
+        "desktop": [
+            {
+                "name": "33.33% (4/12 columns)",
+                "value": "--large-4-width"
+            },
+            {
+                "name": "50% (6/12 columns)",
+                "value": "--large-6-width"
+            },
+            {
+                "name": "66.66% (8/12 columns)",
+                "value": "--large-8-width"
+            },
+            {
+                "name": "83.33% (10/12 columns)",
+                "value": "--large-10-width"
+            },
+            {
+                "name": "100% (12/12 columns)",
+                "value": "--large-12-width"
+            }
+        ]
+    },
+    "bodytextAlignments": [
+        {
+            "name": "Left",
+            "value": "--bodytext-alignment-left"
+        },
+        {
+            "name": "Center",
+            "value": "--bodytext-alignment-center"
+        },
+        {
+            "name": "Right",
+            "value": "--bodytext-alignment-right"
+        }
+    ],
+    "headerWidths": [
+        {
+            "name": "Everything as wide as the bodytext",
+            "value": "everything",
+            "classes": [
+                "articleHeader-bodytext-width",
+                "articleHeader-image-bodytext-width",
+                "articleHeader-meta-bodytext-width"
+            ]
+        },
+        {
+            "name": "Everything except image as wide as the bodytext",
+            "value": "everything-except-image",
+            "classes": [
+                "articleHeader-bodytext-width",
+                "articleHeader-meta-bodytext-width"
+            ]
+        },
+        {
+            "name": "Everything except meta as wide as the bodytext",
+            "value": "everything-except-meta",
+            "classes": [
+                "articleHeader-bodytext-width",
+                "articleHeader-image-bodytext-width"
+            ]
+        },
+        {
+            "name": "Only image as wide as the bodytext",
+            "value": "only-image",
+            "classes": [
+                "articleHeader-image-bodytext-width"
+            ]
+        },
+        {
+            "name": "Only meta (bylines, dates and social icons) as wide as the bodytext",
+            "value": "only-meta",
+            "classes": [
+                "articleHeader-meta-bodytext-width"
+            ]
+        },
+        {
+            "name": "Only text (title, subtitle, kicker, image caption) as wide as the bodytext",
+            "value": "only-text",
+            "classes": [
+                "articleHeader-bodytext-width"
+            ]
+        }
+    ],
+    "autoscroll": {
+        
+        "lab-comment-scrollDuration": "(milliseconds) Duration of autoscroll.",
+        "scrollDuration": 150,
+
+        "lab-comment-scrollDistance": "Number of pixels to autoscroll.",
+        "scrollDistance": 100,
+
+        "lab-comment-scrollBuffer": "Number of pixels from top or bottom of window to trigger autoscroll in.",
+        "scrollBuffer": 50,
+
+        "lab-comment-accelerator": "Increase speed if user keeps scrolling. Acceleration lets user fine-tune scrolling over short distances while still be able to scroll large distances fast. To disable: Set 'max' to 1.",
+        "accelerator": {
+            "max": 3,
+            "step": 0.2
+        }
+
+    },
+    "resize": {
+        "gridstops": {
+            "mobile": [3, 6, 9]
+        }
+    },
+    "minimap": {
+        "structure": "dropZone",
+        "pageType": ["front"]
+    },
+    "exitWarning": "all",
+    "publish": {
+        "retry": {
+            "count": 4,
+            "delay": 2000
+        }
+    },
+    "autolock": {
+        "timeout": 1800000
+    },
+    "networkWarning": {
+        "offline": {
+            "alert": true,
+            "lockPage": true
+        }, 
+        "online": {
+            "alert": true
+        }
+    },
+    "image_preview": {
+        "width": 1600,
+        "compression": 50
+    },
+    "textTools": {
+        "characterBlacklists": {
+            "utf": [{
+                "find": ["\u0393", "\u00C7"],
+                "replace": ""
+            },{
+                "modifiers": "gm",
+                "find-comment": "Match double hyphens (--) with space afterwards, at the beginning of a line or with space on either side",
+                "find": ["(?<=\\s|>|^)-{2}(?=\\s)"],
+                "replace": "—"
+            }, {
+                "modifiers": "gi",
+                "find-comment": "Match co2 as long as its at the beginning of a line, or prefixed with whitespace and affixed with whitespace, dot or a comma.",
+                "find": ["(?<=\\s|>|^)co2(?=\\s|\\,|\\.)"],
+                "replace": "CO<sub>2</sub>"
+            }, {
+                "modifiers": "gi",
+                "find-comment": "Match h2o as long as its at the beginning of a line, or prefixed with whitespace and affixed with whitespace, dot or a comma.",
+                "find": ["(?<=\\s|>|^)h2o(?=\\s|\\,|\\.)"],
+                "replace": "H<sub>2</sub>O"
+            }]
+        },
+        "text_size": {
+            "max": {
+                "default": 200,
+                "mobile": 100
+            }
+        },
+        "defaultValues": {
+            "link": {
+                "target": ""
+            }
+        }
+    },
+    "structure_map": {
+        "/row/": {
+            "horizontal": {
+                "path": "./columns/row/",
+                "pathForSingleChild": ".",
+                "condition": "--- Not in use ---",
+                "exception": "--- Not in use ---",
+                "blacklist": "--- Not in use ---"
+            },
+            "vertical": {
+                "path": "."
+            }
+        },
+        "/row/columns/row/": {
+            "horizontal": {
+                "path": ".",
+                "maxSiblings": 2
+            }
+        },
+        "/row/columns/row/columns/row/": {
+            "vertical": {
+                "path": "."
+            }
+        },
+        "/bodytext/": {
+            "horizontal": {
+                "path": "./row/"
+            },
+            "vertical": {
+                "path": "./row/"
+            }
+        },
+        "/bodytext/row/": {
+            "horizontal": {
+                "path": "."
+            },
+            "vertical": {
+                "path": "."
+            }
+        },
+        "/articleHeader/articleMeta/": {
+            "horizontal": {
+                "path": "."
+            },
+            "vertical": {
+                "path": "."
+            }
+        }
+    }
+}

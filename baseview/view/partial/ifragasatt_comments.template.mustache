@@ -1,0 +1,18 @@
+{{ #display }}
+<div style="text-align: center; width: 700px;" id="ifragasatt-{{articleId}}"></div>
+<script>
+// Function to load a script from Ifrågasätt servers.
+(function() {
+    var d = document;
+    var s = d.createElement('script');    
+    s.src = `https://comment.ifragasatt.se/load?articleId={{articleId}}&customerId={{customerId}}`;
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+
+{{ /display }}
+{{ #displayPlaceholder }}
+<div class="comments_placeholder">
+    Ifragasatt-comments will display in presentation-mode.
+</div>
+{{ /displayPlaceholder }}

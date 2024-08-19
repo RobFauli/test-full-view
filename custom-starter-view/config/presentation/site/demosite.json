@@ -1,0 +1,164 @@
+{
+    "site_config_demosite": {
+        "lang": "en",
+        "contentLanguage": "en-GB",
+        "contentbox_settings": {
+            "articleMeta": {
+                "hideModifiedDate": true,
+                "date": {
+                    "publishedLabel": "",
+                    "unpublishedLabel": "",
+                    "modifiedLabel": "",
+                    
+                    "template": "{{ D }}. {{ MMM }}. {{ YYYY }}"
+                }
+            },
+            "toplist": {
+                "show_section": true
+            }
+        },
+        "resourceAllocation": {
+            "resourceMaps": [
+                "_resources_demosite"
+            ],
+            "mergeMaps": true
+        },
+        "data": {
+            "elements": {
+                "articleHeader": {
+                    "fallbackData": {
+                        "metadata": {
+                            "showKicker": false
+                        }
+                    }
+                },
+                "article": {
+                    "fallbackData": {
+                        "metadata": {
+                            "showKicker": false,
+                            "floatingKicker": true
+                        }
+                    }
+                }
+            }
+        },
+        "elementListAdditions": {
+            "all": [
+                "demoElement"
+            ]
+        },
+        "customMenuData": {
+            "ArticleSettings": {
+                "additions": [
+                    "ArticleDemoApp"
+                ],
+                "removals": [],
+                "items": {}
+            }
+        },
+        "tags": {
+            "section": [
+                "Nyheter"
+            ]
+        },
+        "faviconList": [
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/favicon.ico"
+            },
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/favicon/favicon-16x16.png",
+                "iconSize": {
+                    "width": 16,
+                    "height": 16
+                }
+            },
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/favicon/favicon-32x32.png",
+                "iconSize": {
+                    "width": 32,
+                    "height": 32
+                }
+            },
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/favicon/apple-touch-icon.png",
+                "iconRel": "apple-touch-icon",
+                "iconSize": {
+                    "width": 180,
+                    "height": 180
+                }
+            },
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/android-chrome-192x192.png",
+                "iconRel": "android-chrome",
+                "iconSize": {
+                    "width": 192,
+                    "height": 192
+                }
+            },
+            {
+                "iconPath": "/view-resources/custom-starter-view/public/demosite/android-chrome-512x512.png",
+                "iconRel": "android-chrome",
+                "iconSize": {
+                    "width": 512,
+                    "height": 512
+                }
+            }
+        ],
+        "logo": {
+            "default": {
+                "title": "demosite.com",
+                "type": "img",
+                "src": "/view-resources/custom-starter-view/public/demosite/logo.png",
+                "href": "//demosite.com",
+                "size": {
+                    "width": 70
+                }
+            }
+        },
+        "style_definitions": {
+            "fontface": [
+                {
+                    "family": "Poppins",
+                    "familyKey": "Poppins",
+                    "variants": [
+                        "regular",
+                        "italic",
+                        "200",
+                        "200i",
+                        "600",
+                        "600i",
+                        "800",
+                        "800i"
+                    ]
+                }
+            ]
+        },
+        "pageElements": {
+            "page_header": {
+                "settings": {
+                    "tag": "header",
+                    "classes": ["pageHeader"]
+                },
+                "children": [
+                    {
+                        "type": "structures/row",
+                        "settings": {
+                            "classes": []
+                        },
+                        "children": [
+                            {
+                                "type": "ui/logo"
+                            },
+                            {
+                                "type": "ui/menu",
+                                "settings": {
+                                    "type": "mainMenu"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<div class="lab-formgroup lab-grid lab-grid-gap ">
+    <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+        <label for="url">Set the link this article teaser will use</label>
+        <input type="text" id="url" name="fields.published_url" value="{{{ get.current.fields.published_url }}}">
+    </div>
+    <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap lab-inline">
+        <label for="fields.open_in_new_window">Open in new tab/window</label>
+        <input type="checkbox" id="fields.open_in_new_window" name="fields.open_in_new_window" value="1" {{ #get.current.fields.open_in_new_window }}checked{{ /get.current.fields.open_in_new_window }}>
+    </div>
+</div>

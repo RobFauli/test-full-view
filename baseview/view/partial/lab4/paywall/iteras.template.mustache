@@ -1,0 +1,60 @@
+<div class="bodytext intro">
+  {{{ get.current.filtered.paywall.intro }}}
+</div>
+<div class="bodytext content-text">
+  {{{ get.current.filtered.paywall.bodytext }}}
+</div>
+<div class="iteras-offers">
+  {{#getConfig.iteras.offersTitle}}<h2 class="offer-title">{{getConfig.iteras.offersTitle}}</h2>{{/getConfig.iteras.offersTitle}}
+  {{#getConfig.iteras.alreadySubscribedText}}
+  <a class="already-subscribed" href="{{{getConfig.iteras.alreadySubscribedLink}}}{{^getConfig.iteras.alreadySubscribedLink}}/login{{/getConfig.iteras.alreadySubscribedLink}}">
+  {{getConfig.iteras.alreadySubscribedText}}
+  </a>
+  {{/getConfig.iteras.alreadySubscribedText}}
+  <div class="offer-list">
+    {{#getConfig.iteras.offers}}
+    <div class="offer">
+      {{#offerImage}}
+      <img class="offer-image" src="{{{offerImage}}}">
+      {{/offerImage}}
+      <h3 class="offer-name">{{name}}</h3>
+      <ul class="offer-pros">
+        {{#reasons}}
+        <li>
+          <span>{{{.}}}</span>
+        </li>
+        {{/reasons}}
+      </ul>
+      <a class="offer-cta" href="{{#helper.trim}}
+        {{{offerButtonLink}}}
+        {{^offerButtonLink}}
+        {{{getConfig.iteras.offerButtonLink}}}
+        {{^getConfig.iteras.offerButtonLink}}/offers{{/getConfig.iteras.offerButtonLink}}
+        {{/offerButtonLink}}
+      {{/helper.trim}}">
+        {{{offerButtonText}}}
+        {{^offerButtonText}}
+        {{getConfig.iteras.offerButtonText}}
+        {{^getConfig.iteras.offerButtonText}}Order{{/getConfig.iteras.offerButtonText}}
+        {{/offerButtonText}}
+      </a>
+    </div>
+    {{/getConfig.iteras.offers}}
+  </div>
+  {{#getConfig.iteras.offersSalesText}}<p class="offer-description">{{getConfig.iteras.offersSalesText}}</p>{{/getConfig.iteras.offersSalesText}}
+</div>
+
+<script type="text/javascript">
+  const intro = document.querySelector('.intro');
+  const content = document.querySelector('.content-text');
+  const offers = document.querySelector('.iteras-offers');
+
+  Iteras.wall({
+    paywallId: ["{{getConfig.iteras.id}}"],
+    unauthorized: () => {
+        intro.style.display = "contents"
+        content.style.display = "none";
+        offers.style.display = "flex";
+    }
+  });
+</script>

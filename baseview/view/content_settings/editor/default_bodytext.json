@@ -1,0 +1,15 @@
+{
+    "includeFiles": [
+        "content_settings/editor/resize/disabled.json"
+    ],
+    "contentMenus": {
+        "default": {
+            "items": {
+                "gridOverride": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g3"
+                }
+            }
+        }
+    }
+}

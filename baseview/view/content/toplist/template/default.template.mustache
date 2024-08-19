@@ -1,0 +1,28 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+column toplist
+{{ #style.collection }}box_decoration{{ /style.collection }}
+layout_{{ get.current.fields.layout }}
+{{ size.grid.css }}
+{{ size.grid.absCss }}
+{{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="content {{ #style.collection }}content_decoration{{ /style.collection }}{{ #get.current.fields.hideBorder }}hide-border{{ /get.current.fields.hideBorder }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ ^get.current.fields.hideTitle }}<h3 class="headline {{ #style.collection }}text_decoration fields.title{{ /style.collection }}">{{{ get.current.fields.title }}}</h3>{{ /get.current.fields.hideTitle }}
+        <ul>{{ #get.current.filtered.result }}
+            <li{{ #cssClass }} class="{{ cssClass }}"{{ /cssClass }} data-section="{{ section }}">
+                {{ #imageUrl }}
+                <figure class="media">
+                    <a href="{{{ url }}}"><img src="{{{ imageUrl }}}" alt=""></a>
+                </figure>
+                {{ /imageUrl }}    
+                <div class="text">
+                    <a href="{{{ url }}}">
+                        {{ #getConfig.contentbox_settings.toplist.show_section }}<p class="section">{{ section }}</p>{{ /getConfig.contentbox_settings.toplist.show_section }}
+                        <h4>{{{ title }}}</h4>
+                        {{ #niceDate }}<time class="fi-clock" datetime="{{{ published }}}">{{{ niceDate }}}</time>{{ /niceDate }}
+                    </a>
+                </div>
+            </li>
+        {{ /get.current.filtered.result }}</ul>
+    </div>
+</div>

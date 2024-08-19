@@ -1,0 +1,70 @@
+<td class="cell" width="{{ size.grid.percentage }}%" valign="top">
+    <table width="100%" cellspacing="0" cellpadding="0" style="border: 0; padding-left: 10px; padding-right: 10px;">
+        <tr>
+            <td align="center" valign="top"{{ #get.current.metadata.mailmojo_bg_color }} style="background-color:{{{ get.current.metadata.mailmojo_bg_color }}}; padding: 12px;"{{ /get.current.metadata.mailmojo_bg_color }}>
+                {{#get.current.metadata.showKicker}}{{^get.current.metadata.kickerBelowImage}}{{ #get.current.fields.kicker }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td class="font-14 text-silver" align="left" valign="top" style="font-size: 14px; color: #555;">
+                            {{{ get.current.fields.kicker }}}
+                        </td>
+                    </tr>
+                </table>
+                {{ /get.current.fields.kicker }}{{/get.current.metadata.kickerBelowImage}}{{/get.current.metadata.showKicker}}
+
+                {{^get.current.metadata.hideimage}}
+                {{{ child.image }}}
+                {{{ child.graphic }}}
+                {{/get.current.metadata.hideimage}}
+
+                {{#get.current.metadata.showKicker}}{{#get.current.metadata.kickerBelowImage}}{{ #get.current.fields.kicker }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td class="font-14 text-silver" align="left" valign="top" style="font-size: 14px; color: #555;">
+                            {{#get.current.fields.published_url}}<a href="{{{get.current.fields.published_url}}}" data-k5a-url="{{{ get.current.filtered.canonical_url }}}" style="color: #000; text-decoration: none;">{{/get.current.fields.published_url}}
+                            {{{ get.current.fields.kicker }}}
+                            {{#get.current.fields.published_url}}</a>{{/get.current.fields.published_url}}
+                        </td>
+                    </tr>
+                </table>
+                {{ /get.current.fields.kicker }}{{/get.current.metadata.kickerBelowImage}}{{/get.current.metadata.showKicker}}
+
+                {{ ^get.current.metadata.hideTitle }}{{ #get.current.fields.title }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td align="left" valign="top">
+                            <h1 editable="true" style="color: #000; line-height: 1.2; font-size: 24px;">
+                                {{#get.current.filtered.published_url}}<a href="{{{get.current.filtered.published_url}}}" data-k5a-url="{{{ get.current.filtered.canonical_url }}}" style="color: #000; text-decoration: none;">{{/get.current.filtered.published_url}}
+                                {{{ get.current.fields.title }}}
+                                {{ #get.current.filtered.paywall }}
+                                {{ #get.current.filtered.paywallLabel.displayInNewsletter }}
+                                {{ #get.current.filtered.paywallLabel.text.content }}
+                                ({{ get.current.filtered.paywallLabel.text.content }})
+                                {{ /get.current.filtered.paywallLabel.text.content }}
+                                {{ ^get.current.filtered.paywallLabel.text.content }}
+                                (+)
+                                {{ /get.current.filtered.paywallLabel.text.content }}
+                                {{ /get.current.filtered.paywallLabel.displayInNewsletter }}
+                                {{ /get.current.filtered.paywall }}
+                                {{#get.current.filtered.published_url}}</a>{{/get.current.filtered.published_url}}
+                            </h1>
+                        </td>
+                    </tr>
+                </table>
+                {{ /get.current.fields.title }}{{ /get.current.metadata.hideTitle }}
+
+                {{ ^get.current.metadata.hidesubtitle }}{{ #get.current.fields.subtitle }}
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td align="left" valign="top">
+                            <p editable="true" style="color: #000; font-size: 16px; line-height: 1.5;">
+                                {{{ get.current.fields.subtitle }}}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                {{ /get.current.fields.subtitle }}{{ /get.current.metadata.hidesubtitle }}
+            </td>
+        </tr>
+    </table>
+</td>

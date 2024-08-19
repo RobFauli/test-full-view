@@ -1,0 +1,72 @@
+.button-link {
+    --bg-color: #008cba;
+    --border-color: #008cba;
+    --text-color: #fff;
+
+    display: flex;
+    justify-content: center;
+
+    &.fitContent {
+        .content.link-content {
+            width: fit-content;
+            padding-inline: 3rem;
+        }
+    }
+
+    .content.link-content {
+        background-color: var(--bg-color);
+        border: 5px solid var(--bg-color);
+        padding: 0.6em 0.8em;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &.has-border {
+            border-color: var(--border-color);
+
+            &:hover {
+                border-color: var(--hover-border-color, var(--text-color));
+            }
+        }
+
+        &.layout_oval {
+            border-radius: 25px;
+        }
+
+        &.layout_flat {
+            border-radius: 0;
+        }
+
+        &.shadow_around {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        &.shadow_underneath {
+            box-shadow: 0 5px 2px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        a.link {
+            color: var(--text-color);
+            text-decoration: none;
+            cursor: pointer;
+            height: 100%;
+            width: 100%;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            background-color: var(--hover-bg-color, var(--text-color, pink));
+            
+            a {
+                color: var(--hover-text-color, var(--bg-color));
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+    column 
+    newsletter_submit
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    {{ #get.current.filtered.newsletter_data }}
+    <form method="POST" action="{{{ action }}}" class="content grid {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        <div class="text description grid-vas-center large-12 small-12">
+            <h4 class="{{ #style.collection }}text_decoration fields.newsletterDataTitle{{ /style.collection }}">{{{ title }}}</h4>
+            {{#description}}<p class="description {{ #style.collection }}text_decoration fields.newsletterDataDescription{{ /style.collection }}">{{{ description }}}</p>{{/description}}
+        </div>
+        <fieldset class="text grid-vas-center large-12 small-12">
+            {{#elements}}
+            <input type="{{ type }}" name="{{ name }}" placeholder="{{{ placeholder }}}" class="{{ class }}" value="{{{ value }}}">
+            {{/elements}}
+        </fieldset>
+    </form>
+    {{ /get.current.filtered.newsletter_data }}
+    {{ ^get.current.filtered.newsletter_data }}
+    <div class="newsletter_submit--hidden">
+        <p class="error">Missing configuration for newsletter. Please fix in element settings.</p>
+    </div>
+    {{ /get.current.filtered.newsletter_data }}
+</div>

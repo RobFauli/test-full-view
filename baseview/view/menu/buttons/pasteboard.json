@@ -1,0 +1,40 @@
+{
+    "icon": "labicon-pasteboard",
+    "title": "Pasteboard-options",
+    "displayCondition": "pageIsFrontPage",
+    "respectLayoutLock": false,
+    "items": [
+        {
+            "callback": "copyToPasteboard",
+            "icon": "labicon-pasteboard_copy",
+            "respectLayoutLock": false,
+            "text": "Copy to Pasteboard",
+            "group": "g1",
+            "displayHotkeys": true,
+            "hotkeys": [{
+                "key": "C",
+                "controlkeys": ["shiftKey"]
+            }]
+        },
+        {
+            "callback": "moveToPasteboard",
+            "icon": "labicon-pasteboard_move",
+            "text": "Move to Pasteboard",
+            "group": "g1"
+        },
+        {
+            "callback": "dispatch",
+            "params": {
+                "function": "lab_api.v1.pasteboard.display"
+            },
+            "icon": "labicon-pasteboard",
+            "respectLayoutLock": false,
+            "text": "Open Pasteboard",
+            "group": "g2",
+            "displayHotkeys": true,
+            "hotkeys": [{
+                "key": "B"
+            }]
+        }
+    ]
+}

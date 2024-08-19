@@ -1,0 +1,43 @@
+<div data-element-guid="{{ get.current.guid }}" id="markup_{{ get.current.id }}" class="{{ #helper.trim }}
+    markupbox 
+    column
+    {{ #style.collection }}box_decoration{{ /style.collection }}
+    {{ #style.definition }}movableContainer metadata.movableContent{{ /style.definition }}
+    {{ #get.current.filtered.paywall }}paywall{{ /get.current.filtered.paywall }}
+    {{ size.grid.css }}
+    {{ size.grid.absCss }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+    content fullwidthTarget
+    {{ #style.definition }}movableElement metadata.movableContent{{ /style.definition }}
+    {{ #style.definition }}collapsedContent metadata.collapsedContent{{ /style.definition }}
+    {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+
+        {{ #get.current.metadata.movableContent }}{{{ get.current.filtered.movableStyle }}}{{ /get.current.metadata.movableContent }}
+
+        {{{ placeholder.no_markup }}}
+
+        {{ #get.current.filtered.requiredCookieConsent }}
+            <script>
+                if (window.Dac && window.Dac.CookieConsent) {
+                    var dac_cookieConsent = new Dac.CookieConsent(Dac.clientData.debug, '{{ getConfig.cookieConsent.cookieName }}');
+                    var requiredCookieConsent = '{{ get.current.filtered.requiredCookieConsent }}';
+                    var markupContent = `{{{ get.current.filtered.markup_escaped }}}`;
+                    dac_cookieConsent.renderMarkup(
+                        requiredCookieConsent,
+                        markupContent,
+                        `{{{ getConfig.cookieConsent.insufficientConsentMessage }}}`
+                    );
+                }
+            </script>
+        {{ /get.current.filtered.requiredCookieConsent }}
+        {{ ^get.current.filtered.requiredCookieConsent }}
+            {{{ get.current.fields.markup }}}
+        {{ /get.current.filtered.requiredCookieConsent }}
+
+        {{{ children.all }}}
+    </div>
+</div>

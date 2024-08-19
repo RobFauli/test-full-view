@@ -1,0 +1,16 @@
+{{ #display }}
+<div id="hyvor-talk-view"></div>
+<script>
+    var HYVOR_TALK_WEBSITE = {{ websiteId }};
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: '{{ #pageId }}{{ pageId }}{{ /pageId }}'
+    };
+</script>
+<script async src="https://talk.hyvor.com/web-api/embed.js"></script>
+{{ /display }}
+{{ #displayPlaceholder }}
+<div class="comments_placeholder">
+    Hyvor-comments will display in presentation-mode.
+</div>
+{{ /displayPlaceholder }}

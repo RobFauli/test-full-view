@@ -1,0 +1,54 @@
+<div>
+    {{ #booleans }}
+    <div class="lab-modal-form lab-grid{{ #hidden }} lab-hidden{{ /hidden }}" data-nav-source="{{ name }}">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">{{{ title }}}</h4>
+            {{ #items }}
+            <div class="lab-formgroup-item lab-space-below-medium {{ grid }}{{ ^grid }}lab-grid-large-12{{ /grid }} lab-grid-gap{{ ^isBlock }} lab-inline{{ /isBlock }}">
+                <label for="b_{{ name }}_active">{{ title }}</label>
+                {{ #isCheckbox }}
+                <input type="checkbox" name="{{ name }}" id="b_{{ name }}_active" {{ #active }}checked{{ /active }} value="1">
+                {{ /isCheckbox }}
+                {{ #isSelect }}
+                <select name="{{ name }}" id="b_{{ name }}_active">
+                    {{ #options }}
+                    <option value="{{ value }}"{{ #selected }} selected{{ /selected }}>{{{ title }}}</option>
+                    {{ /options }}
+                </select>
+                {{ /isSelect }}
+            </div>
+            {{ /items }}
+        </div>
+    </div>
+    {{ /booleans }}
+    
+    {{ #ranges }}
+    <div class="lab-modal-form lab-grid{{ #hidden }} lab-hidden{{ /hidden }}" data-nav-source="{{ attributeName }}">
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">{{{ title }}}</h4>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-12 lab-grid-gap lab-inline">
+                <label for="p_{{ name }}_active">{{ labels.active }}</label>
+                <input type="checkbox" name="{{ name }}.active" id="p_{{ name }}_active" {{ #active }}checked{{ /active }} value="1">
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap ">
+                <label data-lab-label-value="{{ startValue }}" for="p_{{ name }}_startValue">{{ labels.startValue }}</label>
+                <input type="range" name="{{ name }}.startValue" id="p_{{ name }}_startValue" min="{{ ranges.startValue.0 }}" max="{{ ranges.startValue.1 }}" value="{{ startValue }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap ">
+                <label data-lab-label-value="{{ endValue }}" for="p_{{ name }}_endValue">{{ labels.endValue }}</label>
+                <input type="range" name="{{ name }}.endValue" id="p_{{ name }}_endValue" min="{{ ranges.endValue.0 }}" max="{{ ranges.endValue.1 }}" value="{{ endValue }}">
+            </div>
+
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap ">
+                <label data-lab-label-value="{{ startScrollPosition }}" for="p_{{ name }}_startScrollPosition">{{ labels.startScrollPosition }}</label>
+                <input type="range" name="{{ name }}.startScrollPosition" id="p_{{ name }}_startScrollPosition" min="{{ ranges.startScrollPosition.0 }}" max="{{ ranges.startScrollPosition.1 }}" value="{{ startScrollPosition }}">
+            </div>
+            <div class="lab-formgroup-item lab-space-below-medium lab-grid-large-6 lab-grid-gap ">
+                <label data-lab-label-value="{{ endScrollPosition }}" for="p_{{ name }}_endScrollPosition">{{ labels.endScrollPosition }}</label>
+                <input type="range" name="{{ name }}.endScrollPosition" id="p_{{ name }}_endScrollPosition" min="{{ ranges.endScrollPosition.0 }}" max="{{ ranges.endScrollPosition.1 }}" value="{{ endScrollPosition }}">
+            </div>
+        </div>
+    </div>
+    {{ /ranges }}
+</div>

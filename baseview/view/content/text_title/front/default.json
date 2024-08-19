@@ -1,0 +1,9 @@
+{
+    "boxTitle": "Text - Title",
+    "boxDescription": "Display a header-element",
+    "viewportMap": {
+        "fields": {
+            "title": "presets.vp_content_attributes"
+        }
+    }
+}

@@ -1,0 +1,90 @@
+<div class="columns dashboardbox article_list {{ view.grid.css }} abs_grid_{{ view.grid.absoluteWidth }} {{ view.boxCss.background_color }}{{ #fields.compactView }} compact{{ /fields.compactView }}{{#fields.largeImages}} largeImages{{/fields.largeImages}}{{#fields.largeTitles}} largeTitles{{/fields.largeTitles}}">
+    <div class="dashboardbox-menu">
+        <h3>{{{ fields.title }}}</h3>
+    </div>
+    <div class="content">
+        <ul class="articles">{{ #external.nohits}}<li class="nohits">No matches ...</li>{{ /external.nohits}}{{ #external.result }}
+            <li data-visibility-status="{{ visibility_status }}" {{#publishedAheadString}}class="lab-published-ahead"{{/publishedAheadString}}>
+                <div class="image">
+                    <a title="Edit article" data-lab-ignore-exitwarning="1" href="/edit/article/id/{{ id }}" target="_blank">
+                    {{ #frontCropUrl }}<img src="{{ filtered.image_server }}/{{ frontCropUrl }}{{#fields.largeImages}}&width=200{{/fields.largeImages}}" />{{ /frontCropUrl }}
+                    {{ ^frontCropUrl }}<span class="noimage lab-icon-upload"></span>{{ /frontCropUrl }}
+                    </a>
+                </div>
+                <div class="controls">
+                    {{#hasNotes}}
+                    <span class="control_el lab-icon-notes" onclick="toggle_notes(this);" title="Click to display notes">
+                        <pre class="notes">{{{ hasNotes }}}</pre>
+                    </span>
+                    {{/hasNotes}}
+                    {{#bodytext}}<span class="bodytext_toggle control_el lab-icon-settings" onclick="toggle_bodytext(this);" title="Display bodytext"></span>{{/bodytext}}
+                    {{#published_url}}{{^publishhidden}}<a title="View article" data-lab-ignore-exitwarning="1" href="{{ #siteDomain }}{{ siteDomain }}{{ /siteDomain }}{{ ^siteDomain }}{{ filtered.customer_front_url }}{{ /siteDomain }}{{ published_url }}" target="_blank" class="control_el lab-icon-preview"></a>{{/publishhidden}}{{/published_url}}
+                    {{#filtered.showCopyButton}}<span class="copy_article control_el lab-icon-copy" onclick="copy_article({{ id }});" title="Copy this article"></span>{{/filtered.showCopyButton}}
+                    <a title="Edit article" data-lab-ignore-exitwarning="1" href="/edit/article/id/{{ id }}" target="_blank" class="control_el lab-icon-startEdit"></a>
+                </div>
+                <div class="article">
+                    <a title="Edit article" data-lab-ignore-exitwarning="1" href="/edit/article/id/{{ id }}" target="_blank">
+                        <h4 class="{{^title}}no-title{{/title}}">{{{ title }}}{{^title}}[no title]{{/title}}</h4>
+                        {{^fields.hideSummary}}{{#subtitle}}<p class="subtitle">
+                            {{{ subtitle }}}
+                        </p>{{/subtitle}}{{/fields.hideSummary}}
+                    </a>
+                    {{#bodytext}}
+                        <p class="bodytext">{{{bodytext}}}</p>
+                    {{/bodytext}}
+
+                    {{ #fields.displayTags}}
+                    <p class="meta">
+                        Section: <span class="tag lab-icon-tag">{{{ section_tag }}}</span>
+                        Tags: {{#tagsList}}<span class="tag lab-icon-tag">{{{ . }}}</span> {{/tagsList}}
+                    </p>
+                    {{ /fields.displayTags}}
+                    <p class="meta">
+                        {{#createdString}}
+                            Created: <span class="date lab-icon-time">{{{ createdString }}}</span>
+                        {{/createdString}}
+                        {{#publishedString}}
+                         Published: <span class="date lab-icon-time">{{{ publishedString }}}</span>
+                        {{/publishedString}}
+                        {{#publishedAheadString}}
+                         Will publish: <span class="date lab-icon-time">{{{ publishedAheadString }}}</span>
+                        {{/publishedAheadString}}
+                    </p>
+                    {{ #fields.displayAuthor}}
+                    <p class="meta">
+                        Author: <span class="tag lab-icon-user">{{ created_by }}</span>
+                    </p>
+                    {{ /fields.displayAuthor}}
+
+
+                </div>
+            </li>
+        {{ /external.result }}</ul>
+    </div>
+    <div class="dashboardbox-nav"><span class="pager">Page {{ filtered.pageNumber }}</span></div>
+    <script>
+        function toggle_notes(element) {
+            if (!element) return;
+            Lab.Dialog.modal({
+                title: "Article-notes",
+                message: '<pre style="max-height: 12em; overflow: auto; border: 1px solid #d0d0d0; padding: 1em;">' + element.firstElementChild.innerHTML + '</pre>'
+            });
+        }
+        function toggle_bodytext(element) {
+            if (!element) return;
+            var listEl = element.parentElement.parentElement;
+            if (!listEl) return;
+            var className = listEl.className;
+            isOpen = className.indexOf(' text_expanded') > -1;
+            if (isOpen) {
+                listEl.className = className.replace(' text_expanded', '');
+            } else {
+                listEl.className = className + ' text_expanded';
+                parent.Lab.windowController.updateFrameHeights('fast');
+            }
+        }
+        function copy_article(sourceId) {
+            lab_api.v1.article.ui.copy(sourceId)
+        }
+    </script>
+</div>

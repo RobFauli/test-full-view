@@ -1,0 +1,46 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">Settings for Labrador Search</h2>
+    <p>You can click on the title and buttons in the editor to edit labels</p>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Options</h4>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+                <label for="id-fields.searchPlaceholder">Placeholder for search</label>
+                <input type="text" id="id-fields.searchPlaceholder" name="fields.searchPlaceholder" value="{{ get.current.fields.searchPlaceholder }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+                <label for="id-fields.advancedOpenText">Label for opening settings</label>
+                <input type="text" id="id-fields.advancedOpenText" name="fields.advancedOpenText" value="{{ get.current.fields.advancedOpenText }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+                <label for="id-fields.advancedCloseText">Label for closing settings</label>
+                <input type="text" id="id-fields.advancedCloseText" name="fields.advancedCloseText" value="{{ get.current.fields.advancedCloseText }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+                <label for="id-fields.nohitsLabel">Text for no hits</label>
+                <input type="text" id="id-fields.nohitsLabel" name="fields.nohitsLabel" value="{{ get.current.fields.nohitsLabel }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+                <label for="id-fields.orderBy">Order search result by</label>
+                <select id="id-fields.orderBy" name="fields.orderBy">
+                    {{ #get.current.filtered.orderByOptions }}
+                        <option value="{{ value }}" {{ #selected }}selected{{ /selected }}>{{ label }}</option>
+                    {{ /get.current.filtered.orderByOptions }}
+                </select>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap lab-inline">
+                <label for="id-fields.displayAdvanced">Display options on front</label>
+                <input type="checkbox" id="id-fields.displayAdvanced" name="fields.displayAdvanced" value="1" {{ #get.current.fields.displayAdvanced }}checked="true"{{ /get.current.fields.displayAdvanced }}>
+            </div>
+        </div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <h4 class="lab-title lab-grid-large-12 lab-grid-gap">Sites</h4>
+            {{ #get.current.filtered.sites }}
+            <div class="lab-formgroup-item lab-grid-large-4 lab-grid-gap lab-inline">
+                <label for="id-fields.allowedSites_json.{{ alias }}">{{ displayName }}</label>
+                <input type="checkbox" id="id-fields.allowedSites_json.{{ alias }}" name="fields.allowedSites_json.{{ alias }}" value="{{ id }}" {{ #selected }}checked="true"{{ /selected }}>
+            </div>
+            {{ /get.current.filtered.sites }}
+        </div>
+    </div>
+</form>

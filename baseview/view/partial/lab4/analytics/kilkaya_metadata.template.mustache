@@ -1,0 +1,13 @@
+<script>
+{{ #helper.trim }}
+var k5aMeta = {
+    {{ #get.current.filtered.is_article }}
+    "paid": {{ #get.current.filtered.paywall.enabled }}1{{ /get.current.filtered.paywall.enabled }}{{ ^get.current.filtered.paywall.enabled }}0{{ /get.current.filtered.paywall.enabled }},
+    {{ #get.current.filtered.paywall.enabled }}"paywall": (Dac.clientData.paywall.isAuthenticated ? "metered" : "hard"),{{ /get.current.filtered.paywall.enabled }} 
+    "title": "{{ #helper.sanitizeString }}{{{ get.current.filtered.seotitle }}}{{ /helper.sanitizeString }}",
+    {{ /get.current.filtered.is_article }}
+    "url": "{{{ get.current.filtered.staticUrl }}}",
+    "login": (Dac.clientData.paywall.isAuthenticated ? 1 : 0),
+    "subscriber": (Dac.clientData.paywall.isAuthenticated ? 1 : 0)
+}; {{ /helper.trim }}
+</script>

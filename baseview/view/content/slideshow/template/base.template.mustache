@@ -1,0 +1,87 @@
+<div class="{{ #helper.trim }}
+    slideshowcontainer
+    fullwidthTarget
+    {{ #get.current.fields.hideCaptions }}hideCaptions{{ /get.current.fields.hideCaptions }}
+    {{ #get.current.fields.hideBylines }}hideBylines{{ /get.current.fields.hideBylines }}
+    {{ #get.current.fields.containImages }}contain{{ /get.current.fields.containImages }}
+    {{ #get.current.fields.containerBg }}background-{{ get.current.fields.containerBg }}{{ /get.current.fields.containerBg }}
+    {{ /helper.trim }}" id="slideshow-{{ get.current.id }}">
+    <style>
+        #slideshow-{{ get.current.id }} .scroll-container figure::before {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-top: {{ get.current.filtered.aspectRatio }}%;
+        }
+    </style>
+    <div class="scroll-container swipehelper snap-container-x snap-element-start">
+        {{ #children.image[] }}
+            <div class="scroll-item snap-element slideshow-image">
+            {{{ . }}}
+            </div>
+        {{ /children.image[] }}
+    </div>
+    <nav>
+        <span class="arrow left">
+            <span></span>
+        </span>
+        <span class="arrow right">
+            <span></span>
+        </span>
+        {{ #get.current.metadata.displayNavigation }}<ul>{{ #children.image[] }}<li></li>{{ /children.image[] }}</ul>{{ /get.current.metadata.displayNavigation }}
+        {{ #get.current.metadata.displayPreview }}<div>
+            {{ #get.children.image }}
+            <figure>
+                <div class="img">
+                    <img src="{{ filtered.image }}&width=80&height=">
+                </div>
+            </figure>
+            {{ /get.children.image }}
+        </div>{{ /get.current.metadata.displayPreview }}
+    </nav>
+{{ #get.current.id }}
+<script>
+(function () {
+    window.dachserData.push('swipehelper', {
+        selector: '#slideshow-{{ get.current.id }}',
+        navItemsSelector: 'nav ul',
+        previewItemsSelector: 'nav div',
+        itemsContainerSelector: '.scroll-container',
+        itemsSelector: '.scroll-item',
+        isHorizontal: true,
+        navItems: {
+            forwardSelector: 'nav .arrow.right',
+            backwardSelector: 'nav .arrow.left',
+            dotNavigationSelector: 'nav ul'
+        },
+        preloadNextImage: {{ #app.isEditor }}false{{ /app.isEditor }}{{ ^app.isEditor }}true{{ /app.isEditor }},
+        autoScroll: {
+            enabled: {{ #get.current.metadata.autoScroll }}true{{ /get.current.metadata.autoScroll }}{{ ^get.current.metadata.autoScroll }}false{{ /get.current.metadata.autoScroll }},
+            interval: 4000
+        },
+        debug: {{ #get.current.filtered.isDebug }}true{{ /get.current.filtered.isDebug }}{{ ^get.current.filtered.isDebug }}false{{ /get.current.filtered.isDebug }}
+    });
+    {{ #app.isEditor }}
+    if (window.dachserData.reflow) {
+        window.dachserData.reflow('swipehelper', 'selector', '#slideshow-{{ get.current.id }}');
+    }
+    {{ /app.isEditor }}
+    {{ ^app.isEditor }}
+    const captions = document.querySelectorAll('#slideshow-{{ get.current.id }} figcaption[itemprop="caption"]');
+    for (const caption of [...captions]) {
+        if (caption.innerText.trim().length > 0) {
+            const el = document.createElement('span');
+            el.classList.add('caption-toggle');
+            el.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                event.target.parentElement.classList.toggle('expanded');
+            }, false);
+            caption.prepend(el);
+        }
+    }
+    {{ /app.isEditor }}
+}());
+</script>
+{{ /get.current.id }}
+</div>

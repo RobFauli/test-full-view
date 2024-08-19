@@ -1,0 +1,18 @@
+{
+    "labradorAi": {
+        "generateImage": {
+            "provider": "openAi",
+            "model": ""            
+        },
+        "summary": {
+            "provider": "openAi",
+            "model": ""
+        },
+        "text": {
+            "active": true,
+            "provider": "openAi",
+            "model": "text-davinci-003"
+        }
+
+    }
+}

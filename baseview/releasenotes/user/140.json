@@ -1,0 +1,136 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 140,
+            "str": "1.4.0"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20231112",
+                "title": "Ads: New placement for mobile",
+                "description": "When setting up ads you can now use the placement `Dropzone` to make sure ads are placed between rows on mobile. Use `index` to specify the row-number.",
+                "links": [
+                    "/settings/cp?page=ads"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20231112",
+                "title": "Automatically set publish date on rows",
+                "description": "If you publish an article in the future you can search for it in the article list (hotkey `A`) and add it to a page. Labrador will now automatically set a publish date on the row the article is added to to prevent displaying it until the article will be visible. If you add several articles with a future publish date the last date will be set on the row."
+            },
+            {
+                "isFeature": true,
+                "date": "20231110",
+                "title": "Auto-update article lists",
+                "description": "The article list (hotkey `A`) is now automatically updated every 30 seconds to keep you up to date with newly published articles on your sites."
+            },
+            {
+                "isImprovement": true,
+                "date": "20231023",
+                "title": "Subarticle-options",
+                "description": "The options are moved from the subarticles to the article-teaser. This allows you to choose to display or hide images (default visible), titles (default visible) and subtitles (default hidden) for all subarticles in one place."
+            },
+            {
+                "isFeature": true,
+                "date": "20231009",
+                "title": "Added Timelines",
+                "description": "You can now include timelines in your articles or front-pages to display a chronological list of events. To start: Open the Content-collection (hotkey `C`), search for 'timeline' and drag and drop the timeline onto a page."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230926",
+                "title": "Overlay images",
+                "description": "You can now add one or more images overlaying the header image of articles and image in article teasers. If you publish a comment, for example, you can add a portrait of the author floating on top of the main image. To use in the article-header or teasers: Click the <span class=\"lab-label\"><span class=\"labicon-image\"> </span> Media options</span> and select <span class=\"lab-label\"><span class=\"labicon-image\"> </span> Display extra images</span>. A dropzone will now display. You can drag and drop images here. You can use the menu of the image to select placement: Top left, top right (default), bottom left and bottom right. Use the color-picker to set a border if needed."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230926",
+                "title": "More options for subarticles",
+                "description": "Subarticles can now display with a compact design. Each subarticle can display optional image, title and subtitle. To add subarticles to an article teaser, click the hamburger-dropdown <span class=\"lab-label\"><span class=\"labicon-settings\"> </span></span> / <span class=\"lab-label\"><span class=\"labicon-article_plus\"> </span> Subarticles</span> and select <span class=\"lab-label\"><span class=\"labicon-article_plus\"> </span> Toggle subarticles</span>. Here you can also select <span class=\"lab-label\"><span class=\"labicon-grid_list\"> </span> Compact design</span>. A compact design will display text and images with a smaller size and with less whitespace."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230914",
+                "title": "Language support for Toplist",
+                "description": "The Toplist-element will now display date-strings for each article using localised strings. You can override strings for any site and language in the admin-page.",
+                "links": [
+                    "/settings/cp?page=localisation"
+                ]
+            },
+            {
+                "isImprovement": true,
+                "date": "20230913",
+                "title": "Improved Article List",
+                "description": "The element `Article List` can now display images left, right or centered in 100% width. The settings panel (hotkey `,`) also let you specify number of columns for the articles in desktop and mobile. You can also drop images onto each article to add or change the image."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230907",
+                "title": "Better linking-tool in bodytext-editor",
+                "description": "If you have a text selection and select the menu 'Insert / Article-link' the tool will now use the selection for the link text. If you have no selection the title of the article is used for the link text."
+            },
+            {
+                "isFeature": true,
+                "date": "20230909",
+                "title": "Default values for link tool",
+                "description": "Text tools that allows inserting links can now set a default value for the checkbok 'Open in new tab'. You can set the default value from the settings-page.",
+                "links": [
+                    "/settings/cp?page=textTools"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230907",
+                "title": "Defer font loading to imporve SEO and page loading speed",
+                "description": "You can now choose to defer font loading to after page has loaded, to improve page load speeds and SEO. It might lead to a flash of wrong font, so can worsen user experience.",
+                "links": [
+                    "/settings/cp?page=seoSettings"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230830",
+                "title": "Article-teasers: Display all images from original article",
+                "description": "You can now display and use any image from an article without searching for them. In the menu of an article teaser, click the <span class=\"lab-label\"><span class=\"labicon-image\"> </span> Media</span>-dropdown and select <span class=\"lab-label\"><span class=\"labicon-image\"> </span>Display images from article</span> (or hotkey <span class=\"lab-label\">Shift+M</span>) to display the images. You can then drag and drop any of them onto the article-teaser."
+            },
+            {
+                "isFeature": true,
+                "date": "20230828",
+                "title": "Hide row in a viewport",
+                "description": "You can now also select to hide a row in a viewport as you can with other content-types. Example: To hide a row on mobile, mouse over the row on the mobile viewport in the editor, click the hamburger-menu at the bottom of the row-menu and select <span class=\"lab-label\"><span class=\"labicon-preview\"> </span> Hide in current viewport</span>."
+            },
+            {
+                "isFeature": true,
+                "date": "20230825",
+                "title": "Label for paywall-articles on social media and Google",
+                "description": "You can now use the admin-pages to choose if the string `(+)` will be hidden from the article-title when sharing an article on social media or Google. If not hidden the label will be added to meta-tags in the head-section of your articles behind paywall. The default setting is to display the label.",
+                "links": [
+                    "/settings/cp?page=paywallOptions"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230822",
+                "title": "Estimated read time and read progress bar",
+                "description": "Possible to enable estimated read time and read progress bar in admin under 'Article Settings'",
+                "links": [
+                    "/settings/cp?page=articleSettings"
+                ]
+            },
+            {
+                "isFeature": true,
+                "date": "20230828",
+                "title": "Possible to choose background and text color on page/article.",
+                "description": "It's now possible to choose background and text color on the entire page / article / prototype under Settings -> Colors."
+            },
+            {
+                "isFeature": true,
+                "date": "20230831",
+                "title": "Article search can now be filtered to show only paywall articles.",
+                "description": "You can now filter articles by the ones that are behind paywall only."
+            }
+        ]
+    }
+}

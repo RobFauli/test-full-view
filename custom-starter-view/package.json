@@ -1,0 +1,59 @@
+{
+    "name": "custom-starter-view",
+    "version": "1.1.0",
+    "description": "Build system for Custom Starter View",
+    "type": "module",
+    "scripts": {
+        "clean": "rimraf view/css/*.css",
+        "compile:sass": "sass -I view/css_scss -I view/content -I view/structure view/css_scss:view/css --style=compressed",
+        "compile:sass:elements": "webpack --config webpack.config.front.style.cjs",
+        "prefix:css": "postcss view/css/**/*.css -u autoprefixer -r -m",
+        "build:sass": "npm run compile:sass:elements && npm run prefix:css",
+        "watch:sass": "chokidar \"view/**/*.scss\" -c \"npm run compile:sass --silent && npm run compile:sass:elements --silent && npm run prefix:css --silent && echo Finished build...\"",
+        "build:front": "webpack --config webpack.config.front.cjs",
+        "watch:front": "webpack --config webpack.config.front.cjs --watch",
+        "build:editor:modules": "webpack --config webpack.config.editor.cjs",
+        "watch:editor:modules": "webpack --config webpack.config.editor.cjs --watch",
+        "watch-all": "run-p watch:** ",
+        "build-all": "run-s build:**",
+        "lint:fix": "./node_modules/.bin/eslint modules/ --fix",
+        "lint:dryrun": "./node_modules/.bin/eslint modules/ --fix-dry-run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/publishlab/custom-starter-view.git"
+    },
+    "contributors": [
+        {
+            "name": "Birk I. Wilberg",
+            "email": "birk@publishlab.com"
+        },
+        {
+            "name": "Stian Andersen",
+            "email": "stian@publishlab.com"
+        }
+    ],
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/publishlab/custom-starter-view/issues"
+    },
+    "homepage": "https://github.com/publishlab/custom-starter-view#readme",
+    "devDependencies": {
+        "autoprefixer": "^10.4.7",
+        "chokidar-cli": "^3.0.0",
+        "css-loader": "^6.11.0",
+        "eslint": "^8.3.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "ignore-emit-webpack-plugin": "^2.0.6",
+        "mini-css-extract-plugin": "^2.8.1",
+        "npm-run-all": "^4.1.5",
+        "npm-watch": "^0.7.0",
+        "postcss": "^8.4.13",
+        "postcss-cli": "^9.1.0",
+        "rimraf": "^3.0.2",
+        "sass": "^1.51.0",
+        "sass-loader": "^14.1.1",
+        "webpack": "^5.76.0",
+        "webpack-cli": "^4.5.0"
+    }
+}

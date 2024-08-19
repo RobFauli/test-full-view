@@ -1,0 +1,22 @@
+<div data-element-guid="{{ get.current.guid }}" class="googleCSEbox columns {{ #style.collection }}box_decoration{{ /style.collection }} {{ size.grid.css }} {{ size.grid.absCss }}">    
+{{ #get.current.filtered.cse_id }}
+<script>
+(function() {
+    var cx = '{{{ get.current.filtered.cse_id }}}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+<gcse:search></gcse:search>
+{{ /get.current.filtered.cse_id }}
+{{ ^get.current.filtered.cse_id }}
+    <div class="googleCSEBox--hidden">
+        <p>Enter a valid CSE ID in order to use Google CSE.</p>
+        <p>Read more at <a href="https://support.google.com/customsearch/answer/2649143?hl=en">Google Support</a>.</p>
+    </div>
+{{ /get.current.filtered.cse_id }}
+</div>

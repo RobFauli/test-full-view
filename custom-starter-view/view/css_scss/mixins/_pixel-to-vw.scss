@@ -1,0 +1,6 @@
+$fraction: 0.263vw;
+
+// $i represents pixel-size at 380px wide viewport
+@function vw($i) {
+    @return calc(#{$fraction} * #{$i});
+}

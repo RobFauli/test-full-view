@@ -1,0 +1,31 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+column
+{{ #style.collection }}box_decoration{{ /style.collection }}
+{{ size.grid.css }}
+{{ size.grid.absCss }}
+{{ /helper.trim }}" id="tvguide_{{ get.current.id }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="{{ #helper.trim }}
+    content tvguide
+    {{ #style.collection }}content_decoration{{ /style.collection }}
+    {{ #style.collection }}box_fullWidth{{ /style.collection }}
+    {{ /helper.trim }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        {{ #get.current.filtered.tvguide }}
+        <h3 class="tvguide-date">{{ date }}</h3>
+        <ul>{{ #items }}
+            <li>
+                <div class="col-date">{{ start }}</div>
+                <div class="col-image">
+                    <figure>
+                        <img src="{{ icon }}" alt="">
+                    </figure>
+                </div>
+                <div class="col-description">
+                    <h3>{{{ title }}}</h3>
+                    <p>{{{ desc }}}</p>
+                </div>
+            </li>
+        {{ /items }}</ul>
+        {{ /get.current.filtered.tvguide }}
+    </div>
+</div>

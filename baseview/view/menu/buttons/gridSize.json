@@ -1,0 +1,282 @@
+{
+    "icon": "labicon-imgExpand",
+    "title": "Set size",
+    "items": [
+        {
+            "text": "8.33% (1/12 column)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 8.33333333
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 8.33333333
+                    }
+                }
+            ]
+        },
+        {
+            "text": "16.66% (2/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 16.66666667
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 16.66666667
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "1",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        },
+        {
+            "text": "25% (3/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 25
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 25
+                    }
+                }
+            ]
+        },
+        {
+            "text": "33.33% (4/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 33.33333333
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 33.33333333
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "2",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        },
+        {
+            "text": "41.66% (5/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 41.66666667
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 41.66666667
+                    }
+                }
+            ]
+        },
+        {
+            "text": "50% (6/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 50
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 50
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "3",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        },
+        {
+            "text": "58.33% (7/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 58.33333333
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 58.33333333
+                    }
+                }
+            ]
+        },
+        {
+            "text": "66.66% (8/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 66.66666667
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 66.66666667
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "4",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        },
+        {
+            "text": "75% (9/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 75
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 75
+                    }
+                }
+            ]
+        },
+        {
+            "text": "83.33% (10/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 83.33333333
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 83.33333333
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "5",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        },
+        {
+            "text": "91.66% (11/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 91.66666667
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 91.66666667
+                    }
+                }
+            ]
+        },
+        {
+            "text": "100% (12/12 columns)",
+            "callback": "setJustWidth",
+            "params": {
+                "width": 100
+            },
+            "displayHotkeys": true,
+            "onValue": true,
+            "offValue": false,
+            "bindings": [
+                {
+                    "path": "width",
+                    "attribute": "value",
+                    "valueTransformer": "contextualmenu.valueTransformer.keyVal",
+                    "valueTransformerOptions": {
+                        "width": 100
+                    }
+                }
+            ],
+            "hotkeys": [
+                {
+                    "key": "6",
+                    "controlkeys": ["shiftKey"]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+
+{
+    "editors": [
+        {
+            "selector": "h5.subarticle",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.title",
+            "allowReverting": true,
+            "placeholder": "Click to add title"
+        }, {
+            "selector": "p.subarticle",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.subtitle",
+            "allowReverting": true,
+            "placeholder": "Click to add subtitle"
+        }
+    ],
+    "editorSelectors": {
+        "edit": []
+    },
+    "publishValidation": {
+        "fields.title": "notEmpty"
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "items": {
+                "mediaOptions": null,
+                "moveUp": {
+                    "inheritPath": "menu/buttons/moveUp.json"
+                },
+                "moveDown": {
+                    "inheritPath": "menu/buttons/moveDown.json"
+                },
+                "color_bg": null,
+                "settings": {
+                    "items": {
+                        "spacing": null,
+                        "vertical_align": null,
+                        "hideViewport": null,
+                        "originalArticle": null,
+                        "btn4": null,
+                        "btn5": null
+                    }
+                }
+            }
+        }
+    }
+}

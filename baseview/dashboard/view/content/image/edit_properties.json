@@ -1,0 +1,20 @@
+{
+    "edit": [
+        {
+            "selector": "figure",
+            "imageSelector": "img",
+            "fn": "ImageEdit",
+            "canEditValidator": "Lab.View.ImageHelper.canEdit",
+            "trigger": ["click"],
+            "stop": [],
+            "blockModelMenu": true,
+            "modal": true,
+            "displayGridHelper": true,
+            "useKeyboardSave": true
+        }
+    ],
+
+    "displayModifiedStatus": true,
+
+    "menus": null
+}

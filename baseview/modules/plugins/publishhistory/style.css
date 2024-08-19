@@ -1,0 +1,7 @@
+.publishhistory table.lab-table .published-hidden {
+    background-color: rgb(227, 182, 8);
+}
+
+.publishhistory table.lab-table .published-visible {
+    background-color: green;
+}

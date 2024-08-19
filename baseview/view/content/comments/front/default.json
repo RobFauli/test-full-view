@@ -1,0 +1,9 @@
+{
+    "boxTitle": "Comments",
+    "boxDescription": "Display most commented articles or latest comments. Supports Disqus and Hyvor",
+    "viewHelper" : "external",
+    "external": {
+        "url": "{{{ get.current.filtered.url }}}",
+        "type": "json"
+    }
+}

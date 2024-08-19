@@ -1,0 +1,34 @@
+{
+    "labclient": {
+        "datatransformers": [
+            {
+                "type": "LabradorApi",
+                "name": "Articles from Labrador"
+            },
+            {
+                "type": "DachserJson",
+                "name": "Articles from Dachser Json-feed"
+            },
+            {
+                "type": "LPStream",
+                "name": "Articles from Linkpulse Stream"
+            }
+        ],
+        "organizers": [
+            {
+                "type": "RandomRows",
+                "name": "Random number of columns in each row"
+            },
+            {
+                "type": "RowsAndColumns",
+                "name": "Set number of columns and rows"
+            }
+        ],
+        "postprocessors": [
+            {
+                "type": "RowLines",
+                "name": "Adjust height of each article to fit row"
+            }
+        ]
+    }
+}

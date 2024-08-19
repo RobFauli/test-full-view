@@ -1,0 +1,20 @@
+{
+    "icon": "labicon-preview",
+    "title": "Hide in current viewport",
+    "callback": "toggleKeyAndValue",
+    "key": "metadata.hideViewport",
+    "value": true,
+    "onValue": true,
+    "offValue": null,
+    "bindings": [
+        {
+            "path": "metadata.hideViewport",
+            "attribute": "icon",
+            "valueTransformer": "boolToString",
+            "valueTransformerOptions": {
+                "offValue": "labicon-preview",
+                "onValue": "labicon-preview_close"
+            }
+        }
+    ]
+}

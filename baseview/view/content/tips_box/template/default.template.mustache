@@ -1,0 +1,16 @@
+<div data-element-guid="{{ get.current.guid }}" class="{{ #helper.trim }}
+column tips_box
+{{ #style.collection }}box_decoration{{ /style.collection }}
+{{ size.grid.css }}
+{{ size.grid.absCss }}
+{{ /helper.trim }}">
+    {{{ get.current.filtered.styleSheets }}}
+    <div class="quicktabs {{ get.current.filtered.content.cssClass }} content {{ #style.collection }}content_decoration{{ /style.collection }}" style="{{ #style.collection }}content_inline_style{{ /style.collection }}">
+        <h3>{{{ get.current.filtered.content.title }}}</h3>
+        {{ #get.current.filtered.content.text }}<p>{{{ get.current.filtered.content.text }}}</p>{{ /get.current.filtered.content.text }}
+        <ul>
+            {{ #get.current.filtered.content.buttons.tips }}<li><a href="mailto:{{{ get.current.filtered.emails.tips }}}">{{{ get.current.filtered.content.buttons.tips }}}</a></li>{{ /get.current.filtered.content.buttons.tips }}
+            {{ #get.current.filtered.content.buttons.debate }}<li><a href="mailto:{{{ get.current.filtered.emails.debate }}}">{{{ get.current.filtered.content.buttons.debate }}}</a></li>{{ /get.current.filtered.content.buttons.debate }}
+        </ul>
+    </div>
+</div>

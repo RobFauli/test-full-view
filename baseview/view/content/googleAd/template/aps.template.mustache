@@ -1,0 +1,43 @@
+<div class="adunit mo_{{ get.current.filtered.adData.key }}" id="{{{ get.current.filtered.adData.code }}}" {{ #get.current.metadata.defaultHeight }}style="min-height:{{ get.current.metadata.defaultHeight }}px;"{{ /get.current.metadata.defaultHeight }}></div>
+<script>
+    window.adverts = window.adverts || { queue:[] };
+    window.adverts.queue = window.adverts.queue || [];
+
+    window.adverts.queue.push({
+        scope: 'adSlotMount',
+        data: {
+            placement: 'mo_{{ get.current.filtered.adData.key }}',    
+            slotId: '{{{ get.current.filtered.adData.code }}}'
+        }
+    });
+</script>
+
+{{ #get.current.filtered.adData.isMpuTop }}
+<script>
+    (function(){
+        window.addEventListener('load', function() {
+            var stickItem = document.querySelector('#mpu_top');
+            var stopItem = document.querySelector('#leader_middle');
+
+            if (stickItem && stopItem) {
+                document.querySelector('.bodytext').style.position = 'relative';
+                var scrollHeight = stopItem.parentElement.offsetTop;
+                stickItem.parentElement.style.height = scrollHeight + 'px';
+                Object.assign(stickItem.style, { position: 'sticky', top: '140px' });
+                var looped = 0;
+                var interval = setInterval(function(){
+                    var newScrollHeight = stopItem.parentElement.offsetTop;
+                    if (newScrollHeight > scrollHeight) {
+                        stickItem.parentElement.style.height = newScrollHeight + 'px';
+                        scrollHeight = newScrollHeight;
+                    }
+                    if (looped > 4) {
+                        clearInterval(interval);
+                    }
+                    looped ++;
+                }, 1000);
+            }
+        });
+    })();
+</script>
+{{ /get.current.filtered.adData.isMpuTop }}

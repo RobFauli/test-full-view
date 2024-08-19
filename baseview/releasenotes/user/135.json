@@ -1,0 +1,40 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 135,
+            "str": "1.3.5"
+        },
+        "items": [
+            {
+                "isFeature": true,
+                "date": "20230817",
+                "title": "Date search in article list",
+                "description": "It is now possible to search for articles based on date in the editor when opening the article list (A)."
+            },
+            {
+                "isImprovement": true,
+                "date": "20230817",
+                "title": "Hide paywall-offers",
+                "description": "The latest version of Labrador can now let you display paywall-posters without offers. This is useful for embedding in native apps. Use by adding param `?lab_opts=paywall_loginonly` to the url of an article behind paywall."
+            },
+            {
+                "isBug": true,
+                "date": "20230816",
+                "title": "Fixed section-bug in article settings",
+                "description": "A bug making it hard to change the section of an article in article-settings is now fixed."
+            },
+            {
+                "isImprovment": true,
+                "date": "20230814",
+                "title": "Scrollbox: Article added as the first",
+                "description": "When an article is dragged into the scrollbox, it is now being added as the first article instead of the last."
+            },
+            {
+                "isFeature": true,
+                "date": "20230812",
+                "title": "Edit-link i article list",
+                "description": "Articles in the article-list now display a link to edit the original article. Hit <span class=\"lab-label\">A</span> to open the article-list."
+            }
+        ]
+    }
+}

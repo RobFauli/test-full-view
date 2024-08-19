@@ -1,0 +1,15 @@
+<td class="cell {{ get.current.filtered.autodata_css }} {{ get.current.fields.style_preset }}" width="100%" style="padding-left: 10px; padding-right: 10px;" {{ #get.current.filtered.autodata_attributes }} {{ key }}="{{ value }}"{{ /get.current.filtered.autodata_attributes }}>
+    <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+        <tr>
+            <td align="center" valign="top">
+                <table width="100%" cellspacing="0" cellpadding="0" style="border: 0;">
+                    <tr>
+                        <td {{ #get.current.filtered.textCentered }} style="text-align: center;" {{ /get.current.filtered.textCentered }}>
+                            {{{ get.current.fields.bodytext }}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>

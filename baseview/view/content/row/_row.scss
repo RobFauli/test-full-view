@@ -1,0 +1,46 @@
+@use "../../css_scss/components/vars" as *;
+
+/*
+Style for row
+See also grid.scss
+Note: main.scss includes structure/row/row from Lab 3
+*/
+
+.row {
+    &[class*=" bg-"].has-media-container,
+    &.has-media-container {
+        padding: 0;
+    }
+
+    &.has-media-container:not([class*=bg-]),
+    &.has-media-container {
+        background-color: transparent;
+    }
+
+    &.has-media-container > * {
+        z-index: 1;
+    }
+
+    &.has-media-container .mediaContainer {
+        z-index: -1;
+    }
+
+    > .row_header_text {
+        margin-left: $columns_gutter_outer;
+        margin-right: $columns_gutter_outer;
+    }
+
+}
+
+.main .row {
+    &.has-media-container:not([class*=bg-]) {
+        background-color: transparent;
+    }
+}
+
+.row-section .has-media-container .mediaContainer {
+    width: calc(100vw - var(--scrollbar-width));
+    left: calc(50% - (100vw - var(--scrollbar-width)) / 2);
+}
+
+

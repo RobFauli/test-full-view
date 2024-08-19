@@ -1,0 +1,9 @@
+
+<div data-element-guid="{{ get.current.guid }}" class="column articleFooter">
+    {{ #get.root.filtered.page_settings.showTags }}
+    <span class="tags">{{ #get.current.filtered.tags }}
+        <a href="{{{ get.current.filtered.tagPagePath }}}{{ #helper.encodeURIComponent }}{{{.}}}{{ /helper.encodeURIComponent }}">{{{.}}}</a>{{ /get.current.filtered.tags }}
+    </span>
+    {{ /get.root.filtered.page_settings.showTags }}
+    {{{ children.all }}}
+</div>

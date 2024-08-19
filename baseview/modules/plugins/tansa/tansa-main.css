@@ -1,0 +1,46 @@
+/* Run in main window */
+
+.lab-menulist ul li.tansa-btn .lab-item {
+    padding: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.lab-menulist ul li > .lab-item .lab-item-label.labicon-tansa {
+    flex-basis: 100%;
+    color: transparent;
+}
+
+#labrador-menu > ul li.lab-item.labicon-tansa {
+    background-image: url(/view-resources/baseview/modules/plugins/tansa/Tansa32.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    align-self: center;
+    border-color: transparent;
+    background-color: #d10e43;
+    background-position: center;
+}
+
+#labrador-menu > ul li.lab-item.labicon-tansa:before {
+    display: none;
+}
+
+#tansa-menu-section {
+    position: absolute;
+    top:-17px;
+    left:-13px;
+    width:360px;
+}
+
+#content_tansaButton {
+    border: 3px solid red;
+    visibility: hidden;
+}
+
+#tansaMenu li {
+    list-style: none;
+    padding: 0.2em;
+    margin:0;
+}

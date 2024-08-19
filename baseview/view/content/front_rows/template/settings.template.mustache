@@ -1,0 +1,23 @@
+<div class="lab-modal-form lab-grid">
+    <div class="lab-formgroup lab-grid lab-grid-gap ">
+        
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap lab-space-below-medium" data-element="siteselector">
+            <label for="frontrows_siteId">Display content from site</label>
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap lab-space-below-medium" data-element="pageselector">
+            <label for="frontrows_pageId">Display content from page</label>
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="frontrows_start">Start-row (0 = first row, 1 is second etc.)</label>
+            <input type="number" min="0" max="100" name="start" id="frontrows_start" value="{{ get.current.fields.fragment_json.start }}">
+        </div>
+
+        <div class="lab-formgroup-item lab-grid-large-6 lab-grid-gap">
+            <label for="frontrows_count">Row-count</label>
+            <input type="number" min="1" max="100" name="count" id="frontrows_count" value="{{ get.current.fields.fragment_json.count }}">
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "offStage": {
+        "title": {
+            "path": null,
+            "content": "Multiline text"
+        },
+        "description": {
+            "path": "fields.bodytext"
+        },
+        "definition": {
+            "children": [{
+                "type": "image",
+                "limit": 1
+            }]
+        }
+    }
+}

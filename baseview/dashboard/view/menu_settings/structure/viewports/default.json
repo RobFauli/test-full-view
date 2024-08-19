@@ -1,0 +1,56 @@
+{
+    "toolsClass": "ContentBoxMenu",
+    "lazyLoad": true,
+    "triggers": {
+        "mouseOver": "display",
+        "mouseOut": "hide"
+    },
+    "position": "top",
+    "offset": {
+        "margin-left": 5
+    },
+    "items": {
+        "backgroundColor": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [
+                    {
+                        "values": "background_colors",
+                        "title": "Colors",
+                        "label": "",
+                        "key": "background_color",
+                        "removeBtn": true,
+                        "bordered": false
+                    },
+                    {
+                        "values": "gradients",
+                        "title": "Gradients",
+                        "label": "",
+                        "key": "gradient",
+                        "removeBtn": true,
+                        "bordered": true
+                    }
+                ],
+                "customColor": {
+                    "hex": true,
+                    "os": false,
+                    "key": "box_custom_background",
+                    "title": "Custom color",
+                    "removeBtn": true
+                }
+            },
+            "type": "boolean",
+            "value": false,
+            "onValue": true,
+            "onValueCondition": "lab-key-is-not-null",
+            "key": "background_color",
+            "offValue": false,
+            "group": "g2",
+            "title": "Change background color",
+            "respectLayoutLock": true
+        }
+
+    },
+    "params": {}
+}

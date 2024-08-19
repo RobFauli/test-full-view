@@ -1,0 +1,9 @@
+{
+    "featureFlags": {
+        "flags": [
+            {
+                "key": "Disable responsive mobile fonts"
+            }
+        ]
+    }
+}

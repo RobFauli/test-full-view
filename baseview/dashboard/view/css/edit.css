@@ -1,0 +1,8 @@
+/*
+Styles defined by customer to enhance / override Labrador CSS for My Desk.
+*/
+
+body.labFn-edit .labFn-appMenu.labDs-dialog.article_search .labDs-close-label {
+    display: none;
+}
+

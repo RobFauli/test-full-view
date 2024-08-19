@@ -1,0 +1,59 @@
+{
+
+    "resizable": {
+        "active": false
+    },
+
+    "draggable": {
+        "active": false
+    },
+
+    "droppable": {
+        "active": false
+    },
+    
+    "displayModifiedStatus": false,
+
+    "layoutLock": {
+        "position": true,
+        "layout": true,
+        "content": true
+    },
+
+    "menus": {
+        "ContentBoxMenu": null,
+        "NavigationMenu": null,
+        "AddRowMenu": {
+            
+            "lazyLoad": true,
+            "hideOnDrag": false,
+            "triggers": {
+                "dragOver": "display",
+                "dragOut": "hide"
+            },
+            "skipWhenParent": "row",
+            "position": "left",
+            "autoHeight": true,
+            "offset": null,
+            
+            "items": {
+
+                "addRowBefore": {
+                    "trigger": ["drop"],
+                    "callback": "addRowBefore",
+                    "group": "g3",
+                    "text": "Add row",
+                    "displayCondition": "structureIsFirstChild"
+                },
+                "addRowAfter": {
+                    "trigger": ["drop"],
+                    "callback": "addRowAfter",
+                    "group": "g3",
+                    "text": "Add row"
+                }
+            },
+            "params": {}
+        }
+
+    }
+}

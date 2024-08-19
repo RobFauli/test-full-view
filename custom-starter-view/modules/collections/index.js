@@ -1,0 +1,1 @@
+export { default as DemoCollection } from './DemoCollection.js';

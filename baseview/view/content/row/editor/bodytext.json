@@ -1,0 +1,78 @@
+{
+    "resizable": {
+        "active": false
+    },
+
+    "droppable": {
+        "active": false,
+        "addSourceToNewSibling": false
+    },
+
+    "layoutLock": {
+        "position": true,
+        "layout": true,
+        "content": false
+    },
+
+    "contentMenus": {
+        "row-menu": {
+            "items": {
+                "gridResize": {
+                    "items": [
+                        {
+                            "icon": "labicon-align_weight_start",
+                            "text": "Prioritize start",
+                            "callback": "weightChildren",
+                            "key": "weightLeft",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "1",
+                                "controlkeys": ["shiftKey"]
+                            }]
+                        },
+                        {
+                            "icon": "labicon-align_weight_center",
+                            "text": "Prioritize equal",
+                            "callback": "weightChildren",
+                            "key": "weightEqual",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "3",
+                                "controlkeys": ["shiftKey"]
+                            }]
+                        },
+                        {
+                            "icon": "labicon-align_weight_end",
+                            "text": "Prioritize end",
+                            "callback": "weightChildren",
+                            "key": "weightRight",
+                            "displayHotkeys": true,
+                            "hotkeys": [{
+                                "key": "5",
+                                "controlkeys": ["shiftKey"]
+                            }]
+                        }
+                    ]
+                },
+                "gridOverride": {
+                    "inheritPath": "menu/buttons/gridOverride.json",
+                    "group": "g2",
+                    "items": {
+                        "submenu_alignment": null,
+                        "submenu_size": null
+                    },
+                    "bindings": [
+                        {
+                            "path": "metadata.fullWidthRow",
+                            "attribute": "disabled",
+                            "valueTransformer": "toBoolean"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "redrawCallbacks": [
+        "eventhandlers.stopPropagation"
+    ]
+}

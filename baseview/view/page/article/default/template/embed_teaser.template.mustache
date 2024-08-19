@@ -1,0 +1,13 @@
+<section class="main article">
+    <div class="articleHeader">
+        <a target="_parent" href="{{ get.current.filtered.specificUrl }}">
+            {{ #get.current.frontCrop.pano.instance_of }}
+            <figure>
+                <img src="{{ get.current.filtered.image_server }}/?imageId={{ get.current.frontCrop.pano.instance_of }}&width=740&height=400" alt="">
+            </figure>
+            {{ /get.current.frontCrop.pano.instance_of }}
+            <h1 class="headline">{{{ get.current.fields.title }}}</h1>
+            <h3 class="subtitle">{{{ get.current.fields.subtitle }}}</h3>
+        </a>
+    </div>
+</section>

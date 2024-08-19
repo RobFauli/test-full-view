@@ -1,0 +1,176 @@
+{
+    "editors": {
+        "image": {
+            "selector": "picture",
+            "imageSelector": "img",
+            "fn": "ImageEdit",
+            "modal": false,
+            "menu": "image_edit",
+            "stylePreview": "imageFilter.preview",
+            "alignStyle": {
+                "definition": "imageAlign",
+                "path": "fields.float"
+            },
+            "responsiveViewports": [
+                "mobile"
+            ],
+            "alignLeft": "floatLeft",
+            "alignRight": "floatRight"
+        },
+        "caption": {
+            "selector": "figcaption[itemprop=caption]",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.imageCaption",
+            "placeholder": "Click to add caption",
+            "allowReverting": true,
+            "attributes": {
+                "text_size": {
+                    "active": false
+                },
+                "text_align": {
+                    "active": false
+                },
+                "text_color": {
+                    "active": false
+                },
+                "text_background_color": {
+                    "active": false
+                }
+            }
+        },
+        "byline": {
+            "selector": "figcaption[itemprop=author]",
+            "fn": "EditRich",
+            "menu": "rich_text",
+            "key": "fields.byline",
+            "placeholder": "Click to add byline",
+            "allowReverting": true,
+            "attributes": {
+                "text_size": {
+                    "active": false
+                },
+                "text_align": {
+                    "active": false
+                },
+                "text_color": {
+                    "active": false
+                },
+                "text_background_color": {
+                    "active": false
+                }
+            }
+        }
+    },
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json",
+            "items": {
+                "insert": null,
+                "more": null,
+                "align": null,
+                "textColor": null,
+                "textBackgroundColor": null,
+                "link": {
+                    "inheritPath": "menu/buttons/link.json",
+                    "group": "g3",
+                    "displayCondition": "hasParentOfTypes",
+                    "params": {
+                        "modelTypes": [
+                            "bodytext",
+                            "articleHeader",
+                            "slideshow",
+                            "factbox",
+                            "row"
+                        ]
+                    },
+                    "text": "",
+                    "displayHotkeys": false
+                },
+                "sizeHotkeyReset": {
+                    "callback": "nullCallback",
+                    "nomarkup": true,
+                    "hotkeys": [
+                        {
+                            "key": "+",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        },
+                        {
+                            "key": "-",
+                            "controlkeys": [
+                                "labCtrlKey"
+                            ],
+                            "preventDefault": true,
+                            "overrideDisable": true
+                        }
+                    ]
+                },
+                "editOriginalCaption": {
+                    "icon": "labicon-startEdit",
+                    "title": "Edit original caption",
+                    "callback": "dispatch",
+                    "params": {
+                        "function": "contextualmenu.callbacks.editOriginalImageCaption"
+                    },
+                    "group": "g4"
+                }
+            }
+        },
+        "image_edit": {
+            "inheritPath": "menu/tool/image.json"
+        }
+    },
+    "contentMenus": {
+        "default": {
+            "inheritPath": "menu/content/basemenu.json",
+            "snapToTop": false,
+            "items": {
+                "captionOptions": {
+                    "inheritPath": "menu/buttons/captionOptions.json",
+                    "group": "g2"
+                },
+                "color_bg": null
+            }
+        }
+    },
+    "redrawPaths": {
+        "current": [],
+        "parent": [
+            "fields.displayCaption"
+        ]
+    },
+    "layoutLockDefinition": {
+        "content": {
+            "edit": {
+                "allow": false,
+                "recursion": {
+                    "parent": true,
+                    "parents": false,
+                    "children": false
+                }
+            }
+        }
+    },
+    "dropzones": {
+        "subarticles": {
+            "active": true,
+            "accept": [
+                "image",
+                "graphic"
+            ],
+            "drop": "addChild",
+            "selector": ".imageChildren"
+        }
+    },
+    "droppable": {
+        "copyPaths": [
+            "fields.bbRatio",
+            "fields.whRatio",
+            "fields.float"
+        ]
+    }
+}

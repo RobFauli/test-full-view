@@ -1,0 +1,111 @@
+{
+    "toolsClass": "ContentBoxMenu",
+    "lazyLoad": true,
+    "hideOnDrag": true,
+    "triggers": {
+        "mouseOver": "display",
+        "mouseOut": "hide"
+    },
+    "position": "top",
+    "offset": {
+        "margin-left": 5
+    },   
+    "needsFocus": true,
+    "items": {
+        "backgroundColor": {
+            "trigger": ["click"],
+            "callback": "colorPicker",
+            "colorPicker": {
+                "groups": [
+                    {
+                        "values": "background_colors",
+                        "title": "Colors",
+                        "label": "",
+                        "key": "background_color",
+                        "removeBtn": true,
+                        "bordered": false
+                    },
+                    {
+                        "values": "gradients",
+                        "title": "Gradients",
+                        "label": "",
+                        "key": "gradient",
+                        "removeBtn": true,
+                        "bordered": true
+                    }
+                ],
+                "customColor": {
+                    "hex": true,
+                    "os": false,
+                    "key": "box_custom_background",
+                    "title": "Custom color",
+                    "removeBtn": true
+                }
+            },
+            "type": "boolean",
+            "value": false,
+            "onValue": true,
+            "onValueCondition": "lab-key-is-not-null",
+            "key": "background_color",
+            "offValue": false,
+            "title": "Change background color",
+            "respectLayoutLock": true
+        },
+        "gridSize": {
+            "submenuTrigger": "hover",
+            "title": "Set grid-size",
+            "displayCondition": "parentIsBodytext",
+            "items": {
+                "labFn-left": {
+                    "trigger": ["click"],
+                    "title": "Grid 6 - Left ('1')",
+                    "callback": "setWidthAndFloat",
+                    "type": "boolean",
+                    "float": "floatLeft",
+                    "value": 6,
+                    "onValue": true,
+                    "offValue": false,
+                    "onValueConditionParam": "floatLeft",
+                    "onValueCondition": "lab-match-structure-width-and-float",
+                    "hotkey": 49
+                },
+                "labFn-center": {
+                    "trigger": ["click"],
+                    "title": "Grid 12 - Center ('3')",
+                    "callback": "setWidthAndFloat",
+                    "type": "boolean",
+                    "float": "",
+                    "value": 12,
+                    "onValue": true,
+                    "offValue": false,
+                    "onValueConditionParam": "",
+                    "onValueCondition": "lab-match-structure-width-and-float",
+                    "hotkey": 51
+                },
+                "labFn-right": {
+                    "trigger": ["click"],
+                    "title": "Grid 6 - Right ('5')",
+                    "callback": "setWidthAndFloat",
+                    "type": "boolean",
+                    "float": "floatRight",
+                    "value": 6,
+                    "onValue": true,
+                    "offValue": false,
+                    "onValueConditionParam": "floatRight",
+                    "onValueCondition": "lab-match-structure-width-and-float",
+                    "hotkey": 53
+                }
+            }
+        },
+        "break": {
+            "trigger": ["click"],
+            "displayCondition": "hasSubViewports",
+            "title": "Align viewports (S)",
+            "callback": "Lab.Edit.Structure.Tools.ModelDispatcher",
+            "key": "alignViewports",
+            "hotkey": 83
+        }
+
+    },
+    "params": {}
+}

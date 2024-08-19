@@ -1,0 +1,19 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 133,
+            "str": "1.3.3"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20230515",
+                "title": "Baseview: Config `appMapper` is now an object",
+                "description": "This will make it easier for you to override it. You can set a key defined by Baseview to `null` in your own view to disable it and add new items as you need.",
+                "links": [
+                    "/support/confighelper/#core/utils/ConfigReader"
+                ]
+            }
+        ]
+    }
+}

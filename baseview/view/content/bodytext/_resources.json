@@ -1,0 +1,32 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/bodytext/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/bodytext/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/droppable/bodytext.json",
+                        "content/bodytext/editor/default.json"
+                    ],
+                    "mobile": [
+                        "content_settings/editor/droppable/bodytext_mobile.json",
+                        "content/bodytext/editor/default.json"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{{ ^getConfig.paywall.article.hideSubtitle }}
+<h2 class="subtitle {{ #style.collection }}text_decoration fields.subtitle{{ /style.collection }}" style="{{ #style.collection }}text_decoration_inline_style fields.subtitle{{ /style.collection }}">{{{ get.current.fields.subtitle }}}</h2>
+{{ /getConfig.paywall.article.hideSubtitle }}
+{{ #getConfig.paywall.article.hideSubtitle }}{{ #get.root.filtered.paywall.hasAccess }}
+<h2 class="subtitle {{ #style.collection }}text_decoration fields.subtitle{{ /style.collection }}" style="{{ #style.collection }}text_decoration_inline_style fields.subtitle{{ /style.collection }}">{{{ get.current.fields.subtitle }}}</h2>
+{{ /get.root.filtered.paywall.hasAccess }}{{ /getConfig.paywall.article.hideSubtitle }}

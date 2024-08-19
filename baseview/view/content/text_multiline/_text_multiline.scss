@@ -1,0 +1,30 @@
+@use "../../css_scss/components/vars" as *;
+
+.text_multiline.column {
+    padding: 0;
+    ul {
+        margin: 0;
+        padding-inline-start: 2rem;
+        li {
+            list-style-type: disc;
+            margin: 0 0 0.5em 1.2rem;
+            list-style-position: outside;
+        }
+    }
+    ol {
+        margin: 0;
+        padding-inline-start: 2rem;
+        li {
+            list-style-type: decimal;
+            margin: 0 0 0.5em 1.2rem;
+            list-style-position: outside;
+        }
+    }
+    .bodytext {
+        margin-bottom: 0;
+        overflow: auto;
+    }
+    .bodytext > p, .bodytext > h2, .bodytext > h3, .bodytext > h4, .bodytext > ul, .bodytext > ol {
+        padding-right: $columns_gutter;
+    }
+}

@@ -1,0 +1,26 @@
+<form method="post">
+    <h2 class="lab-title lab-space-below-medium">User feedback</h2>
+    <p>Let user get in contact with you. Add an email-address or an url.</p>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap ">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.email">Email</label>
+                <input type="text" id="id-fields.email" name="fields.email" value="{{ get.current.filtered.email }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-gap">
+                <label for="id-fields.url">Or url</label>
+                <input type="text" id="id-fields.url" name="fields.url" value="{{ get.current.filtered.url }}">
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-space-above-medium">
+                <label>
+                    <input type="checkbox" name="fields.hidetitle" value="1" {{ #get.current.fields.hidetitle }}checked{{ /get.current.fields.hidetitle }}>Hide title
+                </label>
+            </div>
+            <div class="lab-formgroup-item lab-grid-large-3 lab-grid-gap lab-space-above-medium">
+                <label>
+                    <input type="checkbox" name="fields.hidedescription" value="1" {{ #get.current.fields.hidedescription }}checked{{ /get.current.fields.hidedescription }}>Hide description
+                </label>
+            </div>
+        </div>
+    </div>
+</form>

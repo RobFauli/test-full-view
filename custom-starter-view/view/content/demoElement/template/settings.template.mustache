@@ -1,0 +1,16 @@
+<form>
+    <h2 class="lab-title lab-space-below-medium">Demo-element - Settings</h2>
+    <div>
+        <div class="lab-formgroup lab-grid lab-grid-gap lab-space-below-none">
+            <div class="lab-formgroup-item lab-grid-large-12 lab-grid-small-12 lab-grid-gap">
+                <label for="id-fields.location">Location</label>
+                <select id="id-fields.location" name="location">
+                    <option value="">Change location</option>
+                    {{ #get.current.filtered.locations }}
+                    <option value="{{ location }}">{{ location }}</option>
+                    {{ /get.current.filtered.locations }}
+                </select>
+            </div>
+        </div>
+    </div>
+</form>

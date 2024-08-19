@@ -1,0 +1,40 @@
+
+/* Style for contentbox articleFooter */
+.articleFooter {
+    clear:both;
+    .tags {
+        display: block;
+        padding: 0.2em 0 0;
+       
+        a {
+            display: inline-block;
+            border: 1px solid #C7C7C7;
+            border-radius: 0.2em;
+            padding: 0.3em 0.7em;
+            margin: 0.2em 0;
+            background: #F7F7F7;
+            line-height: 1.2em;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 0.04em;
+            color: #484848;
+            text-decoration: none;
+
+            &:hover {
+                background: #008CBA;
+                color:#fff;
+                border-color: #008CBA;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* Page styles */
+.pagestyle_centered {
+    .articleFooter {
+        .tags {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+<[[ settings.tag ]] class="pageElement[[ #settings.classes ]] [[.]][[ /settings.classes ]]">
+    [[& children ]]
+
+    <script>
+        (function () {
+            if (!'IntersectionObserver' in window) { return;}
+
+            var scrollEvents = scrollEvents || [];
+            [[ #settings.scrollEvents ]]
+            var event = {
+                target: '[[ target ]][[ ^target ]]header.pageHeader[[ /target ]]',
+                offset: '[[ offset ]][[ ^offset ]]0[[ /offset ]]px',
+                classes: [],
+                styles: []
+            };
+            [[ #classes ]]
+            var classItem = {
+                selector: '[[& selector ]]',
+                class: []
+            };
+            [[ #class ]]
+            classItem.class.push('[[ . ]]');
+            [[ /class ]]
+            event.classes.push(classItem);
+            [[ /classes ]]
+            [[ #styles ]]
+            event.styles.push({
+                selector: '[[& selector ]]',
+                style: '[[ style ]]'
+            });
+            [[ /styles ]]
+            scrollEvents.push(event);
+
+            [[ /settings.scrollEvents ]]
+
+            if (scrollEvents) {
+                const domInterface = {
+                    classList: {
+                        remove: () => {},
+                        add: () => {}
+                    },
+                    style: {
+                        cssText: ''
+                    }
+                };
+                scrollEvents.forEach(function(event) {
+                    var callback = function (entries, observer) {
+                        if (!entries[0]) { return; }
+                        if (entries[0].isIntersecting) {
+                            event.styles.forEach(function(item) {
+                                (document.querySelector(item.selector) || domInterface).style.cssText = "";
+                            });
+                            event.classes.forEach(function(item) {
+                                item.class.forEach(function(classname) {
+                                    (document.querySelector(item.selector) || domInterface).classList.remove(classname);
+                                });
+                            });
+                        } else {
+                            event.styles.forEach(function(item) {
+                                (document.querySelector(item.selector) || domInterface).style.cssText = item.style;
+                            });
+                            event.classes.forEach(function(item) {
+                                item.class.forEach(function(classname) {
+                                    (document.querySelector(item.selector) || domInterface).classList.add(classname);
+                                });
+                            });
+                        }
+                    };
+
+                    var observer = new IntersectionObserver(callback, {
+                        rootMargin: event.offset,
+                        threshold: 1
+                    });
+                    var target = document.querySelector(event.target);
+                    if (target) {
+                        observer.observe(target);
+                    }
+                });
+            }
+        }());
+
+        window.Dac.clientData.paywall.toggleAuthenticatedContent(); 
+    </script>
+</[[ settings.tag ]]>

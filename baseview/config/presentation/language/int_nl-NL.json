@@ -1,0 +1,78 @@
+{
+    "int_nl-NL": {
+        "dates": {
+            "sunday": "zondag",
+            "monday": "maandag",
+            "tuesday": "dinsdag",
+            "wednesday": "woensdag",
+            "thursday": "donderdag",
+            "friday": "vrijdag",
+            "saturday": "zaterdag",
+            "january": "januari",
+            "february": "februari",
+            "mars": "maart",
+            "april": "april",
+            "may": "mei",
+            "june": "juni",
+            "july": "juli",
+            "august": "augustus",
+            "september": "september",
+            "october": "oktober",
+            "november": "november",
+            "december": "december",
+            "ago": "geleden",
+            "now": "nu",
+            "minute": "minuut",
+            "min": "min",
+            "minutes": "minuten",
+            "hour": "uur",
+            "hours": "uren",
+            "day": "dag",
+            "days": "dagen",
+            "monthdayyear": "{{DD}}/{{MM}} {{YYYY}}",
+            "hourminute": "{{HH}}:{{mm}}",
+            "durationSince": "{{count}} {{period}} {{ago}}"
+        },
+        "newsletter": {
+            "mailmojo": {
+                "title": "Newsletter",
+                "notice": "You are receiving this e-mail because you are subscribed to our e-mail list.",
+                "preferences": "Your settings",
+                "unsubscribe": "Unsubscribe",
+                "view": "Open in browser",
+                "date": "d. MMMM Y"
+            }
+        },
+        "ai": {
+            "factbox_disclaimer": "Deze factbox is gegenereerd door Labrador AI en proefgelezen door een journalist."
+        },
+        "tags": {
+            "title_text": "{{tagPath}}: {{ tag }}"
+        },
+        "search": {
+            "placeholder": "Zoeken..."
+        },
+        "header": {
+            "logo_link_text": "Ga naar voren"
+        },
+        "slack_notifier": {
+            "publish": {
+                "article": "*Artikel gepubliceerd*\n*Titel*: {{{title}}}\n*Pagina ID*: {{id}}\n{{#modified}}*Datum*: {{modified}}\n{{/modified}}{{#published_ahead}}*Opmerking: Vooruit gepubliceerd*\n{{/published_ahead}}{{#hidden}}*Verborgen gepubliceerd*\n{{/hidden}}*Gebruiker*: {{user}}\n*<{{{url_front}}}|Bekijk pagina>* - *<{{{url_editor}}}|Bewerk pagina>*",
+                "front": "*Voorpagina gepubliceerd*\n*Titel*: {{{title}}}\n*Pagina ID*: {{id}}\n*Datum*: {{modified}}\n{{#published_ahead}}*Opmerking: Vooruit gepubliceerd*\n{{/published_ahead}}{{#hidden}}*Verborgen gepubliceerd*\n{{/hidden}}*Gebruiker*: {{user}}\n*<{{{url_front}}}|Bekijk pagina>* - *<{{{url_editor}}}|Bewerk pagina>*",
+                "notice": "*Kennisgeving gepubliceerd*\n*Titel*: {{{title}}}\n*Pagina ID*: {{id}}\n*Datum*: {{modified}}{{#hidden}}*Verborgen gepubliceerd*\n{{/hidden}}*Gebruiker*: {{user}}\n*<{{{url_front}}}|Bekijk pagina>* - *<{{{url_editor}}}|Bewerk pagina>*"
+            },
+            "error": {
+                "all": "*{{ #isCmsError }}CMS-fout{{ /isCmsError }}{{ ^isCmsError }}View fout{{ /isCmsError }}*: {{{message}}}\n*Stack-trace*: ```{{{stackTrace}}}```\n*Gebruiker*: {{user}}\n*<{{{url_editor}}}|Pagina bewerken>* - *<{{{url_monitor}}}|Ontwikkelaarsmonitor>*"
+            }
+        },
+        "contentboxes": {
+            "articleScrollerLeftButton": "Ga naar links",
+            "articleScrollerRightButton": "Ga naar rechts"
+        },
+        "metadata": {
+            "publishedLabel": "Gepubliceerd",
+            "modifiedLabel": "Laatst bijgewerkt",
+            "unpublishedLabel": "Niet gepubliceerd"
+        }
+    }
+}

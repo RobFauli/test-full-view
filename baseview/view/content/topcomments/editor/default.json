@@ -1,0 +1,34 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "edit-settings": {
+                    "group": "g5_5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                },
+                "settings": {
+                    "items": {
+                        "btn2": {
+                            "callback": "reloadExternal",
+                            "text": "Re-fetch external"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/topcomments/template/settings",
+            "title": "Settings for Top-comments"
+        }
+    }
+}

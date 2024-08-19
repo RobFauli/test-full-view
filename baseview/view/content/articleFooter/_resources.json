@@ -1,0 +1,20 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "content/articleFooter/template/default"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "content/articleFooter/editor/default.json"
+                }
+            }
+        }
+    }
+}

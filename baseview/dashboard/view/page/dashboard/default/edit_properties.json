@@ -1,0 +1,25 @@
+{
+    "filesForMainWindow": {
+        "css": [
+            "/view-resources/view/css/colors.css",
+            "/view-resources/view/css/foundation-icons/foundation-icons.css",
+            "/view-resources/view/css/main.css"
+        ]
+    },
+
+    "useReplaceForObjects": ["lab_dashboard_settings_json", "title_style_json"],
+    
+    "plugins": {
+        "PusherListener": {
+            "autoStart": true,
+            "path": "Plugins.PusherListener",
+            "appendToAppMenu": "toggle"
+        },
+        "PusherActivity": {
+            "autoStart": true,
+            "path": "Plugins.PusherActivity",
+            "appendToAppMenu": "toggle"
+        }
+    }
+
+}

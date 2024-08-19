@@ -1,0 +1,10 @@
+<item>
+    <title><![CDATA[{{ #helper.sanitizeString }}{{{ get.current.filtered.title }}}{{ /helper.sanitizeString }}]]></title>
+    <link>{{{ get.current.filtered.published_url_rss }}}</link>
+    <guid>{{{ get.current.filtered.base_url }}}/a/{{ get.current.filtered.articleId }}</guid>
+    {{ #get.current.filtered.published }}
+        <pubDate>{{ get.current.filtered.published }}</pubDate>
+    {{ /get.current.filtered.published }}
+    <description><![CDATA[{{ #helper.sanitizeString }}{{{ get.current.filtered.subtitle }}}{{ /helper.sanitizeString }}]]></description>
+    {{{ child.image }}}
+</item>

@@ -1,0 +1,30 @@
+{
+
+    "tabs": [
+        {
+            "type": "StaticMenu",
+            "identifier": "submenu_sharing",
+            "title": "Settings for Dashboard-sharing",
+            "structureClass": "contentboxes",
+            "structureCssClass": "labFn-menu_content",
+            "lazyLoad": true,
+            "data": {
+                "adapter": "Lab.Menu.Adapter.sharing"
+            },
+            "items": {
+                "content": {
+                    "default": {
+                        "template": "menu/sharing"
+                    }
+                }
+            },
+            "displayRefreshButton": false
+        }
+    ],
+    "presentation": {
+        "lazyLoad": true,
+        "modal": true,
+        "autoHeight": true,
+        "width": 650
+    }
+}

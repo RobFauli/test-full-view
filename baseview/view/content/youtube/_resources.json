@@ -1,0 +1,86 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/front/grid/default.json",
+                        "content_settings/front/vp_data.json",
+                        "content/youtube/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/youtube/template/default"
+                }
+            },
+            "article": {
+                "template": {
+                    "default": "content/youtube/template/teaser"
+                }
+            },
+            "articleHeader": {
+                "template": {
+                    "default": "content/youtube/template/teaser"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/lock/default.json",
+                        "content_settings/editor/draggable/default.json",
+                        "content_settings/editor/droppable/default.json",
+                        "content_settings/editor/filedrop/default.json",
+                        "content_settings/editor/resize/default.json",
+                        "content_settings/editor/default.json",
+                        "content/youtube/editor/default.json"
+                    ]
+                }
+            },
+            "article": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/draggable/disabled.json",
+                        "content_settings/editor/droppable/disabled.json",
+                        "content/youtube/editor/teaser.json"
+                    ]
+                }
+            },
+            "articleHeader": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/draggable/disabled.json",
+                        "content_settings/editor/droppable/disabled.json",
+                        "content/youtube/editor/teaser.json"
+                    ]
+                }
+            },
+            "bodytext": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/redrawPaths/bodytext.json",
+                        "content/youtube/editor/bodytext.json"
+                    ]
+                }
+            },
+            "text_multiline": {
+                "properties": {
+                    "default": [
+                        "content_settings/editor/redrawPaths/bodytext.json",
+                        "content/youtube/editor/bodytext.json"
+                    ]
+                }
+            },
+            "parallax": {
+                "properties": {
+                    "default": [
+                        "content/parallax/editor/layer.json"
+                    ]
+                }
+            }
+        }
+    }
+}

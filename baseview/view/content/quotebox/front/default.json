@@ -1,0 +1,11 @@
+{
+    "boxTitle": "Quotebox",
+    "boxDescription": "Box for displaying a quote and its author.",
+    "boxKeywords": "extract text article",
+    "viewportMap": {
+        "fields": {
+            "quote": "presets.vp_content_attributes",
+            "author": "presets.vp_content_attributes"
+        }
+    }
+}

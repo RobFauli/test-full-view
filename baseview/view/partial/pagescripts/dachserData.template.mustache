@@ -1,0 +1,28 @@
+<script>
+    window.dachserData = {
+        _data: {},
+        _instances: {},
+        get: function(key) {
+            return dachserData._data[key] || null;
+        },
+        set: function(key, value) {
+            dachserData._data[key] = value;
+        },
+        push: function(key, value) {
+            if (!dachserData._data[key]) {
+                dachserData._data[key] = [];
+            }
+            dachserData._data[key].push(value);
+        },
+        setInstance: function(key, identifier, instance) {
+            if (!dachserData._instances[key]) {
+                dachserData._instances[key] = {};
+            }
+            dachserData._instances[key][identifier] = instance;
+        },
+        getInstance: function(key, identifier) {
+            return dachserData._instances[key] ? dachserData._instances[key][identifier] || null : null;
+        },
+        reflow: () => {}
+    };
+</script>

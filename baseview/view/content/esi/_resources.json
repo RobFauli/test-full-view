@@ -1,0 +1,16 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": [
+                        "content/esi/front/default.json"
+                    ]
+                },
+                "template": {
+                    "default": "content/esi/template/default"
+                }
+            }
+        }
+    }
+}

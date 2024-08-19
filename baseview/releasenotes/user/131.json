@@ -1,0 +1,235 @@
+{
+    "releasenotes": {
+        "version": {
+            "int": 131,
+            "str": "1.3.1"
+        },
+        "items": [
+            {
+                "isImprovement": true,
+                "date": "20221124",
+                "title": "Preload next image in slideshow",
+                "description": "Images are normally lazy-loaded to reduce bandwidth. This do not work well for slideshows. The next image is now preloaded so that it is ready when user swipes to the next image."
+            },
+            {
+                "isFeature": true,
+                "date": "20221101",
+                "title": "Current tag is displayed in the menu for multiline text-editors",
+                "description": "When editing bodytext, a factbox or text-multiline the current tag is displayed in the menu."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221025",
+                "title": "Updated content used by social media",
+                "description": "If subtitle, teaser-subtitle and some-subtitle are missing crawlers will read a subset of the bodytext as fallback for page description."
+            },
+            {
+                "isFeature": true,
+                "date": "20221025",
+                "title": "Updated size of teaser-image used when sharing an article on social media",
+                "description": "The width is 1200 pixels and the height is calculated from aspect ratio defined in admin.",
+                "links": [
+                    "/settings/cp?page=images"
+                ]
+            },
+            {
+                "isBug": true,
+                "date": "20221024",
+                "title": "Changed how captions are displayed in article-teaser and article header",
+                "description": "When displaying title/subtitle/kicker floating above the image the captions are now displayed properly."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221024",
+                "title": "Added options to hide element in current viewport to all elements",
+                "description": "Previously only some elements supported this functionality, now all do."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221021",
+                "title": "Improved json-export",
+                "description": "When adding `?lab_viewport=json` to an url the exported data for each article will now include image-`url` with the same image-crop as on desktop."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221020",
+                "title": "Updated ad-display for bodytext",
+                "description": "Ads added to the bodytext do not print grid-size. This prevents potentional misplacement of surrounding text if the ad-network do not deliver the ad."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221019",
+                "title": "Allow article-teasers without title",
+                "description": "Missing title is changed from error to warning, allowing publishing a page containing missing titles."
+            },
+            {
+                "isImprovement": true,
+                "date": "20221019",
+                "title": "Multiline-text: Allow bold, italic etc without selection",
+                "description": "If you have no selection and selects bold a bold element is inserted at the selection instead of selecting all the surrounding text and making it bold."
+            },
+            {
+                "isBug": true,
+                "date": "20221018",
+                "title": "Remove placeholder-value from kickers",
+                "description": "The previous Labrador-version could store a placeholder-value for kickers in article teasers. These are now removed."
+            },
+            {
+                "isFeature": true,
+                "date": "20221009",
+                "title": "Add caption to uploaded images",
+                "description": "When uploading one or more images a dialog will allow you to set a caption, byline and alt-text on the images."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Multiple bug-fixes and improvements to bodytext-editing",
+                "description": "Elements below the active line is moved based on new or removed lines. Rows inside the bodytext can be aligned left, center or right. Click on the edges of elements inside the bodytext do not trigger the bodytext-editor anymore. Empty line before cursor position removed."
+            },
+            {
+                "isBug": true,
+                "date": "20220930",
+                "title": "Youtube - bodytext",
+                "description": "The element can now be positioned separatly on mobile, like other elements."
+            },
+            {
+                "isBug": true,
+                "date": "20220930",
+                "title": "Improved editing of text-elements",
+                "description": "Corrected rich text editing for the elements `text_title` and `text_subtitle`."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Improved droppable-functionality for factboxes",
+                "description": "You can now split a factbox like any other element. Images will be added as a child."
+            },
+            {
+                "isBug": true,
+                "date": "20220930",
+                "title": "Hidden images in factbox",
+                "description": "If the image is hidden in a factbox created in Labrador 3 it will remain hidden. Added button to hide/display all images inside the factbox."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Style-menu added to markup-element",
+                "description": "You can now copy, paste and store styles for the `markup`-element."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Updated Labrador Search",
+                "description": "The settings-button is now default hidden on front."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220930",
+                "title": "Added option to zoom images on front",
+                "description": "You can now click a button on the image in bodytext to allow end-user to zoom the image."
+            },
+            {
+                "isFeature": true,
+                "date": "20220911",
+                "title": "Upload files",
+                "description": "The hotkey `Shift+U` now display UI for uploading files. Supported file-types: png, gif, jpg, mgep, mp4, pdf, txt, xml, doc, docx, xls, xlsx."
+            },
+            {
+                "isFeature": true,
+                "date": "20220829",
+                "title": "Favourite bylines",
+                "description": "Baseview will now display frequently used bylines in the bylines collection (Shift+B) reducing the need to search for authors."
+            },
+            {
+                "isFeature": true,
+                "date": "20220829",
+                "title": "Added publish validation for bylines",
+                "description": "The validator will help you remember to add one or more bylines to an article before publishing. A warning is displayed if you forget to add byline."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220829",
+                "title": "Improved drag and drop for bylines",
+                "description": "You can now drop new bylines onto existing bylines as well. Drop on left hand side to insert before an existing byline and right hand side to insert after."
+            },
+            {
+                "isBug": true,
+                "date": "20220829",
+                "title": "Fixed menu-icons for image alignment",
+                "description": "When editing images the buttons for left and right alignment now displays a proper on state if image is aligned."
+            },
+            {
+                "isBug": true,
+                "date": "20220828",
+                "title": "Fixed pagination for the Youtube collection",
+                "description": "Pressing the navigation buttons at the bottom of the Youtube collection will now do a new search."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220828",
+                "title": "Soft line breaks for factbox",
+                "description": "You may now press Shift+Enter to insert a line break in the bodytext of a factbox."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220828",
+                "title": "Add inline links in article teasers",
+                "description": "Article teasers without a url are drawn without the a-tag. These now allow you to insert links in the title, subtitle or kicker."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220823",
+                "title": "Style-menu added to factbox, tablebox and userFeedback",
+                "description": "The elements now support copying, pasting, saving and applying visual appearence like the article teasers etc."
+            },
+            {
+                "isBug": true,
+                "date": "20220818",
+                "title": "Fixed search for multi-word tags in article lists",
+                "description": "Article search improved"
+            },
+            {
+                "isImprovement": true,
+                "date": "20220818",
+                "title": "Tags in article settings",
+                "description": "When adding new tags in the article settings (Shift+S) the focus remains on the input field allowing you to add another tag without using the mouse or trackpad."
+            },
+            {
+                "isFeature": true,
+                "date": "20220711",
+                "title": "Teaser collection and editor",
+                "description": "Use hotkey `T` or select `Teasers` in the article-menu to display and add teasers to your page. Each teaser displays a edit-button to modify title, subtitle, url or image."
+            },
+            {
+                "isFeature": true,
+                "date": "20220624",
+                "title": "Text shadow",
+                "description": "You can now apply a shadow for editable text. Useful for text overlaying images. Use the menu 'More/Text shadow' to apply a shadow."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220601",
+                "title": "Font-menu for text-tools",
+                "description": "If no fonts exist for current site the menu is hidden"
+            },
+            {
+                "isImprovement": true,
+                "date": "20220601",
+                "title": "Align-buttons for image-tool",
+                "description": "The menu for the image editing tool now displays a button for aligning the image left and right."
+            },
+            {
+                "isImprovement": true,
+                "date": "20220531",
+                "title": "Copy crop-data",
+                "description": "When copying appearence of a row or an article-teaser with image the height and width of the image is also copied."
+            },
+            {
+                "isFeature": true,
+                "date": "20220528",
+                "title": "Link to any row on a frontpage",
+                "description": "The row-menu now features the button 'Section-id' allowing you to set an ID / anchor for the row. This allows you to link to any row on a page: https://example.com/my_front#my_row"
+            }
+        ]
+    }
+}

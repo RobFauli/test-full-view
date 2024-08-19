@@ -1,0 +1,62 @@
+<div data-id="pageElements-[[ id ]]" class="{{ #helper.trim }}
+    search
+    [[ ^settings.visible ]] to-be-expanded[[ /settings.visible ]]
+    [[ #settings.visible ]] visible[[ /settings.visible ]]
+    [[ #settings.classes ]] [[.]][[ /settings.classes ]]
+    [[ #settings.buttonHidden ]] buttonHidden[[ /settings.buttonHidden ]]
+    {{ /helper.trim }}">
+
+    [[ ^settings.buttonHidden ]]
+        <button class="search-button[[ ^settings.visible ]] search-expander[[ /settings.visible ]]" aria-label="{{ #lang }}search.label{{ /lang }}" [[ ^settings.visible ]] aria-expanded="false" aria-controls="search-input-[[ id ]]" [[ /settings.visible ]]>
+            <i class="open [[ ^settings.icon_open ]]fi-magnifying-glass[[ /settings.icon_open ]][[ settings.icon_open ]]"></i>
+            <i class="close [[ ^settings.icon_close ]]fi-x[[ /settings.icon_close ]][[ settings.icon_close ]]"></i>
+        </button>
+    [[ /settings.buttonHidden ]]
+
+    <form class="search-container" action="[[ settings.destination ]][[ ^settings.destination ]]/cse[[ /settings.destination ]]" method="get" role="search">
+        <label for="search-input-[[ id ]]" class="visuallyhidden">{{ #lang }}search.label{{ /lang }}</label>
+        <input type="text" id="search-input-[[ id ]]" name="q" placeholder="[[ #settings.placeholder ]][[.]][[ /settings.placeholder ]][[ ^settings.placeholder ]][[ ^settings.placeholderEmpty ]]{{ #lang }}search.placeholder{{ /lang }}[[ /settings.placeholderEmpty ]][[ /settings.placeholder ]]">
+    </form>
+</div>
+
+[[ ^settings.visible ]]
+    [[ ^settings.skipScript ]]
+        <script>
+            // Do the check for the search button inside the if statement, so we don't set a global const if there are multiple search buttons
+            if(document.querySelector('[data-id="pageElements-[[ id ]]"] .search-button')) {
+                // Now we can set a const that is only available inside the if scope
+                const searchButton = document.querySelector('[data-id="pageElements-[[ id ]]"] .search-button');
+                searchButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    // Toggle the expanded class on the search button and set the aria-expanded attribute.
+                    searchButton.parentElement.classList.toggle('expanded');
+                    searchButton.setAttribute('aria-expanded', searchButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+                    searchButton.setAttribute('aria-label', searchButton.getAttribute('aria-expanded') === 'true' ? 'Lukk søk' : 'Åpen søk');
+
+                    // Set focus to the input. 
+                    // This might be dodgy due to moving focus automatically, but we'll keep it in for now.
+                    if(searchButton.getAttribute('aria-expanded') === 'true') {
+                        document.getElementById('search-input-[[ id ]]').focus();
+                    }
+                }, false);
+            }
+
+            /*
+                There should probably be some sort of sorting of the elements, so that if the search button is to the right,
+                the tab order should be the input before the button.
+                This is a job for future me.
+            */
+        </script>
+    [[ /settings.skipScript ]]
+[[ /settings.visible ]]
+[[ #settings.visible ]][[ ^settings.skipScript ]]
+    <script>
+        if (document.querySelector('[data-id="pageElements-[[ id ]]"] .search-button')) {
+            document.querySelector('[data-id="pageElements-[[ id ]]"] .search-button').addEventListener('click', (event) => {
+                document.querySelector('[data-id="pageElements-[[ id ]]"] .search-container').submit();
+            }, false);
+        }
+    </script>
+[[ /settings.skipScript ]][[ /settings.visible ]]

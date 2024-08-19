@@ -1,0 +1,110 @@
+.pageHeader .hamburger {
+    .hamburger-container {
+        border-bottom: 1px solid #d0d0d0;
+
+        .row {
+            @include desktop-down {
+                flex-direction: column;
+            }
+        }
+    } 
+}
+
+.pageHeader .hamburger nav.navigation {
+    li.hidden > a, li.hidden > span {
+        display: none;
+    }
+
+    li.invisible > a, li.invisible > span {
+        opacity: 0;
+    }
+}
+
+// Menu items arranged in columns
+.pageHeader .hamburger nav.navigation {
+    &[class*= nav-columns] {
+        > ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        // Set columns for menus without sub items
+        &[class*=--2 ] {
+            > ul > li {
+                width: 50%;
+            }
+        }
+
+        &[class*=--3 ] {
+            > ul > li {
+                width: 33%;
+            }
+        }
+
+        &[class*=--4 ] {
+            > ul > li {
+                width: 25%;
+            }
+        }
+
+        &[class*=--5 ] {
+            > ul > li {
+                width: 20%;
+            }
+        }
+
+        li {
+            &[class*=--border] {
+                border-left: 2px solid #000;
+                padding: 0 16px !important;
+
+                @include desktop-down {
+                    border-top: 2px solid #000;
+                    border-left: none;
+                    padding: 16px 0 !important;
+                    margin: 16px 0 !important;
+                }
+            }
+
+            &[class^=--centered] {
+                text-align: center;
+            }
+
+            &[class*=--centered--small] {
+                @include desktop-down {
+                    text-align: center;
+                }
+            }
+
+            &[class*='columns--2 '] {
+                flex: 1 auto;
+
+                li {
+                    width: 50% !important;
+                    float: left;
+                }
+            }
+
+            &[class*=columns--2--small] {
+                @include desktop-down {
+                    flex: 1 auto;
+
+                    li {
+                        width: 50% !important;
+                        float: left;
+                    }
+                }
+            }
+        }
+
+        @include desktop-down {
+            > ul {
+                flex-direction: column;
+                > li {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}

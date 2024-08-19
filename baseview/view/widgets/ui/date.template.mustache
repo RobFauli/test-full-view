@@ -1,0 +1,29 @@
+<div class="header-date-section [[ #settings.classes ]][[.]][[ /settings.classes ]]">
+    <div class="date-string" id="date-string" data-lang="[[ settings.lang ]]""></div>
+</div>
+
+<script>
+    (function() {
+        function capitalizeFirstLetter(string) {
+            if (!string) return string; // Handle empty strings
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Get the element that should have the date string, and fetch the language code from the data-lang attribute
+        const dateTextElement = document.getElementById('date-string');
+        const languageCode = dateTextElement.dataset.lang;
+
+        // Get the current date, and format it according to the language code
+        const today = new Date();
+        const date = today.getDate();
+        const day = capitalizeFirstLetter(today.toLocaleString(languageCode, { weekday: 'long' }));
+        const month = capitalizeFirstLetter(today.toLocaleString(languageCode, { month: 'long' }));
+        const year = today.getFullYear();
+
+        // Build up HTML structure that contains the day, date, month and year
+        const dateHtml = `[[ ^settings.hideday ]]<p class="date-string-day">${day}</p>[[ /settings.hideday ]] <p class="date-string-date">${date}</p> [[ ^settings.hidemonth ]]<p class="date-string-month">${month}</p>[[ /settings.hidemonth ]] [[ ^settings.hideyear ]]<p class="date-string-year">${year}</p>[[ /settings.hideyear ]]`;
+
+        // Set the inner html of the div element to the formatted date string
+        document.getElementById('date-string').innerHTML = dateHtml;
+    })();
+</script>

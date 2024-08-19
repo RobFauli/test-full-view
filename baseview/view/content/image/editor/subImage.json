@@ -1,0 +1,65 @@
+{
+    "contentMenus": {
+        "default": {
+            "items": {
+                "captionOptions": null,
+                "settings": null,
+                "color_bg": {
+                    "inheritPath": "menu/buttons/backgroundColor.json",
+                    "group": "g4",
+                    "params": {
+                        "colorPicker": {
+                            "display": {
+                                "position": "before",
+                                "align": "start",
+                                "width": 330
+                            },
+                            "preview": {
+                                "active": true,
+                                "selector": ".img",
+                                "styleDefinition": "background_color",
+                                "stylePath": null
+                            },
+                            "groups": [
+                                {
+                                    "values": "background_colors",
+                                    "eyeDropper": {
+                                        "key": "metadata.custom_border_color"
+                                    },
+                                    "title": "Border Color",
+                                    "label": "",
+                                    "key": "metadata.border_color",
+                                    "styleDefinition": "border_color",
+                                    "removeBtn": true,
+                                    "bordered": false,
+                                    "valuePrefix": "border-"
+                                },
+                                {
+                                    "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                                    "title": "Border width",
+                                    "label": "",
+                                    "key": "metadata.border_width",
+                                    "styleDefinition": "border_width",
+                                    "removeBtn": false,
+                                    "bordered": true,
+                                    "valuePrefix": ""
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "editors": {
+        "image": {
+            "tools": {
+                "resize": {
+                    "zones": [
+                        "s"
+                    ]
+                }
+            }
+        }
+    }
+}

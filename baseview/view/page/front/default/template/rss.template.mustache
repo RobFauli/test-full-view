@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ get.current.fields.name }}</title>
+        <atom:link href="{{{ get.current.filtered.url }}}?lab_viewport=rss" rel="self" type="application/rss+xml" />
+        <link>{{{ get.current.filtered.site.domain }}}</link>
+        <description>{{ get.current.filtered.rssDescriptionPrefix }}{{ get.current.fields.name }}</description>
+        {{ #get.current.filtered.logo_sm.src }}
+        <image>
+            <title>{{ get.current.fields.name }}</title>
+            <url>{{{ get.current.filtered.site.domain }}}{{{ get.current.filtered.logo_sm.src }}}</url>
+            <link>{{{ get.current.filtered.site.domain }}}</link>
+        </image>
+        {{ /get.current.filtered.logo_sm.src }}
+        {{{ children.dropZone }}}
+    </channel>
+</rss>

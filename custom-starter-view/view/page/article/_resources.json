@@ -1,0 +1,24 @@
+{
+    "presentation": {
+        "stage": {
+            "lab-default": {
+                "template": {
+                    "default": "page/article/default/template/default",
+                    "embed": "page/article/default/template/embed"
+                },
+                "properties": {
+                    "default": "page/article/default/front/default.json"
+                }
+            }
+        }
+    },
+    "edit": {
+        "stage": {
+            "lab-default": {
+                "properties": {
+                    "default": "page/article/default/editor/default.json"
+                }
+            }
+        }
+    }
+}

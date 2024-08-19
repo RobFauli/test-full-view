@@ -1,0 +1,10 @@
+{
+    "droppable": {
+        "active": true,
+        "accept": ["image"],
+        "drop": "replaceChild"
+    },
+    "expand": {
+        "ignoreCurrent": true
+    }
+}

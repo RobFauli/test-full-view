@@ -1,0 +1,10 @@
+<div class="adunit" id='{{{ get.current.filtered.adData.code }}}' {{ #get.current.metadata.defaultHeight }}style="min-height:{{ get.current.metadata.defaultHeight }}px;"{{ /get.current.metadata.defaultHeight }}></div>
+
+<script>
+    var handleAsTablet = (Dac.clientData.device === 'tablet' || Dac.clientData.innerWidth < {{ get.current.filtered.googleAds.hideOnTabletWidth }});
+    if (!(handleAsTablet && '{{ get.current.metadata.hideOnTablet }}' === 'true')) {
+        lwhb.cmd.push(function() {
+            lwhb.loadAd({tagId: '{{{ get.current.filtered.adData.code }}}'});
+        });
+    }
+</script>

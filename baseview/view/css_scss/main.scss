@@ -1,0 +1,997 @@
+@use "components/font-size" as *;
+@use 'components/vars' as *;
+@import 'mixins/pixel-to-em';
+@import 'mixins/pixel-to-vw';
+@import "components/font-size-responsive";
+@import "components/responsive-size";
+@import "components/column-count";
+@import "components/linebreak";
+
+:root {
+    --scrollbar-width: 0px;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Merriweather", "Helvetica", serif;
+    font-size: 17px;
+    color: #333333;
+    background-color: #ffffff;
+    line-height: 1.7;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 200;
+    padding: 0.2em 0 0.2em;
+    margin: 0 0 0.125em;
+    line-height: 1.2em;
+}
+
+h1 {
+    font-size: 2.6em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+h4,
+h5 {
+    font-weight: bold;
+}
+
+.hidden-heading {
+    clip: rect(0,0,0,0)!important;
+    height: 1px!important;
+    overflow: hidden!important;
+    position: absolute!important;
+    width: 1px!important;
+}
+
+p {
+    margin: 0 0 0.2em;
+    padding: 0;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.text-case-transform-lower {
+    text-transform: lowercase;
+}
+
+.text-case-transform-upper {
+    text-transform: uppercase;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+@include mobile {
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    h5 {
+        font-size: 1.1em;
+    }
+
+    .mobile_text_align_align-left {
+        text-align: left;
+    }
+
+    .mobile_text_align_align-center {
+        text-align: center;
+    }
+
+    .mobile_text_align_align-right {
+        text-align: right;
+    }
+
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+picture,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+picture img {
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+a {
+    color: #008CBA;
+    line-height: inherit;
+}
+
+a:hover,
+a:focus {
+    color: #0078a0;
+}
+
+a.skip-link {
+    position: absolute;
+    left: -2000px;
+    top: 0px;
+    z-index: 10000;
+    padding: 1em;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid currentColor;
+    &:focus {
+        left: 0px;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: white;
+    margin-bottom: 0.5rem;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+table thead,
+table tfoot {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+table thead tr th,
+table thead tr td,
+table tfoot tr th,
+table tfoot tr td {
+    padding: 0.5rem 0.625rem 0.625rem;
+    font-size: inherit;
+    font-weight: bold;
+    color: inherit;
+    text-align: left;
+}
+
+table tr th,
+table tr td {
+    padding: 0.5625rem 0.625rem;
+    font-size: inherit;
+    color: inherit;
+    border-right: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+table tr th:last-child {
+    border-right: 0;
+}
+
+table tr.even,
+table tr.alt,
+table tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+table thead tr th,
+table tfoot tr th,
+table tbody tr td,
+table tr td,
+table tfoot tr td {
+    display: table-cell;
+    line-height: 1.125rem;
+}
+
+
+article .label {
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.7em;
+    letter-spacing: 0.1em;
+    padding: 0.3em 0.4em;
+    line-height: 1;
+    display: inline-block;
+    font-weight: 200;
+    float: left;
+    margin: 0.7em 0.5em 0 0;
+}
+
+article figure img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+article .fullWidth figure img {
+    max-width: 4000px;
+}
+
+article .fullWithLimit figure img {
+    max-width: 1500px;
+}
+
+@include desktop_down {
+    article .mobile-fullWithLimit .fullwidthTarget img {
+        max-width: 1500px;
+    }
+}
+
+@include desktop {
+    article .desktop-fullWithLimit .fullwidthTarget img {
+        max-width: 1500px;
+    }
+}
+
+article a {
+    text-decoration: none;
+}
+
+article a:hover {
+    text-decoration: none;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-decoration: underline;
+
+        &.underline {
+            text-decoration: dotted underline;
+        }
+    }
+}
+
+
+img,
+object,
+embed {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.floatRight {
+    float: right;
+    clear: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+@include desktop_down {
+    .mobile_floatRight {
+        float: right !important;
+        margin-left: 0.7rem !important;
+        margin-right: 0 !important;
+    }
+    .mobile_floatLeft {
+        float: left!important;
+        margin-right: 0.7rem !important;
+        margin-left: 0 !important;
+    }   
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.strikethrough {
+    text-decoration: line-through
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dacBtn {
+    border: 0;
+    color: inhert;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0.2em 0.5em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 200ms ease-out 0s;
+    box-sizing: border-box;
+    background-color: inherit;
+    border-radius: 0.3em;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+// Full-width images / markup
+.column .content.fullWidth figure,
+.articleHeader.fullWidth>.media figure,
+.articleHeader.fullWidth .markupbox,
+.column.markupbox.fullWidth .content,
+.bodytext>.fullWidth figure,
+.articleHeader.fullWidth>figure {
+    margin-left: calc(-50vw + 68rem / 2 - #{$columns_gutter});
+    margin-right: calc(-50vw + 68rem / 2 - #{$columns_gutter});
+}
+
+@include desktop_down {
+
+    .column .content.fullWidth figure,
+    .articleHeader.fullWidth>.media figure,
+    .articleHeader.fullWidth .markupbox,
+    .column.markupbox.fullWidth .content,
+    .bodytext>.fullWidth figure,
+    .articleHeader.fullWidth>figure {
+        margin-left: -$columns_gutter;
+        margin-right: -$columns_gutter;
+    }
+}
+
+section.main.front, main.pageWidth > article {
+    position: relative;
+}
+
+section.related,
+section.comments {
+    clear: both;
+}
+
+section.comments {
+    #hyvor-talk-view {
+        padding-inline: 0.7rem;
+    }
+}
+
+div.comments_placeholder {
+    display: block;
+    text-align: center;
+    padding: 50px 0;
+    margin: 10px 0;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+footer {
+    margin-top: 2em;
+    padding: 2.5em 0 4em;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    padding-bottom: 0;
+
+    .left {
+        text-align: right;
+    }
+}
+
+@include mobile {
+
+    footer .left,
+    footer .right {
+        text-align: center;
+    }
+}
+
+.dac-embed-this {
+    position: relative;
+
+    input[type="button"] {
+        border: 1px solid #a2a2a2;
+        background-color: #ececec;
+        color: #000;
+        font-size: 1rem;
+        font-family: inherit;
+        padding: 0.3rem 0.7rem;
+        border-radius: 0.2rem;
+    }
+
+    .dac-embed-this-popup {
+        display: none;
+        position: absolute;
+        z-index: 10000;
+        background-color: #fff;
+        bottom: 0.5rem;
+        border: 1px solid #dedede;
+        padding: 2.5rem 3rem 3rem;
+        box-shadow: 0 0 10px -6px #000;
+
+        &.dac-open {
+            display: block;
+        }
+
+        textarea {
+            height: 8rem;
+            font-size: 1rem;
+        }
+
+        textarea.dac-embed-content-full {
+            display: none;
+        }
+
+        &.dac-type-full textarea {
+            display: none;
+
+            &.dac-embed-content-full {
+                display: block;
+            }
+        }
+
+        label {
+            margin-right: 0.6rem;
+        }
+
+        p {
+            margin: 0.5em 0;
+        }
+
+        .dac-embed-close {
+            text-align: right;
+
+            a {
+                padding: 0.7rem 0 0.5rem 0.5rem;
+                border-radius: unset;
+                width: auto;
+                font-size: 1rem;
+                background-color: rgba(0, 0, 0, 0);
+                color: rgb(0, 140, 186);
+                text-decoration: underline;
+                height: auto;
+
+                &:hover {
+                    transform: none;
+                    color: rgb(0, 120, 160);
+                }
+            }
+        }
+    }
+
+    @include mobile {
+        .dac-embed-this-popup {
+            position: fixed;
+            left: 0.5rem;
+            right: 0.5rem;
+            top: 0.5rem;
+            bottom: auto;
+            max-height: 100vh;
+            overflow: auto;
+
+            label {
+                display: block;
+            }
+        }
+    }
+}
+
+body:not(.has-paywall) {
+    main {
+        .social {
+            a.fi-social-glimta {
+                display: none;
+            }
+        }
+    }
+}
+
+// Links to social media on page bottom
+.row.social {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+
+    >.column {
+        display: flex;
+    }
+
+    .fi-social-talandeWebb,
+    .fi-social-copyLink {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .fi-social-talandeWebb {
+        background-color: #000;
+    }
+
+    button,
+    a {
+        border: 1px solid #505050;
+        border-radius: 100%;
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        font-size: 1.4em;
+        text-align: center;
+        // color: #5f5e5e;
+        color: inherit;
+        border-color: inherit;
+        margin: 0 2px 0 0;
+        padding-top: 0.16em;
+        padding-left: 0.05em;
+        transition: border-color 0.2s, color 0.2s;
+        &:hover {
+            border-color: #008CBA;
+            color: #008CBA;
+            text-decoration: none;
+        }
+
+        &.fi-social-threads {
+            padding-top: 0.22em;
+            padding-left: 0.04em;
+        }
+
+        .share-text {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+    }
+}
+
+
+// Embed-UI on article-pages:
+.column.social .embed {
+    padding-top: 0.5em;
+
+    input[type="button"] {
+        float: right;
+        cursor: pointer;
+    }
+}
+
+// Hack to fix rows as grid:
+#navigation-wrapper.row {
+
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+// Vertical spacing. Can be set using a menu-item for rows or other content.
+// May visually group content using background-colors.
+.spaceOutsideTop-large {
+    margin-top: 6rem !important;
+}
+
+.spaceOutsideTop-medium {
+    margin-top: 3rem !important;
+}
+
+.spaceOutsideTop-small {
+    margin-top: 1.5rem !important;
+}
+
+.spaceOutsideTop-none {
+    margin-top: 0 !important;
+}
+
+.spaceOutsideBottom-large {
+    margin-bottom: 6rem !important;
+}
+
+.spaceOutsideBottom-medium {
+    margin-bottom: 3rem !important;
+}
+
+.spaceOutsideBottom-small {
+    margin-bottom: 1.5rem !important;
+}
+
+.spaceOutsideBottom-none {
+    margin-bottom: 0 !important;
+}
+
+.spaceInsideTop-large {
+    padding-top: 4rem !important;
+}
+
+.spaceInsideTop-medium {
+    padding-top: 2rem !important;
+}
+
+.spaceInsideTop-small {
+    padding-top: 1rem !important;
+}
+
+.spaceInsideTop-none {
+    padding-top: 0 !important;
+}
+
+.spaceInsideBottom-large {
+    padding-bottom: 4rem !important;
+}
+
+.spaceInsideBottom-medium {
+    padding-bottom: 2rem !important;
+}
+
+.spaceInsideBottom-small {
+    padding-bottom: 1rem !important;
+}
+
+.spaceInsideBottom-none {
+    padding-bottom: 0 !important;
+}
+
+.dac-hidden {
+    display: none;
+}
+
+.dac-hideImage {
+    figure {
+        display: none;
+    }
+}
+
+.dac-paywall-authenticated, .dac-paywall-not-authenticated {
+    display: none !important;
+}
+
+.powered-by {
+    text-align: center;
+    padding: 1rem 0;
+    a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 0.9rem;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// Stretch
+
+.grid-align-stretch .column .content[class*=" bg-"] {
+    height: 100%;
+}
+
+
+// Create default margin between header and content
+section.main {
+    &.front {
+        > .row:first-child,
+        .page-content > .row:first-child {
+            margin-top: 1rem;
+        }
+    }
+}
+[class*="adZone-"] {
+    margin-top: 1rem;
+}
+
+.ageWarning {
+    .content {
+        border: 1px solid #c1c1c1;
+        padding: 1rem;
+        background-color: #fffed5;
+    }
+}
+
+@include mobile {
+    .dac-hidden-mobile {
+        display: none !important;
+    }
+}
+
+@include tablet_up {
+    .dac-hidden-desktop {
+        display: none !important;
+    }
+}
+
+@include desktop_down {
+    .dac-hidden-desktop-down {
+        display: none !important;
+    }
+}
+
+@include desktop {
+    .dac-hidden-desktop-up {
+        display: none !important;
+    }
+}
+
+
+// Start Labrador 4
+
+
+// Vertical spacing. Can be set using a menu-item for rows or other content.
+// Replaces spaceInsideTop-xxx, spaceInsideBottom-xxx, spaceOutsideBottom-xxx, spaceOutsideTop-xxx
+@include tablet_up {
+    .desktop-space-outsideTop-large {
+        margin-top: 6rem !important;
+    }
+    .desktop-space-outsideTop-medium {
+        margin-top: 3rem !important;
+    }
+    .desktop-space-outsideTop-small {
+        margin-top: 1.5rem !important;
+    }
+    .desktop-space-outsideTop-none {
+        margin-top: 0 !important;
+    }
+    .desktop-space-outsideBottom-large {
+        margin-bottom: 6rem !important;
+    }
+    .desktop-space-outsideBottom-medium {
+        margin-bottom: 3rem !important;
+    }
+    .desktop-space-outsideBottom-small {
+        margin-bottom: 1.5rem !important;
+    }
+    .desktop-space-outsideBottom-none {
+        margin-bottom: 0 !important;
+    }
+    .desktop-space-insideTop-large {
+        padding-top: 4rem !important;
+    }
+    .desktop-space-insideTop-medium {
+        padding-top: 3rem !important;
+    }
+    .desktop-space-insideTop-small {
+        padding-top: 1.5rem !important;
+    }
+    .desktop-space-insideTop-none {
+        padding-top: 0 !important;
+    }
+    .desktop-space-insideBottom-large {
+        padding-bottom: 4rem !important;
+    }
+    .desktop-space-insideBottom-medium {
+        padding-bottom: 3rem !important;
+    }
+    .desktop-space-insideBottom-small {
+        padding-bottom: 1.5rem !important;
+    }
+    .desktop-space-insideBottom-none {
+        padding-bottom: 0 !important;
+    }
+}
+
+@include mobile {
+    .mobile-space-outsideTop-large {
+        margin-top: 6rem !important;
+    }
+    .mobile-space-outsideTop-medium {
+        margin-top: 3rem !important;
+    }
+    .mobile-space-outsideTop-small {
+        margin-top: 1.5rem !important;
+    }
+    .mobile-space-outsideTop-none {
+        margin-top: 0 !important;
+    }
+    .mobile-space-outsideBottom-large {
+        margin-bottom: 6rem !important;
+    }
+    .mobile-space-outsideBottom-medium {
+        margin-bottom: 3rem !important;
+    }
+    .mobile-space-outsideBottom-small {
+        margin-bottom: 1.5rem !important;
+    }
+    .mobile-space-outsideBottom-none {
+        margin-bottom: 0 !important;
+    }
+    .mobile-space-insideTop-large {
+        padding-top: 4rem !important;
+    }
+    .mobile-space-insideTop-medium {
+        padding-top: 3rem !important;
+    }
+    .mobile-space-insideTop-small {
+        padding-top: 1.5rem !important;
+    }
+    .mobile-space-insideTop-none {
+        padding-top: 0 !important;
+    }
+    .mobile-space-insideBottom-large {
+        padding-bottom: 4rem !important;
+    }
+    .mobile-space-insideBottom-medium {
+        padding-bottom: 3rem !important;
+    }
+    .mobile-space-insideBottom-small {
+        padding-bottom: 1.5rem !important;
+    }
+    .mobile-space-insideBottom-none {
+        padding-bottom: 0 !important;
+    }
+}
+
+.dac-insufficientCookieConsent p {
+    padding: 10px;
+    border: 1px solid #aaa;
+
+    .consent {
+        text-transform: capitalize;
+    }
+}
+
+// Border on full width row remove border on inner row when 
+.row-section[class*=" border-bg-"] > .row[class*=" border-bg-"],
+.row-section[class*=" border-side-"] > .row[class*=" border-side-"] {
+    border: none !important;
+    padding: 0 !important;
+}
+.row-section.border-side-left, .row-section.border-side-right {
+    padding: 0 !important;
+}
+
+// End Labrador 4
+
+
+@include tablet_up {
+    @for $i from 14 through 200 {
+        .t#{$i} {
+            @include font-size($i, 0, !important);
+        }
+    }
+}
+
+@include mobile {
+    @for $i from 14 through 100 {
+        .tm#{$i} {
+            @include font-size($i, 0, !important);
+        }
+    }
+}
+
+.headline span[class*=" bg-"],
+.subtitle span[class*=" bg-"] {
+    display: inline-block;
+}
+
+@import 'components/form';
+@import 'components/menu';
+@import 'components/header';
+@import 'components/adZone';
+
+@import 'widgets/hamburger';
+
+// Text
+@import 'components/fontWeight';
+@import 'components/fontStyle';
+
+// Elements:
+@import '../content/adnuntiusAd/adnuntiusAd';
+@import '../content/googleAd/googleAd';
+@import '../content/bodytext/bodytext';
+@import '../content/articleHeader/articleHeader';
+@import '../content/articleFooter/articleFooter';
+@import '../content/article/article';
+@import '../content/buttonlink/buttonlink';
+@import '../content/quotebox/quotebox';
+@import '../content/articleMeta/articleMeta';
+@import '../content/slideshow/slideshow';
+@import '../content/articlesByTag/articlesByTag';
+@import '../content/byline/byline';
+@import '../content/image/image';
+@import '../content/scrollbox/scrollbox';
+@import '../content/simplestream/simplestream';
+@import '../content/articlescroller/articlescroller';
+@import '../content/articleCalendar/articleCalendar';
+@import '../content/tips_box/tips_box';
+@import '../content/toplist/toplist';
+@import '../content/googleCSE/googleCSE';
+@import '../content/newsletter_submit/newsletter_submit';
+@import '../content/articleList/articleList';
+@import '../content/factbox/factbox';
+@import '../content/youtube/youtube';
+@import '../content/tablebox/tablebox';
+@import '../content/twitter/twitter';
+@import '../content/front_rows/front_rows';
+@import '../content/parallax/parallax';
+@import '../content/markup/markup';
+@import '../content/frontContent/frontContent';
+@import '../content/tagboard/tagboard';
+@import '../content/text_multiline/text_multiline';
+@import '../content/comments/comments';
+@import '../content/labradorSearch/labradorSearch';
+@import '../content/userFeedback/userFeedback';
+@import '../content/articleLists/articleLists';
+@import '../content/jwplayer/jwplayer';
+@import '../content/topcomments/topcomments';
+@import '../content/row/row';
+@import '../content/mediaContainer/mediaContainer';
+@import '../content/timeline/timeline';
+@import '../content/graphic/graphic';
+
+// Misc:
+@import 'components/paywall';
+@import 'components/slidein';
+@import 'components/expandable';
+@import 'components/swipehelper';
+@import 'components/readProgress';
+@import 'components/_labClient';
+@import 'components/movable';
+@import 'components/placements';
+@import 'mixins/animations';

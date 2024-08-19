@@ -1,0 +1,62 @@
+{
+    "editors": {
+        "title": {
+            "selector": "h2",
+            "fn": "EditRich",
+            "key": "fields.title",
+            "menu": "rich_text",
+            "placeholder": "Click to add scrollbox title",
+            "modal": false,
+            "allowReverting": true
+        }
+    },
+    "placeholders": [
+        {
+            "name": "nocontent",
+            "conditions": [{
+                "fn": "noChildOfTypes",
+                "params": {
+                    "modelTypes": ["article"]
+                }
+            }],
+            "template": "<ul class='labFn-empty-placeholder scroll-container swipehelper snap-container-x snap-element-start' style='color:gray; width: 100%;'><li class='scroll-item snap-element'><p class='labicon-article' style='font-size: 10rem; margin: 0; line-height: 1;'></p><p style='margin-top: -0.5rem;'>Drop articles here ...</p></li><li class='scroll-item snap-element'><p class='labicon-article' style='font-size: 10rem; margin: 0; line-height: 1;'></p><p style='margin-top: -0.5rem;'>Drop articles here ...</p></li><li class='scroll-item snap-element'><p class='labicon-article' style='font-size: 10rem; margin: 0; line-height: 1;'></p><p style='margin-top: -0.5rem;'>Drop articles here ...</p></li><li class='scroll-item snap-element'><p class='labicon-article' style='font-size: 10rem; margin: 0; line-height: 1;'></p><p style='margin-top: -0.5rem;'>Drop articles here ...</p></li></ul>"
+        }
+    ],
+    "toolMenus": {
+        "rich_text": {
+            "inheritPath": "menu/tool/rich_text.json"
+        }
+    },
+    "droppable": {
+        "drop": {
+            "sourceType": {
+                "article": "prependChild"
+            },
+            "default": "default"
+        },
+        "filedrop": "replaceChild"
+    },
+    "contentMenus": {
+        "default": {
+            "items": {
+                "editSettings": {
+                    "group": "g5",
+                    "icon": "labicon-edit",
+                    "callback": "displaySettingsPanel",
+                    "title": "Settings (,)",
+                    "hotkeys": [{
+                        "key": ","
+                    }],
+                    "params": {
+                        "settingsPanelOptions": "settingsPanels.admin"
+                    }
+                }
+            }
+        }
+    },
+    "settingsPanels": {
+        "admin": {
+            "template": "content/scrollbox/template/settings"
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "tabs": [
+        {
+            "type": "ContentMenu",
+            "identifier": "submenu_contentboxes",
+            "title": "Article-lists",
+            "structureClass": "contentboxes",
+            "structureCssClass": "labFn-menu_content",
+            "lazyLoad": true,
+            "data": {
+                "adapter": "Lab.Menu.Adapter.contentbox"
+            },
+            "preGui": {
+                "template": "menu/contentbox_search"
+            },
+            "displayRefreshButton": false
+        },
+        {
+            "type": "ContentMenu",
+            "identifier": "submenu_feeds",
+            "title": "Feed-lists",
+            "structureClass": "contentboxes",
+            "structureCssClass": "labFn-menu_content",
+            "lazyLoad": true,
+            "data": {
+                "adapter": "Lab.Menu.Adapter.feeds"
+            },
+            "displayRefreshButton": false
+        },
+        {
+            "type": "ContentMenu",
+            "identifier": "submenu_other",
+            "title": "Other",
+            "structureClass": "contentboxes",
+            "structureCssClass": "labFn-menu_content",
+            "lazyLoad": true,
+            "data": {
+                "adapter": "Lab.Menu.Adapter.other"
+            },
+            "displayRefreshButton": false
+        }
+    ],
+    "presentation": {
+        "ignoreEditLock": true,
+        "lazyLoad": true,
+        "modal": true,
+        "autoHeight": true,
+        "width": 500
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "resizable": {
+        "active": true,
+        "mode": "default"
+    },
+    "draggable": {
+        "active": false
+    },
+    "droppable": {
+        "active": true,
+        "params": {
+            "requireKey": "shiftKey"
+        }
+    },
+    "menus": null,
+    "displayModifiedStatus": false
+
+}

@@ -1,0 +1,67 @@
+{
+    "progressValidation": {
+        "zoneSelector": "#progressValidation",
+        "validation": {
+            "articleTitle": {
+                "validatorType": "nodeData",
+                "validator": "notEmpty",
+                "key": "fields.title",
+                "description": "Remember to add title",
+                "shortText": "Ti",
+                "priority": "error"
+            },
+            "articleSubTitle": {
+                "validatorType": "nodeData",
+                "validator": "notEmpty",
+                "key": "fields.subtitle",
+                "description": "Remember to add sub-title",
+                "shortText": "St",
+                "priority": "warning"
+            },
+            "articleBody": {
+                "validatorType": "nodeData",
+                "validator": "notEmpty",
+                "key": "fields.bodytext",
+                "description": "Remember to add bodytext",
+                "shortText": "Bo",
+                "priority": "warning"
+            },
+            "frontCrop": {
+                "validatorType": "nodeData",
+                "validator": "notFalseOrNull",
+                "key": "frontCrop",
+                "description": "Click to add front-images",
+                "shortText": "Im",
+                "priority": "warning",
+                "helper": {
+                    "callback": "lab_toggleMenu",
+                    "argument": { "menu": "settings_article", "submenu": "submenu_article"}
+                }
+            },
+            "articleTags": {
+                "validatorType": "nodeData",
+                "validator": "hasMin2Length",
+                "key": "tags",
+                "description": "Click to add tags",
+                "shortText": "Ta",
+                "priority": "warning",
+                "helper": {
+                    "callback": "lab_toggleMenu",
+                    "argument": { "menu": "settings_article", "submenu": "submenu_article"}
+                }
+            },
+            "sectionTag": {
+                "validatorType": "nodeData",
+                "validator": "hasLength",
+                "key": "primaryTags.section",
+                "description": "Click to add section-tag",
+                "shortText": "Se",
+                "priority": "error",
+                "helper": {
+                    "callback": "lab_toggleMenu",
+                    "argument": { "menu": "settings_article", "submenu": "submenu_article"}
+                }
+            }
+        }
+    }
+}

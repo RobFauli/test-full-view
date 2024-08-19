@@ -1,0 +1,325 @@
+@use './colortools' as *;
+
+// Note: Color-styling generated here are only styles not found in any color-tool in thr admin-pages.
+// Text, background and border-colors are defined in admin-pages.
+// The color-tool on the admin-page build css for:
+// - border_colors
+// - background_colors
+// - background_colors_opacity
+// - font_colors
+// If any other color-styling is moved to admin-pages it must be removed from this file to avoid double definitions.
+
+// Default border-style:
+[class*=" border-bg-"] {
+    border: 1px solid;
+}
+
+// Default grid color
+@include grid_background_color(#fff);
+
+// Border widths
+@include border_side_list('border-side-');
+@include border_width_list('border_width_');
+@include desktop_down {
+    @include border_side_list("mobile_border-side-");
+    @include border_width_list("border_width_mobile_");
+}
+
+// Gradients
+.gradient-strong {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+    color: rgb(255, 255, 255);
+}
+.gradient-medium {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+    color: rgb(255, 255, 255);
+}
+.gradient-light {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+}
+.gradient-extraLight {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+}
+
+@include desktop_down {
+    .color_mobile_gradient-strong {
+        background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        color: rgb(255, 255, 255);
+    }
+    .color_mobile_gradient-medium {
+        background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+        color: rgb(255, 255, 255);
+    }
+    .color_mobile_gradient-light {
+        background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+    }
+    .color_mobile_gradient-extraLight {
+        background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+    }
+}
+
+// Gradient overlay for images
+.image-gradient-strong .img:after,
+.image-gradient-medium .img:after,
+.image-gradient-light .img:after,
+.image-gradient-extraLight .img:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.image-gradient-strong .img:after {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
+}
+.image-gradient-medium .img:after {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5));
+}
+.image-gradient-light .img:after {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3));
+}
+.image-gradient-extraLight .img:after {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1));
+}
+
+.row[class*=" border-bg-"],
+.row[class*="mobile_border-"] {
+    margin-bottom: 1rem;
+}
+
+.column.quotebox,
+.column.text_multiline,
+.column.factbox {
+    .content {
+        &[class*="bg-"] {
+            &[class*= "border-side-"] {
+                padding: 1rem !important;
+            }
+        }
+    }
+}
+
+@include desktop_down {
+    .content.color_mobile_no_gradient,
+    .content.color_mobile_no_image_gradient .img:after {
+        background-image: none !important;
+    }
+    .content.color_mobile_no_bg_color {
+        background-color: transparent;
+        color: inherit;
+
+        &:not([class*=" mobile_border-bg-"]) {
+            padding: 0 !important;
+        }
+    }
+
+    .row.mobile_no_border_side:not([class*="mobile_border"]),
+    .content.mobile_no_border_side:not([class*= "mobile_border"]) {
+        border: 0 !important;
+
+            &:not([class*= "bg-"]) {
+                padding: 0 !important;
+            }
+
+            &[class*="bg-"] {
+                padding-bottom: 0rem !important;
+            }
+    }
+
+    .content.mobile_no_border_color,
+    .content.mobile_border-no_color {
+        &:not([class*="mobile_border-side-"]) {
+            border: 0 !important;
+        }
+    }
+
+    .row[class*=" border-"]:not([class*=" mobile_no_border_color"]),
+    .content[class*=" border-"]:not([class*=" mobile_no_border_color"]) {
+        &:not([class*= "border-side"]):not([class*= "mobile_border-side"]) {
+            padding: $bg_text_padding !important;
+        }
+    }
+
+    // If you add border-side and bg on desktop, then on mobile you change to full border and no bg
+    // the padding was only set to one side. This will set it to all sides as it should be.
+    .content.color_mobile_no_bg_color {
+        &[class*= "bg-"] {
+            &[class*= "mobile_border-bg-"] {
+                padding: 1rem !important;
+            }
+        }
+    }
+
+    .content.mobile_no_border_color.color_mobile_no_bg_color {
+        padding: 0;
+    }
+
+    .mobile_border-side-top {
+        &:not([class*=" mobile_no_border_side"]) {
+            border-bottom: 0 !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+            padding-top: 1rem !important;
+        }
+    }
+    .mobile_border-side-right {
+        &:not([class*=" mobile_no_border_side"]) {
+            border-bottom: 0 !important;
+            border-left: 0 !important;
+            border-top: 0 !important;
+            padding-right: 1rem !important;
+        }
+    }
+    .mobile_border-side-bottom {
+        &:not([class*=" mobile_no_border_side"]) {
+            border-left: 0 !important;
+            border-top: 0 !important;
+            border-right: 0 !important;
+            padding-bottom: 1rem !important;
+        }
+    }
+    .mobile_border-side-left {
+        &:not([class*=" mobile_no_border_side"]) {
+            border-top: 0 !important;
+            border-right: 0 !important;
+            border-bottom: 0 !important;
+            padding-left: 1rem !important;
+        }
+    }
+}
+
+// Image-gradient opacity
+@for $i from 1 through 10 {
+    .image_gradient_opacity-#{$i * 10} .img:after {
+        opacity: calc($i / 10);
+    }
+}
+
+@for $i from 1 through 10 {
+    .image_overlay_opacity-#{$i * 10} .img:after {
+        opacity: $i;
+    }
+}
+
+.row[class*=" bg-"],
+.row-section[class*=" bg-"] {
+    margin-bottom: $columns_gutter;
+}
+
+.row[class*=" bg-"] {
+    padding-top: $columns_gutter;
+}
+
+.content[class*=" bg-"],
+.content[class*=" border-"],
+figure[class*="bg-"] p {
+    padding: $bg_text_padding;
+}
+
+.content[class*=" bg-"],
+.content[class*=" border-"] {
+    padding-bottom: 0;
+    a .headline:last-child,
+    a .subtitle:last-child {
+        padding-bottom: $bg_text_padding;
+        margin-bottom: 0;
+    }
+
+    &.headline {
+        padding-bottom: $bg_text_padding;
+    }
+
+    @supports selector(:has(*)) {
+        &:has(.fact) {
+            padding-bottom: $bg_text_padding;
+        }
+    }
+}
+
+.content[class*=" bg-"] figure {
+    margin-top: - $bg_text_padding;
+    margin-right: - $bg_text_padding;
+    margin-left: -$bg_text_padding;
+    // width: auto;
+    .caption {
+        margin-right: $bg_text_padding;
+        margin-left: $bg_text_padding;
+    }
+}
+
+.content[class*=" bg-"] .content:not([class*=" bg-"]) figure {
+    margin-top: initial;
+    margin-right: initial;
+    margin-left: initial;
+}
+
+.content[class*=" bg-"] h2 + .media figure {
+    margin-top: 0;
+}
+
+.content[class*=" bg-"] figure,
+.content[class*="color_mobile_bg-"] figure {
+    &.floatLeft,
+    &.floatRight {
+        margin-bottom: - $bg_text_padding;
+    }
+}
+
+@include desktop_down {
+    [class*=" mobile_border-bg-"] {
+        border: 1px solid;
+    }
+
+    [class*=" mobile_border-side-"] {
+        border: 0;
+    }
+
+    .content[class*="color_mobile_bg-"],
+    .content[class*="mobile_border-bg-"],
+    figure[class*="color_mobile_bg-"] p {
+        padding: $bg_text_padding;
+        padding-bottom: 0;
+    }
+    .content[class*="color_mobile_bg-"] {
+        figure {
+            margin-top: - $bg_text_padding;
+            margin-right: - $bg_text_padding;
+            margin-left: -$bg_text_padding;
+        }
+        h2 + .media figure {
+            margin-top: 0;
+        }
+        .kicker.above {
+            margin-bottom: $bg_text_padding;
+        }
+    }
+    .content.mobile_no_border_color:not([class*="color_mobile_bg-"]):not([class*=" bg-"]),
+    .content.color_mobile_no_bg_color:not([class*="mobile_border-bg-"]):not([class*="border-bg-"]) figure {
+        padding: 0;
+    }
+
+    .content.color_mobile_no_bg_color[class*="mobile_border-bg-"] figure {
+        margin: 0;
+    }
+
+    // Lab 4
+    .content[class*="color_mobile_bg-"] {
+        figure.mobile-floatLeft,
+        figure.mobile-floatRight {
+            margin-bottom: - $bg_text_padding !important;
+        }
+    }
+}
+
+@include desktop_down {
+    .color_mobile_no_bg_color {
+        background-color: transparent !important;
+        padding: unset !important;
+        color: inherit !important;
+    }
+
+}
+
